@@ -13,9 +13,9 @@
       "maxzoom": 11,
       "tiles": ["https://map.omrs.fr/tiles/francemetrop25m511/{z}/{x}/{y}.png"]
     },
-    "openmaptiles": {
-      "type": "vector",
-      "url": "https://map.omrs.fr/data/france-osm.json"
+    "openmaptiles":{
+      "type":"vector",
+      "url":"mbtiles://{planet-slow}"
     }
   },
   "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
