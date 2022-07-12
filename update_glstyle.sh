@@ -1,6 +1,8 @@
 #! /bin/bash
+ADMINEMAIL="olivier@omrs.fr"
+
 CLEARDATE=$(date "+%d%m%y_%Hh%M")
-TMPDIR="/tmp/glstyle/"
+CTNAME="tileserver-gl"
 
 LOGDIR="/var/data/logs/"
 LOGFILE="update_glstyle.log"
@@ -8,7 +10,7 @@ LOGFILE="update_glstyle.log"
 GLSTYLENAME="utagawavtt"
 GLSTYLEDIR="/var/data/styles/"
 
-CTNAME="tileserver-gl"
+TMPDIR="/tmp/glstyle/"
 
 ctReload() {
 	docker exec ${1} bash -c 'kill -HUP $(ls -l /proc/*/exe | sed -n "/\/node$/s/.*proc\/\([0-9]\+\)\/exe .*/\1/p")'
