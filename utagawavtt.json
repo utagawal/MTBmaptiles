@@ -3,16 +3,19 @@
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
   "sources": {
-    "contours": {
+     "contours": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/BDALTIV2_2-0_25M_4326-contours-10m.json"
+      "url": "mbtiles://{france-contours}"
     },
-    "francemetrop25m511": {
+    "france-rgb-png": {
       "type": "raster-dem",
-      "minzoom": 5,
-      "maxzoom": 11,
-      "tiles": ["https://map.omrs.fr/tiles/francemetrop25m511/{z}/{x}/{y}.png"]
+      "url": "mbtiles://{france-rgb-png}"
     },
+    "natural-earth-2": {
+      "type": "raster",
+      "maxzoom": 5,
+      "tiles": ["https://map.omrs.fr/tiles/NaturalEarth2/{z}/{x}/{y}.png"]
+    }
     "openmaptiles": {
       "type": "vector",
       "url": "https://map.omrs.fr/data/planet-fast.json"
@@ -375,7 +378,7 @@
     {
       "id": "Hillshading",
       "type": "hillshade",
-      "source": "francemetrop25m511",
+      "source": "france-rgb-png",
       "paint": {"hillshade-accent-color": "#7A6E67"},
       "hillshade-exaggeration": 0.1
     },
