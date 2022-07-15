@@ -15,7 +15,7 @@
       "type": "raster",
       "maxzoom": 5,
       "tiles": ["https://map.omrs.fr/tiles/NaturalEarth2/{z}/{x}/{y}.png"]
-    }
+    },
     "openmaptiles": {
       "type": "vector",
       "url": "https://map.omrs.fr/data/planet-fast.json"
