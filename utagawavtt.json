@@ -31,6 +31,12 @@
       "paint": {"background-color": "rgba(253, 253, 227, 1)"}
     },
     {
+      "id": "natural-earth",
+      "type": "raster",
+      "source": "natural-earth-2",
+      "maxzoom": 5
+    },
+    {
       "id": "landcover_grass",
       "type": "fill",
       "source": "openmaptiles",
