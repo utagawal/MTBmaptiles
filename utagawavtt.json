@@ -21,7 +21,7 @@
       "url": "https://map.omrs.fr/data/planet-fast.json"
     }
   },
-  "sprite": "https://map.omrs.fr/styles/monde-png/sprite",
+  "sprite": "utagawavtt",
   "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
