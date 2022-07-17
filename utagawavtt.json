@@ -1,19 +1,19 @@
 {
-  "version": 8,
+  "version": 9,
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
   "sources": {
-     "contours": {
+    "contours": {
       "type": "vector",
-      "url": "mbtiles://{france-contours}"
+      "url": "https://map.omrs.fr/data/france-contours.json"
     },
     "france-rgb-png": {
       "type": "raster-dem",
-      "url": "mbtiles://{france-rgb-png}"
+      "url": "https://map.omrs.fr/data/france-rgb-png.json"
     },
     "natural-earth-2": {
       "type": "raster",
-      "maxzoom": 5,
+      "maxzoom": 6,
       "tiles": ["https://map.omrs.fr/tiles/NaturalEarth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
@@ -21,47 +21,70 @@
       "url": "https://map.omrs.fr/data/planet-fast.json"
     }
   },
-  "sprite": "utagawavtt",
+  "sprite": "https://map.omrs.fr/styles/monde-png/sprite",
   "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
       "type": "background",
       "layout": {"visibility": "visible"},
-      "paint": {"background-color": "rgba(253, 253, 227, 1)"}
+      "paint": {"background-color": "rgba(218, 234, 204, 1)"}
     },
     {
       "id": "natural-earth",
       "type": "raster",
       "source": "natural-earth-2",
-      "maxzoom": 5
+      "maxzoom": 6,
+      "paint": {"raster-opacity": {"stops": [[0, 0.9], [6, 0.9]]}}
     },
     {
-      "id": "landcover_grass",
+      "id": "landuse-residential",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["in", "class", "residential", "suburb", "neighbourhood"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "hsl(47, 13%, 86%)", "fill-opacity": 0.7}
+    },
+    {
+      "id": "landuse_urban",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(213, 210, 210, 1)"}
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": ["==", "class", "agriculture"],
+      "paint": {"fill-color": "#eae0d0"}
+    },
+    {
+      "id": "landuse_cemetery",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": ["==", "class", "cemetery"],
+      "paint": {"fill-color": "hsl(75, 37%, 81%)"}
+    },
+    {
+      "id": "landuse_overlay_national_park",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "filter": ["==", "class", "grass"],
-      "paint": {"fill-color": "rgba(209, 239, 159, 1)", "fill-opacity": 1}
-    },
-    {
-      "id": "landcover_farmland",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 0,
-      "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(235, 237, 216, 1)"}
-    },
-    {
-      "id": "landcover_wood",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 0,
-      "filter": ["all", ["==", "class", "wood"]],
-      "layout": {},
-      "paint": {"fill-color": "rgba(162, 214, 140, 1)"}
+      "filter": ["==", "class", "national_park"],
+      "paint": {
+        "fill-color": "#E1EBB0",
+        "fill-opacity": {"base": 1, "stops": [[5, 0], [9, 0.75]]}
+      }
     },
     {
       "id": "landcover-vignobles",
@@ -96,45 +119,131 @@
       }
     },
     {
-      "id": "landuse_overlay_national_park",
+      "id": "landcover_wood",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "filter": ["==", "class", "national_park"],
-      "paint": {
-        "fill-color": "#E1EBB0",
-        "fill-opacity": {"base": 1, "stops": [[5, 0], [9, 0.75]]}
-      }
+      "minzoom": 0,
+      "filter": ["all", ["==", "class", "wood"]],
+      "layout": {},
+      "paint": {"fill-color": "rgba(162, 214, 140, 1)", "fill-opacity": 0.6}
     },
     {
-      "id": "landuse",
+      "id": "landcover_farmland",
       "type": "fill",
       "source": "openmaptiles",
-      "source-layer": "landuse",
-      "filter": ["==", "class", "agriculture"],
-      "paint": {"fill-color": "#eae0d0"}
+      "source-layer": "landcover",
+      "minzoom": 0,
+      "filter": ["all", ["==", "class", "farmland"]],
+      "paint": {"fill-color": "rgba(246, 235, 221, 1)"}
     },
     {
-      "id": "landuse_urban",
+      "id": "landcover_grass",
       "type": "fill",
       "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 8,
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(213, 210, 210, 1)"}
+      "source-layer": "landcover",
+      "filter": ["==", "class", "grass"],
+      "paint": {"fill-color": "rgba(157, 224, 134, 1)", "fill-opacity": 0.3}
     },
     {
-      "id": "landuse-residential",
-      "type": "fill",
+      "id": "park-inner",
+      "type": "line",
       "source": "openmaptiles",
-      "source-layer": "landuse",
+      "source-layer": "park",
+      "minzoom": 7,
       "filter": [
         "all",
         ["==", "$type", "Polygon"],
-        ["in", "class", "residential", "suburb", "neighbourhood"]
+        [
+          "in",
+          "class",
+          "national_park",
+          "protected_area",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark"
+        ]
       ],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "hsl(47, 13%, 86%)", "fill-opacity": 0.7}
+      "paint": {
+        "line-color": "rgba(125, 184, 127,1)",
+        "line-width": {"stops": [[7, 3], [13, 6]]},
+        "line-offset": {"stops": [[7, 3], [13, 6]]},
+        "line-opacity": {"stops": [[7.5, 0], [8, 0.25]]}
+      }
+    },
+    {
+      "id": "park-outer",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "protected_area",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark"
+        ]
+      ],
+      "layout": {"line-join": "bevel", "line-cap": "butt"},
+      "paint": {
+        "line-color": "rgba(82, 147, 85, 1)",
+        "line-width": {"stops": [[7, 3], [13, 6]]},
+        "line-offset": 0,
+        "line-opacity": {"stops": [[7, 0.2], [7.5, 0.5]]}
+      }
+    },
+    {
+      "id": "park-fill",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark"
+        ]
+      ],
+      "paint": {
+        "fill-color": "rgba(125, 184, 127, 1)",
+        "fill-opacity": {"stops": [[6, 0.2], [7, 0.3], [9, 0.4]]}
+      }
+    },
+    {
+      "id": "Hillshading",
+      "type": "hillshade",
+      "source": "france-rgb-png",
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4
+      },
+      "hillshade-exaggeration": 0.1
     },
     {
       "id": "Contours-10",
@@ -145,8 +254,9 @@
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[12, 0], [15, 0.4]]},
-        "line-color": "rgba(130, 105, 51, 1)"
+        "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
+        "line-color": "rgba(130, 105, 51, 1)",
+        "line-width": {"stops": [[11, 0.4], [14, 0.6]]}
       }
     },
     {
@@ -255,8 +365,8 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[10, 0], [15, 0.3]]},
-        "line-width": {"stops": [[10, 1], [15, 2]]},
+        "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
+        "line-width": {"stops": [[10, 0.4], [14, 0.8]]},
         "line-color": "rgba(130, 105, 51, 1)"
       }
     },
@@ -382,19 +492,15 @@
       }
     },
     {
-      "id": "Hillshading",
-      "type": "hillshade",
-      "source": "france-rgb-png",
-      "paint": {"hillshade-accent-color": "#7A6E67"},
-      "hillshade-exaggeration": 0.1
-    },
-    {
       "id": "water",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "water",
       "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
-      "paint": {"fill-color": "rgba(115, 168, 205, 1)"}
+      "paint": {
+        "fill-color": "rgba(115, 168, 205, 1)",
+        "fill-opacity": {"stops": [[0, 0.1], [7, 1]]}
+      }
     },
     {
       "id": "water_intermittent",
@@ -426,105 +532,10 @@
     {
       "id": "landcover_sand",
       "type": "fill",
-      "metadata": {},
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "filter": ["all", ["in", "class", "sand"]],
-      "paint": {
-        "fill-antialias": false,
-        "fill-color": "rgba(232, 214, 38, 1)",
-        "fill-opacity": 0.3
-      }
-    },
-    {
-      "id": "park-fill",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark"
-        ]
-      ],
-      "paint": {
-        "fill-color": "rgba(125, 184, 127, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [7, 0.3], [9, 0.4]]}
-      }
-    },
-    {
-      "id": "park-outer",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "protected_area",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark"
-        ]
-      ],
-      "layout": {"line-join": "bevel", "line-cap": "butt"},
-      "paint": {
-        "line-color": "rgba(82, 147, 85, 1)",
-        "line-width": {"stops": [[7, 3], [13, 6]]},
-        "line-offset": 0,
-        "line-opacity": {"stops": [[7, 0.2], [7.5, 0.5]]}
-      }
-    },
-    {
-      "id": "park-inner",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "protected_area",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark"
-        ]
-      ],
-      "paint": {
-        "line-color": "rgba(125, 184, 127,1)",
-        "line-width": {"stops": [[7, 3], [13, 6]]},
-        "line-offset": {"stops": [[7, 3], [13, 6]]},
-        "line-opacity": {"stops": [[7.5, 0], [8, 0.25]]}
-      }
+      "filter": ["all", ["==", "class", "sand"]],
+      "paint": {"fill-color": "rgba(234, 231, 184, 1)"}
     },
     {
       "id": "housenumber",
@@ -829,7 +840,7 @@
       "filter": ["all", ["==", "$type", "LineString"]],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name}     {ref}",
+        "text-field": "{name:latin}     {ref}",
         "text-font": ["Noto Sans Regular"],
         "text-transform": "uppercase",
         "text-letter-spacing": 0.1,
@@ -1191,9 +1202,19 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "hsl(0, 0%, 60%)",
-        "line-width": {"base": 1.3, "stops": [[3, 0.5], [22, 15]]}
+        "line-color": "rgba(141, 141, 141, 1)",
+        "line-width": {"base": 1.3, "stops": [[3, 0.6], [22, 15]]}
       }
+    },
+    {
+      "id": "barrier-cliff",
+      "type": "line",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": ["in", "class", "cliff", "earth_bank"],
+      "paint": {"line-width": 1.5, "line-color": "#977C73", "line-opacity": 0.8}
     },
     {
       "id": "boundary-land-level-8",
@@ -1334,8 +1355,8 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 7,
-      "filter": ["all", ["in", "class", "track"]],
+      "minzoom": 6,
+      "filter": ["all", ["in", "class", "track", " path"]],
       "layout": {
         "line-cap": "round",
         "line-join": "round",
@@ -1418,7 +1439,7 @@
         "text-field": "",
         "symbol-placement": "line",
         "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
-        "symbol-spacing": 100,
+        "symbol-spacing": 150,
         "text-size": 10,
         "icon-offset": [0, 10],
         "icon-image": "aerialway",
@@ -1453,10 +1474,10 @@
         "text-field": "",
         "symbol-placement": "line",
         "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
-        "symbol-spacing": 300,
+        "symbol-spacing": 200,
         "text-size": 10,
         "icon-image": "aerialway",
-        "icon-offset": [0, 10],
+        "icon-offset": [0, 5],
         "icon-rotation-alignment": "viewport"
       },
       "paint": {}
@@ -1510,15 +1531,15 @@
         "text-field": "",
         "symbol-placement": "line",
         "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
-        "symbol-spacing": 100,
         "text-size": 10,
         "icon-image": "skiing",
-        "icon-offset": [0, 10],
+        "icon-offset": [0, 5],
         "symbol-z-order": "auto",
         "icon-ignore-placement": false,
         "icon-optional": false,
         "icon-rotation-alignment": "viewport",
-        "icon-rotate": 300
+        "icon-rotate": 300,
+        "symbol-spacing": 70
       },
       "paint": {}
     },
@@ -1598,7 +1619,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "rgba(85, 126, 88, 1)",
+        "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255, 255, 255, 0.8)",
         "text-halo-width": 1.8,
         "text-opacity": {"stops": [[6, 0], [6.5, 1]]}
@@ -1628,11 +1649,11 @@
       "layout": {
         "text-field": "{name:latin}{name:nonlatin}",
         "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[8, 9], [12, 16]]},
+        "text-size": {"stops": [[7, 10], [12, 16]]},
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "rgba(85, 126, 88, 1)",
+        "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.8
       }
@@ -1704,7 +1725,13 @@
       ],
       "layout": {
         "text-anchor": "top",
-        "text-field": "{name:latin}{name:nonlatin}\n{ele} m",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n",
+          ["get", "ele"],
+          "m"
+        ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
         "text-offset": [0, 1],
@@ -1715,7 +1742,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "#666",
+        "text-color": "rgba(69, 68, 68, 1)",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
         "text-halo-width": 1
@@ -1734,7 +1761,7 @@
       ],
       "layout": {
         "text-anchor": "center",
-        "text-field": "{name}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 6,
         "text-size": {"stops": [[6, 10], [12, 12]]}
@@ -1754,7 +1781,7 @@
       "maxzoom": 16,
       "filter": ["all", ["==", "$type", "Point"], ["==", "class", "city"]],
       "layout": {
-        "text-field": "{name}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 10,
         "text-size": {"stops": [[3, 12], [8, 16]]}
@@ -1774,7 +1801,7 @@
       "source-layer": "place",
       "filter": ["==", "class", "village"],
       "layout": {
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 14], [15, 22]]},
@@ -1814,7 +1841,7 @@
       "filter": ["==", "$type", "LineString"],
       "layout": {
         "symbol-placement": "line",
-        "text-field": "{name}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-letter-spacing": 0.1,
         "text-rotation-alignment": "map",
@@ -1837,7 +1864,7 @@
       "layout": {
         "symbol-placement": "point",
         "symbol-spacing": 350,
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-letter-spacing": 0.1,
         "text-max-width": 5,
@@ -1846,8 +1873,8 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "rgba(36, 105, 152, 1)",
-        "text-halo-color": "rgba(255,255,255,0.7)",
+        "text-color": "rgba(0, 95, 155, 1)",
+        "text-halo-color": "rgba(247, 234, 234, 0.7)",
         "text-halo-width": 1.5
       }
     },
@@ -2046,7 +2073,7 @@
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "top",
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
         "text-offset": [0, 0.6],
@@ -2070,7 +2097,7 @@
       "layout": {
         "symbol-placement": "line",
         "symbol-spacing": 350,
-        "text-field": "{name:latin}\n{name:nonlatin}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-letter-spacing": 0.1,
         "text-max-width": 5,
@@ -2081,6 +2108,25 @@
         "text-color": "rgba(36, 105, 152, 1)",
         "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "mtb_nonroulable",
+      "type": "symbol",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 9,
+      "filter": ["any", ["==", "mtb_scale", 6], ["==", "mtb_scale", 5]],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 50,
+        "icon-allow-overlap": true,
+        "icon-anchor": "bottom",
+        "icon-rotate": 0,
+        "icon-size": 0.6,
+        "text-font": ["Noto Sans Regular"],
+        "icon-image": "barrier"
       }
     }
   ],
