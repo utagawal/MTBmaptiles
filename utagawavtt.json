@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 8,
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
   "sources": {
@@ -21,7 +21,7 @@
       "url": "https://map.omrs.fr/data/planet-fast.json"
     }
   },
-  "sprite": "utagawavtt",
+  "sprite": "https://map.omrs.fr/styles/monde-png/sprite",
   "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
@@ -671,8 +671,8 @@
       "minzoom": 7,
       "filter": [
         "all",
-        ["==", "$type", "LineString"],
-        ["in", "class", "path", "track"]
+        ["in", "class", "path", "track"],
+        ["!=", "subclass", "steps"]
       ],
       "layout": {
         "line-cap": "square",
@@ -1323,7 +1323,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["==", "class", "path"]],
+      "filter": ["all", ["==", "class", "path"], ["!=", "subclass", "steps"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-dasharray": [2, 2],
@@ -1385,6 +1385,30 @@
         "line-color": "rgba(0, 0, 0, 1)",
         "line-dasharray": [5, 5],
         "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
+      }
+    },
+    {
+      "id": "path-steps",
+      "type": "line",
+      "metadata": {"IHM:overlay": true},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "subclass", "steps"],
+        ["!in", "brunnel", "bridge", "tunnel"]
+      ],
+      "paint": {
+        "line-dasharray": [0.2, 0.25],
+        "line-width": {"base": 2, "stops": [[16, 6], [22, 16]]},
+        "line-color": [
+          "match",
+          ["get", "colour"],
+          ["black", "blue", "green", "orange", "purple", "red", "yellow"],
+          ["get", "colour"],
+          "#8E5632"
+        ]
       }
     },
     {
@@ -1804,7 +1828,7 @@
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
-        "text-size": {"base": 1.2, "stops": [[10, 14], [15, 22]]},
+        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 20]]},
         "visibility": "visible"
       },
       "paint": {
@@ -1889,6 +1913,28 @@
         "symbol-placement": "line",
         "symbol-spacing": 350,
         "text-field": "{name:latin} {name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-letter-spacing": 0.1,
+        "text-max-width": 5,
+        "text-rotation-alignment": "map",
+        "text-size": 14
+      },
+      "paint": {
+        "text-color": "rgba(36, 105, 152, 1)",
+        "text-halo-color": "rgba(255,255,255,0.7)",
+        "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "water-name-lakeline",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "water_name",
+      "filter": ["==", "$type", "LineString"],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 350,
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-letter-spacing": 0.1,
         "text-max-width": 5,
@@ -2058,20 +2104,44 @@
       }
     },
     {
-      "id": "poi-level-1",
+      "id": "poi-drinking-water-spot",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": ["all", ["==", "class", "drinking_water"]],
+      "layout": {
+        "icon-image": "drinking-water",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "poi-restos",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["<=", "rank", 14],
-        ["has", "name"],
-        ["any", ["!has", "level"], ["==", "level", 0]]
+        "any",
+        ["==", "subclass", "restaurant"],
+        ["==", "subclass", "fast_food"]
       ],
       "layout": {
-        "icon-image": "{class}_11",
+        "icon-image": "restaurant",
         "text-anchor": "top",
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
@@ -2089,25 +2159,59 @@
       }
     },
     {
-      "id": "water-name-lakeline",
+      "id": "poi-velo",
       "type": "symbol",
       "source": "openmaptiles",
-      "source-layer": "water_name",
-      "filter": ["==", "$type", "LineString"],
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": ["any", ["==", "cla", "bicycle"]],
       "layout": {
-        "symbol-placement": "line",
-        "symbol-spacing": 350,
+        "text-anchor": "top",
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
-        "text-letter-spacing": 0.1,
-        "text-max-width": 5,
-        "text-rotation-alignment": "map",
-        "text-size": 14
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "none",
+        "icon-image": "bicycle"
       },
       "paint": {
-        "text-color": "rgba(36, 105, 152, 1)",
-        "text-halo-color": "rgba(255,255,255,0.7)",
-        "text-halo-width": 1.5
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "poi-level-1",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["<=", "rank", 14],
+        ["has", "name"],
+        ["any", ["!has", "level"], ["==", "level", 0]]
+      ],
+      "layout": {
+        "icon-image": "{class}",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "none"
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
       }
     },
     {
@@ -2117,7 +2221,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 9,
-      "filter": ["any", ["==", "mtb_scale", 6], ["==", "mtb_scale", 5]],
+      "filter": ["all", [">=", "mtb_scale", 5]],
       "layout": {
         "symbol-placement": "line",
         "symbol-spacing": 50,
@@ -2126,7 +2230,7 @@
         "icon-rotate": 0,
         "icon-size": 0.6,
         "text-font": ["Noto Sans Regular"],
-        "icon-image": "barrier"
+        "icon-image": "cross"
       }
     }
   ],
