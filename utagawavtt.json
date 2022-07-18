@@ -5,11 +5,11 @@
   "sources": {
     "contours": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/france-contours.json"
+      "url": "mbtiles://{france-contours-ign}"
     },
     "france-rgb-png": {
       "type": "raster-dem",
-      "url": "https://map.omrs.fr/data/france-rgb-png.json"
+      "url": "mbtiles://{france-terrain-ign-png}"
     },
     "natural-earth-2": {
       "type": "raster",
@@ -18,11 +18,11 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/planet-fast.json"
+      "url": "mbtiles://{planet-fast}"
     }
   },
-  "sprite": "utagawavtt",
-  "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
+  "sprite": "{style}",
+  "glyphs": "{fontstack}/{range}",
   "layers": [
     {
       "id": "background",
