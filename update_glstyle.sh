@@ -7,21 +7,53 @@ CTNAME="tileserver-gl"
 LOGDIR="/var/data/logs/"
 LOGFILE="update_glstyle.log"
 
+LOCKFILE="update_glstyle.lock"
+
 GLSTYLENAME="utagawavtt"
 GLSTYLEDIR="/var/data/styles/"
 
 TMPDIR="/tmp/glstyle/"
 
+# Send a signal to tileserver-gl container, to reload it
 ctReload() {
 	docker exec ${1} bash -c 'kill -HUP $(ls -l /proc/*/exe | sed -n "/\/node$/s/.*proc\/\([0-9]\+\)\/exe .*/\1/p")'
 }
 
+# Start tileserver-gl container
 ctStart() {
 	docker run --name ${1} -d --rm -it -v /var/data:/data -p 8080:80 maptiler/tileserver-gl
 }
 
+# Check if tileserver-gl is running
 ctStatus() {
 	docker ps -f NAME=${1} -f STATUS=running -q
+}
+
+# Check the presence of a lock file and if it is obsolete
+#
+# If a lock file exists, but no process is running with the
+# pid written inside, we erase it and return that the lock
+# file does not exists.
+lockCheck() {
+	if [ -f ${TMPDIR}${LOCKFILE} ]; then
+		if [ -z "$(ps --no-headers $(cat ${TMPDIR}${LOCKFILE}))" ]; then
+			rm ${TMPDIR}${LOCKFILE}
+			return 1
+		fi
+		return 0
+	else
+		return 1
+	fi
+}
+
+# Remove the lock file
+lockRemove() {
+	rm -f ${TMPDIR}${LOCKFILE}
+}
+
+# Write the lock file
+lockWrite() {
+	echo $$ > ${TMPDIR}${LOCKFILE}
 }
 
 writeToLog() {
@@ -29,60 +61,72 @@ writeToLog() {
 	echo ${LOGTIME} ${1} >> ${LOGDIR}${LOGFILE}
 }
 
+if [ -z $(lockCheck) ]; then
+	lockWrite
+else
+	writeToLog "The script is already running"
+	exit
+fi
+
 mkdir -p ${TMPDIR} ${LOGDIR}
-cd ${TMPDIR}
 
 # Downloading style file on the repository
-writeToLog "Downloading style file"
-wget -q https://raw.githubusercontent.com/utagawal/MTBmaptiles/main/utagawavtt.json
+writeToLog "Downloading ${GLSTYLENAME}.json"
+wget -q https://raw.githubusercontent.com/utagawal/MTBmaptiles/main/${GLSTYLENAME}.json -P ${TMPDIR}
 
 if [ $? -eq 0 ]; then
 	writeToLog "Style file downloaded"
 	# Comparing repository's style file and local style file
-	cmp -s ${GLSTYLEDIR}${GLSTYLENAME}/style.json ${TMPDIR}/utagawavtt.json
+	cmp -s ${GLSTYLEDIR}${GLSTYLENAME}.json ${TMPDIR}${GLSTYLENAME}.json
 
-	if [ $? -eq 0 ]; then
+	if [ $? -eq 0 ]; then # Files are identicals
 		writeToLog "Style has not been updated"
-		rm ${TMPDIR}/utagawavtt.json
-	else
-	# If files are differents..
-		writeToLog "New style been processing.."
-		# we save the local file..
-		writeToLog "Saving old style to ${GLSTYLEDIR}${GLSTYLENAME}/style.json_${CLEARDATE}"
-		cp ${GLSTYLEDIR}${GLSTYLENAME}/style.json ${GLSTYLEDIR}${GLSTYLENAME}/style.json_${CLEARDATE}
-		# and replace it with the distant file..
+		rm ${TMPDIR}${GLSTYLENAME}.json
+
+	else # Files are differents
+		writeToLog "Saving old style to ${GLSTYLEDIR}${GLSTYLENAME}.json_${CLEARDATE}"
+		cp ${GLSTYLEDIR}${GLSTYLENAME}.json ${GLSTYLEDIR}${GLSTYLENAME}.json_${CLEARDATE}
+
 		writeToLog "Applying new style"
-		cp ${TMPDIR}/utagawavtt.json ${GLSTYLEDIR}${GLSTYLENAME}/style.json
-		rm ${TMPDIR}/utagawavtt.json
+		cp ${TMPDIR}${GLSTYLENAME}.json ${GLSTYLEDIR}${GLSTYLENAME}.json
+		rm ${TMPDIR}${GLSTYLENAME}.json
 
 		if [ -z $(ctStatus $CTNAME) ]; then
-			# Container not running, so we start it
+			# Container is not running, so we start it
 			writeToLog "Starting tileserver-gl"
 			ctStart $CTNAME
 
-			sleep 10
-
-			if [ -z $(ctStatus $CTNAME) ]; then
-				writeToLog "There is a problem while launching tileserver-gl container"
-				echo "There is a problem while launching tileserver-gl container" | mail -s "tilserver-gl problem" ${ADMINEMAIL}
-				exit
-			else
-				writeToLog "tileserver-gl started successfully"
-			fi
 		else
 			# Container is running, we ask it to reload tileserver-gl config file
 			writeToLog "Reloading tileserver-gl"
 			ctReload $CTNAME
+		fi
+
+		sleep 30
+
+		if [ -z $(ctStatus $CTNAME) ]; then
+			writeToLog "The tileserver-gl container is down."
+			writeToLog "Restoring the before last style file : ${GLSTYLENAME}.json_${CLEARDATE}"
+			cp ${GLSTYLEDIR}${GLSTYLENAME}.json_${CLEARDATE} ${GLSTYLEDIR}${GLSTYLENAME}.json
+
+			writeToLog "Trying to launch tilserver-gl, please wait."
+			ctStart $CTNAME
+			sleep 30
 
 			if [ -z $(ctStatus $CTNAME) ]; then
-				writeToLog "There is a problem while reloading tileserver-gl config"
-				echo "There is a problem while reloading tileserver-gl config" | mail -s "tilserver-gl problem" ${ADMINEMAIL}
+				echo "Unable to launch tileserver-gl with the before last style file" | mail -s "tilserver-gl problem" ${ADMINEMAIL}
 				exit
 			else
-				writeToLog "tileserver-gl reloaded successfully"
+				writeToLog "tileserver-gl started successfully with ${GLSTYLENAME}.json_${CLEARDATE}."
+				echo "${GLSTYLENAME}.json_${CLEARDATE} applied successfully" | mail -s "New style can not be applied on tilserver-gl" ${ADMINEMAIL}
 			fi
+		else
+			writeToLog "New style applied successfully."
+			echo "New style applied successfully" | mail -s "A new style has been applied on tilserver-gl" ${ADMINEMAIL}
 		fi
 	fi
 else
-	writeToLog "Problem while downloading style from the repository : ${?}"
+	writeToLog "Problem while downloading style from the repository : "${?}
+	echo "Problem while downloading style from the repository." | mail -s "Unable to download the new style" ${ADMINEMAIL}
 fi
+lockRemove
