@@ -876,7 +876,7 @@
         "line-color": "rgba(121, 121, 121, 1)",
         "line-dasharray": [0.36, 0.18],
         "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": 0.6
+        "line-opacity": 0.5
       }
     },
     {
@@ -898,7 +898,7 @@
         "line-color": "rgba(121, 121, 121, 1)",
         "line-dasharray": [0.36, 0.18],
         "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": 0.9
+        "line-opacity": 0.5
       }
     },
     {
@@ -920,7 +920,7 @@
         "line-color": "rgba(126, 127, 126, 1)",
         "line-dasharray": [0.28, 0.14],
         "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
-        "line-opacity": 0.7
+        "line-opacity": 0.5
       }
     },
     {
@@ -2018,6 +2018,31 @@
       }
     },
     {
+      "id": "pois_parking-bicycle",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["==", "class", "bicycle_parking"],
+        ["==", "subclass", "bicycle_parking"]
+      ],
+      "layout": {
+        "text-field": "",
+        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "bicycle",
+        "icon-size": 1,
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "rgba(252, 252, 252, 1)",
+        "icon-halo-color": "rgba(168, 15, 15, 1)",
+        "text-opacity": 1
+      }
+    },
+    {
       "id": "pois_parking",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2262,20 +2287,38 @@
       }
     },
     {
-      "id": "mtb_nonroulable_bicycle",
+      "id": "mtb_nonroulable_red",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "class", "path"],
+        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", 5, 6]]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-dasharray": [2, 2],
+        "line-opacity": {"stops": [[11, 0], [15, 0.9]]},
+        "line-color": "rgba(246, 53, 53, 1)",
+        "line-width": 1.7
+      }
+    },
+    {
+      "id": "mtb_nonroulable_symbol",
       "type": "symbol",
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 9,
+      "minzoom": 16,
       "filter": [
         "all",
-        ["==", "bicycle", "no"],
         ["==", "class", "path"],
-        ["==", "subclass", "path"]
+        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", 5, 6]]
       ],
       "layout": {
-        "symbol-placement": "line",
+        "symbol-placement": "point",
         "icon-allow-overlap": true,
         "icon-anchor": "bottom",
         "icon-rotate": 0,
@@ -2283,33 +2326,8 @@
         "icon-ignore-placement": false,
         "symbol-spacing": 50,
         "icon-rotation-alignment": "viewport",
-        "icon-image": "caution",
-        "icon-size": 0.7
-      }
-    },
-    {
-      "id": "mtb_nonroulable",
-      "type": "symbol",
-      "metadata": {"IHM:overlay": false},
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["in", "mtb_scale", "5", "6"],
-        ["==", "class", "path"],
-        ["==", "subclass", "path"]
-      ],
-      "layout": {
-        "symbol-placement": "line",
-        "icon-allow-overlap": true,
-        "icon-anchor": "bottom",
-        "icon-rotate": 0,
-        "icon-size": 0.6,
-        "text-font": ["Noto Sans Regular"],
-        "icon-image": "cross",
-        "icon-ignore-placement": false,
-        "symbol-spacing": 50
+        "icon-size": 0.7,
+        "icon-image": "cross"
       }
     }
   ],
