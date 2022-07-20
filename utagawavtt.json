@@ -2262,6 +2262,32 @@
       }
     },
     {
+      "id": "mtb_nonroulable_bicycle",
+      "type": "symbol",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", "bicycle", "no"],
+        ["==", "class", "path"],
+        ["==", "subclass", "path"]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "icon-allow-overlap": true,
+        "icon-anchor": "bottom",
+        "icon-rotate": 0,
+        "text-font": ["Noto Sans Regular"],
+        "icon-ignore-placement": false,
+        "symbol-spacing": 50,
+        "icon-rotation-alignment": "viewport",
+        "icon-image": "caution",
+        "icon-size": 0.7
+      }
+    },
+    {
       "id": "mtb_nonroulable",
       "type": "symbol",
       "metadata": {"IHM:overlay": false},
@@ -2270,20 +2296,20 @@
       "minzoom": 9,
       "filter": [
         "all",
-        [">=", "mtb_scale", 4],
+        ["in", "mtb_scale", "5", "6"],
         ["==", "class", "path"],
         ["==", "subclass", "path"]
       ],
       "layout": {
         "symbol-placement": "line",
-        "symbol-spacing": 20,
         "icon-allow-overlap": true,
         "icon-anchor": "bottom",
         "icon-rotate": 0,
         "icon-size": 0.6,
         "text-font": ["Noto Sans Regular"],
         "icon-image": "cross",
-        "icon-ignore-placement": false
+        "icon-ignore-placement": false,
+        "symbol-spacing": 50
       }
     }
   ],
