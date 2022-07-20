@@ -1732,7 +1732,7 @@
         [
           "<=",
           ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 15, 999]
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
         ]
       ],
       "layout": {
@@ -1757,7 +1757,7 @@
         "text-color": "rgba(69, 68, 68, 1)",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 2
       }
     },
     {
@@ -2211,16 +2211,24 @@
         ["==", "subclass", "guidepost"]
       ],
       "layout": {
-        "text-field": "",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 1],
+        "text-padding": 2,
         "text-size": 12,
+        "text-optional": true,
         "icon-size": 0.8,
-        "icon-image": "post-JP"
+        "icon-image": "post-JP",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, 0]
       },
       "paint": {
-        "icon-color": "rgba(252, 252, 252, 1)",
-        "icon-halo-color": "rgba(168, 15, 15, 1)",
-        "text-opacity": 1
+        "text-color": "rgba(69, 68, 68, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2,
+        "text-translate": [0, 3]
       }
     },
     {
