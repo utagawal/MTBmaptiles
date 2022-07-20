@@ -2295,7 +2295,7 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", 5, 6]]
+        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -2315,7 +2315,7 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", 5, 6]]
+        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]]
       ],
       "layout": {
         "symbol-placement": "point",
@@ -2325,9 +2325,12 @@
         "text-font": ["Noto Sans Regular"],
         "icon-ignore-placement": false,
         "symbol-spacing": 50,
-        "icon-rotation-alignment": "viewport",
+        "icon-rotation-alignment": "auto",
         "icon-size": 0.7,
-        "icon-image": "cross"
+        "icon-image": "cross",
+        "icon-keep-upright": true,
+        "icon-offset": [7, 7],
+        "icon-pitch-alignment": "auto"
       }
     }
   ],
