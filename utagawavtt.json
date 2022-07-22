@@ -7,9 +7,10 @@
       "type": "vector",
       "url": "https://map.omrs.fr/data/france-contours-ign.json"
     },
-    "france-rgb-png": {
+    "world-rgb-png": {
       "type": "raster-dem",
-      "url": "https://map.omrs.fr/data/france-terrain-ign-png.json"
+      "encoding": "terrarium",
+      "tiles": ["https://v2105.phpnet.fr/{z}/{x}/{y}.png"]
     },
     "natural-earth-2": {
       "type": "raster",
@@ -564,7 +565,7 @@
     {
       "id": "Hillshading",
       "type": "hillshade",
-      "source": "france-rgb-png",
+      "source": "world-rgb-png",
       "minzoom": 4,
       "layout": {"visibility": "visible"},
       "paint": {
