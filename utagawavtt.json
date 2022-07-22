@@ -68,7 +68,10 @@
         ["in", "class", "residential", "suburb", "neighbourhood"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "hsl(47, 13%, 86%)", "fill-opacity": 0.7}
+      "paint": {
+        "fill-color": "hsl(47, 13%, 86%)",
+        "fill-opacity": {"stops": [[6, 0.7], [10, 0.4]]}
+      }
     },
     {
       "id": "landuse_cemetery",
@@ -77,7 +80,7 @@
       "source-layer": "landuse",
       "filter": ["==", "class", "cemetery"],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "hsl(75, 37%, 81%)"}
+      "paint": {"fill-color": "rgba(191, 191, 191, 1)"}
     },
     {
       "id": "landuse_overlay_national_park",
@@ -94,6 +97,15 @@
         "fill-color": "#E1EBB0",
         "fill-opacity": {"base": 1, "stops": [[5, 0.1], [9, 0.75]]}
       }
+    },
+    {
+      "id": "landuse-terrain-sport",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "$type", "Polygon"], ["in", "class", "pitch"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(76, 232, 63, 0.26)", "fill-opacity": 1}
     },
     {
       "id": "landcover-wetland-fill",
@@ -1112,7 +1124,7 @@
         ["!=", "maritime", 1],
         ["!=", "neutral", 0]
       ],
-      "layout": {"line-join": "round","visibility": "none"},
+      "layout": {"line-join": "round", "visibility": "none"},
       "paint": {
         "line-color": "#9e9cab",
         "line-dasharray": [3, 1, 1, 1],
@@ -2192,7 +2204,9 @@
         "text-size": 12,
         "text-allow-overlap": true,
         "icon-size": 1,
-        "icon-image": "attraction"
+        "icon-image": "viewpoint",
+        "icon-rotation-alignment": "map",
+        "icon-pitch-alignment": "auto"
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
