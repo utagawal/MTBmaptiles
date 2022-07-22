@@ -1054,7 +1054,7 @@
       "source": "openmaptiles",
       "source-layer": "boundary",
       "filter": ["in", "admin_level", 4, 6, 8],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "line-color": "hsla(0, 0%, 60%, 0.5)",
         "line-dasharray": [2, 1],
@@ -1112,7 +1112,7 @@
         ["!=", "maritime", 1],
         ["!=", "neutral", 0]
       ],
-      "layout": {"line-join": "round"},
+      "layout": {"line-join": "round","visibility": "none"},
       "paint": {
         "line-color": "#9e9cab",
         "line-dasharray": [3, 1, 1, 1],
@@ -1132,7 +1132,7 @@
         ["!=", "maritime", 1],
         ["!=", "neutral", 0]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": {"line-join": "round", "visibility": "none"},
       "paint": {
         "line-color": "#9e9cab",
         "line-dasharray": [3, 1],
@@ -1153,7 +1153,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": "hsl(248, 7%, 66%)",
