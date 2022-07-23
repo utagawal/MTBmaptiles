@@ -3,16 +3,6 @@
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
   "sources": {
-    "contours": {
-      "type": "vector",
-      "url": "https://map.omrs.fr/data/france-contours-ign.json"
-    },
-    "world-rgb-png": {
-      "type": "raster-dem",
-      "encoding": "terrarium",
-      "tiles": ["https://v2105.phpnet.fr/{z}/{x}/{y}.png"],
-      "minzoom": 4
-    },
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
@@ -21,7 +11,17 @@
     "openmaptiles": {
       "type": "vector",
       "url": "https://map.omrs.fr/data/planet-fast.json"
-    }
+    },
+    "world-rgb-png": {
+      "type": "raster-dem",
+      "encoding": "terrarium",
+      "tiles": ["https://v2105.phpnet.fr/{z}/{x}/{y}.png"],
+      "minzoom": 4
+    },
+    "contours": {
+      "type": "vector",
+      "url": "https://map.omrs.fr/data/france-contours-ign.json"
+    }    
   },
   "sprite": "{style}",
   "glyphs": "{fontstack}/{range}",
