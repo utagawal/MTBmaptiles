@@ -1,6 +1,6 @@
 Despository for [UtagawaVTT.com](https://www.utagawavtt.com) MTB map style
 
-Map tiles (bothe vector and raster) will be served with [Tileserver GL](https://github.com/maptiler/tileserver-gl) 
+Map tiles (vector and raster) will be served with [Tileserver GL](https://github.com/maptiler/tileserver-gl) 
 
 Schema follows [Openmaptile specifications](https://openmaptiles.org/schema/)
 
