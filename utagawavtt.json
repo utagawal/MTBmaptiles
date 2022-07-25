@@ -15,7 +15,7 @@
     "world-rgb-png": {
       "type": "raster-dem",
       "encoding": "terrarium",
-      "tiles": ["https://v2105.phpnet.fr/{z}/{x}/{y}.png"],
+      "tiles": ["https://maps.utagawavtt.com/world/{z}/{x}/{y}.png"],
       "minzoom": 4
     },
     "contours": {
