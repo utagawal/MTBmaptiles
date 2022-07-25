@@ -316,7 +316,7 @@
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[11, 0.1], [20, 0.2]]},
+        "line-opacity": {"stops": [[11, 0.2], [20, 0.5]]},
         "line-color": "rgba(130, 105, 51, 1)",
         "line-width": {"stops": [[11, 0.4], [20, 0.6]]}
       }
@@ -437,7 +437,7 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[11, 0.2], [20, 0.4]]},
+        "line-opacity": {"stops": [[11, 0.2], [20, 0.5]]},
         "line-width": {"stops": [[6, 0.4], [20, 0.8]]},
         "line-color": "rgba(130, 105, 51, 1)"
       }
