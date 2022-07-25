@@ -22,7 +22,7 @@
     },
     "contours": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/france-contours-ign.json"
+      "url": "https://map.omrs.fr/data/europe-contours-copernicus.json"
     }
   },
   "layers": [
