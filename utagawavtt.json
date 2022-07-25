@@ -485,7 +485,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.07
+        "hillshade-exaggeration": 0.1
       },
       "hillshade-exaggeration": 0.1
     },
