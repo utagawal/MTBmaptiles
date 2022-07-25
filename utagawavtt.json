@@ -951,6 +951,39 @@
       }
     },
     {
+      "id": "aeroway-taxiway",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["in", "class", "taxiway"],
+        ["==", "$type", "LineString"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-opacity": 1,
+        "line-width": {"base": 1.5, "stops": [[12, 1], [17, 10]]}
+      }
+    },
+    {
+      "id": "aeroway-apron",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "minzoom": 4,
+      "filter": ["all", ["in", "class", "apron"]],
+      "paint": {"fill-color": "rgba(205, 205, 205, 1)"}
+    },
+    {
       "id": "aeroway-runway",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
@@ -995,29 +1028,6 @@
         "line-opacity": 1,
         "line-width": {"base": 1.5, "stops": [[11, 1], [17, 6]]},
         "line-dasharray": [6, 4]
-      }
-    },
-    {
-      "id": "aeroway-taxiway",
-      "type": "line",
-      "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
-      "source-layer": "aeroway",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        ["in", "class", "taxiway"],
-        ["==", "$type", "LineString"]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-opacity": 1,
-        "line-width": {"base": 1.5, "stops": [[12, 1], [17, 10]]}
       }
     },
     {
@@ -1271,6 +1281,30 @@
       }
     },
     {
+      "id": "hike_path_footway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["in", "class", "path"],
+        ["!=", "subclass", "steps"],
+        ["==", "subclass", "footway"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {"base": 1.55, "stops": [[6, 0.25], [20, 10]]},
+        "line-opacity": 1,
+        "line-gap-width": 0
+      }
+    },
+    {
       "id": "hike_path",
       "type": "line",
       "source": "openmaptiles",
@@ -1280,7 +1314,8 @@
         "all",
         ["==", "$type", "LineString"],
         ["in", "class", "path"],
-        ["!=", "subclass", "steps"]
+        ["!=", "subclass", "steps"],
+        ["!=", "subclass", "footway"]
       ],
       "layout": {
         "line-cap": "butt",
@@ -1921,7 +1956,12 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]]
+        [
+          "any",
+          ["==", "bicycle", "no"],
+          ["==", "access", "no"],
+          ["in", "mtb_scale", "5", "6"]
+        ]
       ],
       "layout": {
         "visibility": "visible",
@@ -1945,7 +1985,12 @@
       "filter": [
         "all",
         ["==", "class", "path"],
-        ["any", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]]
+        [
+          "any",
+          ["==", "bicycle", "no"],
+          ["==", "access", "no"],
+          ["in", "mtb_scale", "5", "6"]
+        ]
       ],
       "layout": {
         "symbol-placement": "point",
@@ -2102,11 +2147,12 @@
       "layout": {
         "icon-size": 1,
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-offset": [0, 0.5],
-        "text-size": 11
+        "text-size": 11,
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "#666",
@@ -2217,19 +2263,23 @@
         ["==", "subclass", "viewpoint"]
       ],
       "layout": {
-        "text-field": "",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 0,
         "text-size": 12,
-        "text-allow-overlap": true,
-        "icon-size": 1,
+        "visibility": "visible",
         "icon-image": "viewpoint",
-        "icon-rotation-alignment": "map",
-        "icon-pitch-alignment": "auto",
-        "icon-rotate": 90
+        "icon-rotate": 90,
+        "icon-anchor": "center",
+        "text-offset": [0, 1.5]
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
-        "icon-color": "rgba(196, 42, 197, 1)"
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
       }
     },
     {
@@ -2295,6 +2345,31 @@
       }
     },
     {
+      "id": "pois-campsite",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "filter": ["any", ["==", "class", "campsite"]],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "campsite"
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
       "id": "pois-refuge",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2344,6 +2419,36 @@
         "text-padding": 2,
         "text-size": 12,
         "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "pois-religieux",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "any",
+        ["==", "class", "place_of_worship"],
+        ["==", "subclass", "christian"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "religious-christian",
+        "icon-size": 0.7
       },
       "paint": {
         "text-color": "#666",
