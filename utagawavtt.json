@@ -10,7 +10,7 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/planet-fast.json"
+      "url": "mbtiles://{planet-fast}"
     },
     "world-rgb-png": {
       "type": "raster-dem",
