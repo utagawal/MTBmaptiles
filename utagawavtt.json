@@ -1,6 +1,4 @@
 {
-  "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
-  "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   "version": 8,
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
@@ -22,9 +20,11 @@
     },
     "contours": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/europe-contours-copernicus.json"
+      "url": "https://map.omrs.fr/data/france-contours-ign.json"
     }
   },
+  "sprite": "{style}",
+  "glyphs": "{fontstack}/{range}",
   "layers": [
     {
       "id": "background",
@@ -138,7 +138,7 @@
       ],
       "paint": {
         "fill-color": "rgba(125, 184, 127, 1)",
-        "fill-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
+        "fill-opacity": {"stops": [[6, 0.2], [20, 0.6]]}
       }
     },
     {
@@ -951,25 +951,6 @@
       }
     },
     {
-      "id": "aeroway-taxiway",
-      "type": "line",
-      "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
-      "source-layer": "aeroway",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        ["in", "class", "taxiway"],
-        ["==", "$type", "LineString"]
-      ],
-      "layout": {"line-cap": "round", "line-join": "round"},
-      "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-opacity": 1,
-        "line-width": {"base": 1.5, "stops": [[12, 1], [17, 10]]}
-      }
-    },
-    {
       "id": "aeroway-runway",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
@@ -981,11 +962,62 @@
         ["in", "class", "runway"],
         ["==", "$type", "LineString"]
       ],
-      "layout": {"line-cap": "round", "line-join": "round"},
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
       "paint": {
-        "line-color": "rgba(189, 186, 186, 1)",
+        "line-color": "rgba(141, 141, 141, 1)",
         "line-opacity": 1,
         "line-width": {"base": 1.5, "stops": [[11, 4], [17, 50]]}
+      }
+    },
+    {
+      "id": "aeroway-runway-marks",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "minzoom": 4,
+      "filter": [
+        "all",
+        ["in", "class", "runway"],
+        ["==", "$type", "LineString"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "bevel",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(249, 249, 249, 1)",
+        "line-opacity": 1,
+        "line-width": {"base": 1.5, "stops": [[11, 1], [17, 6]]},
+        "line-dasharray": [6, 4]
+      }
+    },
+    {
+      "id": "aeroway-taxiway",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["in", "class", "taxiway"],
+        ["==", "$type", "LineString"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-opacity": 1,
+        "line-width": {"base": 1.5, "stops": [[12, 1], [17, 10]]}
       }
     },
     {
@@ -1791,8 +1823,8 @@
       "paint": {
         "text-color": "#666",
         "text-halo-blur": 1,
-        "text-halo-color": "rgba(255,255,255,0.75)",
-        "text-halo-width": 1
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2
       }
     },
     {
@@ -1881,7 +1913,7 @@
       }
     },
     {
-      "id": "mtb_nonroulable_red",
+      "id": "mtb_nonroulable_global",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1898,7 +1930,7 @@
       },
       "paint": {
         "line-dasharray": [1],
-        "line-opacity": {"stops": [[6, 0], [20, 0.2]]},
+        "line-opacity": {"stops": [[6, 0], [20, 0.4]]},
         "line-color": "rgba(255, 0, 0, 1)",
         "line-width": {"stops": [[6, 1], [20, 10]]}
       }
