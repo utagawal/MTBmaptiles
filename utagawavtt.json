@@ -6,7 +6,7 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
-      "tiles": ["https://map.omrs.fr/tiles/NaturalEarth2/{z}/{x}/{y}.png"]
+      "tiles": ["https://maps.utagawavtt.com/tiles/NaturalEarth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
       "type": "vector",
