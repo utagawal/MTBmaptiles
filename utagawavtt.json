@@ -2015,7 +2015,7 @@
       "layout": {
         "icon-size": 1,
         "text-anchor": "top",
-        "text-field": "{name}",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-offset": [0, 0.5],
