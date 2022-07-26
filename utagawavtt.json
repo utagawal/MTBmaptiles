@@ -54,6 +54,15 @@
       "paint": {"fill-color": "#eae0d0"}
     },
     {
+      "id": "landuse-military",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(166, 146, 146, 1)"}
+    },
+    {
       "id": "landuse_urban",
       "type": "fill",
       "source": "openmaptiles",
