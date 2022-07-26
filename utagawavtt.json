@@ -471,7 +471,7 @@
       "source-layer": "water",
       "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
       "paint": {
-        "fill-color": "rgba(115, 168, 205, 1)",
+        "fill-color": "rgba(119, 171, 208, 1)",
         "fill-opacity": {"stops": [[0, 0.5], [20, 1]]},
         "fill-antialias": true
       }
