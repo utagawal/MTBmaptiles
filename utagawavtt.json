@@ -1313,7 +1313,12 @@
         "all",
         ["==", "$type", "LineString"],
         ["in", "class", "path"],
-        ["any", ["==", "subclass", "cycleway"], ["==", "bicycle", 1]]
+        [
+          "any",
+          ["==", "subclass", "cycleway"],
+          ["==", "bicycle", 1],
+          ["==", "bicycle", "designated"]
+        ]
       ],
       "layout": {
         "line-cap": "square",
@@ -1364,7 +1369,8 @@
         ["!=", "subclass", "footway"],
         ["!=", "subclass", "corridor"],
         ["!=", "subclass", "platform"],
-        ["!=", "subclass", "cycleway"]
+        ["!=", "subclass", "cycleway"],
+        ["!=", "bicycle", "designated"]
       ],
       "layout": {
         "line-cap": "butt",
