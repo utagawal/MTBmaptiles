@@ -6,11 +6,13 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
-      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
+      "tiles": [
+        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
+      ]
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "mbtiles://{planet-fast}"
+      "url": "https://map.omrs.fr/data/planet-fast.json"
     },
     "world-rgb-png": {
       "type": "raster-dem",
@@ -229,7 +231,7 @@
       "minzoom": 6,
       "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(215, 212, 204, 1)"}
+      "paint": {"fill-color": "rgba(189, 189, 189, 0.92)"}
     },
     {
       "id": "landcover-glacier",
@@ -486,7 +488,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.1
+        "hillshade-exaggeration": 0.3
       },
       "hillshade-exaggeration": 0.1
     },
@@ -1317,7 +1319,8 @@
         ["in", "class", "path"],
         ["!=", "subclass", "steps"],
         ["!=", "subclass", "footway"],
-        ["!=", "subclass", "corridor"]
+        ["!=", "subclass", "corridor"],
+        ["!=", "subclass", "platform"]
       ],
       "layout": {
         "line-cap": "butt",
@@ -1802,165 +1805,6 @@
       }
     },
     {
-      "id": "place-sommet",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["==", ["geometry-type"], "Point"],
-        [
-          "<=",
-          ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
-        ]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["get", "name:latin"],
-          "\n",
-          ["get", "ele"],
-          "m"
-        ],
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 1],
-        "text-padding": 2,
-        "text-size": 12,
-        "text-optional": true,
-        "icon-image": "mountain",
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(69, 68, 68, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "place-forest",
-      "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "filter": ["all", ["in", "class", "forest"]],
-      "layout": {
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[8, 9], [12, 16]]},
-        "text-max-width": 7,
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(85, 126, 88, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
-      }
-    },
-    {
-      "id": "place-village",
-      "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "filter": ["==", "class", "village"],
-      "layout": {
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 8,
-        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 20]]},
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "#333",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
-      }
-    },
-    {
-  "id": "place_label_other",
-  "type": "symbol",
-  "source": "openmaptiles",
-  "source-layer": "place",
-  "minzoom": 7,
-  "filter": [
-    "all",
-    ["==", "$type", "Point"],
-    [
-      "!in",
-      "class",
-      "city",
-      "state",
-      "country",
-      "continent"
-    ],
-    [">=", "rank", 25]
-  ],
-  "layout": {
-    "text-anchor": "center",
-    "text-field": "{name:latin}",
-    "text-font": ["Noto Sans Regular"],
-    "text-max-width": 6,
-    "text-size": {
-      "stops": [[6, 11], [12, 14]]
-    },
-    "visibility": "visible"
-  },
-  "paint": {
-    "text-color": "hsl(0, 0%, 25%)",
-    "text-halo-blur": 0,
-    "text-halo-color": "hsl(0, 0%, 100%)",
-    "text-halo-width": 2
-  }
-},
-    {
-      "id": "place_label_city",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "maxzoom": 16,
-      "filter": ["all", ["==", "$type", "Point"], ["==", "class", "city"]],
-      "layout": {
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 10,
-        "text-size": {"stops": [[3, 12], [8, 16]]}
-      },
-      "paint": {
-        "text-color": "hsl(0, 0%, 0%)",
-        "text-halo-blur": 0,
-        "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "airport-label",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "aerodrome_label",
-      "minzoom": 10,
-      "filter": ["all", ["has", "iata"]],
-      "layout": {
-        "icon-size": 1,
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 8,
-        "text-offset": [0, 0.5],
-        "text-size": 11
-      },
-      "paint": {
-        "text-color": "#666",
-        "text-halo-blur": 1,
-        "text-halo-color": "rgba(255, 255, 255, 0.75)",
-        "text-halo-width": 2
-      }
-    },
-    {
       "id": "mtb_nonroulable_global",
       "type": "line",
       "source": "openmaptiles",
@@ -2067,21 +1911,6 @@
       }
     },
     {
-      "id": "housenumber",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "housenumber",
-      "minzoom": 17,
-      "filter": ["==", "$type", "Point"],
-      "layout": {
-        "text-field": "{housenumber}",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 10,
-        "visibility": "visible"
-      },
-      "paint": {"text-color": "rgba(212, 177, 146, 1)"}
-    },
-    {
       "id": "water-name-other",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2151,11 +1980,182 @@
       }
     },
     {
+      "id": "housenumber",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "housenumber",
+      "minzoom": 17,
+      "filter": ["==", "$type", "Point"],
+      "layout": {
+        "text-field": "{housenumber}",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 10,
+        "visibility": "visible"
+      },
+      "paint": {"text-color": "rgba(212, 177, 146, 1)"}
+    },
+    {
+      "id": "place-airport-label",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "aerodrome_label",
+      "minzoom": 10,
+      "filter": ["all", ["has", "iata"]],
+      "layout": {
+        "icon-size": 1,
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 8,
+        "text-offset": [0, 0.5],
+        "text-size": 11
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place_label_other",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 7,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["!in", "class", "city", "state", "country", "continent"],
+        [">=", "rank", 25]
+      ],
+      "layout": {
+        "text-anchor": "center",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 6,
+        "text-size": {"stops": [[6, 11], [12, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "hsl(0, 0%, 25%)",
+        "text-halo-blur": 0,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place_label_city",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["in", "class", "city", "town"],
+        ["==", "$type", "Point"]
+      ],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 10,
+        "text-size": {"stops": [[3, 12], [8, 16]]},
+        "icon-allow-overlap": true
+      },
+      "paint": {
+        "text-color": "rgba(51, 51, 51, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place-village",
+      "type": "symbol",
+      "metadata": {"mapbox:group": "1444849242106.713"},
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 10,
+      "filter": ["==", "class", "village"],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 20]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "#333",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
+      "id": "place-sommet",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        [
+          "<=",
+          ["get", "rank"],
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
+        ]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n",
+          ["get", "ele"],
+          "m"
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 1],
+        "text-padding": 2,
+        "text-size": 12,
+        "text-optional": true,
+        "icon-image": "mountain",
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(69, 68, 68, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place-forest",
+      "type": "symbol",
+      "metadata": {"mapbox:group": "1444849242106.713"},
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "filter": ["all", ["in", "class", "forest"]],
+      "layout": {
+        "text-field": "{name:latin}{name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": {"stops": [[8, 9], [12, 16]]},
+        "text-max-width": 7,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(85, 126, 88, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 1.2
+      }
+    },
+    {
       "id": "pois_label",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
-      "minzoom": 12,
+      "minzoom": 13,
       "filter": ["all", ["==", "$type", "Point"], ["==", "rank", 1]],
       "layout": {
         "icon-size": 1,
@@ -2359,12 +2359,41 @@
       }
     },
     {
+      "id": "pois-railway-station",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["==", "class", "railway"],
+        ["==", "subclass", "station"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "rail"
+      },
+      "paint": {
+        "text-color": "rgba(52, 52, 52, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "pois-campsite",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 13,
-      "filter": ["any", ["==", "class", "campsite"]],
+      "filter": ["all", ["==", "class", "campsite"]],
       "layout": {
         "text-anchor": "top",
         "text-field": "{name:latin}",
@@ -2462,7 +2491,7 @@
         "text-size": 12,
         "visibility": "visible",
         "icon-image": "religious-christian",
-        "icon-size": 0.7
+        "icon-size": 0.9
       },
       "paint": {
         "text-color": "#666",
