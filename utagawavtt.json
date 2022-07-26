@@ -2167,7 +2167,7 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
-      "minzoom": 13,
+      "minzoom": 14,
       "filter": ["all", ["==", "$type", "Point"], ["==", "rank", 1]],
       "layout": {
         "icon-size": 1,
@@ -2454,11 +2454,36 @@
       }
     },
     {
-      "id": "pois-restos",
+      "id": "pois-bars",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
-      "minzoom": 14,
+      "minzoom": 15,
+      "filter": ["any", ["==", "subclass", "bar"]],
+      "layout": {
+        "icon-image": "bar",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-restaurants",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 15,
       "filter": [
         "any",
         ["==", "subclass", "restaurant"],
