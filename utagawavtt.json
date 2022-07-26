@@ -1406,6 +1406,40 @@
       }
     },
     {
+      "id": "aerialway_chairlift_symbol",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "in",
+          "subclass",
+          "chair_lift",
+          "mixed_lift"
+        ]
+      ],
+      "layout": {
+          "visibility": "visible",
+          "text-field": "",
+          "symbol-placement": "line",
+          "text-font": ["Noto Sans Regular"],
+          "text-size": 10,
+          "icon-image": "chairlift",
+          "icon-offset": [0, 5],
+          "symbol-z-order": "auto",
+          "icon-ignore-placement": false,
+          "icon-optional": false,
+          "icon-rotation-alignment": "viewport",
+          "icon-rotate": 0,
+          "symbol-spacing": 70,
+          "icon-allow-overlap": false,
+          "icon-size": 1
+        },
+      "paint": {}
+      },
+      {
       "id": "aerialway_cable_car",
       "type": "line",
       "source": "openmaptiles",
