@@ -5,10 +5,8 @@
   "sources": {
     "natural-earth-2": {
       "type": "raster",
-      "maxzoom": 6,
-      "tiles": [
-        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
-      ]
+      "maxzoom": 7,
+      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
       "type": "vector",
