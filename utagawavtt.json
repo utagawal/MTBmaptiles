@@ -2,6 +2,8 @@
   "version": 8,
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
+  "center": [47.3, 2.4],
+  "zoom": 2,
   "light": {"intensity": 0.2},
   "sources": {
     "natural-earth-2": {
