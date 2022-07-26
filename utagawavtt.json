@@ -2477,7 +2477,7 @@
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
-        "any",
+        "all",
         ["==", "class", "place_of_worship"],
         ["==", "subclass", "christian"]
       ],
