@@ -2,6 +2,7 @@
   "version": 8,
   "name": "Utagawavtt - Monde",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
+  "light": {"intensity": 0.2},
   "sources": {
     "natural-earth-2": {
       "type": "raster",
@@ -26,8 +27,9 @@
       "url": "https://map.omrs.fr/data/france-contours-ign.json"
     }
   },
-  "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
-  "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
+  "sprite": "{style}",
+  "glyphs": "{fontstack}/{range}",
+  "transition": {"duration": 400},
   "layers": [
     {
       "id": "background",
@@ -162,11 +164,10 @@
       "minzoom": 6,
       "filter": ["all", ["==", "class", "wetland"]],
       "paint": {
-        "fill-color": "rgba(206, 243, 240, 1)",
-        "fill-opacity": {"stops": [[9, 0.2], [11, 0.6]]},
+        "fill-color": "rgba(163, 246, 244, 1)",
+        "fill-opacity": {"stops": [[6, 0.2], [11, 0.6]]},
         "fill-translate": [0, 0],
-        "fill-antialias": true,
-        "fill-pattern": "wetland"
+        "fill-antialias": true
       }
     },
     {
@@ -508,7 +509,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.3
+        "hillshade-exaggeration": 0.4
       },
       "hillshade-exaggeration": 0.1
     },
@@ -1255,7 +1256,7 @@
       }
     },
     {
-      "id": "hike_track_border",
+      "id": "bike_track_border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1281,7 +1282,7 @@
       }
     },
     {
-      "id": "hike_track",
+      "id": "bike_track",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1301,6 +1302,28 @@
         "line-color": "rgba(255, 255, 255, 1)",
         "line-width": {"base": 1.55, "stops": [[6, 0.25], [20, 16]]},
         "line-opacity": 1
+      }
+    },
+    {
+      "id": "bike_cycleway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "class", "path"],
+        ["any", ["==", "subclass", "cycleway"], ["==", "bicycle", 1]]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "line-join": "bevel",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(0,0, 255, 1)",
+        "line-dasharray": [3, 3],
+        "line-width": {"base": 1.55, "stops": [[4, 1], [20, 10]]}
       }
     },
     {
@@ -1340,7 +1363,8 @@
         ["!=", "subclass", "steps"],
         ["!=", "subclass", "footway"],
         ["!=", "subclass", "corridor"],
-        ["!=", "subclass", "platform"]
+        ["!=", "subclass", "platform"],
+        ["!=", "subclass", "cycleway"]
       ],
       "layout": {
         "line-cap": "butt",
@@ -1348,8 +1372,8 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(192, 127, 127, 1)",
-        "line-width": {"base": 1.55, "stops": [[4, 0.7], [20, 10]]},
+        "line-color": "rgba(190, 73, 73, 1)",
+        "line-width": {"base": 1.55, "stops": [[10, 1], [20, 10]]},
         "line-opacity": 1,
         "line-dasharray": [2, 1]
       }
@@ -1383,7 +1407,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 11,
       "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -1410,36 +1434,22 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "in",
-          "subclass",
-          "chair_lift",
-          "mixed_lift"
-        ]
-      ],
+      "minzoom": 11,
+      "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
       "layout": {
-          "visibility": "visible",
-          "text-field": "",
-          "symbol-placement": "line",
-          "text-font": ["Noto Sans Regular"],
-          "text-size": 10,
-          "icon-image": "chairlift",
-          "icon-offset": [0, 5],
-          "symbol-z-order": "auto",
-          "icon-ignore-placement": false,
-          "icon-optional": false,
-          "icon-rotation-alignment": "viewport",
-          "icon-rotate": 0,
-          "symbol-spacing": 70,
-          "icon-allow-overlap": false,
-          "icon-size": 1
-        },
-      "paint": {}
+        "visibility": "visible",
+        "text-field": "",
+        "symbol-placement": "line-center",
+        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-size": 10,
+        "icon-image": "chairlift",
+        "icon-offset": [0, 5],
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
       },
-      {
+      "paint": {}
+    },
+    {
       "id": "aerialway_cable_car",
       "type": "line",
       "source": "openmaptiles",
@@ -1447,30 +1457,27 @@
       "minzoom": 11,
       "filter": ["all", ["in", "subclass", "cable_car"]],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(104, 104, 104, 1)",
-        "line-opacity": {"stops": [[11, 0], [12, 1]]}
-      }
+      "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
     {
       "id": "aerialway_cable_car_icons",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation_name",
-      "minzoom": 13,
+      "minzoom": 11,
       "filter": ["all", ["in", "subclass", "cable_car"]],
       "layout": {
         "visibility": "visible",
         "text-field": "",
-        "symbol-placement": "line",
+        "symbol-placement": "line-center",
         "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
-        "symbol-spacing": 150,
         "text-size": 10,
         "icon-offset": [0, 10],
         "icon-image": "aerialway",
         "text-rotation-alignment": "auto",
         "text-pitch-alignment": "auto",
-        "icon-rotation-alignment": "viewport"
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
       },
       "paint": {}
     },
@@ -1482,28 +1489,25 @@
       "minzoom": 11,
       "filter": ["all", ["in", "subclass", "gondola"]],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(104, 104, 104, 1)",
-        "line-opacity": {"stops": [[11, 0], [12, 1]]}
-      }
+      "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
     {
       "id": "aerialway_gondola_symbol",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 11,
       "filter": ["all", ["in", "subclass", "gondola"]],
       "layout": {
         "visibility": "visible",
         "text-field": "",
-        "symbol-placement": "line",
+        "symbol-placement": "line-center",
         "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
-        "symbol-spacing": 200,
         "text-size": 10,
         "icon-image": "aerialway",
         "icon-offset": [0, 5],
-        "icon-rotation-alignment": "viewport"
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
       },
       "paint": {}
     },
@@ -1527,17 +1531,14 @@
         ]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(104, 104, 104, 1)",
-        "line-opacity": {"stops": [[11, 0], [12, 1]]}
-      }
+      "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
     {
       "id": "aerialway_teleski_symbol",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 11,
       "filter": [
         "all",
         [
@@ -1554,7 +1555,7 @@
       "layout": {
         "visibility": "visible",
         "text-field": "",
-        "symbol-placement": "line",
+        "symbol-placement": "line-center",
         "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
         "text-size": 10,
         "icon-image": "skiing",
@@ -1564,7 +1565,7 @@
         "icon-optional": false,
         "icon-rotation-alignment": "viewport",
         "icon-rotate": 300,
-        "symbol-spacing": 70
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
       },
       "paint": {}
     },
@@ -1573,7 +1574,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 0,
+      "minzoom": 11,
       "filter": ["all", ["in", "subclass", "goods", "zip_line"]],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -1881,9 +1882,9 @@
       },
       "paint": {
         "line-dasharray": [1],
-        "line-opacity": {"stops": [[6, 0], [20, 0.4]]},
+        "line-opacity": {"stops": [[10, 0], [20, 0.3]]},
         "line-color": "rgba(255, 0, 0, 1)",
-        "line-width": {"stops": [[6, 1], [20, 10]]}
+        "line-width": {"stops": [[10, 1], [20, 10]]}
       }
     },
     {
@@ -2003,7 +2004,7 @@
         "text-letter-spacing": 0.1,
         "text-max-width": 5,
         "text-rotation-alignment": "map",
-        "text-size": 14
+        "text-size": {"stops": [[8, 10], [16, 12]]}
       },
       "paint": {
         "text-color": "rgba(36, 105, 152, 1)",
@@ -2366,14 +2367,14 @@
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 1],
         "text-padding": 2,
-        "text-size": 12,
+        "text-size": {"stops": [[14, 10], [20, 12]]},
         "text-optional": true,
         "icon-size": 0.8,
         "icon-image": "post-JP",
         "icon-anchor": "bottom",
-        "icon-offset": [0, 0]
+        "icon-offset": [0, 0],
+        "text-offset": [0, 0.5]
       },
       "paint": {
         "text-color": "rgba(69, 68, 68, 1)",
