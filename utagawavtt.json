@@ -6,7 +6,9 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 7,
-      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
+      "tiles": [
+        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
+      ]
     },
     "openmaptiles": {
       "type": "vector",
@@ -24,8 +26,8 @@
       "url": "https://map.omrs.fr/data/france-contours-ign.json"
     }
   },
-  "sprite": "{style}",
-  "glyphs": "{fontstack}/{range}",
+  "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
+  "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -38,9 +40,9 @@
       "id": "natural-earth",
       "type": "raster",
       "source": "natural-earth-2",
-      "maxzoom": 6,
+      "maxzoom": 7,
       "layout": {"visibility": "visible"},
-      "paint": {"raster-opacity": {"stops": [[0, 0.9], [6, 0.9]]}}
+      "paint": {"raster-opacity": {"stops": [[0, 1], [7, 0.5]]}}
     },
     {
       "id": "landuse",
