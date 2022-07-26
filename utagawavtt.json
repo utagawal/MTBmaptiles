@@ -246,6 +246,16 @@
       }
     },
     {
+      "id": "aeroway-aerodrome",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "minzoom": 4,
+      "filter": ["all", ["in", "class", "aerodrome"]],
+      "paint": {"fill-color": "rgba(202, 236, 195, 1)"}
+    },
+    {
       "id": "park-inner",
       "type": "line",
       "source": "openmaptiles",
@@ -453,7 +463,8 @@
       "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
       "paint": {
         "fill-color": "rgba(115, 168, 205, 1)",
-        "fill-opacity": {"stops": [[0, 0.4], [7, 1]]}
+        "fill-opacity": {"stops": [[0, 0.5], [20, 1]]},
+        "fill-antialias": true
       }
     },
     {
@@ -1004,7 +1015,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(141, 141, 141, 1)",
+        "line-color": "rgba(141, 141, 141, 0.62)",
         "line-opacity": 1,
         "line-width": {"base": 1.5, "stops": [[11, 4], [17, 40]]}
       }
@@ -2008,7 +2019,8 @@
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-offset": [0, 0.5],
-        "text-size": 11
+        "text-size": 11,
+        "icon-image": "airport"
       },
       "paint": {
         "text-color": "#666",
