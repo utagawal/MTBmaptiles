@@ -64,7 +64,10 @@
       "source-layer": "landuse",
       "minzoom": 6,
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(213, 210, 210, 1)", "fill-opacity": 0.8}
+      "paint": {
+        "fill-color": "rgba(213, 210, 210, 1)",
+        "fill-opacity": {"stops": [[6, 0.2], [13, 0.8]]}
+      }
     },
     {
       "id": "landuse-residential",
@@ -80,7 +83,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "hsl(47, 13%, 86%)",
-        "fill-opacity": {"stops": [[6, 0.7], [10, 0.4]]}
+        "fill-opacity": {"stops": [[6, 0.2], [10, 0.8]]}
       }
     },
     {
@@ -197,7 +200,7 @@
       "minzoom": 4,
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
-      "paint": {"fill-color": "rgba(94, 158, 101, 0.5)", "fill-opacity": 0.9}
+      "paint": {"fill-color": "rgba(94, 158, 101, 0.5)", "fill-opacity": 0.7}
     },
     {
       "id": "landcover_farmland",
@@ -206,7 +209,7 @@
       "source-layer": "landcover",
       "minzoom": 4,
       "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(246, 235, 221, 1)"}
+      "paint": {"fill-color": "rgba(246, 235, 221, 1)", "fill-opacity": 0.7}
     },
     {
       "id": "landcover-ice-shelf",
@@ -229,20 +232,6 @@
       }
     },
     {
-      "id": "landuse-military",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 7,
-      "filter": ["all", ["==", "class", "military"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(146, 161, 63, 1)",
-        "fill-opacity": {"stops": [[6, 0.1], [20, 0.3]]},
-        "fill-antialias": false
-      }
-    },
-    {
       "id": "landuse-terrain-sport",
       "type": "fill",
       "source": "openmaptiles",
@@ -250,7 +239,7 @@
       "minzoom": 6,
       "filter": ["all", ["==", "$type", "Polygon"], ["in", "class", "pitch"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(76, 232, 63, 0.26)", "fill-opacity": 1}
+      "paint": {"fill-color": "rgba(76, 232, 63, 0.26)", "fill-opacity": 0.9}
     },
     {
       "id": "landuse_cemetery",
@@ -335,25 +324,6 @@
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": 0,
         "line-opacity": {"stops": [[6, 0.3], [20, 0.7]]}
-      }
-    },
-    {
-      "id": "landuse-military-zone-border",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 7,
-      "filter": ["all", ["==", "class", "military"]],
-      "layout": {
-        "line-join": "bevel",
-        "line-cap": "butt",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(88, 97, 38, 1)",
-        "line-width": {"stops": [[7, 3], [13, 6]]},
-        "line-offset": 0,
-        "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
       }
     },
     {
@@ -526,6 +496,39 @@
       "source-layer": "water",
       "filter": ["all", ["==", "$type", "Polygon"], ["==", "intermittent", 1]],
       "paint": {"fill-color": "hsl(205, 56%, 73%)", "fill-opacity": 0.7}
+    },
+    {
+      "id": "landuse-military",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 7,
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(146, 161, 63, 1)",
+        "fill-opacity": {"stops": [[6, 0.1], [20, 0.3]]},
+        "fill-antialias": false
+      }
+    },
+    {
+      "id": "landuse-military-zone-border",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 7,
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(88, 97, 38, 1)",
+        "line-width": {"stops": [[7, 3], [13, 6]]},
+        "line-offset": 0,
+        "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
+      }
     },
     {
       "id": "building-basic",
@@ -1610,7 +1613,7 @@
       "source": "openmaptiles",
       "source-layer": "park",
       "minzoom": 7,
-      "maxzoom": 14,
+      "maxzoom": 17,
       "filter": [
         "all",
         ["==", "$type", "Point"],
@@ -1633,10 +1636,11 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "rgba(85, 126, 88, 1)",
+        "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.8,
-        "text-opacity": {"stops": [[8, 0], [8.5, 1]]}
+        "text-halo-width": 1,
+        "text-opacity": 1,
+        "icon-halo-width": 1
       }
     },
     {
@@ -1644,8 +1648,8 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "park",
-      "minzoom": 6,
-      "maxzoom": 14,
+      "minzoom": 7,
+      "maxzoom": 17,
       "filter": [
         "all",
         ["==", "$type", "Point"],
@@ -1671,8 +1675,8 @@
       "paint": {
         "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255, 255, 255, 0.8)",
-        "text-halo-width": 1.8,
-        "text-opacity": {"stops": [[6, 0], [6.5, 1]]},
+        "text-halo-width": 1,
+        "text-opacity": 1,
         "icon-halo-width": 1,
         "icon-halo-color": "rgba(255, 255, 255, 1)"
       }
@@ -1682,8 +1686,8 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "park",
-      "minzoom": 5,
-      "maxzoom": 11,
+      "minzoom": 7,
+      "maxzoom": 17,
       "filter": [
         "all",
         ["==", "$type", "Point"],
@@ -1694,7 +1698,9 @@
           "réserve_naturelle_nationale",
           "cœur",
           "réserve_biologique_intégrale",
-          "réserve_naturelle_nationale"
+          "réserve_naturelle_nationale",
+          "coeur",
+          "aire_d'adhésion"
         ],
         ["<=", "rank", 2]
       ],
