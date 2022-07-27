@@ -296,7 +296,7 @@
         "line-color": "rgba(125, 184, 127,1)",
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": {"stops": [[7, 3], [13, 6]]},
-        "line-opacity": {"stops": [[6, 0.1], [20, 0.7]]}
+        "line-opacity": {"stops": [[6, 0.3], [20, 0.7]]}
       }
     },
     {
@@ -329,7 +329,7 @@
         "line-color": "rgba(82, 147, 85, 1)",
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": 0,
-        "line-opacity": {"stops": [[6, 0.1], [20, 0.7]]}
+        "line-opacity": {"stops": [[6, 0.3], [20, 0.7]]}
       }
     },
     {
@@ -914,69 +914,6 @@
       }
     },
     {
-      "id": "tunnel_railway_transit",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 0,
-      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.36, 0.18],
-        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": 0.5
-      }
-    },
-    {
-      "id": "tunnel_minor",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "minor_road", "path"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.36, 0.18],
-        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": 0.5
-      }
-    },
-    {
-      "id": "tunnel_major",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(126, 127, 126, 1)",
-        "line-dasharray": [0.28, 0.14],
-        "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
-        "line-opacity": 0.5
-      }
-    },
-    {
       "id": "aeroway-taxiway",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
@@ -1258,7 +1195,7 @@
       }
     },
     {
-      "id": "bike_track_border",
+      "id": "track_border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1284,7 +1221,7 @@
       }
     },
     {
-      "id": "bike_track",
+      "id": "track",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1307,7 +1244,7 @@
       }
     },
     {
-      "id": "bike_cycleway",
+      "id": "cycleway",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1334,7 +1271,7 @@
       }
     },
     {
-      "id": "hike_path_footway",
+      "id": "path_footway",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1358,7 +1295,7 @@
       }
     },
     {
-      "id": "hike_path",
+      "id": "path",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1408,6 +1345,69 @@
           ["get", "colour"],
           "#666666"
         ]
+      }
+    },
+    {
+      "id": "tunnel_major",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(126, 127, 126, 1)",
+        "line-dasharray": [0.28, 0.14],
+        "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
+        "line-opacity": 0.8
+      }
+    },
+    {
+      "id": "tunnel_minor",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "minor_road", "path"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.36, 0.18],
+        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
+        "line-opacity": 0.8
+      }
+    },
+    {
+      "id": "tunnel_railway_transit",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 0,
+      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.36, 0.18],
+        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
+        "line-opacity": 0.8
       }
     },
     {
@@ -1890,9 +1890,9 @@
       },
       "paint": {
         "line-dasharray": [1],
-        "line-opacity": {"stops": [[10, 0], [20, 0.3]]},
+        "line-opacity": {"stops": [[10, 0], [20, 0.4]]},
         "line-color": "rgba(255, 0, 0, 1)",
-        "line-width": {"stops": [[10, 1], [20, 10]]}
+        "line-width": {"stops": [[10, 2], [20, 10]]}
       }
     },
     {
