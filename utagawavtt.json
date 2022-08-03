@@ -26,7 +26,7 @@
     },
     "contours": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/france-contours-ign.json"
+      "url": "mbtiles://{europe-contours-copernicus}"
     }
   },
   "sprite": "{style}",
