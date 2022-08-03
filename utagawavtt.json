@@ -331,7 +331,7 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 7,
+      "minzoom": 9,
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -355,7 +355,7 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 7,
+      "minzoom": 9,
       "filter": [
         "all",
         [
