@@ -2129,6 +2129,27 @@
       }
     },
     {
+      "id": "place_label_isalnd",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "maxzoom": 24,
+      "filter": ["all", ["==", "class", "island"], ["==", "$type", "Point"]],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 10,
+        "text-size": {"stops": [[3, 16], [8, 20]]},
+        "icon-allow-overlap": true
+      },
+      "paint": {
+        "text-color": "rgba(51, 51, 51, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "place_label_city",
       "type": "symbol",
       "source": "openmaptiles",
