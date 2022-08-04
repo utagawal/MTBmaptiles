@@ -17,11 +17,31 @@
       "type": "vector",
       "url": "https://map.omrs.fr/data/planet-fast.json"
     },
+    "france-rgb-png": {
+      "type": "raster-dem",
+      "tiles": ["https://maps.utagawavtt.com/tiles/ign-france/{z}/{x}/{y}.png"],
+      "minzoom": 6,
+      "maxzoom": 11
+    },
+    "europe-rgb-png": {
+      "type": "raster-dem",
+      "tiles": ["https://maps.utagawavtt.com/tiles/copernicus/{z}/{x}/{y}.png"],
+      "bounds":[-34.49296, 29.735139, 46.75348, 81.47299],
+      "minzoom": 6,
+      "maxzoom": 11
+    },
+    "usa-rgb-png": {
+      "type": "raster-dem",
+      "tiles": ["https://maps.utagawavtt.com/tiles/usgs/{z}/{x}/{y}.png"],
+      "bounds":[-179.9999, 6.88283, -5.198412, 85.04177],
+      "minzoom": 6,
+      "maxzoom": 11
+    },
     "world-rgb-png": {
       "type": "raster-dem",
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
-      "minzoom": 4,
+      "minzoom": 6,
       "maxzoom": 11
     },
     "contours": {
@@ -119,6 +139,42 @@
       "id": "Hillshading",
       "type": "hillshade",
       "source": "world-rgb-png",
+      "minzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4
+      },
+      "hillshade-exaggeration": 0.1
+    },
+        {
+      "id": "Hillshading France",
+      "type": "hillshade",
+      "source": "france-rgb-png",
+      "minzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4
+      },
+      "hillshade-exaggeration": 0.1
+    },
+    {
+      "id": "Hillshading EU",
+      "type": "hillshade",
+      "source": "europe-rgb-png",
+      "minzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4
+      },
+      "hillshade-exaggeration": 0.1
+    },
+    {
+      "id": "Hillshading USA",
+      "type": "hillshade",
+      "source": "usa-rgb-png",
       "minzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {
