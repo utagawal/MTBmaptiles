@@ -9,9 +9,7 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 7,
-      "tiles": [
-        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
-      ]
+      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
       "type": "vector",
@@ -140,18 +138,7 @@
       "type": "hillshade",
       "source": "world-rgb-png",
       "minzoom": 6,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
-      },
-      "hillshade-exaggeration": 0.1
-    },
-        {
-      "id": "Hillshading France",
-      "type": "hillshade",
-      "source": "france-rgb-png",
-      "minzoom": 6,
+      "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -163,7 +150,17 @@
       "id": "Hillshading EU",
       "type": "hillshade",
       "source": "europe-rgb-png",
-      "minzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4
+      },
+      "hillshade-exaggeration": 0.1
+    },
+    {
+      "id": "Hillshading France",
+      "type": "hillshade",
+      "source": "france-rgb-png",
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -175,7 +172,6 @@
       "id": "Hillshading USA",
       "type": "hillshade",
       "source": "usa-rgb-png",
-      "minzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
