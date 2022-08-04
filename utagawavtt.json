@@ -8,7 +8,7 @@
   "sources": {
     "natural-earth-2": {
       "type": "raster",
-      "maxzoom": 7,
+      "maxzoom": 6,
       "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
@@ -40,7 +40,7 @@
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
       "minzoom": 6,
-      "maxzoom": 11
+      "maxzoom": 9
     },
     "contours": {
       "type": "vector",
