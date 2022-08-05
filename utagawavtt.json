@@ -137,7 +137,7 @@
       "id": "Hillshading",
       "type": "hillshade",
       "source": "world-rgb-png",
-      "minzoom": 6,
+      "minzoom": 5,
       "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {
@@ -150,7 +150,7 @@
       "id": "Hillshading EU",
       "type": "hillshade",
       "source": "europe-rgb-png",
-      "minzoom": 6,
+      "minzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -162,7 +162,7 @@
       "id": "Hillshading France",
       "type": "hillshade",
       "source": "france-rgb-png",
-      "minzoom": 6,
+      "minzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -174,7 +174,7 @@
       "id": "Hillshading USA",
       "type": "hillshade",
       "source": "usa-rgb-png",
-      "minzoom": 6,
+      "minzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
