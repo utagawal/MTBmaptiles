@@ -25,7 +25,7 @@
     },
     "natural-earth-2": {
       "type": "raster",
-      "maxzoom": 6,
+      "maxzoom": 5,
       "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
@@ -62,7 +62,7 @@
       "id": "natural-earth",
       "type": "raster",
       "source": "natural-earth-2",
-      "maxzoom": 7,
+      "maxzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {"raster-opacity": {"stops": [[0, 1], [7, 0.5]]}}
     },
@@ -150,6 +150,7 @@
       "id": "Hillshading EU",
       "type": "hillshade",
       "source": "europe-rgb-png",
+      "minzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -161,6 +162,7 @@
       "id": "Hillshading France",
       "type": "hillshade",
       "source": "france-rgb-png",
+      "minzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -172,6 +174,7 @@
       "id": "Hillshading USA",
       "type": "hillshade",
       "source": "usa-rgb-png",
+      "minzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
