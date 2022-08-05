@@ -14,18 +14,18 @@
       "type": "raster-dem",
       "tiles": ["https://maps.utagawavtt.com/tiles/copernicus/{z}/{x}/{y}.png"],
       "bounds":[-34.49296, 29.735139, 46.75348, 81.47299],
-      "minzoom": 6,
+      "minzoom": 5,
       "maxzoom": 11
     },
     "france-rgb-png": {
       "type": "raster-dem",
       "tiles": ["https://maps.utagawavtt.com/tiles/ign-france/{z}/{x}/{y}.png"],
-      "minzoom": 6,
+      "minzoom": 5,
       "maxzoom": 11
     },
     "natural-earth-2": {
       "type": "raster",
-      "maxzoom": 5,
+      "maxzoom": 6,
       "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
@@ -36,14 +36,14 @@
       "type": "raster-dem",
       "tiles": ["https://maps.utagawavtt.com/tiles/usgs/{z}/{x}/{y}.png"],
       "bounds":[-179.9999, 6.88283, -5.198412, 85.04177],
-      "minzoom": 6,
+      "minzoom": 5,
       "maxzoom": 11
     },
     "world-rgb-png": {
       "type": "raster-dem",
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
-      "minzoom": 6,
+      "minzoom": 5,
       "maxzoom": 9
     }
   },
@@ -62,7 +62,7 @@
       "id": "natural-earth",
       "type": "raster",
       "source": "natural-earth-2",
-      "maxzoom": 5,
+      "maxzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {"raster-opacity": {"stops": [[0, 1], [7, 0.5]]}}
     },
