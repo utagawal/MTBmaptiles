@@ -44,7 +44,7 @@
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
       "minzoom": 5,
-      "maxzoom": 9
+      "maxzoom": 11
     }
   },
   "sprite": "{style}",
@@ -138,7 +138,6 @@
       "type": "hillshade",
       "source": "world-rgb-png",
       "minzoom": 5,
-      "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
