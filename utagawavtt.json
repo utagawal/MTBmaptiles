@@ -143,8 +143,7 @@
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4
-      },
-      "hillshade-exaggeration": 0.1
+      }
     },
     {
       "id": "Hillshading EU",
@@ -155,7 +154,7 @@
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4
-      },
+      }
     },
     {
       "id": "Hillshading France",
@@ -166,7 +165,7 @@
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.1
-      },
+      }
     },
     {
       "id": "Hillshading USA",
@@ -177,8 +176,7 @@
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4
-      },
-      "hillshade-exaggeration": 0.1
+      }
     },
     {
       "id": "landcover_rock",
