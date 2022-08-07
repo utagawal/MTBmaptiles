@@ -84,7 +84,7 @@
       "minzoom": 6,
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(213, 210, 210, 1)",
+        "fill-color": "rgba(241, 241, 220, 1)",
         "fill-opacity": {"stops": [[6, 0.2], [13, 0.8]]}
       }
     },
@@ -128,10 +128,10 @@
           "aire_d’adhésion"
         ]
       ],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "fill-color": "rgba(125, 184, 127, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [20, 0.6]]}
+        "fill-opacity": {"stops": [[6, 0.6], [20, 0.1]]}
       }
     },
     {
@@ -382,13 +382,13 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 9,
+      "minzoom": 7,
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[11, 0.2], [20, 0.5]]},
+        "line-opacity": {"stops": [[7, 0.2], [20, 0.5]]},
         "line-color": "rgba(130, 105, 51, 1)",
-        "line-width": {"stops": [[11, 0.4], [20, 0.6]]}
+        "line-width": 0.4
       }
     },
     {
@@ -406,7 +406,7 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 9,
+      "minzoom": 7,
       "filter": [
         "all",
         [
@@ -507,8 +507,8 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[11, 0.2], [20, 0.5]]},
-        "line-width": {"stops": [[6, 0.4], [20, 0.8]]},
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.5]]},
+        "line-width": 0.4,
         "line-color": "rgba(179, 118, 41, 1)"
       }
     },
@@ -587,7 +587,7 @@
       "source": "openmaptiles",
       "source-layer": "building",
       "paint": {
-        "fill-color": "rgba(152, 150, 140, 1)",
+        "fill-color": "rgba(166, 166, 166, 1)",
         "fill-outline-color": "rgba(152, 150, 140, 1)",
         "fill-opacity": {"base": 1, "stops": [[13, 0], [15, 1]]},
         "fill-antialias": true
@@ -619,7 +619,7 @@
       "source-layer": "building",
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(236, 236, 236, 1)",
+        "fill-color": "rgba(208, 208, 208, 1)",
         "fill-opacity": {"base": 1, "stops": [[13, 0], [16, 1]]},
         "fill-outline-color": "#dfdbd7",
         "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]}
@@ -1358,10 +1358,11 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": {"base": 1.55, "stops": [[6, 0.25], [20, 10]]},
+        "line-color": "rgba(147, 147, 147, 1)",
+        "line-width": {"base": 1.55, "stops": [[6, 0.5], [20, 5]]},
         "line-opacity": 1,
-        "line-gap-width": 0
+        "line-gap-width": 0,
+        "line-dasharray": [3, 3]
       }
     },
     {
