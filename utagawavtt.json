@@ -6,14 +6,14 @@
   "zoom": 3,
   "light": {"intensity": 0.2},
   "sources": {
-   "contours": {
+    "contours": {
       "type": "vector",
-      "url": "mbtiles://{europe-contours-copernicus}"
+      "url": "https://map.omrs.fr/data/europe-contours-copernicus.json"
     },
     "europe-rgb-png": {
       "type": "raster-dem",
       "tiles": ["https://maps.utagawavtt.com/tiles/copernicus/{z}/{x}/{y}.png"],
-      "bounds":[-34.49296, 29.735139, 46.75348, 81.47299],
+      "bounds": [-34.49296, 29.735139, 46.75348, 81.47299],
       "minzoom": 5,
       "maxzoom": 11
     },
@@ -26,7 +26,9 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
-      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
+      "tiles": [
+        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
+      ]
     },
     "openmaptiles": {
       "type": "vector",
@@ -35,7 +37,7 @@
     "usa-rgb-png": {
       "type": "raster-dem",
       "tiles": ["https://maps.utagawavtt.com/tiles/usgs/{z}/{x}/{y}.png"],
-      "bounds":[-179.9999, 6.88283, -5.198412, 85.04177],
+      "bounds": [-179.9999, 6.88283, -5.198412, 85.04177],
       "minzoom": 5,
       "maxzoom": 11
     },
@@ -49,7 +51,6 @@
   },
   "sprite": "{style}",
   "glyphs": "{fontstack}/{range}",
-  "transition": {"duration": 400},
   "layers": [
     {
       "id": "background",
@@ -62,9 +63,9 @@
       "id": "natural-earth",
       "type": "raster",
       "source": "natural-earth-2",
-      "maxzoom": 6,
+      "maxzoom": 8,
       "layout": {"visibility": "visible"},
-      "paint": {"raster-opacity": {"stops": [[0, 1], [7, 0.5]]}}
+      "paint": {"raster-opacity": {"stops": [[0, 1], [8, 0]]}}
     },
     {
       "id": "landuse",
@@ -137,7 +138,7 @@
       "id": "Hillshading",
       "type": "hillshade",
       "source": "world-rgb-png",
-      "minzoom": 5,
+      "minzoom": 4,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -149,7 +150,7 @@
       "type": "hillshade",
       "source": "europe-rgb-png",
       "minzoom": 5,
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4
@@ -556,7 +557,7 @@
       "filter": ["all", ["==", "class", "military"]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(146, 161, 63, 1)",
+        "fill-color": "rgba(164, 42, 4, 1)",
         "fill-opacity": {"stops": [[6, 0.1], [20, 0.3]]},
         "fill-antialias": false
       }
@@ -574,8 +575,8 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(88, 97, 38, 1)",
-        "line-width": {"stops": [[7, 3], [13, 6]]},
+        "line-color": "rgba(164, 42, 4, 1)",
+        "line-width": {"stops": [[7, 1], [13, 2]]},
         "line-offset": 0,
         "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
       }
@@ -713,6 +714,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 6,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
@@ -817,6 +819,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 6,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
@@ -904,7 +907,7 @@
         "line-color": "rgba(142, 142, 142, 1)",
         "line-offset": 0,
         "line-width": {"base": 1.4, "stops": [[6, 2], [16, 20]]},
-        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
+        "line-opacity": {"stops": [[4, 0], [11, 0.6]]}
       }
     },
     {
@@ -922,7 +925,7 @@
         "line-color": "rgba(238, 85, 85, 1)",
         "line-offset": 0,
         "line-width": {"base": 1.4, "stops": [[8, 1], [16, 10]]},
-        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
+        "line-opacity": {"stops": [[4, 0], [11, 0.6]]}
       }
     },
     {
@@ -2179,7 +2182,7 @@
       }
     },
     {
-      "id": "place_label_isalnd",
+      "id": "place_label_island",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2242,7 +2245,7 @@
       "paint": {
         "text-color": "#333",
         "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
+        "text-halo-width": 1.5
       }
     },
     {
