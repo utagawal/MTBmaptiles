@@ -68,87 +68,9 @@
       "paint": {"raster-opacity": {"stops": [[0, 1], [8, 0]]}}
     },
     {
-      "id": "landuse",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "filter": ["==", "class", "agriculture"],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#eae0d0"}
-    },
-    {
-      "id": "landuse_urban",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(241, 241, 220, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [13, 0.8]]}
-      }
-    },
-    {
-      "id": "landuse-residential",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        ["in", "class", "residential", "suburb", "neighbourhood"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "hsl(47, 13%, 86%)",
-        "fill-opacity": {"stops": [[6, 0.2], [10, 0.8]]}
-      }
-    },
-    {
-      "id": "park-fill",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark",
-          "aire_d’adhésion"
-        ]
-      ],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "fill-color": "rgba(125, 184, 127, 1)",
-        "fill-opacity": {"stops": [[6, 0.6], [20, 0.1]]}
-      }
-    },
-    {
-      "id": "Hillshading",
+      "id": "Hillshading USA",
       "type": "hillshade",
-      "source": "world-rgb-png",
-      "minzoom": 4,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
-      }
-    },
-    {
-      "id": "Hillshading EU",
-      "type": "hillshade",
-      "source": "europe-rgb-png",
+      "source": "usa-rgb-png",
       "minzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {
@@ -164,245 +86,47 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.1
+        "hillshade-exaggeration": 0.2
       }
     },
     {
-      "id": "Hillshading USA",
+      "id": "Hillshading",
       "type": "hillshade",
-      "source": "usa-rgb-png",
+      "source": "world-rgb-png",
+      "minzoom": 4,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.2
+      }
+    },
+    {
+      "id": "Hillshading EU",
+      "type": "hillshade",
+      "source": "europe-rgb-png",
       "minzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
+        "hillshade-exaggeration": 0.2
       }
     },
     {
-      "id": "landcover_rock",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(189, 189, 189, 0.92)",
-        "fill-antialias": false,
-        "fill-opacity": {"stops": [[7, 0.1], [20, 0.7]]}
-      }
-    },
-    {
-      "id": "landcover_sand",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 3,
-      "filter": ["all", ["==", "class", "sand"]],
-      "paint": {"fill-color": "rgba(234, 231, 184, 1)", "fill-opacity": 0.9}
-    },
-    {
-      "id": "landcover-wetland-fill",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849388993.3071"},
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["==", "class", "wetland"]],
-      "paint": {
-        "fill-color": "rgba(163, 246, 244, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [11, 0.6]]},
-        "fill-translate": [0, 0],
-        "fill-antialias": true
-      }
-    },
-    {
-      "id": "landcover_grass",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["==", "class", "grass"],
-      "paint": {"fill-color": "rgba(131, 226, 97, 1)", "fill-opacity": 0.3}
-    },
-    {
-      "id": "landcover-vignobles",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849382550.77"},
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 11,
-      "filter": [
-        "all",
-        ["==", "class", "farmland"],
-        ["==", "subclass", "vineyard"]
-      ],
-      "paint": {
-        "fill-antialias": true,
-        "fill-color": "rgba(234, 29, 134, 1)",
-        "fill-opacity": 0.2
-      }
-    },
-    {
-      "id": "landcover_wood",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 4,
-      "filter": ["all", ["==", "class", "wood"]],
-      "layout": {},
-      "paint": {"fill-color": "rgba(148, 188, 131, 1)", "fill-opacity": 0.8}
-    },
-    {
-      "id": "landcover_farmland",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 4,
-      "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(246, 235, 221, 1)", "fill-opacity": 0.7}
-    },
-    {
-      "id": "landcover-ice-shelf",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "filter": ["==", "subclass", "ice_shelf"],
-      "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.8}
-    },
-    {
-      "id": "landcover-glacier",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["==", "subclass", "glacier"],
-      "paint": {
-        "fill-color": "rgba(255, 255, 255, 1)",
-        "fill-opacity": {"base": 1, "stops": [[7, 0.1], [20, 0.9]]}
-      }
-    },
-    {
-      "id": "landuse-terrain-sport",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "filter": ["all", ["==", "$type", "Polygon"], ["in", "class", "pitch"]],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(76, 232, 63, 0.26)", "fill-opacity": 0.9}
-    },
-    {
-      "id": "landuse_cemetery",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "filter": ["==", "class", "cemetery"],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(191, 191, 191, 1)"}
-    },
-    {
-      "id": "aeroway-aerodrome",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849345966.4436"},
-      "source": "openmaptiles",
-      "source-layer": "aeroway",
-      "minzoom": 4,
-      "filter": ["all", ["in", "class", "aerodrome"]],
-      "paint": {"fill-color": "rgba(202, 236, 195, 1)"}
-    },
-    {
-      "id": "park-inner",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "protected_area",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark",
-          "aire_d’adhésion"
-        ]
-      ],
-      "paint": {
-        "line-color": "rgba(125, 184, 127,1)",
-        "line-width": {"stops": [[7, 3], [13, 6]]},
-        "line-offset": {"stops": [[7, 3], [13, 6]]},
-        "line-opacity": {"stops": [[6, 0.3], [20, 0.7]]}
-      }
-    },
-    {
-      "id": "park-outer",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "protected_area",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark",
-          "aire_d’adhésion"
-        ]
-      ],
-      "layout": {"line-join": "bevel", "line-cap": "butt"},
-      "paint": {
-        "line-color": "rgba(82, 147, 85, 1)",
-        "line-width": {"stops": [[7, 3], [13, 6]]},
-        "line-offset": 0,
-        "line-opacity": {"stops": [[6, 0.3], [20, 0.7]]}
-      }
-    },
-    {
-      "id": "Contours-10",
+      "id": "Contours-100-200",
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
       "minzoom": 7,
-      "filter": ["all"],
+      "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[7, 0.2], [20, 0.5]]},
-        "line-color": "rgba(130, 105, 51, 1)",
-        "line-width": 0.4
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.3]]},
+        "line-width": 0.6,
+        "line-color": "rgba(212, 85, 0, 1)"
       }
     },
     {
-      "id": "Contours-falaise",
-      "type": "line",
-      "metadata": {"IHM:overlay": false},
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-      "filter": ["in", "class", "cliff", "earth_bank"],
-      "paint": {"line-width": 1.5, "line-color": "#977C73", "line-opacity": 0.9}
-    },
-    {
-      "id": "Contours-100-200",
+      "id": "Contours-100-200-copy",
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
@@ -505,11 +229,432 @@
           9000
         ]
       ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.3]]},
+        "line-width": 0.4,
+        "line-color": "rgba(212, 85, 0, 1)"
+      }
+    },
+    {
+      "id": "Contours-10",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 7,
+      "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[7, 0.1], [20, 0.5]]},
-        "line-width": 0.4,
-        "line-color": "rgba(179, 118, 41, 1)"
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.3]]},
+        "line-color": "#d45500",
+        "line-width": 1.1
+      }
+    },
+    {
+      "id": "Contours-falaise",
+      "type": "line",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 14,
+      "filter": ["in", "class", "cliff", "earth_bank"],
+      "layout": {"line-cap": "butt", "line-join": "bevel"},
+      "paint": {
+        "line-width": 8,
+        "line-color": "#977C73",
+        "line-opacity": 0.5,
+        "line-pattern": "triangle",
+        "line-translate-anchor": "map"
+      }
+    },
+    {
+      "id": "Contours-label",
+      "type": "symbol",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ele",
+          0,
+          100,
+          200,
+          300,
+          400,
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000,
+          1100,
+          1200,
+          1300,
+          1400,
+          1500,
+          1600,
+          1700,
+          1800,
+          1900,
+          2000,
+          2100,
+          2200,
+          2300,
+          2400,
+          2500,
+          2600,
+          2700,
+          2800,
+          2900,
+          3000,
+          3100,
+          3200,
+          3300,
+          3400,
+          3500,
+          3600,
+          3700,
+          3800,
+          3900,
+          4000,
+          4100,
+          4200,
+          4300,
+          4400,
+          4500,
+          4600,
+          4700,
+          4800,
+          4900,
+          5000,
+          5100,
+          5200,
+          5300,
+          5400,
+          5500,
+          5600,
+          5700,
+          5800,
+          5900,
+          6000,
+          6100,
+          6200,
+          6300,
+          6400,
+          6500,
+          6600,
+          6700,
+          6800,
+          6900,
+          7000,
+          7100,
+          7200,
+          7300,
+          7400,
+          7500,
+          7600,
+          7700,
+          7800,
+          7900,
+          8000,
+          8100,
+          8200,
+          8300,
+          8400,
+          8500,
+          8600,
+          8700,
+          8800,
+          8900,
+          9000
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": "{ele} m",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "text-padding": 50,
+        "visibility": "visible",
+        "text-max-width": 10,
+        "text-max-angle": 45,
+        "symbol-spacing": 250
+      },
+      "paint": {
+        "text-color": "rgba(46, 39, 22, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255, 255, 255, 0.49)"
+      }
+    },
+    {
+      "id": "landcover-glacier",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["==", "subclass", "glacier"],
+      "paint": {
+        "fill-color": "rgba(255, 255, 255, 1)",
+        "fill-opacity": {"base": 1, "stops": [[0, 0.9], [10, 0.3]]}
+      }
+    },
+    {
+      "id": "landcover_rock",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(189, 189, 189, 0.92)",
+        "fill-antialias": false,
+        "fill-opacity": {"stops": [[0, 0.9], [10, 0.3]]}
+      }
+    },
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": ["==", "class", "agriculture"],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#eae0d0"}
+    },
+    {
+      "id": "landuse_urban",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(241, 241, 220, 1)",
+        "fill-opacity": {"stops": [[6, 0.2], [13, 0.8]]}
+      }
+    },
+    {
+      "id": "landuse-residential",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["in", "class", "residential", "suburb", "neighbourhood"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "hsl(47, 13%, 86%)",
+        "fill-opacity": {"stops": [[6, 0.2], [10, 0.8]]}
+      }
+    },
+    {
+      "id": "park-fill",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark",
+          "aire_d’adhésion"
+        ]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "fill-color": "rgba(125, 184, 127, 1)",
+        "fill-opacity": {"stops": [[6, 0.6], [20, 0.1]]}
+      }
+    },
+    {
+      "id": "landcover_sand",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 3,
+      "filter": ["all", ["==", "class", "sand"]],
+      "paint": {"fill-color": "rgba(234, 231, 184, 1)", "fill-opacity": 0.4}
+    },
+    {
+      "id": "landcover-wetland-fill",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849388993.3071"},
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["==", "class", "wetland"]],
+      "paint": {
+        "fill-color": "rgba(163, 246, 244, 1)",
+        "fill-opacity": {"stops": [[6, 0.2], [11, 0.6]]},
+        "fill-translate": [0, 0],
+        "fill-antialias": true
+      }
+    },
+    {
+      "id": "landcover_grass",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["==", "class", "grass"],
+      "paint": {"fill-color": "rgba(131, 226, 97, 1)", "fill-opacity": 0.3}
+    },
+    {
+      "id": "landcover-vignobles",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849382550.77"},
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "class", "farmland"],
+        ["==", "subclass", "vineyard"]
+      ],
+      "paint": {
+        "fill-antialias": true,
+        "fill-color": "rgba(234, 29, 134, 1)",
+        "fill-opacity": 0.2
+      }
+    },
+    {
+      "id": "landcover_wood",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 4,
+      "filter": ["all", ["==", "class", "wood"]],
+      "layout": {},
+      "paint": {"fill-color": "rgba(119, 176, 107, 1)", "fill-opacity": 0.5}
+    },
+    {
+      "id": "landcover_farmland",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 4,
+      "filter": ["all", ["==", "class", "farmland"]],
+      "paint": {"fill-color": "rgba(246, 235, 221, 1)", "fill-opacity": 0.7}
+    },
+    {
+      "id": "landcover-ice-shelf",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "filter": ["==", "subclass", "ice_shelf"],
+      "paint": {
+        "fill-color": "hsl(47, 26%, 88%)",
+        "fill-opacity": {"stops": [[0, 0.9], [10, 0.3]]}
+      }
+    },
+    {
+      "id": "landuse-terrain-sport",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "filter": ["all", ["==", "$type", "Polygon"], ["in", "class", "pitch"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(76, 232, 63, 0.26)", "fill-opacity": 0.9}
+    },
+    {
+      "id": "landuse_cemetery",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "filter": ["==", "class", "cemetery"],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(191, 191, 191, 1)"}
+    },
+    {
+      "id": "aeroway-aerodrome",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849345966.4436"},
+      "source": "openmaptiles",
+      "source-layer": "aeroway",
+      "minzoom": 4,
+      "filter": ["all", ["in", "class", "aerodrome"]],
+      "paint": {"fill-color": "rgba(202, 236, 195, 1)"}
+    },
+    {
+      "id": "park-inner",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "protected_area",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark",
+          "aire_d’adhésion"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(125, 184, 127,1)",
+        "line-width": {"stops": [[7, 3], [13, 6]]},
+        "line-offset": {"stops": [[7, 3], [13, 6]]},
+        "line-opacity": {"stops": [[6, 0.5], [20, 0.3]]}
+      }
+    },
+    {
+      "id": "park-outer",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "protected_area",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark",
+          "aire_d’adhésion"
+        ]
+      ],
+      "layout": {"line-join": "bevel", "line-cap": "butt"},
+      "paint": {
+        "line-color": "rgba(82, 147, 85, 1)",
+        "line-width": {"stops": [[7, 3], [13, 6]]},
+        "line-offset": 0,
+        "line-opacity": {"stops": [[6, 0.5], [20, 0.3]]}
       }
     },
     {
@@ -623,6 +768,69 @@
         "fill-opacity": {"base": 1, "stops": [[13, 0], [16, 1]]},
         "fill-outline-color": "#dfdbd7",
         "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]}
+      }
+    },
+    {
+      "id": "tunnel_minor",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "minor_road", "path"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.36, 0.18],
+        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
+      }
+    },
+    {
+      "id": "tunnel_railway_transit",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 0,
+      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.36, 0.18],
+        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
+      }
+    },
+    {
+      "id": "tunnel_major",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(126, 127, 126, 1)",
+        "line-dasharray": [0.28, 0.14],
+        "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
       }
     },
     {
@@ -1419,69 +1627,6 @@
       }
     },
     {
-      "id": "tunnel_major",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(126, 127, 126, 1)",
-        "line-dasharray": [0.28, 0.14],
-        "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
-      }
-    },
-    {
-      "id": "tunnel_minor",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "minor_road", "path"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.36, 0.18],
-        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
-      }
-    },
-    {
-      "id": "tunnel_railway_transit",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 0,
-      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.36, 0.18],
-        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
-      }
-    },
-    {
       "id": "aerialway_chairlift-hatch",
       "type": "line",
       "source": "openmaptiles",
@@ -1723,7 +1868,7 @@
       "layout": {
         "text-field": "{name:latin}{name:nonlatin}",
         "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[6, 9], [12, 16]]},
+        "text-size": 10,
         "visibility": "visible"
       },
       "paint": {
@@ -1761,7 +1906,7 @@
       "layout": {
         "text-field": "{name:latin}{name:nonlatin}",
         "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[7, 10], [12, 16]]},
+        "text-size": 12,
         "visibility": "visible"
       },
       "paint": {
@@ -1788,7 +1933,7 @@
         "text-field": "{name:fr}",
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 10,
-        "text-size": {"stops": [[3, 12], [8, 22]]}
+        "text-size": 16
       },
       "paint": {
         "text-color": "hsl(0, 0%, 13%)",
@@ -1820,127 +1965,6 @@
         "text-halo-blur": 0,
         "text-halo-color": "rgba(255,255,255,0.75)",
         "text-halo-width": 2
-      }
-    },
-    {
-      "id": "Contours-label",
-      "type": "symbol",
-      "source": "contours",
-      "source-layer": "contours",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ele",
-          0,
-          100,
-          200,
-          300,
-          400,
-          500,
-          600,
-          700,
-          800,
-          900,
-          1000,
-          1100,
-          1200,
-          1300,
-          1400,
-          1500,
-          1600,
-          1700,
-          1800,
-          1900,
-          2000,
-          2100,
-          2200,
-          2300,
-          2400,
-          2500,
-          2600,
-          2700,
-          2800,
-          2900,
-          3000,
-          3100,
-          3200,
-          3300,
-          3400,
-          3500,
-          3600,
-          3700,
-          3800,
-          3900,
-          4000,
-          4100,
-          4200,
-          4300,
-          4400,
-          4500,
-          4600,
-          4700,
-          4800,
-          4900,
-          5000,
-          5100,
-          5200,
-          5300,
-          5400,
-          5500,
-          5600,
-          5700,
-          5800,
-          5900,
-          6000,
-          6100,
-          6200,
-          6300,
-          6400,
-          6500,
-          6600,
-          6700,
-          6800,
-          6900,
-          7000,
-          7100,
-          7200,
-          7300,
-          7400,
-          7500,
-          7600,
-          7700,
-          7800,
-          7900,
-          8000,
-          8100,
-          8200,
-          8300,
-          8400,
-          8500,
-          8600,
-          8700,
-          8800,
-          8900,
-          9000
-        ]
-      ],
-      "layout": {
-        "symbol-placement": "line",
-        "text-field": "{ele} m",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "text-padding": 50,
-        "visibility": "visible",
-        "text-max-width": 10,
-        "text-max-angle": 45,
-        "symbol-spacing": 250
-      },
-      "paint": {
-        "text-color": "rgba(46, 39, 22, 1)",
-        "text-halo-width": 1,
-        "text-halo-color": "rgba(255, 255, 255, 0.49)"
       }
     },
     {
