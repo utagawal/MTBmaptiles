@@ -86,7 +86,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
+        "hillshade-exaggeration": 0.4
       }
     },
     {
@@ -97,7 +97,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
+        "hillshade-exaggeration": 0.4
       }
     },
     {
@@ -108,7 +108,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
+        "hillshade-exaggeration": 0.4
       }
     },
     {
@@ -510,7 +510,7 @@
         "line-color": "rgba(125, 184, 127,1)",
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": {"stops": [[7, 3], [13, 6]]},
-        "line-opacity": {"stops": [[6, 0.5], [20, 0.3]]}
+        "line-opacity": {"stops": [[6, 0.4], [20, 0.1]]}
       }
     },
     {
@@ -543,7 +543,7 @@
         "line-color": "rgba(82, 147, 85, 1)",
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": 0,
-        "line-opacity": {"stops": [[6, 0.5], [20, 0.3]]}
+        "line-opacity": {"stops": [[6, 0.4], [20, 0.1]]}
       }
     },
     {
