@@ -86,7 +86,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
+        "hillshade-exaggeration": 0.2
       }
     },
     {
@@ -120,9 +120,9 @@
       "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[7, 0.1], [20, 0.3]]},
-        "line-width": 0.6,
-        "line-color": "rgba(212, 85, 0, 1)"
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.4]]},
+        "line-color": "rgba(212, 85, 0, 1)",
+        "line-width": 0.6
       }
     },
     {
@@ -134,7 +134,7 @@
       "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": {"stops": [[7, 0.1], [20, 0.3]]},
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.4]]},
         "line-color": "#d45500",
         "line-width": 1.1
       }
@@ -298,7 +298,7 @@
       "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(189, 189, 189, 0.92)",
+        "fill-color": "rgba(141, 141, 141, 0.92)",
         "fill-antialias": false,
         "fill-opacity": {"stops": [[0, 0.9], [10, 0.3]]}
       }
@@ -401,7 +401,10 @@
       "source-layer": "landcover",
       "minzoom": 6,
       "filter": ["==", "class", "grass"],
-      "paint": {"fill-color": "rgba(131, 226, 97, 1)", "fill-opacity": 0.3}
+      "paint": {
+        "fill-color": "rgba(181, 232, 129, 1)",
+        "fill-opacity": {"stops": [[0, 0.8], [10, 0.4]]}
+      }
     },
     {
       "id": "landcover-vignobles",
@@ -418,7 +421,7 @@
       "paint": {
         "fill-antialias": true,
         "fill-color": "rgba(234, 29, 134, 1)",
-        "fill-opacity": 0.2
+        "fill-opacity": 0.3
       }
     },
     {
@@ -438,7 +441,7 @@
       "source-layer": "landcover",
       "minzoom": 4,
       "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.7}
+      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.4}
     },
     {
       "id": "landcover-ice-shelf",
@@ -1809,7 +1812,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 14,
+      "minzoom": 13,
       "filter": [
         "all",
         ["==", "class", "path"],
@@ -1838,7 +1841,7 @@
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 14,
+      "minzoom": 13,
       "filter": [
         "all",
         ["==", "class", "path"],
@@ -2334,7 +2337,7 @@
       "filter": ["==", "class", "continent"],
       "layout": {
         "text-font": ["Noto Sans Regular"],
-        "text-field": "{name:latin}",
+        "text-field": "{name:fr}",
         "text-size": 14,
         "text-max-width": 6.25,
         "text-transform": "uppercase",
