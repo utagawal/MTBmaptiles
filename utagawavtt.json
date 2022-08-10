@@ -270,9 +270,9 @@
       "filter": ["in", "class", "cliff", "earth_bank"],
       "layout": {"line-cap": "butt", "line-join": "bevel"},
       "paint": {
-        "line-width": {"stops": [[14, 10], [20, 18]]},
+        "line-width": {"stops": [[14, 10], [20, 14]]},
         "line-color": "#977C73",
-        "line-opacity": 0.5,
+        "line-opacity": 0.6,
         "line-pattern": "triangle",
         "line-translate-anchor": "map"
       }
@@ -432,7 +432,10 @@
       "minzoom": 4,
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
-      "paint": {"fill-color": "rgba(42, 218, 95, 1)", "fill-opacity": 0.4}
+      "paint": {
+        "fill-color": "rgba(42, 218, 95, 1)",
+        "fill-opacity": {"stops": [[4, 0.8], [20, 0.2]]}
+      }
     },
     {
       "id": "landcover_farmland",
@@ -595,7 +598,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(164, 42, 4, 1)",
-        "fill-opacity": {"stops": [[6, 0.1], [20, 0.3]]},
+        "fill-opacity": {"stops": [[6, 0.5], [20, 0.1]]},
         "fill-antialias": false
       }
     },
@@ -947,6 +950,19 @@
       "paint": {
         "line-color": "hsl(47, 26%, 88%)",
         "line-width": {"base": 1.2, "stops": [[15, 1], [17, 4]]}
+      }
+    },
+    {
+      "id": "road_path_bridleway",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 7,
+      "filter": ["all", ["==", "subclass", "bridleway"]],
+      "paint": {
+        "fill-color": "rgba(187, 151, 116, 1)",
+        "fill-antialias": true,
+        "fill-opacity": 0.5
       }
     },
     {
@@ -1391,6 +1407,20 @@
       }
     },
     {
+      "id": "track-polygon",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 11,
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "track"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(187, 151, 116, 1)",
+        "fill-antialias": true,
+        "fill-opacity": 0.5
+      }
+    },
+    {
       "id": "track",
       "type": "line",
       "source": "openmaptiles",
@@ -1400,7 +1430,7 @@
         "all",
         ["==", "$type", "LineString"],
         ["in", "class", "track"],
-        ["!=", "subclass", "steps"]
+        ["!in", "subclass", "steps", " bridleway"]
       ],
       "layout": {
         "line-cap": "round",
@@ -1437,7 +1467,7 @@
       "paint": {
         "line-color": "rgba(0,0, 255, 1)",
         "line-dasharray": [3, 3],
-        "line-width": {"base": 1.55, "stops": [[4, 1], [20, 10]]}
+        "line-width": {"base": 1.55, "stops": [[4, 1.2], [20, 3]]}
       }
     },
     {
@@ -1450,7 +1480,7 @@
         "all",
         ["in", "class", "path"],
         ["!=", "subclass", "steps"],
-        ["==", "subclass", "footway"]
+        ["in", "subclass", "footway", " pedestrian"]
       ],
       "layout": {
         "line-cap": "round",
@@ -1473,7 +1503,6 @@
       "minzoom": 11,
       "filter": [
         "all",
-        ["==", "$type", "LineString"],
         ["in", "class", "path"],
         ["!=", "subclass", "steps"],
         ["!=", "subclass", "footway"],
@@ -1489,9 +1518,9 @@
       },
       "paint": {
         "line-color": "rgba(190, 73, 73, 1)",
-        "line-width": {"base": 1.55, "stops": [[10, 1], [20, 10]]},
+        "line-width": {"base": 1.55, "stops": [[10, 1.2], [20, 5]]},
         "line-opacity": 1,
-        "line-dasharray": [2, 1]
+        "line-dasharray": [3, 2]
       }
     },
     {
