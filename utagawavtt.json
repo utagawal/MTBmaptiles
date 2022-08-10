@@ -270,7 +270,7 @@
       "filter": ["in", "class", "cliff", "earth_bank"],
       "layout": {"line-cap": "butt", "line-join": "bevel"},
       "paint": {
-        "line-width": {"stops": [[14, 8], [20, 10]]},
+        "line-width": {"stops": [[14, 10], [20, 18]]},
         "line-color": "#977C73",
         "line-opacity": 0.5,
         "line-pattern": "triangle",
