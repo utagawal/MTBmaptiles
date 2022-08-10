@@ -86,7 +86,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
+        "hillshade-exaggeration": 0.6
       }
     },
     {
@@ -97,7 +97,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
+        "hillshade-exaggeration": 0.2
       }
     },
     {
@@ -108,7 +108,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
+        "hillshade-exaggeration": 0.2
       }
     },
     {
@@ -270,7 +270,7 @@
       "filter": ["in", "class", "cliff", "earth_bank"],
       "layout": {"line-cap": "butt", "line-join": "bevel"},
       "paint": {
-        "line-width": 8,
+        "line-width": {"stops": [[14, 8], [20, 10]]},
         "line-color": "#977C73",
         "line-opacity": 0.5,
         "line-pattern": "triangle",
@@ -321,7 +321,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(241, 241, 220, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [13, 0.8]]}
+        "fill-opacity": {"stops": [[6, 0.2], [13, 0.4]]}
       }
     },
     {
@@ -338,7 +338,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "hsl(47, 13%, 86%)",
-        "fill-opacity": {"stops": [[6, 0.2], [10, 0.8]]}
+        "fill-opacity": {"stops": [[6, 0.2], [10, 0.4]]}
       }
     },
     {
@@ -389,7 +389,7 @@
       "filter": ["all", ["==", "class", "wetland"]],
       "paint": {
         "fill-color": "rgba(163, 246, 244, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [11, 0.6]]},
+        "fill-opacity": {"stops": [[6, 0.6], [11, 0.3]]},
         "fill-translate": [0, 0],
         "fill-antialias": true
       }
@@ -421,7 +421,7 @@
       "paint": {
         "fill-antialias": true,
         "fill-color": "rgba(234, 29, 134, 1)",
-        "fill-opacity": 0.3
+        "fill-opacity": 0.2
       }
     },
     {
@@ -1860,7 +1860,7 @@
         "text-font": ["Noto Sans Regular"],
         "icon-ignore-placement": false,
         "icon-rotation-alignment": "auto",
-        "icon-size": {"stops": [[13, 0], [20, 1]]},
+        "icon-size": {"stops": [[13, 0.6], [20, 0.8]]},
         "icon-image": "cross",
         "icon-keep-upright": false,
         "icon-offset": [7, 7],
