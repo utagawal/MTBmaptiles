@@ -49,8 +49,8 @@
       "maxzoom": 11
     }
   },
-  "sprite": "{style}",
-  "glyphs": "{fontstack}/{range}",
+  "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
+  "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -953,19 +953,6 @@
       }
     },
     {
-      "id": "road_path_bridleway",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 7,
-      "filter": ["all", ["==", "subclass", "bridleway"]],
-      "paint": {
-        "fill-color": "rgba(187, 151, 116, 1)",
-        "fill-antialias": true,
-        "fill-opacity": 0.5
-      }
-    },
-    {
       "id": "railway-transit",
       "type": "line",
       "source": "openmaptiles",
@@ -1471,6 +1458,25 @@
       }
     },
     {
+      "id": "path_pedestrian",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["!in", "brunnel", "bridge", "tunnel"],
+        ["in", "class", "pedestrian"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "hsl(0, 0%, 100%)",
+        "line-dasharray": [1, 0.7],
+        "line-width": {"base": 1.2, "stops": [[14, 1], [20, 10]]}
+      }
+    },
+    {
       "id": "path_footway",
       "type": "line",
       "source": "openmaptiles",
@@ -1488,11 +1494,24 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(122, 100, 100, 1)",
-        "line-width": {"base": 1.55, "stops": [[6, 1], [20, 5]]},
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {"base": 1.55, "stops": [[6, 2], [20, 5]]},
         "line-opacity": 1,
         "line-gap-width": 0,
-        "line-dasharray": [3, 3]
+        "line-dasharray": [1]
+      }
+    },
+    {
+      "id": "path_bridleway",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 7,
+      "filter": ["all", ["==", "subclass", "bridleway"]],
+      "paint": {
+        "fill-color": "rgba(187, 151, 116, 1)",
+        "fill-antialias": true,
+        "fill-opacity": 0.5
       }
     },
     {
@@ -1509,7 +1528,9 @@
         ["!=", "subclass", "corridor"],
         ["!=", "subclass", "platform"],
         ["!=", "subclass", "cycleway"],
-        ["!=", "bicycle", "designated"]
+        ["!=", "bicycle", "designated"],
+        ["==", "$type", "LineString"],
+        ["==", "subclass", "path"]
       ],
       "layout": {
         "line-cap": "butt",
@@ -1535,6 +1556,7 @@
         ["==", "subclass", "steps"],
         ["!in", "brunnel", "bridge", "tunnel"]
       ],
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-dasharray": [0.2, 0.25],
         "line-width": {"base": 2, "stops": [[16, 6], [22, 16]]},
@@ -1912,7 +1934,9 @@
         "text-rotation-alignment": "map",
         "text-size": {"base": 1.4, "stops": [[10, 8], [20, 14]]},
         "text-transform": "uppercase",
-        "visibility": "visible"
+        "visibility": "visible",
+        "symbol-avoid-edges": true,
+        "text-keep-upright": true
       },
       "paint": {
         "text-color": "#000",
@@ -1934,7 +1958,9 @@
         "text-letter-spacing": 0.1,
         "text-size": {"base": 1.4, "stops": [[10, 8], [20, 14]]},
         "text-rotation-alignment": "map",
-        "visibility": "visible"
+        "visibility": "visible",
+        "symbol-avoid-edges": true,
+        "text-keep-upright": true
       },
       "paint": {
         "text-color": "#000",
