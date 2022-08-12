@@ -27,3 +27,6 @@ Replace these 2 lines in the utagawavtt.json file before commiting to replace th
     "sprite": "{style}",
     "glyphs": "{fontstack}/{range}",
   
+  ## Usage
+  
+  Map is free of usage with mandatory attribution with link to : "UtagawaVTT / www.UtagawaVTT.com"
