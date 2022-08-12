@@ -111,6 +111,7 @@
       "type": "hillshade",
       "source": "world-rgb-png-512",
       "minzoom": 4,
+      "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
