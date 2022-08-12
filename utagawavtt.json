@@ -8,7 +8,7 @@
   "sources": {
     "contours": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/europe-contours-copernicus.json"
+      "url": "mbtiles://{europe-contours-copernicus}"
     },
     "europe-rgb-png": {
       "type": "raster-dem",
@@ -32,7 +32,7 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "https://map.omrs.fr/data/planet-fast.json"
+      "url": "mbtiles://{planet-fast}"
     },
     "usa-rgb-png": {
       "type": "raster-dem",
@@ -47,10 +47,16 @@
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
       "minzoom": 5,
       "maxzoom": 11
+    },
+    "world-rgb-png-512": {
+      "type": "raster-dem",
+      "tiles": ["https://maps.utagawavtt.com/tiles/world512/{z}/{x}/{y}.png"],
+      "minzoom": 5,
+      "maxzoom": 8
     }
   },
-  "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
-  "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
+  "sprite": "{style}",
+  "glyphs": "{fontstack}/{range}",
   "layers": [
     {
       "id": "background",
@@ -94,6 +100,17 @@
       "type": "hillshade",
       "source": "world-rgb-png",
       "minzoom": 4,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.2
+      }
+    },
+    {
+      "id": "Hillshading 512",
+      "type": "hillshade",
+      "source": "world-rgb-png-512",
+      "minzoom": 5,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
