@@ -45,7 +45,7 @@
       "type": "raster-dem",
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
-      "minzoom": 5,
+      "minzoom": 8,
       "maxzoom": 11
     },
     "world-rgb-png-512": {
@@ -99,7 +99,7 @@
       "id": "Hillshading",
       "type": "hillshade",
       "source": "world-rgb-png",
-      "minzoom": 4,
+      "minzoom": 7,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
@@ -110,7 +110,7 @@
       "id": "Hillshading 512",
       "type": "hillshade",
       "source": "world-rgb-png-512",
-      "minzoom": 5,
+      "minzoom": 4,
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
