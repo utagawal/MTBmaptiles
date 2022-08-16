@@ -789,7 +789,7 @@
       "source": "openmaptiles",
       "source-layer": "waterway",
       "minzoom": 12,
-      "filter": ["all", ["in", "class", "stream,canal"], ["==", "brunnel", "tunnel"]],
+      "filter": ["all", ["in", "class", "stream","canal"], ["==", "brunnel", "tunnel"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "hsl(205, 56%, 73%)",
