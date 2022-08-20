@@ -15,7 +15,7 @@ Commit and push utagawavtt.json file to the repository and it will be automatica
 
 ⚠️ Warning ⚠️
 
-sprite link must be : "sprite": "utagawavtt"
+sprite link must be : `"sprite": "{stlye}"`
 
 Replace these 2 lines in the utagawavtt.json file before commiting to replace the ones produced by Maputnik :
 
