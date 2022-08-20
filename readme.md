@@ -11,7 +11,7 @@ Style file utagawavtt.json can be modified with [Maputnik Editor](https://maputn
 
 ## Automatic deployment
 
-Commit and push utagawavtt.json file to the repository and it will be automaticaly available for visualisation here : https://map.omrs.fr/styles/monde-png/#2/0.00000/0.00000
+Commit and push utagawavtt.json file to the repository and it will be automaticaly available for visualisation here : https://maps.utagawavtt.com/styles/utagawavtt/#2/0/0
 
 ⚠️ Warning ⚠️
 
@@ -27,3 +27,8 @@ Replace these 2 lines in the utagawavtt.json file before commiting to replace th
     "sprite": "{style}",
     "glyphs": "{fontstack}/{range}",
   
+  ## Usage
+  
+  Map is free of usage with mandatory attribution with link to : "UtagawaVTT / www.UtagawaVTT.com"
+  
+<a target="_blank" href="https://donorbox.org/don-utagawavtt"><img src="https://donorbox.org/images/png-donate/button-medium-blue.png" /></a>
