@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" height="21" width="21"><title>circle-stroked.svg</title><rect fill="none" x="0" y="0" width="21" height="21"></rect><rect x="1" y="1" rx="10" ry="10" width="19" height="19" stroke="#969696" style="stroke-linejoin:round;stroke-miterlimit:4;" fill="#969696" stroke-width="1"></rect><rect x="1" y="1" width="19" height="19" rx="10" ry="10" fill="#ffffff"></rect><path fill="#ffffff" transform="translate(3 3)" d="M7.5,0C11.6422,0,15,3.3578,15,7.5S11.6422,15,7.5,15
+	S0,11.6422,0,7.5S3.3578,0,7.5,0z M7.5,1.6666c-3.2217,0-5.8333,2.6117-5.8333,5.8334S4.2783,13.3334,7.5,13.3334
+	s5.8333-2.6117,5.8333-5.8334S10.7217,1.6666,7.5,1.6666z" style="stroke-linejoin:round;stroke-miterlimit:4;" stroke="#ffffff" stroke-width="1"></path><path fill="#e6462a" transform="translate(3 3)" d="M7.5,0C11.6422,0,15,3.3578,15,7.5S11.6422,15,7.5,15
+	S0,11.6422,0,7.5S3.3578,0,7.5,0z M7.5,1.6666c-3.2217,0-5.8333,2.6117-5.8333,5.8334S4.2783,13.3334,7.5,13.3334
+	s5.8333-2.6117,5.8333-5.8334S10.7217,1.6666,7.5,1.6666z"></path></svg>
