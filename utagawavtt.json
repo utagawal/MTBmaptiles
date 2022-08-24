@@ -74,62 +74,6 @@
       "paint": {"raster-opacity": {"stops": [[0, 1], [8, 0]]}}
     },
     {
-      "id": "Hillshading USA",
-      "type": "hillshade",
-      "source": "usa-rgb-png",
-      "minzoom": 5,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
-      }
-    },
-    {
-      "id": "Hillshading France",
-      "type": "hillshade",
-      "source": "france-rgb-png",
-      "minzoom": 5,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.6
-      }
-    },
-    {
-      "id": "Hillshading",
-      "type": "hillshade",
-      "source": "world-rgb-png",
-      "minzoom": 7,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
-      }
-    },
-    {
-      "id": "Hillshading 512",
-      "type": "hillshade",
-      "source": "world-rgb-png-512",
-      "minzoom": 4,
-      "maxzoom": 8,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
-      }
-    },
-    {
-      "id": "Hillshading EU",
-      "type": "hillshade",
-      "source": "europe-rgb-png",
-      "minzoom": 5,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
-      }
-    },
-    {
       "id": "Contours-100-200",
       "type": "line",
       "source": "contours",
@@ -279,23 +223,6 @@
       }
     },
     {
-      "id": "Contours-falaise",
-      "type": "line",
-      "metadata": {"IHM:overlay": false},
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 14,
-      "filter": ["in", "class", "cliff", "earth_bank"],
-      "layout": {"line-cap": "butt", "line-join": "bevel"},
-      "paint": {
-        "line-width": {"stops": [[14, 10], [20, 14]]},
-        "line-color": "#977C73",
-        "line-opacity": 0.6,
-        "line-pattern": "triangle",
-        "line-translate-anchor": "map"
-      }
-    },
-    {
       "id": "landcover-glacier",
       "type": "fill",
       "source": "openmaptiles",
@@ -398,13 +325,14 @@
       "paint": {"fill-color": "rgba(234, 231, 184, 1)", "fill-opacity": 0.4}
     },
     {
-      "id": "landcover-wetland-fill",
+      "id": "landcover-wetland-fill-copy",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849388993.3071"},
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
       "filter": ["all", ["==", "class", "wetland"]],
+      "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(163, 246, 244, 1)",
         "fill-opacity": {"stops": [[6, 0.6], [11, 0.3]]},
@@ -504,6 +432,26 @@
       "minzoom": 4,
       "filter": ["all", ["in", "class", "aerodrome"]],
       "paint": {"fill-color": "rgba(202, 236, 195, 1)"}
+    },
+    {
+      "id": "Contours-falaise",
+      "type": "line",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["in", "class", "cliff", "earth_bank", "hedge", "fence", "wall"]
+      ],
+      "layout": {"line-cap": "butt", "line-join": "bevel"},
+      "paint": {
+        "line-width": {"stops": [[14, 10], [20, 14]]},
+        "line-color": "#977C73",
+        "line-opacity": 1,
+        "line-pattern": "cliff",
+        "line-translate-anchor": "map"
+      }
     },
     {
       "id": "park-inner",
@@ -637,6 +585,63 @@
         "line-width": {"stops": [[7, 1], [13, 2]]},
         "line-offset": 0,
         "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
+      }
+    },
+    {
+      "id": "Hillshading",
+      "type": "hillshade",
+      "source": "world-rgb-png",
+      "minzoom": 7,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.2
+      }
+    },
+    {
+      "id": "Hillshading EU",
+      "type": "hillshade",
+      "source": "europe-rgb-png",
+      "minzoom": 5,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.2
+      }
+    },
+    {
+      "id": "Hillshading 512",
+      "type": "hillshade",
+      "source": "world-rgb-png-512",
+      "minzoom": 4,
+      "maxzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.2
+      }
+    },
+    {
+      "id": "Hillshading USA",
+      "type": "hillshade",
+      "source": "usa-rgb-png",
+      "minzoom": 5,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4
+      }
+    },
+    {
+      "id": "Hillshading France",
+      "type": "hillshade",
+      "source": "france-rgb-png",
+      "minzoom": 5,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.6
       }
     },
     {
@@ -789,7 +794,11 @@
       "source": "openmaptiles",
       "source-layer": "waterway",
       "minzoom": 12,
-      "filter": ["all", ["in", "class", "stream","canal"], ["==", "brunnel", "tunnel"]],
+      "filter": [
+        "all",
+        ["in", "class", "stream", "canal"],
+        ["==", "brunnel", "tunnel"]
+      ],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "hsl(205, 56%, 73%)",
@@ -2230,6 +2239,48 @@
       }
     },
     {
+      "id": "place-saddle",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "class"], "saddle"],
+        [
+          "<=",
+          ["get", "rank"],
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
+        ]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n",
+          ["get", "ele"],
+          "m"
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 1],
+        "text-padding": 2,
+        "text-size": 12,
+        "text-optional": true,
+        "icon-image": "saddle",
+        "visibility": "visible",
+        "icon-size": 1
+      },
+      "paint": {
+        "text-color": "rgba(69, 68, 68, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "place-sommet",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2238,6 +2289,7 @@
       "filter": [
         "all",
         ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "class"], "peak"],
         [
           "<=",
           ["get", "rank"],
@@ -2260,7 +2312,8 @@
         "text-size": 12,
         "text-optional": true,
         "icon-image": "mountain",
-        "visibility": "visible"
+        "visibility": "visible",
+        "icon-size": 0.8
       },
       "paint": {
         "text-color": "rgba(69, 68, 68, 1)",
@@ -2540,6 +2593,38 @@
       }
     },
     {
+      "id": "pois_grotte",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "subclass", "viewpoint"],
+        ["in", "name", "grotte", "Grotte", "caverne", "aven"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 0,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-rotate": 90,
+        "icon-anchor": "center",
+        "text-offset": [0, 1.5],
+        "icon-image": "cave"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "pois_viewpoint",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2561,7 +2646,8 @@
         "icon-image": "viewpoint",
         "icon-rotate": 90,
         "icon-anchor": "center",
-        "text-offset": [0, 1.5]
+        "text-offset": [0, 1.5],
+        "icon-size": 0.8
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
@@ -2652,7 +2738,8 @@
         "text-padding": 2,
         "text-size": 12,
         "visibility": "visible",
-        "icon-image": "rail"
+        "icon-image": "rail",
+        "icon-size": 0.8
       },
       "paint": {
         "text-color": "rgba(52, 52, 52, 1)",
@@ -2677,7 +2764,8 @@
         "text-padding": 2,
         "text-size": 12,
         "visibility": "visible",
-        "icon-image": "campsite"
+        "icon-image": "campsite",
+        "icon-size": 0.8
       },
       "paint": {
         "text-color": "#666",
@@ -2706,7 +2794,8 @@
         "text-padding": 2,
         "text-size": 12,
         "visibility": "visible",
-        "icon-image": "lodging"
+        "icon-image": "lodging",
+        "icon-size": 0.8
       },
       "paint": {
         "text-color": "#666",
@@ -2790,7 +2879,7 @@
         "text-size": 12,
         "visibility": "visible",
         "icon-image": "religious-christian",
-        "icon-size": 0.9
+        "icon-size": 0.8
       },
       "paint": {
         "text-color": "#666",
