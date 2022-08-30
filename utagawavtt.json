@@ -45,7 +45,7 @@
       "type": "raster-dem",
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
-      "minzoom": 8,
+      "minzoom": 5,
       "maxzoom": 11
     },
     "world-rgb-png-512": {
