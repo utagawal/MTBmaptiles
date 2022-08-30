@@ -591,12 +591,12 @@
       "id": "Hillshading",
       "type": "hillshade",
       "source": "world-rgb-png",
-      "minzoom": 7,
+      "minzoom": 5,
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
+        "hillshade-exaggeration": 0.4
       }
     },
     {
@@ -604,7 +604,7 @@
       "type": "hillshade",
       "source": "europe-rgb-png",
       "minzoom": 5,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.2
@@ -616,7 +616,7 @@
       "source": "world-rgb-png-512",
       "minzoom": 4,
       "maxzoom": 8,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.2
@@ -627,7 +627,7 @@
       "type": "hillshade",
       "source": "usa-rgb-png",
       "minzoom": 5,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4
@@ -638,7 +638,7 @@
       "type": "hillshade",
       "source": "france-rgb-png",
       "minzoom": 5,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.6
