@@ -8,7 +8,7 @@
   "sources": {
     "contours": {
       "type": "vector",
-      "url": "mbtiles://{europe-contours-copernicus}"
+      "url": "https://maps.utagawavtt.com/data/europe-contours-copernicus.json"
     },
     "europe-rgb-png": {
       "type": "raster-dem",
@@ -32,7 +32,7 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "mbtiles://{planet-fast}"
+      "url": "https://maps.utagawavtt.com/data/planet-fast.json"
     },
     "usa-rgb-png": {
       "type": "raster-dem",
@@ -55,8 +55,8 @@
       "maxzoom": 8
     }
   },
-  "sprite": "{style}",
-  "glyphs": "{fontstack}/{range}",
+  "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
+  "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -1896,7 +1896,6 @@
         ["==", "class", "path"],
         [
           "any",
-          ["all", ["==", "access", "no"]],
           ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
           ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]]
         ]
@@ -1925,9 +1924,9 @@
         ["==", "class", "path"],
         [
           "any",
-          ["all", ["==", "access", "no"]],
           ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
-          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]]
+          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
+          ["all", ["==", "access", "no"], ["!has", "mtb_scale"]]
         ]
       ],
       "layout": {
