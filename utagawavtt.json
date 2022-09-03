@@ -55,8 +55,8 @@
       "maxzoom": 8
     }
   },
-  "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
-  "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
+  "sprite": "{style}",
+  "glyphs": "{fontstack}/{range}",
   "layers": [
     {
       "id": "background",
