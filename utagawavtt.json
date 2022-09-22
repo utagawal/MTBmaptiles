@@ -13,9 +13,7 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
-      "tiles": [
-        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
-      ]
+      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
     },
     "openmaptiles": {
       "type": "vector",
@@ -23,10 +21,10 @@
     },
     "world-rgb-png": {
       "type": "raster-dem",
-      "encoding": "terrarium",
-      "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"],
       "minzoom": 5,
-      "maxzoom": 11
+      "maxzoom": 11,
+      "encoding": "terrarium",
+      "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"]
     },
   },
   "sprite": "{style}",
