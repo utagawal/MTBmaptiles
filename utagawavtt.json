@@ -591,51 +591,6 @@
       }
     },
     {
-      "id": "Hillshading EU",
-      "type": "hillshade",
-      "source": "europe-rgb-png",
-      "minzoom": 5,
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
-      }
-    },
-    {
-      "id": "Hillshading 512",
-      "type": "hillshade",
-      "source": "world-rgb-png-512",
-      "minzoom": 4,
-      "maxzoom": 8,
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.2
-      }
-    },
-    {
-      "id": "Hillshading USA",
-      "type": "hillshade",
-      "source": "usa-rgb-png",
-      "minzoom": 5,
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4
-      }
-    },
-    {
-      "id": "Hillshading France",
-      "type": "hillshade",
-      "source": "france-rgb-png",
-      "minzoom": 5,
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.6
-      }
-    },
-    {
       "id": "building-basic",
       "type": "fill",
       "source": "openmaptiles",
