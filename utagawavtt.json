@@ -25,7 +25,7 @@
       "maxzoom": 11,
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"]
-    },
+    }
   },
   "sprite": "{style}",
   "glyphs": "{fontstack}/{range}",
