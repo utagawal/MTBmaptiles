@@ -10,19 +10,6 @@
       "type": "vector",
       "url": "https://maps.utagawavtt.com/data/europe-contours-copernicus.json"
     },
-    "europe-rgb-png": {
-      "type": "raster-dem",
-      "tiles": ["https://maps.utagawavtt.com/tiles/copernicus/{z}/{x}/{y}.png"],
-      "bounds": [-34.49296, 29.735139, 46.75348, 81.47299],
-      "minzoom": 5,
-      "maxzoom": 11
-    },
-    "france-rgb-png": {
-      "type": "raster-dem",
-      "tiles": ["https://maps.utagawavtt.com/tiles/ign-france/{z}/{x}/{y}.png"],
-      "minzoom": 5,
-      "maxzoom": 11
-    },
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
@@ -34,13 +21,6 @@
       "type": "vector",
       "url": "https://maps.utagawavtt.com/data/planet-fast.json"
     },
-    "usa-rgb-png": {
-      "type": "raster-dem",
-      "tiles": ["https://maps.utagawavtt.com/tiles/usgs/{z}/{x}/{y}.png"],
-      "bounds": [-179.9999, 6.88283, -5.198412, 85.04177],
-      "minzoom": 5,
-      "maxzoom": 11
-    },
     "world-rgb-png": {
       "type": "raster-dem",
       "encoding": "terrarium",
@@ -48,12 +28,6 @@
       "minzoom": 5,
       "maxzoom": 11
     },
-    "world-rgb-png-512": {
-      "type": "raster-dem",
-      "tiles": ["https://maps.utagawavtt.com/tiles/world512/{z}/{x}/{y}.png"],
-      "minzoom": 5,
-      "maxzoom": 8
-    }
   },
   "sprite": "{style}",
   "glyphs": "{fontstack}/{range}",
