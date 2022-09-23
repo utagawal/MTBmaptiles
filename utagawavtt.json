@@ -2190,11 +2190,25 @@
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
       "minzoom": 9,
-      "filter": [
+     "filter": [
         "all",
         ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "class"], "saddle"]
-      ],
+        ["==", ["get", "class"], "peak"],
+        [
+          "<=",
+          ["get", "rank"],
+          [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
+            7,
+            1,
+            14,
+            4,
+            18,
+            999
+          ]
+        ],
       "layout": {
         "text-anchor": "top",
         "text-field": [
