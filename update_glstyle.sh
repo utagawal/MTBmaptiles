@@ -16,7 +16,7 @@ TMPDIR="/tmp/glstyle/"
 
 # Send a signal to tileserver-gl container, to reload it
 ctReload() {
-	docker exec ${1} bash -c 'kill -HUP $(ls -l /proc/*/exe | sed -n "/\/node$/s/.*proc\/\([0-9]\+\)\/exe .*/\1/p")'
+	docker kill -s HUP tileserver-gl
 }
 
 # Start tileserver-gl container
