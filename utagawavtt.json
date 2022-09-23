@@ -2185,56 +2185,57 @@
       }
     },
     {
-      "id": "place-saddle",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-     "filter": [
-        "all",
-        ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "class"], "peak"],
-        [
-          "<=",
-          ["get", "rank"],
-          [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            7,
-            1,
-            14,
-            4,
-            18,
-            999
-          ]
-        ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["get", "name:latin"],
-          "\n",
-          ["get", "ele"],
-          "m"
-        ],
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 1],
-        "text-padding": 2,
-        "text-size": 12,
-        "text-optional": true,
-        "icon-image": "saddle",
-        "visibility": "visible",
-        "icon-size": 1
-      },
-      "paint": {
-        "text-color": "rgba(69, 68, 68, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
+  "id": "place-saddle",
+  "type": "symbol",
+  "source": "openmaptiles",
+  "source-layer": "mountain_peak",
+  "minzoom": 10,
+  "filter": [
+    "all",
+    ["==", ["geometry-type"], "Point"],
+    ["==", ["get", "class"], "peak"],
+    [
+      "<=",
+      ["get", "rank"],
+      [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        7,
+        1,
+        14,
+        4,
+        18,
+        999
+      ]
+    ]
+  ],
+  "layout": {
+    "text-anchor": "top",
+    "text-field": [
+      "concat",
+      ["get", "name:latin"],
+      "\n",
+      ["get", "ele"],
+      "m"
+    ],
+    "text-font": ["Noto Sans Regular"],
+    "text-max-width": 9,
+    "text-offset": [0, 1],
+    "text-padding": 2,
+    "text-size": 12,
+    "text-optional": true,
+    "icon-image": "saddle",
+    "visibility": "visible",
+    "icon-size": 1
+  },
+  "paint": {
+    "text-color": "rgba(69, 68, 68, 1)",
+    "text-halo-blur": 0.5,
+    "text-halo-color": "#ffffff",
+    "text-halo-width": 2
+  }
+},
     {
       "id": "place-sommet",
       "type": "symbol",
