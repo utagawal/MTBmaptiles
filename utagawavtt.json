@@ -2193,12 +2193,7 @@
       "filter": [
         "all",
         ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "class"], "saddle"],
-        [
-          "<=",
-          ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
-        ]
+        ["==", ["get", "class"], "saddle"]
       ],
       "layout": {
         "text-anchor": "top",
