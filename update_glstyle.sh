@@ -124,8 +124,8 @@ if [ $? -eq 0 ]; then
 			sleep 30
 
 			if [ -z $(ctStatus $CTNAME) ]; then
+				writeToLog "Unable to launch tileserver-gl with ${GLSTYLENAME}.json_${CLEARDATE}."
 				echo "Unable to launch tileserver-gl with the before last style file" | mail -s "tilserver-gl problem" ${ADMINEMAIL}
-				exit
 			else
 				writeToLog "tileserver-gl started successfully with ${GLSTYLENAME}.json_${CLEARDATE}."
 				echo "${GLSTYLENAME}.json_${CLEARDATE} applied successfully" | mail -s "New style can not be applied on tilserver-gl" ${ADMINEMAIL}
