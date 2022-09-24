@@ -1,6 +1,6 @@
 {
   "version": 8,
-  "name": "Utagawavtt - Monde",
+  "name": "UtagawaVTT - World",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
   "center": [47.3, 2.4],
   "zoom": 3,
