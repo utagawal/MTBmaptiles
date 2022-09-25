@@ -16,7 +16,7 @@ TMPDIR="/tmp/glstyle/"
 
 # Send a signal to tileserver-gl container, to reload it
 ctReload() {
-	docker kill -s HUP tileserver-gl
+	docker kill -s HUP ${1} >/dev/null 2>&1
 }
 
 # Start tileserver-gl container
@@ -121,7 +121,7 @@ if [ $? -eq 0 ]; then
 
 			writeToLog "Trying to launch tilserver-gl, please wait."
 			ctStart $CTNAME
-			sleep 30
+			sleep 15
 
 			if [ -z $(ctStatus $CTNAME) ]; then
 				writeToLog "Unable to launch tileserver-gl with ${GLSTYLENAME}.json_${CLEARDATE}."
