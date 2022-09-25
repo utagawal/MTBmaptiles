@@ -17,7 +17,7 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "https://maps.utagawavtt.com/data/planet-fast.json"
+      "url": "https://maps.utagawavtt.com/data/planet.json"
     },
     "world-rgb-png": {
       "type": "raster-dem",
