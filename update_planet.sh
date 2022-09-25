@@ -123,7 +123,7 @@ if [ $? -eq 0 ]; then
 							if [ $? -eq 0 ]; then
 								writeToLog "Reloaded tileserver-gl successfully"
 							else
-								writeToLog "An error occur while reloading tileserver-gl"
+								writeToLog "An error occured while reloading tileserver-gl"
 							fi
 						fi
 
@@ -134,7 +134,7 @@ if [ $? -eq 0 ]; then
 							echo "Unable to launch tileserver-gl with the new mbtiles file" | mail -s "tilserver-gl problem" ${ADMINEMAIL}
 						else
 							writeToLog "tileserver-gl started successfully with the new mbtiles file."
-							echo "The new ${MBTILESNAME} hs been applied successfully" | mail -s "The new ${MBTILESNAME} hs been applied successfully" ${ADMINEMAIL}
+							echo "The new ${MBTILESNAME} has been applied successfully" | mail -s "The new ${MBTILESNAME} has been applied successfully" ${ADMINEMAIL}
 						fi
 					else
 						writeToLog "A problem occured while moving ${MBTILESNAME} to ${MBTILESDIR}."
