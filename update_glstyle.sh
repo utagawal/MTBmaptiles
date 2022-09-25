@@ -80,7 +80,7 @@ if [ $? -eq 0 ]; then
 
         # mbtiles
         sed -i 's/https:\/\/maps\.utagawavtt\.com\/data\/europe-contours-copernicus\.json/mbtiles:\/\/{europe-contours-copernicus}/g' ${TMPDIR}${GLSTYLENAME}.json
-        sed -i 's/https:\/\/maps\.utagawavtt\.com\/data\/planet-fast\.json/mbtiles:\/\/{planet-fast}/g' ${TMPDIR}${GLSTYLENAME}.json
+        sed -i 's/https:\/\/maps\.utagawavtt\.com\/data\/planet\.json/mbtiles:\/\/{planet}/g' ${TMPDIR}${GLSTYLENAME}.json
 
         # sprites and fonts
         sed -i 's/https:\/\/maps\.utagawavtt\.com\/styles\/utagawavtt\/sprite/{style}/g' ${TMPDIR}${GLSTYLENAME}.json
