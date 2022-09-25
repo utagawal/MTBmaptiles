@@ -1,4 +1,4 @@
-Despository for [UtagawaVTT.com](https://www.utagawavtt.com) MTB map style
+Repository for [UtagawaVTT.com](https://www.utagawavtt.com) MTB map style
 
 Map tiles (vector and raster) are aimed to be served with [Tileserver GL](https://github.com/maptiler/tileserver-gl) 
 
@@ -21,23 +21,9 @@ Style file utagawavtt.json can be modified and improved with WYSYWYG editor [Map
 ## Automatic deployment
 
 Commit and push utagawavtt.json file to the repository and it will be automaticaly available for visualisation here : https://maps.utagawavtt.com/styles/utagawavtt/#2/0/0
-
-⚠️ Warning ⚠️
-
-sprite link must be : `"sprite": "{stlye}"`
-
-Replace these 2 lines in the utagawavtt.json file before commiting to replace the ones produced by Maputnik :
-
-    "sprite": "https://map.omrs.fr/styles/utagawavtt/sprite",
-    "glyphs": "https://map.omrs.fr/fonts/{fontstack}/{range}.pbf",
   
-  with 
+## Usage
   
-    "sprite": "{style}",
-    "glyphs": "{fontstack}/{range}",
-  
-  ## Usage
-  
-  Map is free of usage with mandatory attribution with link to : "UtagawaVTT / www.UtagawaVTT.com"
+Map is free of usage with mandatory attribution with link to : "UtagawaVTT / www.UtagawaVTT.com"
   
 <a target="_blank" href="https://donorbox.org/don-utagawavtt"><img src="https://donorbox.org/images/png-donate/button-medium-blue.png" /></a>
