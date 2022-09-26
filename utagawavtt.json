@@ -173,7 +173,7 @@
       "minzoom": 6,
       "filter": ["==", "class", "grass"],
       "paint": {
-        "fill-color": "rgba(181, 232, 129, 1)",
+        "fill-color": "rgba(167, 233, 99, 1)",
         "fill-opacity": {"stops": [[0, 0.8], [10, 0.4]]}
       }
     },
@@ -594,28 +594,10 @@
       "source": "openmaptiles",
       "source-layer": "building",
       "paint": {
-        "fill-color": "rgba(166, 166, 166, 1)",
+        "fill-color": "rgba(181, 181, 181, 1)",
         "fill-outline-color": "rgba(152, 150, 140, 1)",
-        "fill-opacity": {"base": 1, "stops": [[13, 0], [15, 1]]},
+        "fill-opacity": {"base": 1, "stops": [[13, 0.5], [20, 0.9]]},
         "fill-antialias": true
-      }
-    },
-    {
-      "id": "building",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "building",
-      "layout": {"visibility": "none"},
-      "paint": {
-        "fill-antialias": true,
-        "fill-color": "rgba(222, 211, 190, 1)",
-        "fill-opacity": {"base": 1, "stops": [[13, 0], [15, 1]]},
-        "fill-outline-color": {
-          "stops": [
-            [15, "rgba(212, 177, 146, 0)"],
-            [16, "rgba(212, 177, 146, 0.5)"]
-          ]
-        }
       }
     },
     {
@@ -626,10 +608,11 @@
       "source-layer": "building",
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(208, 208, 208, 1)",
-        "fill-opacity": {"base": 1, "stops": [[13, 0], [16, 1]]},
+        "fill-color": "rgba(70, 70, 70, 1)",
+        "fill-opacity": {"base": 1, "stops": [[13, 0.5], [20, 0.9]]},
         "fill-outline-color": "#dfdbd7",
-        "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]}
+        "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]},
+        "fill-antialias": true
       }
     },
     {
