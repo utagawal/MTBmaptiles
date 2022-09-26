@@ -13,7 +13,9 @@
     "natural-earth-2": {
       "type": "raster",
       "maxzoom": 6,
-      "tiles": ["https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"]
+      "tiles": [
+        "https://maps.utagawavtt.com/tiles/naturalearth2/{z}/{x}/{y}.png"
+      ]
     },
     "openmaptiles": {
       "type": "vector",
@@ -27,8 +29,8 @@
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"]
     }
   },
-  "sprite": "{style}",
-  "glyphs": "{fontstack}/{range}",
+  "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
+  "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -44,155 +46,6 @@
       "maxzoom": 8,
       "layout": {"visibility": "visible"},
       "paint": {"raster-opacity": {"stops": [[0, 1], [8, 0]]}}
-    },
-    {
-      "id": "Contours-100-200",
-      "type": "line",
-      "source": "contours",
-      "source-layer": "contours",
-      "minzoom": 7,
-      "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-opacity": {"stops": [[7, 0.1], [20, 0.4]]},
-        "line-color": "rgba(212, 85, 0, 1)",
-        "line-width": 0.6
-      }
-    },
-    {
-      "id": "Contours-10",
-      "type": "line",
-      "source": "contours",
-      "source-layer": "contours",
-      "minzoom": 7,
-      "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-opacity": {"stops": [[7, 0.1], [20, 0.4]]},
-        "line-color": "#d45500",
-        "line-width": 1.1
-      }
-    },
-    {
-      "id": "Contours-label",
-      "type": "symbol",
-      "source": "contours",
-      "source-layer": "contours",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        [
-          "in",
-          "ele",
-          0,
-          100,
-          200,
-          300,
-          400,
-          500,
-          600,
-          700,
-          800,
-          900,
-          1000,
-          1100,
-          1200,
-          1300,
-          1400,
-          1500,
-          1600,
-          1700,
-          1800,
-          1900,
-          2000,
-          2100,
-          2200,
-          2300,
-          2400,
-          2500,
-          2600,
-          2700,
-          2800,
-          2900,
-          3000,
-          3100,
-          3200,
-          3300,
-          3400,
-          3500,
-          3600,
-          3700,
-          3800,
-          3900,
-          4000,
-          4100,
-          4200,
-          4300,
-          4400,
-          4500,
-          4600,
-          4700,
-          4800,
-          4900,
-          5000,
-          5100,
-          5200,
-          5300,
-          5400,
-          5500,
-          5600,
-          5700,
-          5800,
-          5900,
-          6000,
-          6100,
-          6200,
-          6300,
-          6400,
-          6500,
-          6600,
-          6700,
-          6800,
-          6900,
-          7000,
-          7100,
-          7200,
-          7300,
-          7400,
-          7500,
-          7600,
-          7700,
-          7800,
-          7900,
-          8000,
-          8100,
-          8200,
-          8300,
-          8400,
-          8500,
-          8600,
-          8700,
-          8800,
-          8900,
-          9000
-        ]
-      ],
-      "layout": {
-        "symbol-placement": "line",
-        "text-field": "{ele} m",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "text-padding": 50,
-        "visibility": "visible",
-        "text-max-width": 10,
-        "text-max-angle": 45,
-        "symbol-spacing": 250
-      },
-      "paint": {
-        "text-color": "rgba(46, 39, 22, 1)",
-        "text-halo-width": 1,
-        "text-halo-color": "rgba(255, 255, 255, 0.49)"
-      }
     },
     {
       "id": "landcover-glacier",
@@ -351,8 +204,8 @@
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
       "paint": {
-        "fill-color": "rgba(42, 218, 95, 1)",
-        "fill-opacity": {"stops": [[4, 0.8], [20, 0.2]]}
+        "fill-color": "rgba(28, 198, 79, 1)",
+        "fill-opacity": {"stops": [[0, 0.8], [20, 0.8]]}
       }
     },
     {
@@ -376,24 +229,20 @@
       }
     },
     {
-  "id": "landuse-barrage",
-  "type": "fill",
-  "source": "openmaptiles",
-  "source-layer": "landuse",
-  "minzoom": 6,
-  "filter": [
-    "all",
-    ["==", "$type", "Polygon"],
-    ["in", "class", "dam"]
-  ],
-  "layout": {"visibility": "visible"},
-  "paint": {
-    "fill-color": "rgba(46, 46, 46, 0.26)",
-    "fill-opacity": 0.9,
-    "fill-antialias": true,
-    "fill-outline-color": "rgba(71, 66, 255, 1)"
-  }
-  },
+      "id": "landuse-barrage",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "filter": ["all", ["==", "$type", "Polygon"], ["in", "class", "dam"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(46, 46, 46, 0.26)",
+        "fill-opacity": 0.9,
+        "fill-antialias": true,
+        "fill-outline-color": "rgba(71, 66, 255, 1)"
+      }
+    },
     {
       "id": "landuse-terrain-sport",
       "type": "fill",
@@ -588,6 +437,155 @@
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4
+      }
+    },
+    {
+      "id": "Contours-100-200",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 7,
+      "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.4]]},
+        "line-color": "rgba(212, 85, 0, 1)",
+        "line-width": 0.6
+      }
+    },
+    {
+      "id": "Contours-10",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 7,
+      "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-opacity": {"stops": [[7, 0.1], [20, 0.4]]},
+        "line-color": "#d45500",
+        "line-width": 1.1
+      }
+    },
+    {
+      "id": "Contours-label",
+      "type": "symbol",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "in",
+          "ele",
+          0,
+          100,
+          200,
+          300,
+          400,
+          500,
+          600,
+          700,
+          800,
+          900,
+          1000,
+          1100,
+          1200,
+          1300,
+          1400,
+          1500,
+          1600,
+          1700,
+          1800,
+          1900,
+          2000,
+          2100,
+          2200,
+          2300,
+          2400,
+          2500,
+          2600,
+          2700,
+          2800,
+          2900,
+          3000,
+          3100,
+          3200,
+          3300,
+          3400,
+          3500,
+          3600,
+          3700,
+          3800,
+          3900,
+          4000,
+          4100,
+          4200,
+          4300,
+          4400,
+          4500,
+          4600,
+          4700,
+          4800,
+          4900,
+          5000,
+          5100,
+          5200,
+          5300,
+          5400,
+          5500,
+          5600,
+          5700,
+          5800,
+          5900,
+          6000,
+          6100,
+          6200,
+          6300,
+          6400,
+          6500,
+          6600,
+          6700,
+          6800,
+          6900,
+          7000,
+          7100,
+          7200,
+          7300,
+          7400,
+          7500,
+          7600,
+          7700,
+          7800,
+          7900,
+          8000,
+          8100,
+          8200,
+          8300,
+          8400,
+          8500,
+          8600,
+          8700,
+          8800,
+          8900,
+          9000
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": "{ele} m",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "text-padding": 50,
+        "visibility": "visible",
+        "text-max-width": 10,
+        "text-max-angle": 45,
+        "symbol-spacing": 250
+      },
+      "paint": {
+        "text-color": "rgba(46, 39, 22, 1)",
+        "text-halo-width": 1,
+        "text-halo-color": "rgba(255, 255, 255, 0.49)"
       }
     },
     {
@@ -2185,57 +2183,47 @@
       }
     },
     {
-  "id": "place-saddle",
-  "type": "symbol",
-  "source": "openmaptiles",
-  "source-layer": "mountain_peak",
-  "minzoom": 10,
-  "filter": [
-    "all",
-    ["==", ["geometry-type"], "Point"],
-    ["==", ["get", "class"], "peak"],
-    [
-      "<=",
-      ["get", "rank"],
-      [
-        "interpolate",
-        ["linear"],
-        ["zoom"],
-        7,
-        1,
-        14,
-        4,
-        18,
-        999
-      ]
-    ]
-  ],
-  "layout": {
-    "text-anchor": "top",
-    "text-field": [
-      "concat",
-      ["get", "name:latin"],
-      "\n",
-      ["get", "ele"],
-      "m"
-    ],
-    "text-font": ["Noto Sans Regular"],
-    "text-max-width": 9,
-    "text-offset": [0, 1],
-    "text-padding": 2,
-    "text-size": 12,
-    "text-optional": true,
-    "icon-image": "saddle",
-    "visibility": "visible",
-    "icon-size": 1
-  },
-  "paint": {
-    "text-color": "rgba(69, 68, 68, 1)",
-    "text-halo-blur": 0.5,
-    "text-halo-color": "#ffffff",
-    "text-halo-width": 2
-  }
-},
+      "id": "place-saddle",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "class"], "peak"],
+        [
+          "<=",
+          ["get", "rank"],
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 4, 18, 999]
+        ]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n",
+          ["get", "ele"],
+          "m"
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 1],
+        "text-padding": 2,
+        "text-size": 12,
+        "text-optional": true,
+        "icon-image": "saddle",
+        "visibility": "visible",
+        "icon-size": 1
+      },
+      "paint": {
+        "text-color": "rgba(69, 68, 68, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
     {
       "id": "place-sommet",
       "type": "symbol",
