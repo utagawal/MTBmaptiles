@@ -574,13 +574,14 @@
       "layout": {
         "symbol-placement": "line",
         "text-field": "{ele} m",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
+        "text-font": ["Open Sans Regular"],
+        "text-size": 11,
         "text-padding": 50,
         "visibility": "visible",
         "text-max-width": 10,
         "text-max-angle": 45,
         "symbol-spacing": 250
+         "icon-allow-overlap": true
       },
       "paint": {
         "text-color": "rgba(46, 39, 22, 1)",
