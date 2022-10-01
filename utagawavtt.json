@@ -580,7 +580,7 @@
         "visibility": "visible",
         "text-max-width": 10,
         "text-max-angle": 45,
-        "symbol-spacing": 250
+        "symbol-spacing": 250,
          "icon-allow-overlap": true
       },
       "paint": {
