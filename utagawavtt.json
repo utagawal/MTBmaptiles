@@ -1227,7 +1227,7 @@
       "source-layer": "boundary",
       "filter": [
         "all",
-        ["<=", "admin_level", 8],
+        ["<=", "admin_level", 4],
         ["==", "$type", "LineString"]
       ],
       "layout": {
