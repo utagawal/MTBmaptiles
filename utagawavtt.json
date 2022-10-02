@@ -1227,7 +1227,7 @@
       "source-layer": "boundary",
       "filter": [
         "all",
-        ["<=", "admin_level", 4],
+        ["<=", "admin_level", 3],
         ["==", "$type", "LineString"]
       ],
       "layout": {
@@ -2119,7 +2119,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "#333",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.5
       }
@@ -2162,8 +2162,11 @@
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-blur": 0,
-        "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
-        "text-halo-width": 2
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2,
+        "icon-halo-color": "rgba(255, 255, 255, 1)",
+        "icon-halo-width": 1,
+        "icon-halo-blur": 0.5
       }
     },
     {
@@ -2301,15 +2304,19 @@
         "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
         "text-field": "{name:fr}",
         "text-max-width": 8,
-        "icon-image": "star_11",
+        "icon-image": "star",
         "text-offset": [0.4, 0],
         "icon-size": 0.8,
-        "text-anchor": "left",
-        "visibility": "visible"
+        "text-anchor": "top",
+        "visibility": "visible",
+        "icon-text-fit": "none",
+        "icon-offset": [0, 0],
+        "icon-anchor": "bottom",
+        "icon-allow-overlap": true
       },
       "paint": {
-        "text-color": "#333",
-        "text-halo-width": 1.2,
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 2,
         "text-halo-color": "rgba(255,255,255,0.8)"
       }
     },
