@@ -587,7 +587,7 @@
       },
       "paint": {
         "text-color": "rgba(51, 51, 51, 1)",
-        "text-halo-width": 1,
+        "text-halo-width": 2,
         "text-halo-color": "rgba(255, 255, 255, 0.49)",
         "text-halo-blur": 0.5
       }
@@ -1970,9 +1970,10 @@
         "text-size": {"stops": [[8, 10], [16, 12]]}
       },
       "paint": {
-        "text-color": "rgba(36, 105, 152, 1)",
+        "text-color": "rgba(51, 51, 51, 1)",
         "text-halo-color": "rgba(255,255,255,0.7)",
-        "text-halo-width": 1.5
+        "text-halo-width": 2,
+        "text-halo-blur": 0.5
       }
     },
     {
@@ -2092,7 +2093,7 @@
         "all",
         ["==", "class", "island"],
         ["==", "$type", "Point"],
-        ["<=", "rank", 4]
+        ["<=", "rank", 5]
       ],
       "layout": {
         "text-field": "{name:latin}",
@@ -2202,9 +2203,9 @@
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 1],
+        "text-offset": [0, 0.6],
         "text-padding": 2,
-        "text-size": 12,
+        "text-size": 11,
         "text-optional": true,
         "icon-image": "saddle",
         "visibility": "visible",
@@ -2245,9 +2246,9 @@
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
-        "text-offset": [0, 1],
+        "text-offset": [0, 0.6],
         "text-padding": 2,
-        "text-size": 12,
+        "text-size": 11,
         "text-optional": true,
         "icon-image": "mountain",
         "visibility": "visible",
@@ -2283,9 +2284,9 @@
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
-        "text-offset": [0, 1],
+        "text-offset": [0, 0.6],
         "text-padding": 2,
-        "text-size": 14,
+        "text-size": 11,
         "text-optional": true,
         "icon-image": "mountain",
         "visibility": "visible",
@@ -2312,7 +2313,7 @@
         "text-field": "{name:fr}",
         "text-max-width": 8,
         "icon-image": "star",
-        "text-offset": [0.4, 0],
+        "text-offset": [0, 0.1],
         "icon-size": 0.8,
         "text-anchor": "top",
         "visibility": "visible",
@@ -2661,7 +2662,7 @@
         "icon-image": "post-JP",
         "icon-anchor": "bottom",
         "icon-offset": [0, 0],
-        "text-offset": [0, 0.5]
+        "text-offset": [0, 0.6]
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
@@ -2868,7 +2869,7 @@
         "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 2
       }
     },
     {
@@ -2890,10 +2891,10 @@
         "icon-image": "bicycle"
       },
       "paint": {
-        "text-color": "#666",
+        "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
-        "text-halo-width": 1
+        "text-halo-width": 2
       }
     },
     {
