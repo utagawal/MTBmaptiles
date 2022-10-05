@@ -27,6 +27,14 @@
       "maxzoom": 11,
       "encoding": "terrarium",
       "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"]
+    },
+    "relief-france-hd": {
+      "type": "raster-dem",
+      "tiles": [
+        "https://maps.utagawavtt.com/tiles/terrain/qLmVTMkBjTdY3g83aF5gukd3nM8v8Cn8NE9kScXi/v1/{z}/{x}/{y}.png"
+      ],
+      "minzoom": 6,
+      "maxzoom": 14
     }
   },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
@@ -420,12 +428,26 @@
       }
     },
     {
+      "id": "Hillshading-france",
+      "type": "hillshade",
+      "source": "relief-france-hd",
+      "minzoom": 6,
+      "filter": ["all"],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4,
+        "hillshade-shadow-color": "#665942",
+        "hillshade-illumination-direction": 315
+      }
+    },
+    {
       "id": "Hillshading",
       "type": "hillshade",
       "source": "world-rgb-png",
       "minzoom": 6,
       "filter": ["all"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
         "hillshade-exaggeration": 0.4,
