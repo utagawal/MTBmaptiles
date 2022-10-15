@@ -418,7 +418,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4,
+        "hillshade-exaggeration": 0.5,
         "hillshade-shadow-color": "#665942",
         "hillshade-illumination-direction": 315
       }
@@ -610,7 +610,7 @@
       "layout": {"line-cap": "butt", "line-join": "bevel"},
       "paint": {
         "line-color": "#977C73",
-        "line-opacity": 0.4,
+        "line-opacity": 0.3,
         "line-pattern": "cliff3",
         "line-translate-anchor": "map",
         "line-width": {"stops": [[6, 6], [20, 12]]}
@@ -2189,7 +2189,7 @@
         "text-max-width": 10,
         "text-size": {"stops": [[7, 14], [11, 24]]},
         "icon-allow-overlap": true,
-        "text-allow-overlap": true
+        "text-allow-overlap": false
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
@@ -2235,7 +2235,7 @@
         "icon-image": "saddle",
         "visibility": "visible",
         "icon-size": 0.8,
-        "text-allow-overlap": true
+        "text-allow-overlap": false
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
@@ -2346,7 +2346,7 @@
         "icon-text-fit": "none",
         "icon-offset": [0, 0],
         "icon-anchor": "bottom",
-        "icon-allow-overlap": true
+        "icon-allow-overlap": false
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
