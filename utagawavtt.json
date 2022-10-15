@@ -150,7 +150,7 @@
       "paint": {"fill-color": "rgba(234, 231, 184, 1)", "fill-opacity": 0.4}
     },
     {
-      "id": "landcover-wetland-fill-copy",
+      "id": "landcover-wetland-fill",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849388993.3071"},
       "source": "openmaptiles",
@@ -162,7 +162,8 @@
         "fill-color": "rgba(163, 246, 244, 1)",
         "fill-opacity": {"stops": [[6, 0.6], [11, 0.3]]},
         "fill-translate": [0, 0],
-        "fill-antialias": true
+        "fill-antialias": true,
+        "fill-pattern": "wetland-pattern"
       }
     },
     {
@@ -272,26 +273,6 @@
       "minzoom": 4,
       "filter": ["all", ["in", "class", "aerodrome"]],
       "paint": {"fill-color": "rgba(202, 236, 195, 1)"}
-    },
-    {
-      "id": "Contours-falaise",
-      "type": "line",
-      "metadata": {"IHM:overlay": false},
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["in", "class", "cliff", "earth_bank", "hedge", "fence", "wall"]
-      ],
-      "layout": {"line-cap": "butt", "line-join": "bevel"},
-      "paint": {
-        "line-width": {"stops": [[14, 10], [20, 14]]},
-        "line-color": "#977C73",
-        "line-opacity": 1,
-        "line-pattern": "cliff",
-        "line-translate-anchor": "map"
-      }
     },
     {
       "id": "park-inner",
@@ -404,8 +385,9 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(164, 42, 4, 1)",
-        "fill-opacity": {"stops": [[6, 0.5], [20, 0.1]]},
-        "fill-antialias": false
+        "fill-opacity": 1,
+        "fill-antialias": false,
+        "fill-pattern": "military_red_hatch"
       }
     },
     {
@@ -612,6 +594,26 @@
         "text-halo-width": 2,
         "text-halo-color": "rgba(255, 255, 255, 0.49)",
         "text-halo-blur": 0.5
+      }
+    },
+    {
+      "id": "Contours-falaise",
+      "type": "line",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["in", "class", "cliff", "earth_bank", "hedge", "fence", "wall"]
+      ],
+      "layout": {"line-cap": "butt", "line-join": "bevel"},
+      "paint": {
+        "line-color": "#977C73",
+        "line-opacity": 0.4,
+        "line-pattern": "cliff3",
+        "line-translate-anchor": "map",
+        "line-width": {"stops": [[6, 6], [20, 12]]}
       }
     },
     {
@@ -1863,7 +1865,7 @@
         "line-dasharray": [1],
         "line-opacity": {"stops": [[10, 0], [20, 0.6]]},
         "line-color": "rgba(255, 0, 0, 1)",
-        "line-width": {"stops": [[10, 2], [20, 10]]}
+        "line-width": 4
       }
     },
     {
@@ -2164,7 +2166,8 @@
         "text-size": {"base": 1.2, "stops": [[10, 14], [15, 24]]},
         "text-field": "{name:latin}\n{name:nonlatin}",
         "text-max-width": 8,
-        "visibility": "visible"
+        "visibility": "visible",
+        "text-allow-overlap": false
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
@@ -2185,7 +2188,8 @@
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 10,
         "text-size": {"stops": [[7, 14], [11, 24]]},
-        "icon-allow-overlap": true
+        "icon-allow-overlap": true,
+        "text-allow-overlap": true
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
@@ -2206,7 +2210,7 @@
       "filter": [
         "all",
         ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "class"], "peak"],
+        ["==", ["get", "class"], "saddle"],
         [
           "<=",
           ["get", "rank"],
@@ -2230,7 +2234,7 @@
         "text-optional": true,
         "icon-image": "saddle",
         "visibility": "visible",
-        "icon-size": 1,
+        "icon-size": 0.8,
         "text-allow-overlap": true
       },
       "paint": {
@@ -2287,12 +2291,13 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
-      "minzoom": 7,
+      "minzoom": 8,
       "filter": [
         "all",
         ["==", "$type", "Point"],
         ["!=", "name", ""],
-        ["==", "rank", 1]
+        ["==", "rank", 1],
+        ["!=", "class", "saddle"]
       ],
       "layout": {
         "text-anchor": "top",
