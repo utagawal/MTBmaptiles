@@ -413,7 +413,7 @@
       "id": "Hillshading-france",
       "type": "hillshade",
       "source": "relief-france-hd",
-      "minzoom": 6,
+      "minzoom": 8,
       "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -438,12 +438,18 @@
       }
     },
     {
-      "id": "natural-earth",
-      "type": "raster",
-      "source": "natural-earth-2",
-      "maxzoom": 8,
+      "id": "Contours-mineur",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contours",
+      "minzoom": 10,
+      "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
       "layout": {"visibility": "visible"},
-      "paint": {"raster-opacity": {"stops": [[5, 1], [8, 0.1]]}}
+      "paint": {
+        "line-opacity": 0.7,
+        "line-color": "rgba(179, 134, 89, 1)",
+        "line-width": 0.4
+      }
     },
     {
       "id": "Contours-10",
@@ -452,7 +458,7 @@
       "source-layer": "contours",
       "minzoom": 10,
       "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
         "line-color": "#d45500",
@@ -460,18 +466,31 @@
       }
     },
     {
-      "id": "Contours-100-200",
+      "id": "Contours-major",
       "type": "line",
+      "metadata": {"maptoolkit:category": "Contour Lines"},
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 7,
-      "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
-        "line-color": "rgba(179, 134, 89, 1)",
-        "line-width": {"stops": [[11, 0.2], [14, 0.6]]}
-      }
+      "minzoom": 12,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          ">=",
+          ["zoom"],
+          [
+            "case",
+            ["==", ["%", ["number", ["get", "ele"]], 200], 0],
+            12,
+            ["==", ["%", ["number", ["get", "ele"]], 100], 0],
+            13,
+            20
+          ]
+        ],
+        [">", ["number", ["get", "ele"]], 100]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {"line-color": "#d45500", "line-width": 1, "line-opacity": 0.7}
     },
     {
       "id": "Contours-label",
@@ -607,7 +626,11 @@
         "all",
         ["in", "class", "cliff", "earth_bank", "hedge", "fence", "wall"]
       ],
-      "layout": {"line-cap": "butt", "line-join": "bevel"},
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "bevel",
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "#977C73",
         "line-opacity": 0.3,
@@ -615,6 +638,14 @@
         "line-translate-anchor": "map",
         "line-width": {"stops": [[6, 6], [20, 12]]}
       }
+    },
+    {
+      "id": "natural-earth",
+      "type": "raster",
+      "source": "natural-earth-2",
+      "maxzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {"raster-opacity": {"stops": [[5, 1], [8, 0.2]]}}
     },
     {
       "id": "building-basic",
@@ -2222,9 +2253,9 @@
         "text-field": [
           "concat",
           ["get", "name:latin"],
-          "\n",
+          "\n(",
           ["get", "ele"],
-          "m"
+          "m)"
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
@@ -2265,9 +2296,9 @@
         "text-field": [
           "concat",
           ["get", "name:latin"],
-          "\n",
+          "\n(",
           ["get", "ele"],
-          "m"
+          "m)"
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
@@ -2304,9 +2335,9 @@
         "text-field": [
           "concat",
           ["get", "name:latin"],
-          "\n",
+          "\n(",
           ["get", "ele"],
-          "m"
+          "m)"
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
@@ -2993,6 +3024,18 @@
         "icon-image": "arrow"
       },
       "paint": {"icon-opacity": 0.7}
+    },
+    {
+      "id": "terrain-rgb",
+      "type": "hillshade",
+      "source": "world-rgb-png",
+      "source-layer": "world-rgb-png",
+      "layout": {"visibility": "none"},
+      "paint": {
+        "hillshade-shadow-color": {
+          "stops": [[6, "rgba(247, 36, 36, 1)"], [10, "#000000"]]
+        }
+      }
     }
   ],
   "id": "basic-preview",
