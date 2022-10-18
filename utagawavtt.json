@@ -34,7 +34,7 @@
         "https://maps.utagawavtt.com/tiles/terrain/qLmVTMkBjTdY3g83aF5gukd3nM8v8Cn8NE9kScXi/v1/{z}/{x}/{y}.png"
       ],
       "minzoom": 6,
-      "maxzoom": 14
+      "maxzoom": 15
     }
   },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
@@ -2170,7 +2170,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 10,
-      "filter": ["==", "class", "village"],
+      "filter": ["all", ["in", "class", "village", "suburb"]],
       "layout": {
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
