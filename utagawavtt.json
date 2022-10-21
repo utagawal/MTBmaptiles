@@ -490,11 +490,7 @@
         [">", ["number", ["get", "ele"]], 100]
       ],
       "layout": {"line-join": "round", "visibility": "visible"},
-      "paint": {
-                "line-color": "#d45500",
-                "line-width": .8,
-                "line-opacity": .7
-      }
+      "paint": {"line-color": "#d45500","line-width": .8,"line-opacity": .7}
     },
     {
       "id": "Contours-label",
