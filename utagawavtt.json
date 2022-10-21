@@ -438,7 +438,7 @@
       }
     },
     {
-      "id": "Contours-mineur",
+      "id": "Contours-minor",
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
@@ -460,9 +460,9 @@
       "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
       "layout": {"visibility": "none"},
       "paint": {
-        "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
-        "line-color": "#d45500",
-        "line-width": 1.1
+                "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
+                "line-color": "#d45500",
+                "line-width": 1.1
       }
     },
     {
@@ -490,7 +490,11 @@
         [">", ["number", ["get", "ele"]], 100]
       ],
       "layout": {"line-join": "round", "visibility": "visible"},
-      "paint": {"line-color": "#d45500", "line-width": 1, "line-opacity": 0.7}
+      "paint": {
+                "line-color": "#d45500",
+                "line-width": .8,
+                "line-opacity": 0.7
+      }
     },
     {
       "id": "Contours-label",
