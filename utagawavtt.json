@@ -2189,6 +2189,36 @@
       }
     },
     {
+      "id": "place-label-hamlet",
+      "type": "symbol",
+      "metadata": {"mapbox:group": "1444849242106.713"},
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", ["get", "class"], "hamlet"],
+        [
+          "<=",
+          ["get", "rank"],
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 13, 12, 18, 999]
+        ]
+      ],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 8,
+        "text-size": {"base": 1.2, "stops": [[10, 8], [15, 18]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
       "id": "place-label-village",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
