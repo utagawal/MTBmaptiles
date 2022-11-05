@@ -2336,7 +2336,7 @@
         "icon-size": 0.8
       },
       "paint": {
-        "text-color": "rgba(1, 1, 1, 1)",
+        "text-color": "rgba(69, 68, 68, 1)",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
         "text-halo-width": 2
