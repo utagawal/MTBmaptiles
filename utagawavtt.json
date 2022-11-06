@@ -2194,7 +2194,7 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 10,
+      "minzoom": 12,
       "filter": [
         "all",
         ["==", ["get", "class"], "hamlet"],
