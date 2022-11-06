@@ -614,7 +614,7 @@
       "layout": {
         "symbol-placement": "line",
         "text-field": "{ele} m",
-        "text-font": ["Open Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 11,
         "text-padding": 50,
         "visibility": "visible",
@@ -1635,7 +1635,7 @@
         "visibility": "visible",
         "text-field": "",
         "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 10,
         "icon-image": "chairlift",
         "icon-offset": [0, 5],
@@ -1665,7 +1665,7 @@
         "visibility": "visible",
         "text-field": "",
         "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 10,
         "icon-offset": [0, 10],
         "icon-image": "aerialway",
@@ -1697,7 +1697,7 @@
         "visibility": "visible",
         "text-field": "",
         "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 10,
         "icon-image": "aerialway",
         "icon-offset": [0, 5],
@@ -1751,7 +1751,7 @@
         "visibility": "visible",
         "text-field": "",
         "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 10,
         "icon-image": "skiing",
         "icon-offset": [0, 5],
@@ -2194,21 +2194,13 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        ["==", ["get", "class"], "hamlet"],
-        [
-          "<=",
-          ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 7, 1, 13, 12, 18, 999]
-        ]
-      ],
+      "minzoom": 13,
+      "filter": ["all", ["==", ["get", "class"], "hamlet"]],
       "layout": {
         "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
+        "text-font": ["Noto Sans Italic"],
         "text-max-width": 8,
-        "text-size": {"base": 1.2, "stops": [[10, 8], [15, 18]]},
+        "text-size": {"stops": [[13, 10], [16, 18]]},
         "visibility": "visible"
       },
       "paint": {
@@ -2611,7 +2603,7 @@
       ],
       "layout": {
         "text-field": "",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 12,
         "icon-image": "information",
         "icon-size": 0.8
@@ -2637,7 +2629,7 @@
       ],
       "layout": {
         "text-field": "",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 12,
         "icon-image": "bicycle",
         "icon-size": 1,
@@ -2662,7 +2654,7 @@
       ],
       "layout": {
         "text-field": "",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 12,
         "icon-image": "parking",
         "icon-size": 0.8
@@ -2682,7 +2674,7 @@
       "filter": ["all", ["==", "subclass", "picnic_site"]],
       "layout": {
         "text-field": "",
-        "text-font": ["Noto Sans Regular", "Noto Sans Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-size": 12,
         "icon-image": "picnic-site",
         "icon-size": 0.8
