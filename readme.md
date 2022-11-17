@@ -8,6 +8,9 @@ Map Style is intended for Mountain Biking with data from :
 * [Natural earth](https://www.naturalearthdata.com/downloads/10m-natural-earth-2/10m-natural-earth-ii-with-shaded-relief-and-water/) data at lower zoom level
 * OpenStreetMap data (based on Opentopomapspecifications built with Planetiler)
 * Contours and Hillshading for the whole planet (with (TBD) more details for France, Europe and USA based on high definition DEMs)
+  * Terrain RGB tiles are generated for in-browser Hillshading see [documentation](readme_terrainrgb.md) here.
+
+
 
 It shows :
 * Tracks and path where MTB is impossible
