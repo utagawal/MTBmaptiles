@@ -196,6 +196,19 @@
       }
     },
     {
+      "id": "landcover_wood-copy",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 4,
+      "filter": ["all", ["==", "class", "wood"]],
+      "layout": {},
+      "paint": {
+        "fill-opacity": {"stops": [[0, 0.8], [20, 0.8]]},
+        "fill-pattern": "woods-mixed"
+      }
+    },
+    {
       "id": "landcover_farmland",
       "type": "fill",
       "source": "openmaptiles",
@@ -433,9 +446,10 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.6,
-        "hillshade-shadow-color": "#665942",
-        "hillshade-illumination-direction": 315
+        "hillshade-exaggeration": 0.5,
+        "hillshade-shadow-color": "rgba(42, 36, 9, 1)",
+        "hillshade-illumination-direction": 315,
+        "hillshade-highlight-color": "rgba(250, 219, 153, 1)"
       }
     },
     {
@@ -2008,6 +2022,46 @@
       }
     },
     {
+      "id": "road_oneway",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "oneway", 1],
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary",
+          "minor",
+          "service"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 75,
+        "icon-padding": 20,
+        "icon-rotation-alignment": "map",
+        "icon-size": {"stops": [[15, 0.5], [19, 0.7]]},
+        "visibility": "visible",
+        "text-size": {
+          "property": "",
+          "type": "exponential",
+          "stops": [
+            [{"zoom": 6, "value": 0}, 16],
+            [{"zoom": 10, "value": 0}, 16]
+          ]
+        },
+        "icon-image": "arrow"
+      },
+      "paint": {"icon-opacity": 0.7}
+    },
+    {
       "id": "water-name-other",
       "type": "symbol",
       "source": "openmaptiles",
@@ -3033,46 +3087,6 @@
         "text-halo-color": "#ffffff",
         "text-halo-width": 1
       }
-    },
-    {
-      "id": "road_oneway",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["==", "oneway", 1],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
-      ],
-      "layout": {
-        "symbol-placement": "line",
-        "symbol-spacing": 75,
-        "icon-padding": 20,
-        "icon-rotation-alignment": "map",
-        "icon-size": {"stops": [[15, 0.5], [19, 0.7]]},
-        "visibility": "visible",
-        "text-size": {
-          "property": "",
-          "type": "exponential",
-          "stops": [
-            [{"zoom": 6, "value": 0}, 16],
-            [{"zoom": 10, "value": 0}, 16]
-          ]
-        },
-        "icon-image": "arrow"
-      },
-      "paint": {"icon-opacity": 0.7}
     }
   ],
   "id": "basic-preview",
