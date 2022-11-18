@@ -153,6 +153,35 @@
       }
     },
     {
+      "id": "landcover_rock",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(141, 141, 141, 0.92)",
+        "fill-antialias": false,
+        "fill-opacity": {"stops": [[0, 0.9], [10, 0.3]]}
+      }
+    },
+    {
+      "id": "landcover_rock-scree",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["in", "subclass", "scree"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(85, 84, 84, 0.92)",
+        "fill-antialias": false,
+        "fill-opacity": 0.4,
+        "fill-pattern": "scree"
+      }
+    },
+    {
       "id": "landcover_grass",
       "type": "fill",
       "source": "openmaptiles",
@@ -190,23 +219,7 @@
       "minzoom": 4,
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
-      "paint": {
-        "fill-color": "rgba(28, 198, 79, 1)",
-        "fill-opacity": {"stops": [[0, 0.8], [20, 0.8]]}
-      }
-    },
-    {
-      "id": "landcover_wood-copy",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 4,
-      "filter": ["all", ["==", "class", "wood"]],
-      "layout": {},
-      "paint": {
-        "fill-opacity": {"stops": [[0, 0.8], [20, 0.8]]},
-        "fill-pattern": "woods-mixed"
-      }
+      "paint": {"fill-color": "rgba(28, 198, 79, 1)", "fill-opacity": 0.8}
     },
     {
       "id": "landcover_farmland",
@@ -229,33 +242,43 @@
       }
     },
     {
-      "id": "landcover_rock",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
+      "id": "Hillshading-france",
+      "type": "hillshade",
+      "source": "relief-france-hd",
+      "minzoom": 7,
+      "filter": ["all"],
       "layout": {"visibility": "visible"},
       "paint": {
-        "fill-color": "rgba(141, 141, 141, 0.92)",
-        "fill-antialias": false,
-        "fill-opacity": {"stops": [[0, 0.9], [10, 0.3]]}
+        "hillshade-accent-color": "#d45500",
+        "hillshade-exaggeration": 0.4,
+        "hillshade-shadow-color": "rgba(42, 36, 9, 1)",
+        "hillshade-illumination-direction": 315,
+        "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
       }
     },
     {
-      "id": "landcover_rock-scree",
+      "id": "Hillshading",
+      "type": "hillshade",
+      "source": "world-rgb-png",
+      "minzoom": 6,
+      "filter": ["all"],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
+        "hillshade-exaggeration": 0.4,
+        "hillshade-shadow-color": "#665942",
+        "hillshade-illumination-direction": 315
+      }
+    },
+    {
+      "id": "landcover_wood-pattern",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["in", "subclass", "scree"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(85, 84, 84, 0.92)",
-        "fill-antialias": false,
-        "fill-opacity": 0.2,
-        "fill-pattern": "scree"
-      }
+      "minzoom": 4,
+      "filter": ["all", ["==", "class", "wood"]],
+      "layout": {},
+      "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
     },
     {
       "id": "landuse-barrage",
@@ -293,7 +316,7 @@
       "paint": {"fill-color": "rgba(191, 191, 191, 1)"}
     },
     {
-      "id": "aeroway-aerodrome",
+      "id": "landuse-aeroway-aerodrome",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849345966.4436"},
       "source": "openmaptiles",
@@ -435,35 +458,6 @@
         "line-width": {"stops": [[7, 1], [13, 2]]},
         "line-offset": 0,
         "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
-      }
-    },
-    {
-      "id": "Hillshading-france",
-      "type": "hillshade",
-      "source": "relief-france-hd",
-      "minzoom": 7,
-      "filter": ["all"],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.5,
-        "hillshade-shadow-color": "rgba(42, 36, 9, 1)",
-        "hillshade-illumination-direction": 315,
-        "hillshade-highlight-color": "rgba(250, 219, 153, 1)"
-      }
-    },
-    {
-      "id": "Hillshading",
-      "type": "hillshade",
-      "source": "world-rgb-png",
-      "minzoom": 6,
-      "filter": ["all"],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4,
-        "hillshade-shadow-color": "#665942",
-        "hillshade-illumination-direction": 315
       }
     },
     {
@@ -2278,7 +2272,7 @@
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]},
         "visibility": "visible",
-        "text-allow-overlap": true
+        "text-allow-overlap": false
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
