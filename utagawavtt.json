@@ -177,7 +177,7 @@
       "paint": {
         "fill-color": "rgba(85, 84, 84, 0.92)",
         "fill-antialias": false,
-        "fill-opacity": 0.4,
+        "fill-opacity": 0.2,
         "fill-pattern": "scree"
       }
     },
@@ -192,6 +192,15 @@
         "fill-color": "rgba(167, 233, 99, 1)",
         "fill-opacity": {"stops": [[0, 0.8], [10, 0.4]]}
       }
+    },
+    {
+      "id": "landcover_farmland",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 4,
+      "filter": ["all", ["==", "class", "farmland"]],
+      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.4}
     },
     {
       "id": "landcover-vignobles",
@@ -220,15 +229,6 @@
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
       "paint": {"fill-color": "rgba(28, 198, 79, 1)", "fill-opacity": 0.8}
-    },
-    {
-      "id": "landcover_farmland",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 4,
-      "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.4}
     },
     {
       "id": "landcover-ice-shelf",
@@ -1575,9 +1575,9 @@
       },
       "paint": {
         "line-color": "rgba(190, 73, 73, 1)",
-        "line-width": 1.5,
         "line-opacity": 1,
-        "line-dasharray": [3, 2]
+        "line-dasharray": [3, 2],
+        "line-width": 1.8
       }
     },
     {
@@ -1922,9 +1922,9 @@
       },
       "paint": {
         "line-dasharray": [1],
-        "line-opacity": {"stops": [[10, 0], [20, 0.6]]},
+        "line-opacity": {"stops": [[10, 0], [20, 0.4]]},
         "line-color": "rgba(255, 0, 0, 1)",
-        "line-width": 4
+        "line-width": 6
       }
     },
     {
