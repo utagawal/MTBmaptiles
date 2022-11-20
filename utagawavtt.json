@@ -153,35 +153,6 @@
       }
     },
     {
-      "id": "landcover_rock",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(141, 141, 141, 0.92)",
-        "fill-antialias": false,
-        "fill-opacity": {"stops": [[0, 0.9], [10, 0.3]]}
-      }
-    },
-    {
-      "id": "landcover_rock-scree",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["in", "subclass", "scree"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(85, 84, 84, 0.92)",
-        "fill-antialias": false,
-        "fill-opacity": 0.2,
-        "fill-pattern": "scree"
-      }
-    },
-    {
       "id": "landcover_grass",
       "type": "fill",
       "source": "openmaptiles",
@@ -229,6 +200,20 @@
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
       "paint": {"fill-color": "rgba(28, 198, 79, 1)", "fill-opacity": 0.8}
+    },
+    {
+      "id": "landcover_rock",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(141, 141, 141, 0.92)",
+        "fill-antialias": false,
+        "fill-opacity": 0.8
+      }
     },
     {
       "id": "landcover-ice-shelf",
@@ -279,6 +264,21 @@
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
       "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
+    },
+    {
+      "id": "landcover_rock-scree",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["in", "subclass", "scree"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(85, 84, 84, 0.92)",
+        "fill-antialias": false,
+        "fill-opacity": 0.15,
+        "fill-pattern": "scree"
+      }
     },
     {
       "id": "landuse-barrage",
@@ -354,7 +354,7 @@
         "line-color": "rgba(125, 184, 127,1)",
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": {"stops": [[7, 3], [13, 6]]},
-        "line-opacity": {"stops": [[6, 0.4], [20, 0.1]]}
+        "line-opacity": {"stops": [[6, 0.5], [20, 0.2]]}
       }
     },
     {
@@ -387,7 +387,7 @@
         "line-color": "rgba(82, 147, 85, 1)",
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": 0,
-        "line-opacity": {"stops": [[6, 0.4], [20, 0.1]]}
+        "line-opacity": {"stops": [[6, 0.5], [20, 0.2]]}
       }
     },
     {
@@ -1933,7 +1933,7 @@
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 15,
+      "minzoom": 14,
       "filter": [
         "all",
         ["in", "class", "path", "track"],
