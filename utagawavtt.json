@@ -2223,7 +2223,7 @@
         "all",
         ["==", "class", "island"],
         ["==", "$type", "Point"],
-        ["<=", "rank", 5]
+        ["<=", "rank", 4]
       ],
       "layout": {
         "text-field": "{name:latin}",
