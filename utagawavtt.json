@@ -2214,26 +2214,29 @@
       }
     },
     {
-      "id": "place-label-suburb",
+      "id": "place_label_island",
       "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 12,
-      "filter": ["all", ["in", "class", "suburb"]],
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        ["==", "class", "island"],
+        ["==", "$type", "Point"],
+        ["<=", "rank", 4]
+      ],
       "layout": {
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
-        "text-max-width": 8,
-        "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]},
-        "visibility": "visible",
-        "text-allow-overlap": false
+        "text-max-width": 10,
+        "text-size": {"stops": [[3, 16], [8, 20]]},
+        "icon-allow-overlap": true
       },
       "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 2,
-        "text-halo-blur": 0.5
+        "text-color": "rgba(51, 51, 51, 1)",
+        "text-halo-blur": 0,
+        "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
+        "text-halo-width": 2
       }
     },
     {
@@ -2265,7 +2268,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 10,
-      "filter": ["all", ["in", "class", "village"]],
+      "filter": ["all", ["in", "class", "village", "suburb"]],
       "layout": {
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
@@ -2479,35 +2482,6 @@
         "text-color": "rgba(0, 0, 0, 1)",
         "text-halo-width": 2,
         "text-halo-color": "rgba(255,255,255,0.8)"
-      }
-    },
-    {
-      "id": "place_label_island",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "maxzoom": 24,
-      "filter": [
-        "all",
-        ["==", ["get", "class"], "island"],
-        [
-          "<=",
-          ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 1, 1, 11, 5, 18, 999]
-        ]
-      ],
-      "layout": {
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 10,
-        "text-size": {"stops": [[3, 16], [8, 20]]},
-        "icon-allow-overlap": true
-      },
-      "paint": {
-        "text-color": "rgba(51, 51, 51, 1)",
-        "text-halo-blur": 0,
-        "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
-        "text-halo-width": 2
       }
     },
     {
