@@ -136,23 +136,6 @@
       "paint": {"fill-color": "rgba(240, 234, 138, 0.8)", "fill-opacity": 0.8}
     },
     {
-      "id": "landcover-wetland-fill",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849388993.3071"},
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["==", "class", "wetland"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(163, 246, 244, 1)",
-        "fill-opacity": {"stops": [[6, 0.6], [11, 0.3]]},
-        "fill-translate": [0, 0],
-        "fill-antialias": true,
-        "fill-pattern": "wetland-pattern"
-      }
-    },
-    {
       "id": "landcover_grass-bruyere",
       "type": "fill",
       "source": "openmaptiles",
@@ -286,6 +269,23 @@
         "fill-antialias": false,
         "fill-opacity": 0.15,
         "fill-pattern": "scree"
+      }
+    },
+    {
+      "id": "landcover-wetland-fill",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849388993.3071"},
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["==", "class", "wetland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(163, 246, 244, 1)",
+        "fill-opacity": {"stops": [[6, 0.6], [11, 0.3]]},
+        "fill-translate": [0, 0],
+        "fill-antialias": true,
+        "fill-pattern": "wetland-pattern"
       }
     },
     {
