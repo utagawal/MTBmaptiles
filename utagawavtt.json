@@ -133,7 +133,7 @@
       "source-layer": "landcover",
       "minzoom": 3,
       "filter": ["all", ["==", "class", "sand"]],
-      "paint": {"fill-color": "rgba(234, 231, 184, 1)", "fill-opacity": 0.4}
+      "paint": {"fill-color": "rgba(240, 234, 138, 0.8)", "fill-opacity": 0.8}
     },
     {
       "id": "landcover-wetland-fill",
@@ -153,16 +153,24 @@
       }
     },
     {
+      "id": "landcover_grass-bruyere",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["==", "class", "grass"], ["==", "subclass", "heath"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(214, 217, 159, 1)", "fill-opacity": 0.8}
+    },
+    {
       "id": "landcover_grass",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["==", "class", "grass"],
-      "paint": {
-        "fill-color": "rgba(167, 233, 99, 1)",
-        "fill-opacity": {"stops": [[0, 0.8], [10, 0.4]]}
-      }
+      "filter": ["all", ["==", "class", "grass"], ["!=", "subclass", "heath"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(205, 235, 176, 1)", "fill-opacity": 0.8}
     },
     {
       "id": "landcover_farmland",
@@ -171,7 +179,7 @@
       "source-layer": "landcover",
       "minzoom": 4,
       "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.4}
+      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.8}
     },
     {
       "id": "landcover-vignobles",
@@ -187,8 +195,8 @@
       ],
       "paint": {
         "fill-antialias": true,
-        "fill-color": "rgba(234, 29, 134, 1)",
-        "fill-opacity": 0.2
+        "fill-color": "rgba(234, 29, 134, 0.2)",
+        "fill-opacity": 0.8
       }
     },
     {
@@ -237,7 +245,7 @@
         "hillshade-accent-color": "#d45500",
         "hillshade-exaggeration": 0.4,
         "hillshade-shadow-color": "rgba(42, 36, 9, 1)",
-        "hillshade-illumination-direction": 315,
+        "hillshade-illumination-direction": 320,
         "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
       }
     },
