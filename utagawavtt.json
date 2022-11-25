@@ -48,6 +48,14 @@
       "paint": {"background-color": "rgba(224, 224, 224, 1)"}
     },
     {
+      "id": "natural-earth",
+      "type": "raster",
+      "source": "natural-earth-2",
+      "maxzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {"raster-opacity": {"stops": [[5, 1], [8, 0.1]]}}
+    },
+    {
       "id": "landcover-glacier",
       "type": "fill",
       "source": "openmaptiles",
@@ -666,14 +674,6 @@
       }
     },
     {
-      "id": "natural-earth",
-      "type": "raster",
-      "source": "natural-earth-2",
-      "maxzoom": 8,
-      "layout": {"visibility": "visible"},
-      "paint": {"raster-opacity": {"stops": [[5, 1], [8, 0.2]]}}
-    },
-    {
       "id": "building-basic",
       "type": "fill",
       "source": "openmaptiles",
@@ -708,7 +708,7 @@
       "filter": [
         "all",
         ["==", "brunnel", "tunnel"],
-        ["in", "class", "minor_road", "path"]
+        ["in", "class", "minor_road", "path", "track"]
       ],
       "layout": {
         "line-cap": "butt",
