@@ -681,7 +681,7 @@
       "paint": {
         "fill-color": "rgba(181, 181, 181, 1)",
         "fill-outline-color": "rgba(152, 150, 140, 1)",
-        "fill-opacity": {"base": 1, "stops": [[13, 0.5], [20, 0.9]]},
+        "fill-opacity": {"base": 1, "stops": [[13, 0.3], [20, 0.1]]},
         "fill-antialias": true
       }
     },
@@ -694,7 +694,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(70, 70, 70, 1)",
-        "fill-opacity": {"base": 1, "stops": [[13, 0.5], [20, 0.9]]},
+        "fill-opacity": {"base": 1, "stops": [[13, 0.3], [20, 0.1]]},
         "fill-outline-color": "#dfdbd7",
         "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]},
         "fill-antialias": true
