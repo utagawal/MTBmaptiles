@@ -21,7 +21,7 @@ ctReload() {
 
 # Start tileserver-gl container
 ctStart() {
-	docker run --name ${1} -d --rm -it -v /var/data:/data -p 8080:80 maptiler/tileserver-gl
+	docker run --name ${1} -d --rm -it -v /var/data:/data -p 8080:8080 maptiler/tileserver-gl
 }
 
 # Check if tileserver-gl is running
