@@ -141,7 +141,10 @@
       "source-layer": "landcover",
       "minzoom": 3,
       "filter": ["all", ["==", "class", "sand"]],
-      "paint": {"fill-color": "rgba(255, 238, 55, 1)", "fill-opacity": 0.6}
+      "paint": {
+        "fill-color": "rgba(224, 205, 169, 1)",
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
     },
     {
       "id": "landcover-rock",
@@ -154,7 +157,7 @@
       "paint": {
         "fill-color": "rgba(141, 141, 141, 1)",
         "fill-antialias": false,
-        "fill-opacity": 0.6
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.6]]}
       }
     },
     {
@@ -164,7 +167,10 @@
       "source-layer": "landcover",
       "minzoom": 4,
       "filter": ["all", ["==", "class", "farmland"]],
-      "paint": {"fill-color": "rgba(242, 236, 190, 1)", "fill-opacity": 0.8}
+      "paint": {
+        "fill-color": "rgba(242, 236, 190, 1)",
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
     },
     {
       "id": "landcover-grass-heath",
@@ -173,7 +179,10 @@
       "source-layer": "landcover",
       "minzoom": 6,
       "filter": ["all", ["==", "class", "grass"], ["==", "subclass", "heath"]],
-      "paint": {"fill-color": "rgba(214, 217, 159, 1)", "fill-opacity": 0.8}
+      "paint": {
+        "fill-color": "rgba(214, 217, 159, 1)",
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
     },
     {
       "id": "landcover-grass",
@@ -182,7 +191,10 @@
       "source-layer": "landcover",
       "minzoom": 6,
       "filter": ["all", ["==", "class", "grass"], ["!=", "subclass", "heath"]],
-      "paint": {"fill-color": "rgba(167, 233, 99, 1)", "fill-opacity": 0.8}
+      "paint": {
+        "fill-color": "rgba(167, 233, 99, 1)",
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
     },
     {
       "id": "landcover-vineyard",
@@ -199,7 +211,7 @@
       "paint": {
         "fill-antialias": true,
         "fill-color": "rgba(234, 29, 134, .2)",
-        "fill-opacity": 0.8
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
       }
     },
     {
@@ -210,7 +222,10 @@
       "minzoom": 4,
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
-      "paint": {"fill-color": "rgba(28, 198, 79, 1)", "fill-opacity": 0.8}
+      "paint": {
+        "fill-color": "rgba(28, 198, 79, 1)",
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
     },
     {
       "id": "landcover-ice-shelf",
@@ -254,7 +269,7 @@
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "minzoom": 4,
+      "minzoom": 11,
       "filter": ["all", ["==", "class", "wood"]],
       "layout": {},
       "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
@@ -264,7 +279,7 @@
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "minzoom": 6,
+      "minzoom": 8,
       "filter": ["all", ["in", "subclass", "scree"]],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -409,7 +424,7 @@
       "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
       "paint": {
         "fill-color": "rgba(69, 150, 207, 1)",
-        "fill-opacity": {"stops": [[0, 0.5], [20, 1]]},
+        "fill-opacity": {"stops": [[0, 0.3], [12, 1]]},
         "fill-antialias": true
       }
     },
