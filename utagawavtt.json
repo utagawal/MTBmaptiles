@@ -56,85 +56,6 @@
       "paint": {"raster-opacity": {"stops": [[5, 1], [8, 0.1]]}}
     },
     {
-      "id": "landcover-glacier",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["==", "subclass", "glacier"],
-      "paint": {
-        "fill-color": "rgba(255, 255, 255, 1)",
-        "fill-opacity": {"base": 1, "stops": [[0, 0.9], [10, 0.3]]}
-      }
-    },
-    {
-      "id": "landuse",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "filter": ["==", "class", "agriculture"],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#eae0d0"}
-    },
-    {
-      "id": "landuse-urban",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(241, 241, 220, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [13, 0.4]]}
-      }
-    },
-    {
-      "id": "landuse-residential",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        ["in", "class", "residential", "suburb", "neighbourhood"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "hsl(47, 13%, 86%)",
-        "fill-opacity": {"stops": [[6, 0.2], [10, 0.4]]}
-      }
-    },
-    {
-      "id": "park-fill",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "parc_naturel_régional",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "Parc national",
-          "réserve_biologique_intégrale",
-          "espace_naturel_sensible",
-          "réserve_nationale_de_chasse_et_faune_sauvage",
-          "geopark",
-          "aire_d’adhésion"
-        ]
-      ],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "fill-color": "rgba(125, 184, 127, 1)",
-        "fill-opacity": {"stops": [[6, 0.6], [20, 0.1]]}
-      }
-    },
-    {
       "id": "landcover-sand",
       "type": "fill",
       "source": "openmaptiles",
@@ -236,6 +157,18 @@
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.8}
     },
     {
+      "id": "landcover-glacier",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["==", "subclass", "glacier"],
+      "paint": {
+        "fill-color": "rgba(255, 255, 255, 1)",
+        "fill-opacity": {"base": 1, "stops": [[0, 0.9], [10, 0.3]]}
+      }
+    },
+    {
       "id": "hillshading-HD",
       "type": "hillshade",
       "source": "relief-france-hd",
@@ -304,6 +237,44 @@
         "fill-translate": [0, 0],
         "fill-antialias": true,
         "fill-pattern": "wetland-pattern"
+      }
+    },
+    {
+      "id": "landuse-agricultural",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "filter": ["==", "class", "agriculture"],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#eae0d0"}
+    },
+    {
+      "id": "landuse-residential",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        ["in", "class", "residential", "suburb", "neighbourhood"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "hsl(47, 13%, 86%)",
+        "fill-opacity": {"stops": [[6, 0.2], [10, 0.4]]}
+      }
+    },
+    {
+      "id": "landuse-urban",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 6,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(241, 241, 220, 1)",
+        "fill-opacity": {"stops": [[6, 0.2], [13, 0.4]]}
       }
     },
     {
@@ -414,6 +385,35 @@
         "line-width": {"stops": [[7, 3], [13, 6]]},
         "line-offset": 0,
         "line-opacity": {"stops": [[6, 0.5], [20, 0.2]]}
+      }
+    },
+    {
+      "id": "park-fill",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "filter": [
+        "all",
+        ["==", "$type", "Polygon"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "parc_naturel_régional",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "Parc national",
+          "réserve_biologique_intégrale",
+          "espace_naturel_sensible",
+          "réserve_nationale_de_chasse_et_faune_sauvage",
+          "geopark",
+          "aire_d’adhésion"
+        ]
+      ],
+      "layout": {"visibility": "none"},
+      "paint": {
+        "fill-color": "rgba(125, 184, 127, 1)",
+        "fill-opacity": {"stops": [[6, 0.6], [20, 0.1]]}
       }
     },
     {
