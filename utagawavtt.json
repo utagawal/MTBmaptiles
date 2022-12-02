@@ -1815,7 +1815,7 @@
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 14,
+      "minzoom": 15,
       "filter": [
         "all",
         ["in", "class", "path", "track"],
@@ -1835,15 +1835,13 @@
         "symbol-placement": "line-center",
         "icon-allow-overlap": true,
         "icon-anchor": "bottom",
-        "text-font": ["Noto Sans Regular"],
         "icon-ignore-placement": false,
         "icon-rotation-alignment": "auto",
-        "icon-size": {"stops": [[10, 0.6], [20, 0.8]]},
+        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
         "icon-keep-upright": false,
         "icon-offset": [7, 7],
         "icon-pitch-alignment": "auto",
         "symbol-avoid-edges": true,
-        "text-allow-overlap": true,
         "icon-image": "cross"
       },
       "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
