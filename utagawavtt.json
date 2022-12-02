@@ -2024,6 +2024,420 @@
       "paint": {"text-color": "rgba(212, 177, 146, 1)"}
     },
     {
+      "id": "pois-cave",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "subclass", "viewpoint"],
+        ["in", "name", "grotte", "Grotte", "caverne", "aven"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 0,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-rotate": 90,
+        "icon-anchor": "center",
+        "text-offset": [0, 1.5],
+        "icon-image": "cave"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-religieux",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["==", "class", "place_of_worship"],
+        ["==", "subclass", "christian"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "religious-christian",
+        "icon-size": 0.8,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-railway-station",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["==", "class", "railway"],
+        ["==", "subclass", "station"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "rail",
+        "icon-size": 0.8
+      },
+      "paint": {
+        "text-color": "rgba(52, 52, 52, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-parking",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "class", "parking"],
+        ["==", "subclass", "parking"]
+      ],
+      "layout": {
+        "text-field": "",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "parking",
+        "icon-size": 0.8
+      },
+      "paint": {
+        "icon-color": "rgba(252, 252, 252, 1)",
+        "icon-halo-color": "rgba(168, 15, 15, 1)",
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "pois-parking-bicycle",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "class", "bicycle_parking"],
+        ["==", "subclass", "bicycle_parking"]
+      ],
+      "layout": {
+        "text-field": "",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "bicycle",
+        "icon-size": 1,
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "rgba(252, 252, 252, 1)",
+        "icon-halo-color": "rgba(168, 15, 15, 1)",
+        "text-opacity": 1
+      }
+    },
+    {
+      "id": "pois-restaurants",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": [
+        "any",
+        ["==", "subclass", "restaurant"],
+        ["==", "subclass", "fast_food"]
+      ],
+      "layout": {
+        "icon-image": "restaurant",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "none"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
+      "id": "pois-bars",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": ["any", ["==", "subclass", "bar"]],
+      "layout": {
+        "icon-image": "bar",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-bicycle",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": ["any", ["==", "class", "bicycle"]],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "bicycle"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-alpine-hut",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "filter": [
+        "any",
+        ["==", "subclass", "alpine_hut"],
+        ["==", "subclass", "lodging"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "lodging",
+        "icon-size": 0.8
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "pois-campsite",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 13,
+      "filter": ["all", ["==", "class", "campsite"]],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "campsite",
+        "icon-size": 0.8
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "pois-drinking-water-spot",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "class", "drinking_water"],
+        ["in", "name", "croix"]
+      ],
+      "layout": {
+        "icon-image": "drinking-water",
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "#666",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "pois-guidepost",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "class", "information"],
+        ["==", "subclass", "guidepost"]
+      ],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 10], [20, 12]]},
+        "text-optional": true,
+        "icon-size": 0.8,
+        "icon-image": "post-JP",
+        "icon-anchor": "bottom",
+        "icon-offset": [0, 0],
+        "text-offset": [0, 0.6]
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2,
+        "text-translate": [0, 3]
+      }
+    },
+    {
+      "id": "pois-viewpoint",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["==", "subclass", "viewpoint"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 0,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-image": "viewpoint",
+        "icon-rotate": 90,
+        "icon-anchor": "center",
+        "text-offset": [0, 1.5],
+        "icon-size": 0.8
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "pois-picnic",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": ["all", ["==", "subclass", "picnic_site"]],
+      "layout": {
+        "text-field": "",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "picnic-site",
+        "icon-size": 0.8
+      }
+    },
+    {
+      "id": "pois-information",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["==", "class", "information"],
+        ["!=", "subclass", "guidepost"],
+        ["==", "$type", "Point"],
+        ["<=", "rank", 3]
+      ],
+      "layout": {
+        "text-field": "",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "information",
+        "icon-size": 0.8
+      },
+      "paint": {
+        "icon-color": "rgba(252, 252, 252, 1)",
+        "icon-halo-color": "rgba(168, 15, 15, 1)",
+        "text-opacity": 1,
+        "text-halo-width": 2,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
       "id": "place-forest",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
@@ -2514,420 +2928,6 @@
         "text-color": "#334",
         "text-halo-width": 2,
         "text-halo-color": "rgba(255,255,255,0.8)"
-      }
-    },
-    {
-      "id": "pois-information",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        ["==", "class", "information"],
-        ["!=", "subclass", "guidepost"],
-        ["==", "$type", "Point"],
-        ["<=", "rank", 3]
-      ],
-      "layout": {
-        "text-field": "",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "icon-image": "information",
-        "icon-size": 0.8
-      },
-      "paint": {
-        "icon-color": "rgba(252, 252, 252, 1)",
-        "icon-halo-color": "rgba(168, 15, 15, 1)",
-        "text-opacity": 1,
-        "text-halo-width": 2,
-        "text-halo-blur": 0.5
-      }
-    },
-    {
-      "id": "pois-parking-bicycle",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["==", "class", "bicycle_parking"],
-        ["==", "subclass", "bicycle_parking"]
-      ],
-      "layout": {
-        "text-field": "",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "icon-image": "bicycle",
-        "icon-size": 1,
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "rgba(252, 252, 252, 1)",
-        "icon-halo-color": "rgba(168, 15, 15, 1)",
-        "text-opacity": 1
-      }
-    },
-    {
-      "id": "pois-parking",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["==", "class", "parking"],
-        ["==", "subclass", "parking"]
-      ],
-      "layout": {
-        "text-field": "",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "icon-image": "parking",
-        "icon-size": 0.8
-      },
-      "paint": {
-        "icon-color": "rgba(252, 252, 252, 1)",
-        "icon-halo-color": "rgba(168, 15, 15, 1)",
-        "text-opacity": 1
-      }
-    },
-    {
-      "id": "pois-picnic",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": ["all", ["==", "subclass", "picnic_site"]],
-      "layout": {
-        "text-field": "",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "icon-image": "picnic-site",
-        "icon-size": 0.8
-      }
-    },
-    {
-      "id": "pois-cave",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["==", "subclass", "viewpoint"],
-        ["in", "name", "grotte", "Grotte", "caverne", "aven"]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-padding": 0,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-rotate": 90,
-        "icon-anchor": "center",
-        "text-offset": [0, 1.5],
-        "icon-image": "cave"
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "pois-viewpoint",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["==", "subclass", "viewpoint"]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-padding": 0,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-image": "viewpoint",
-        "icon-rotate": 90,
-        "icon-anchor": "center",
-        "text-offset": [0, 1.5],
-        "icon-size": 0.8
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "pois-guidepost",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "class", "information"],
-        ["==", "subclass", "guidepost"]
-      ],
-      "layout": {
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-padding": 2,
-        "text-size": {"stops": [[14, 10], [20, 12]]},
-        "text-optional": true,
-        "icon-size": 0.8,
-        "icon-image": "post-JP",
-        "icon-anchor": "bottom",
-        "icon-offset": [0, 0],
-        "text-offset": [0, 0.6]
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2,
-        "text-translate": [0, 3]
-      }
-    },
-    {
-      "id": "pois-drinking-water-spot",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "class", "drinking_water"],
-        ["in", "name", "croix"]
-      ],
-      "layout": {
-        "icon-image": "drinking-water",
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-allow-overlap": false
-      },
-      "paint": {
-        "text-color": "#666",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1
-      }
-    },
-    {
-      "id": "pois-railway-station",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 13,
-      "filter": [
-        "all",
-        ["==", "class", "railway"],
-        ["==", "subclass", "station"]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-image": "rail",
-        "icon-size": 0.8
-      },
-      "paint": {
-        "text-color": "rgba(52, 52, 52, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "pois-campsite",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 13,
-      "filter": ["all", ["==", "class", "campsite"]],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-image": "campsite",
-        "icon-size": 0.8
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1
-      }
-    },
-    {
-      "id": "pois-alpine-hut",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 12,
-      "filter": [
-        "any",
-        ["==", "subclass", "alpine_hut"],
-        ["==", "subclass", "lodging"]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-image": "lodging",
-        "icon-size": 0.8
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1
-      }
-    },
-    {
-      "id": "pois-bars",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": ["any", ["==", "subclass", "bar"]],
-      "layout": {
-        "icon-image": "bar",
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "#666",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "pois-restaurants",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": [
-        "any",
-        ["==", "subclass", "restaurant"],
-        ["==", "subclass", "fast_food"]
-      ],
-      "layout": {
-        "icon-image": "restaurant",
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "none"
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 1,
-        "text-halo-blur": 0.5
-      }
-    },
-    {
-      "id": "pois-religieux",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        ["==", "class", "place_of_worship"],
-        ["==", "subclass", "christian"]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-image": "religious-christian",
-        "icon-size": 0.8,
-        "text-allow-overlap": false
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "pois-bicycle",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": ["any", ["==", "class", "bicycle"]],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 12,
-        "visibility": "visible",
-        "icon-image": "bicycle"
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
       }
     },
     {
