@@ -43,7 +43,6 @@
     {
       "id": "background",
       "type": "background",
-      "filter": ["all", ["==", "name", "line"]],
       "layout": {"visibility": "visible"},
       "paint": {"background-color": "rgba(224, 224, 224, 1)"}
     },
