@@ -1804,7 +1804,7 @@
       "paint": {
         "line-dasharray": [1],
         "line-opacity": 0.4,
-        "line-color": "rgba(255, 0, 0, 1)",
+        "line-color": "#FF0000",
         "line-width": 6
       }
     },
