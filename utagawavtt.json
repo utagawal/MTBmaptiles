@@ -490,7 +490,7 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 10,
+      "minzoom": 13,
       "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
       "layout": {"visibility": "visible"},
       "paint": {"line-opacity": 0.7, "line-color": "#d45500", "line-width": 0.4}
@@ -500,7 +500,7 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 10,
+      "minzoom": 12,
       "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
       "layout": {"visibility": "visible"},
       "paint": {"line-opacity": 0.7, "line-color": "#d45500", "line-width": 0.6}
@@ -882,6 +882,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 9,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
@@ -903,6 +904,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 9,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
@@ -1281,7 +1283,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 11,
+      "minzoom": 12,
       "filter": [
         "all",
         ["==", "class", "track"],
@@ -1295,10 +1297,9 @@
       },
       "paint": {
         "line-color": "rgba(70, 70, 70, 1)",
-        "line-width": 2.25,
-        "line-opacity": {"stops": [[10, 0.5], [16, 1]]},
-        "line-dasharray": [1, 2],
-        "line-gap-width": 2,
+        "line-width": 6,
+        "line-opacity": 1,
+        "line-dasharray": [0.3, 1.5],
         "line-blur": 1
       }
     },
@@ -1321,7 +1322,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 11,
+      "minzoom": 12,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
@@ -1335,8 +1336,8 @@
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": 2.25,
-        "line-opacity": {"stops": [[10, 0.5], [16, 1]]}
+        "line-width": 2,
+        "line-opacity": 1
       }
     },
     {
@@ -1382,7 +1383,7 @@
       "paint": {
         "line-color": "hsl(0, 0%, 100%)",
         "line-dasharray": [1, 0.7],
-        "line-width": {"base": 1.2, "stops": [[14, 1], [20, 10]]}
+        "line-width": 1
       }
     },
     {
