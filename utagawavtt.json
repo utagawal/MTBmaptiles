@@ -493,11 +493,7 @@
       "minzoom": 10,
       "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
       "layout": {"visibility": "visible"},
-      "paint": {
-        "line-opacity": 0.7,
-        "line-color": "rgba(179, 134, 89, 1)",
-        "line-width": 0.4
-      }
+      "paint": {"line-opacity": 0.7, "line-color": "#d45500", "line-width": 0.4}
     },
     {
       "id": "contours-10",
@@ -506,12 +502,8 @@
       "source-layer": "contours",
       "minzoom": 10,
       "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "line-opacity": {"stops": [[11, 0.2], [14, 0.4]]},
-        "line-color": "#d45500",
-        "line-width": 1.1
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"line-opacity": 0.7, "line-color": "#d45500", "line-width": 0.6}
     },
     {
       "id": "contours-major",
@@ -1800,11 +1792,7 @@
         "line-cap": "round",
         "line-join": "bevel"
       },
-      "paint": {
-        "line-opacity": 0.4,
-        "line-color": "#FF0000",
-        "line-width": 6
-      }
+      "paint": {"line-opacity": 0.4, "line-color": "#FF0000", "line-width": 6}
     },
     {
       "id": "mtb-no-access-symbol",
