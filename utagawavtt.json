@@ -1412,10 +1412,9 @@
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": {"base": 1.55, "stops": [[6, 2], [20, 5]]},
+        "line-width": 2,
         "line-opacity": 1,
-        "line-gap-width": 0,
-        "line-dasharray": [1]
+        "line-gap-width": 0
       }
     },
     {
