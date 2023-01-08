@@ -179,7 +179,7 @@
       "minzoom": 6,
       "filter": ["==", "subclass", "glacier"],
       "paint": {
-        "fill-color": "rgba(255, 255, 255, 1)",
+        "fill-color": "#D6FBFB",
         "fill-opacity": {"base": 1, "stops": [[0, 0.9], [10, 0.3]]}
       }
     },
