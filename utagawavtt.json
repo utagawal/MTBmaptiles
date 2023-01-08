@@ -35,6 +35,22 @@
       ],
       "minzoom": 6,
       "maxzoom": 15
+    },
+    "hillshade-mapzen": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.utagawavtt.com/styles/hillshade-mapzen/{z}/{x}/{y}.png"
+      ],
+      "minzoom": 5,
+      "maxzoom": 14
+    },
+    "hillshade-HD": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.utagawavtt.com/styles/hillshade-HD/{z}/{x}/{y}.png"
+      ],
+      "minzoom": 5,
+      "maxzoom": 15
     }
   },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
@@ -173,7 +189,7 @@
       "source": "relief-france-hd",
       "minzoom": 7,
       "filter": ["all"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "hillshade-accent-color": "#d45500",
         "hillshade-exaggeration": 0.5,
@@ -181,6 +197,13 @@
         "hillshade-illumination-direction": 320,
         "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
       }
+    },
+    {
+      "id": "hillshading-HD-raster",
+      "type": "raster",
+      "source": "hillshade-HD",
+      "minzoom": 5,
+      "layout": {"visibility": "none"}
     },
     {
       "id": "hillshading-mapzen",
@@ -195,6 +218,13 @@
         "hillshade-shadow-color": "#665942",
         "hillshade-illumination-direction": 315
       }
+    },
+    {
+      "id": "hillshading-mapzen-raster-copy",
+      "type": "raster",
+      "source": "hillshade-mapzen",
+      "minzoom": 5,
+      "layout": {"visibility": "visible"}
     },
     {
       "id": "landcover-wood-pattern",
