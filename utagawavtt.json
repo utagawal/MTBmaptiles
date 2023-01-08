@@ -203,7 +203,8 @@
       "type": "raster",
       "source": "hillshade-HD",
       "minzoom": 5,
-      "layout": {"visibility": "none"}
+      "layout": {"visibility": "none"},
+      "paint": {"raster-opacity": 0.7}
     },
     {
       "id": "hillshading-mapzen",
@@ -224,7 +225,8 @@
       "type": "raster",
       "source": "hillshade-mapzen",
       "minzoom": 5,
-      "layout": {"visibility": "visible"}
+      "layout": {"visibility": "visible"},
+      "paint": {"raster-opacity": 0.7}
     },
     {
       "id": "landcover-wood-pattern",
