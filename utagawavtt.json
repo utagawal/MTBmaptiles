@@ -221,11 +221,11 @@
       }
     },
     {
-      "id": "hillshading-mapzen-raster-copy",
+      "id": "hillshading-mapzen-raster",
       "type": "raster",
       "source": "hillshade-mapzen",
       "minzoom": 5,
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {"raster-opacity": 0.9}
     },
     {
