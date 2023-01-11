@@ -226,7 +226,7 @@
       "source": "hillshade-mapzen",
       "minzoom": 5,
       "layout": {"visibility": "visible"},
-      "paint": {"raster-opacity": 0.9}
+      "paint": {"raster-opacity": 1}
     },
     {
       "id": "landcover-wood-pattern",
@@ -1798,6 +1798,14 @@
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.8
       }
+    },
+    {
+      "id": "mtb-restricted-access-reserve",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "filter": ["all", ["in", "class", "réserve_naturelle_nationale"]],
+      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.2}
     },
     {
       "id": "mtb-no-access-global",
