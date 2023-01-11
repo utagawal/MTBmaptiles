@@ -1800,6 +1800,14 @@
       }
     },
     {
+      "id": "mtb-no-access-reserve",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "filter": ["all", ["in", "class", "réserve_naturelle_nationale"]],
+      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.3}
+    },
+    {
       "id": "mtb-no-access-global",
       "type": "line",
       "source": "openmaptiles",
