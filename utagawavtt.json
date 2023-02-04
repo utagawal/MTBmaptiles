@@ -326,13 +326,7 @@
             "parc_naturel_régional"
           ]
         ],
-        [
-          "in",
-          "class",
-          "réserve_biologique_dirigée",
-          "réserve_biologique_intégrale",
-          "réserve_de_la_biosphère,_zone_centrale"
-        ]
+        ["in", "class", "réserve_biologique_intégrale"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "#FF0000", "fill-opacity": 0.4}
