@@ -271,6 +271,73 @@
       }
     },
     {
+      "id": "mtb-restricted-access-reserve",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 8,
+      "filter": [
+        "any",
+        [
+          "all",
+          [
+            "in",
+            "name:latin",
+            "Chastreix-Sancy",
+            "Parc national de la Vanoise (cœur)",
+            "Parc national des Écrins (cœur)",
+            "Réserve naturelle du Bagnas",
+            "Réserve naturelle du Bout du lac d'Annecy",
+            "Réserve naturelle de Chastreix-Sancy",
+            "Réserve naturelle des Chaumes du Verniller",
+            "Réserve naturelle de Conat",
+            "Réserve naturelle du coteau de Mesnil Soleil",
+            "Réserve naturelle du Courant d'Huchet",
+            "Réserve naturelle de l'Étang du Cousseau",
+            "Réserve naturelle de l'étang de la Mazière",
+            "Réserve naturelle de l'étang du Grand-Lemps",
+            "Réserve naturelle de la forêt d'Orient",
+            "Réserve naturelle de la forêt de la Massane",
+            "Réserve naturelle de la Grande Sassière",
+            "Réserve Naturelle des îlets de Sainte-Anne",
+            "Réserve naturelle de Jujols",
+            "Réserve naturelle de Mantet",
+            "Réserve naturelle du marais de Vesles-et-Caumont",
+            "Réserve naturelle de la mare de Vauville",
+            "Réserve naturelle du Mas Larrieu",
+            "Réserve naturelle du Mont Grand Matoury",
+            "Réserve naturelle de Nohèdes",
+            "Réserve naturelle du Pinail",
+            "Réserve naturelle de Prats-de-Mollo-la-Preste",
+            "Réserve naturelle des prés salés d'Arès et de Lège-Cap-Ferret",
+            "Réserve naturelle de la presqu'île de la Caravelle",
+            "Réserve naturelle de Py",
+            "Réserve naturelle de la tourbière de Mathon",
+            "Réserve naturelle de la Vallée d’Eyne",
+            "Réserve naturelle de la vallée de Chaudefour",
+            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
+          ],
+          [
+            "in",
+            "class",
+            "protected_area",
+            "cœur",
+            "réserve_naturelle_nationale",
+            "parc_naturel_régional"
+          ]
+        ],
+        [
+          "in",
+          "class",
+          "réserve_biologique_dirigée",
+          "réserve_biologique_intégrale",
+          "réserve_de_la_biosphère,_zone_centrale"
+        ]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.4}
+    },
+    {
       "id": "landuse-agricultural",
       "type": "fill",
       "source": "openmaptiles",
@@ -375,7 +442,8 @@
           "espace_naturel_sensible",
           "réserve_nationale_de_chasse_et_faune_sauvage",
           "geopark",
-          "aire_d’adhésion"
+          "aire_d’adhésion",
+          "natura_2000"
         ]
       ],
       "paint": {
@@ -407,7 +475,8 @@
           "espace_naturel_sensible",
           "réserve_nationale_de_chasse_et_faune_sauvage",
           "geopark",
-          "aire_d’adhésion"
+          "aire_d’adhésion",
+          "natura_2000"
         ]
       ],
       "layout": {"line-join": "bevel", "line-cap": "butt"},
@@ -438,7 +507,8 @@
           "espace_naturel_sensible",
           "réserve_nationale_de_chasse_et_faune_sauvage",
           "geopark",
-          "aire_d’adhésion"
+          "aire_d’adhésion",
+          "natura_2000"
         ]
       ],
       "layout": {"visibility": "none"},
@@ -1765,7 +1835,7 @@
       }
     },
     {
-      "id": "park-national-name",
+      "id": "parks-name",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -1781,6 +1851,7 @@
           "réserve_naturelle_nationale",
           "cœur",
           "réserve_biologique_intégrale",
+          "réserve_naturelle_nationale",
           "réserve_naturelle_nationale",
           "coeur",
           "aire_d'adhésion"
@@ -1798,14 +1869,6 @@
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.8
       }
-    },
-    {
-      "id": "mtb-restricted-access-reserve",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "filter": ["all", ["in", "class", "réserve_naturelle_nationale"]],
-      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.2}
     },
     {
       "id": "mtb-no-access-global",
@@ -2555,7 +2618,7 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 10,
+      "minzoom": 11,
       "filter": ["all", ["in", "class", "village"]],
       "layout": {
         "text-field": "{name:latin}",
