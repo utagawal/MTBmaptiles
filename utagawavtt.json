@@ -271,67 +271,6 @@
       }
     },
     {
-      "id": "mtb-restricted-access-reserve",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 8,
-      "filter": [
-        "any",
-        [
-          "all",
-          [
-            "in",
-            "name:latin",
-            "Chastreix-Sancy",
-            "Parc national de la Vanoise (cœur)",
-            "Parc national des Écrins (cœur)",
-            "Réserve naturelle du Bagnas",
-            "Réserve naturelle du Bout du lac d'Annecy",
-            "Réserve naturelle de Chastreix-Sancy",
-            "Réserve naturelle des Chaumes du Verniller",
-            "Réserve naturelle de Conat",
-            "Réserve naturelle du coteau de Mesnil Soleil",
-            "Réserve naturelle du Courant d'Huchet",
-            "Réserve naturelle de l'Étang du Cousseau",
-            "Réserve naturelle de l'étang de la Mazière",
-            "Réserve naturelle de l'étang du Grand-Lemps",
-            "Réserve naturelle de la forêt d'Orient",
-            "Réserve naturelle de la forêt de la Massane",
-            "Réserve naturelle de la Grande Sassière",
-            "Réserve Naturelle des îlets de Sainte-Anne",
-            "Réserve naturelle de Jujols",
-            "Réserve naturelle de Mantet",
-            "Réserve naturelle du marais de Vesles-et-Caumont",
-            "Réserve naturelle de la mare de Vauville",
-            "Réserve naturelle du Mas Larrieu",
-            "Réserve naturelle du Mont Grand Matoury",
-            "Réserve naturelle de Nohèdes",
-            "Réserve naturelle du Pinail",
-            "Réserve naturelle de Prats-de-Mollo-la-Preste",
-            "Réserve naturelle des prés salés d'Arès et de Lège-Cap-Ferret",
-            "Réserve naturelle de la presqu'île de la Caravelle",
-            "Réserve naturelle de Py",
-            "Réserve naturelle de la tourbière de Mathon",
-            "Réserve naturelle de la Vallée d’Eyne",
-            "Réserve naturelle de la vallée de Chaudefour",
-            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
-          ],
-          [
-            "in",
-            "class",
-            "protected_area",
-            "cœur",
-            "réserve_naturelle_nationale",
-            "parc_naturel_régional"
-          ]
-        ],
-        ["in", "class", "réserve_biologique_intégrale"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.4}
-    },
-    {
       "id": "landuse-agricultural",
       "type": "fill",
       "source": "openmaptiles",
@@ -437,7 +376,8 @@
           "réserve_nationale_de_chasse_et_faune_sauvage",
           "geopark",
           "aire_d’adhésion",
-          "natura_2000"
+          "natura_2000",
+          "réserve_naturelle_régionale"
         ]
       ],
       "paint": {
@@ -470,7 +410,8 @@
           "réserve_nationale_de_chasse_et_faune_sauvage",
           "geopark",
           "aire_d’adhésion",
-          "natura_2000"
+          "natura_2000",
+          "réserve_naturelle_régionale"
         ]
       ],
       "layout": {"line-join": "bevel", "line-cap": "butt"},
@@ -502,7 +443,8 @@
           "réserve_nationale_de_chasse_et_faune_sauvage",
           "geopark",
           "aire_d’adhésion",
-          "natura_2000"
+          "natura_2000",
+          "réserve_naturelle_régionale"
         ]
       ],
       "layout": {"visibility": "none"},
@@ -580,6 +522,85 @@
         "line-offset": 0,
         "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
       }
+    },
+    {
+      "id": "mtb-restricted-access-reserve",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 8,
+      "filter": [
+        "any",
+        [
+          "all",
+          [
+            "in",
+            "name:latin",
+            "Chastreix-Sancy",
+            "Parc national de la Vanoise (cœur)",
+            "Parc national des Écrins (cœur)",
+            "Réserve naturelle du Bagnas",
+            "Réserve naturelle du Bout du lac d'Annecy",
+            "Réserve naturelle de Chastreix-Sancy",
+            "Réserve naturelle des Chaumes du Verniller",
+            "Réserve naturelle de Conat",
+            "Réserve naturelle du coteau de Mesnil Soleil",
+            "Réserve naturelle du Courant d'Huchet",
+            "Réserve naturelle de l'Étang du Cousseau",
+            "Réserve naturelle de l'étang de la Mazière",
+            "Réserve naturelle de l'étang du Grand-Lemps",
+            "Réserve naturelle de la forêt d'Orient",
+            "Réserve naturelle de la forêt de la Massane",
+            "Réserve naturelle de la Grande Sassière",
+            "Réserve Naturelle des îlets de Sainte-Anne",
+            "Réserve naturelle de Jujols",
+            "Réserve naturelle de Mantet",
+            "Réserve naturelle du marais de Vesles-et-Caumont",
+            "Réserve naturelle de la mare de Vauville",
+            "Réserve naturelle du Mas Larrieu",
+            "Réserve naturelle du Mont Grand Matoury",
+            "Réserve naturelle de Nohèdes",
+            "Réserve naturelle du Pinail",
+            "Réserve naturelle de Prats-de-Mollo-la-Preste",
+            "Réserve naturelle des prés salés d'Arès et de Lège-Cap-Ferret",
+            "Réserve naturelle de la presqu'île de la Caravelle",
+            "Réserve naturelle de Py",
+            "Réserve naturelle de la tourbière de Mathon",
+            "Réserve naturelle de la Vallée d’Eyne",
+            "Réserve naturelle de la vallée de Chaudefour",
+            "Réserve naturelle des anciennes carrières d'Orival",
+            "Réserve naturelle régionale d'Aulon",
+            "Réserve naturelle du bois des Agneux",
+            "Réserve naturelle du Bois des Roches",
+            "Réserve naturelle de Cambounet-sur-le-Sor",
+            "Réserve naturelle de la Côte de la Fontaine",
+            "Réserve naturelle des Grads de Naves",
+            "Réserve naturelle de la Grotte des Sadoux",
+            "Réserve naturelle de la Massonne",
+            "Réserve naturelle des landes et marais de Glomel",
+            "Réserve naturelle du Héron",
+            "Réserve naturelle des Marais de Taligny",
+            "réserve naturelle régionale du massif du Montious",
+            "Réserve naturelle de Saint-Maurin",
+            "Réserve naturelle du Val de Loire Bourbonnais",
+            "Réserve naturelle de la Vallée des Cailles",
+            "Zone d'Hivernage du Tetra Lyre",
+            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
+          ],
+          [
+            "in",
+            "class",
+            "protected_area",
+            "cœur",
+            "réserve_naturelle_nationale",
+            "parc_naturel_régional",
+            "réserve_naturelle_régionale"
+          ]
+        ],
+        ["in", "class", "réserve_biologique_intégrale"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.5}
     },
     {
       "id": "contours-minor",
@@ -1772,7 +1793,8 @@
           "réserve_biologique_intégrale",
           "parc_naturel_régional",
           "espace_naturel_sensible",
-          "aire_d’adhésion"
+          "aire_d’adhésion",
+          "réserve_naturelle_régionale"
         ],
         [">", "rank", 1]
       ],
@@ -1787,7 +1809,8 @@
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1,
         "text-opacity": 1,
-        "icon-halo-width": 1
+        "icon-halo-width": 1,
+        "icon-halo-color": "rgba(255, 255, 255, 1)"
       }
     },
     {
@@ -1809,7 +1832,8 @@
           "parc_naturel_régional",
           "espace_naturel_sensible",
           "geopark",
-          "aire_d’adhésion"
+          "aire_d’adhésion",
+          "réserve_naturelle_régionale"
         ],
         ["<=", "rank", 1]
       ],
@@ -1848,7 +1872,8 @@
           "réserve_naturelle_nationale",
           "réserve_naturelle_nationale",
           "coeur",
-          "aire_d'adhésion"
+          "aire_d'adhésion",
+          "réserve_naturelle_régionale"
         ],
         ["<=", "rank", 2]
       ],
@@ -1861,7 +1886,8 @@
       "paint": {
         "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.8
+        "text-halo-width": 1.8,
+        "icon-halo-color": "rgba(255, 255, 255, 1)"
       }
     },
     {
@@ -2590,13 +2616,13 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 13,
+      "minzoom": 14,
       "filter": ["all", ["==", ["get", "class"], "hamlet"]],
       "layout": {
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Italic"],
         "text-max-width": 8,
-        "text-size": {"stops": [[13, 10], [16, 18]]},
+        "text-size": {"stops": [[13, 8], [16, 16]]},
         "visibility": "visible"
       },
       "paint": {
