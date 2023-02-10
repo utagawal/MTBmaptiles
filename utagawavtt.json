@@ -53,7 +53,7 @@
       "maxzoom": 15
     }
   },
-  "terrain": {
+  terrain: {
 		"source": "relief-france-hd",
 		"exaggeration": 1
 	},
