@@ -3077,6 +3077,10 @@
       }
     }
   ],
+  "terrain": {
+		"source": "relief-france-hd",
+		"exaggeration": 1.5
+	}
   "id": "basic-preview",
   "owner": "UtagawaVTT - contact@utagawaVTT.com"
 }
