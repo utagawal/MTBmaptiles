@@ -53,10 +53,10 @@
       "maxzoom": 15
     }
   },
-  terrain: {
-		"source": "relief-france-hd",
-		"exaggeration": 1
-	},
+  "terrain": {
+	"source": "relief-france-hd",
+	"exaggeration": 1
+  },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
   "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
