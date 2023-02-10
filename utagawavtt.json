@@ -55,7 +55,7 @@
   },
   "terrain": {
 	"source": "relief-france-hd",
-	"exaggeration": 1
+	"exaggeration": 1.5
   },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
   "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
