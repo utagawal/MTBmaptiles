@@ -97,6 +97,21 @@
       }
     },
     {
+      "id": "landcover-pierrier",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 8,
+      "filter": ["all", ["in", "subclass", "scree"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(85, 84, 84, 0.92)",
+        "fill-antialias": false,
+        "fill-opacity": 0.15,
+        "fill-pattern": "scree"
+      }
+    },
+    {
       "id": "landcover-terre-agricole",
       "type": "fill",
       "source": "openmaptiles",
@@ -161,6 +176,33 @@
       "paint": {
         "fill-color": "rgba(28, 198, 79, 1)",
         "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
+    },
+    {
+      "id": "landcover-bois et forêts-pattern",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 11,
+      "filter": ["all", ["==", "class", "wood"]],
+      "layout": {},
+      "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
+    },
+    {
+      "id": "landcover-marais",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849388993.3071"},
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["==", "class", "wetland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(163, 246, 244, 1)",
+        "fill-opacity": 0.3,
+        "fill-translate": [0, 0],
+        "fill-antialias": true,
+        "fill-pattern": "wetland-pattern"
       }
     },
     {
@@ -229,46 +271,24 @@
       "paint": {"raster-opacity": 1}
     },
     {
-      "id": "landcover-bois et forêts-pattern",
+      "id": "water-eau",
       "type": "fill",
       "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 11,
-      "filter": ["all", ["==", "class", "wood"]],
-      "layout": {},
-      "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
-    },
-    {
-      "id": "landcover-pierrier",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 8,
-      "filter": ["all", ["in", "subclass", "scree"]],
-      "layout": {"visibility": "visible"},
+      "source-layer": "water",
+      "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
       "paint": {
-        "fill-color": "rgba(85, 84, 84, 0.92)",
-        "fill-antialias": false,
-        "fill-opacity": 0.15,
-        "fill-pattern": "scree"
+        "fill-color": "rgba(69, 150, 207, 1)",
+        "fill-opacity": {"stops": [[0, 0.3], [12, 1]]},
+        "fill-antialias": true
       }
     },
     {
-      "id": "landcover-marais",
+      "id": "water-cours d'eau intermittent",
       "type": "fill",
-      "metadata": {"mapbox:group": "1444849388993.3071"},
       "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["==", "class", "wetland"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(163, 246, 244, 1)",
-        "fill-opacity": 0.3,
-        "fill-translate": [0, 0],
-        "fill-antialias": true,
-        "fill-pattern": "wetland-pattern"
-      }
+      "source-layer": "water",
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "intermittent", 1]],
+      "paint": {"fill-color": "hsl(205, 56%, 73%)", "fill-opacity": 0.7}
     },
     {
       "id": "landuse-zone agricole",
@@ -280,33 +300,13 @@
       "paint": {"fill-color": "#eae0d0"}
     },
     {
-      "id": "landuse-zone residentielle",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        ["in", "class", "residential", "suburb", "neighbourhood"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "hsl(47, 13%, 86%)",
-        "fill-opacity": {"stops": [[6, 0.2], [10, 0.4]]}
-      }
-    },
-    {
       "id": "landuse-zone urbaine",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
       "minzoom": 6,
       "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(241, 241, 220, 1)",
-        "fill-opacity": {"stops": [[6, 0.2], [13, 0.4]]}
-      }
+      "paint": {"fill-color": "rgba(241, 241, 220, 1)", "fill-opacity": 0.5}
     },
     {
       "id": "landuse-barrage",
@@ -366,6 +366,95 @@
       "minzoom": 4,
       "filter": ["all", ["in", "class", "aerodrome"]],
       "paint": {"fill-color": "rgba(202, 236, 195, 1)", "fill-opacity": 0.8}
+    },
+    {
+      "id": "waterway-rivière ou canal sous terrain",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["in", "class", "stream", "canal"],
+        ["==", "brunnel", "tunnel"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "hsl(205, 56%, 73%)",
+        "line-dasharray": [3, 3],
+        "line-gap-width": {"stops": [[12, 0], [20, 6]]},
+        "line-width": {"base": 1.4, "stops": [[8, 2], [20, 5]]},
+        "line-opacity": 0.7
+      }
+    },
+    {
+      "id": "waterway-pont canal",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"]
+      ],
+      "layout": {"line-cap": "round", "line-join": "round"},
+      "paint": {
+        "line-color": "hsl(205, 56%, 73%)",
+        "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
+      }
+    },
+    {
+      "id": "waterway-rivière ou canal",
+      "type": "line",
+      "metadata": {"mapbox:group": "1444849382550.77"},
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        ["in", "class", "canal", "stream"],
+        ["!=", "brunnel", "tunnel"],
+        ["==", "intermittent", 1]
+      ],
+      "layout": {"line-cap": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "#6ea5cb",
+        "line-dasharray": [4, 3],
+        "line-width": {"base": 1.3, "stops": [[13, 0.5], [20, 6]]}
+      }
+    },
+    {
+      "id": "waterway-cours d'eau",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        ["in", "class", "river", "canal"],
+        ["!=", "brunnel", "tunnel"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(115, 168, 205, 1)",
+        "line-width": {"stops": [[10, 1], [12, 3]]}
+      }
+    },
+    {
+      "id": "waterway-rivière",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["!in", "brunnel", "tunnel", "bridge"],
+        ["!=", "intermittent", 1]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "rgba(69, 150, 207, 1)",
+        "line-opacity": 1,
+        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 8]]}
+      }
     },
     {
       "id": "park-limite interne",
@@ -468,77 +557,7 @@
       }
     },
     {
-      "id": "water-lac ou étang",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "water",
-      "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
-      "paint": {
-        "fill-color": "rgba(69, 150, 207, 1)",
-        "fill-opacity": {"stops": [[0, 0.3], [12, 1]]},
-        "fill-antialias": true
-      }
-    },
-    {
-      "id": "water-cours d'eau",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "filter": [
-        "all",
-        ["in", "class", "river", "canal"],
-        ["!=", "brunnel", "tunnel"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(115, 168, 205, 1)",
-        "line-width": {"stops": [[10, 1], [12, 3]]}
-      }
-    },
-    {
-      "id": "water-cours d'eau intermittent",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "water",
-      "filter": ["all", ["==", "$type", "Polygon"], ["==", "intermittent", 1]],
-      "paint": {"fill-color": "hsl(205, 56%, 73%)", "fill-opacity": 0.7}
-    },
-    {
-      "id": "landuse-zone militaire-pattern",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 7,
-      "filter": ["all", ["==", "class", "military"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(164, 42, 4, 1)",
-        "fill-opacity": 1,
-        "fill-antialias": false,
-        "fill-pattern": "military_red_hatch"
-      }
-    },
-    {
-      "id": "landuse-limite de zone militaire",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 7,
-      "filter": ["all", ["==", "class", "military"]],
-      "layout": {
-        "line-join": "bevel",
-        "line-cap": "butt",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(164, 42, 4, 1)",
-        "line-width": {"stops": [[7, 1], [13, 2]]},
-        "line-offset": 0,
-        "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
-      }
-    },
-    {
-      "id": "mtb-zone interdite aux VTT",
+      "id": "park-interdit aux VTT",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -615,6 +634,40 @@
       ],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "#FF0000", "fill-opacity": 0.5}
+    },
+    {
+      "id": "landuse-zone militaire-pattern",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 7,
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(164, 42, 4, 1)",
+        "fill-opacity": 1,
+        "fill-antialias": false,
+        "fill-pattern": "military_red_hatch"
+      }
+    },
+    {
+      "id": "landuse-limite de zone militaire",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 7,
+      "filter": ["all", ["==", "class", "military"]],
+      "layout": {
+        "line-join": "bevel",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(164, 42, 4, 1)",
+        "line-width": {"stops": [[7, 1], [13, 2]]},
+        "line-offset": 0,
+        "line-opacity": {"stops": [[6, 0.1], [20, 0.5]]}
+      }
     },
     {
       "id": "contours-minor",
@@ -787,7 +840,7 @@
       }
     },
     {
-      "id": "contours-falaise-pattern",
+      "id": "contours-falaise",
       "type": "line",
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
@@ -811,20 +864,7 @@
       }
     },
     {
-      "id": "building-bâtiment",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "building",
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(181, 181, 181, 1)",
-        "fill-outline-color": "rgba(152, 150, 140, 1)",
-        "fill-opacity": {"base": 1, "stops": [[10, 0.3], [20, 0.1]]},
-        "fill-antialias": true
-      }
-    },
-    {
-      "id": "tunnel-routier secondaire",
+      "id": "transportation-tunnel secondaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -846,7 +886,7 @@
       }
     },
     {
-      "id": "tunnel-ferroviaire",
+      "id": "transportation-tunnel ferroviaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -865,10 +905,11 @@
       }
     },
     {
-      "id": "tunnel-routier principal",
+      "id": "transportation-tunnel principal",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 6,
       "filter": [
         "all",
         ["==", "brunnel", "tunnel"],
@@ -887,63 +928,6 @@
       }
     },
     {
-      "id": "waterway-voie navigable",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["!in", "brunnel", "tunnel", "bridge"],
-        ["!=", "intermittent", 1]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "rgba(69, 150, 207, 1)",
-        "line-opacity": 1,
-        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 8]]}
-      }
-    },
-    {
-      "id": "waterway-rivière ou canal",
-      "type": "line",
-      "metadata": {"mapbox:group": "1444849382550.77"},
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "filter": [
-        "all",
-        ["in", "class", "canal", "stream"],
-        ["!=", "brunnel", "tunnel"],
-        ["==", "intermittent", 1]
-      ],
-      "layout": {"line-cap": "round", "visibility": "visible"},
-      "paint": {
-        "line-color": "#6ea5cb",
-        "line-dasharray": [4, 3],
-        "line-width": {"base": 1.3, "stops": [[13, 0.5], [20, 6]]}
-      }
-    },
-    {
-      "id": "waterway-rivière ou canal sous terrain",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        ["in", "class", "stream", "canal"],
-        ["==", "brunnel", "tunnel"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "hsl(205, 56%, 73%)",
-        "line-dasharray": [3, 3],
-        "line-gap-width": {"stops": [[12, 0], [20, 6]]},
-        "line-width": {"base": 1.4, "stops": [[8, 2], [20, 5]]},
-        "line-opacity": 0.7
-      }
-    },
-    {
       "id": "transportation-quai-fill",
       "type": "fill",
       "metadata": {},
@@ -953,7 +937,7 @@
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-antialias": true}
     },
     {
-      "id": "transportation-route mineure-border",
+      "id": "transportation-route secondaire-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1296,22 +1280,6 @@
       }
     },
     {
-      "id": "waterway-pont canal",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "bridge"]
-      ],
-      "layout": {"line-cap": "round", "line-join": "round"},
-      "paint": {
-        "line-color": "hsl(205, 56%, 73%)",
-        "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
-      }
-    },
-    {
       "id": "transportation-pont mineur",
       "type": "line",
       "source": "openmaptiles",
@@ -1425,7 +1393,7 @@
       }
     },
     {
-      "id": "transportation-chemin",
+      "id": "transportation-piste",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1531,7 +1499,7 @@
       }
     },
     {
-      "id": "transportation-piste",
+      "id": "transportation-chemin",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1696,158 +1664,6 @@
       "paint": {"line-opacity": 0.4, "line-color": "#FF0000", "line-width": 6}
     },
     {
-      "id": "park-reserve-name-small",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "maxzoom": 17,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "in",
-          "class",
-          "protected_area",
-          "réserve_naturelle_nationale",
-          "réserve_biologique_intégrale",
-          "parc_naturel_régional",
-          "espace_naturel_sensible",
-          "aire_d’adhésion",
-          "réserve_naturelle_régionale"
-        ],
-        [">", "rank", 1]
-      ],
-      "layout": {
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[8, 9], [12, 16]]},
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(6, 59, 6, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1,
-        "text-opacity": 1,
-        "icon-halo-width": 1,
-        "icon-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
-      "id": "park-reserve-name",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "maxzoom": 17,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "in",
-          "class",
-          "protected_area",
-          "réserve_naturelle_nationale",
-          "réserve_biologique_intégrale",
-          "parc_naturel_régional",
-          "espace_naturel_sensible",
-          "geopark",
-          "aire_d’adhésion",
-          "réserve_naturelle_régionale"
-        ],
-        ["<=", "rank", 1]
-      ],
-      "layout": {
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[6, 14], [20, 10]]},
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(6, 59, 6, 1)",
-        "text-halo-color": "rgba(255, 255, 255, 0.8)",
-        "text-halo-width": 1,
-        "text-opacity": 1,
-        "icon-halo-width": 1,
-        "icon-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
-      "id": "mtb-sentier interdit ou non praticable à VTT-symbol",
-      "type": "symbol",
-      "metadata": {"IHM:overlay": false},
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        ["in", "class", "path", "track"],
-        [
-          "any",
-          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
-          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
-          [
-            "all",
-            ["==", "access", "no"],
-            ["!=", "bicycle", "yes"],
-            ["!has", "mtb_scale"]
-          ]
-        ]
-      ],
-      "layout": {
-        "symbol-placement": "line-center",
-        "icon-allow-overlap": true,
-        "icon-anchor": "bottom",
-        "icon-ignore-placement": false,
-        "icon-rotation-alignment": "auto",
-        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
-        "icon-keep-upright": false,
-        "icon-offset": [7, 7],
-        "icon-pitch-alignment": "auto",
-        "symbol-avoid-edges": true,
-        "icon-image": "cross"
-      },
-      "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
-    },
-    {
-      "id": "park-reserve name (major)",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "maxzoom": 17,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "in",
-          "class",
-          "national_park",
-          "réserve_naturelle_nationale",
-          "cœur",
-          "réserve_biologique_intégrale",
-          "réserve_naturelle_nationale",
-          "réserve_naturelle_nationale",
-          "coeur",
-          "aire_d'adhésion",
-          "réserve_naturelle_régionale"
-        ],
-        ["<=", "rank", 2]
-      ],
-      "layout": {
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(6, 59, 6, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.8,
-        "icon-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
       "id": "transportation-télésiège-symbol",
       "type": "symbol",
       "source": "openmaptiles",
@@ -1946,6 +1762,198 @@
       "paint": {}
     },
     {
+      "id": "transportation-sens unique-symbol",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 16,
+      "filter": [
+        "all",
+        ["==", "oneway", 1],
+        [
+          "in",
+          "class",
+          "motorway",
+          "trunk",
+          "primary",
+          "secondary",
+          "tertiary",
+          "minor",
+          "service"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "symbol-spacing": 75,
+        "icon-padding": 20,
+        "icon-rotation-alignment": "map",
+        "icon-size": {"stops": [[15, 0.5], [19, 0.7]]},
+        "visibility": "visible",
+        "text-size": {
+          "property": "",
+          "type": "exponential",
+          "stops": [
+            [{"zoom": 6, "value": 0}, 16],
+            [{"zoom": 10, "value": 0}, 16]
+          ]
+        },
+        "icon-image": "arrow"
+      },
+      "paint": {"icon-opacity": 0.7}
+    },
+    {
+      "id": "mtb-sentier interdit ou non praticable à VTT-symbol",
+      "type": "symbol",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["in", "class", "path", "track"],
+        [
+          "any",
+          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
+          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
+          [
+            "all",
+            ["==", "access", "no"],
+            ["!=", "bicycle", "yes"],
+            ["!has", "mtb_scale"]
+          ]
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line-center",
+        "icon-allow-overlap": true,
+        "icon-anchor": "bottom",
+        "icon-ignore-placement": false,
+        "icon-rotation-alignment": "auto",
+        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
+        "icon-keep-upright": false,
+        "icon-offset": [7, 7],
+        "icon-pitch-alignment": "auto",
+        "symbol-avoid-edges": true,
+        "icon-image": "cross"
+      },
+      "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
+    },
+    {
+      "id": "park-reserve-name",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "maxzoom": 17,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [
+          "in",
+          "class",
+          "protected_area",
+          "réserve_naturelle_nationale",
+          "réserve_biologique_intégrale",
+          "parc_naturel_régional",
+          "espace_naturel_sensible",
+          "geopark",
+          "aire_d’adhésion",
+          "réserve_naturelle_régionale"
+        ],
+        ["<=", "rank", 1]
+      ],
+      "layout": {
+        "text-field": "{name:latin}{name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": {"stops": [[6, 14], [20, 10]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(6, 59, 6, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.8)",
+        "text-halo-width": 1,
+        "text-opacity": 1,
+        "icon-halo-width": 1,
+        "icon-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "park-reserve-name-small",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "maxzoom": 17,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [
+          "in",
+          "class",
+          "protected_area",
+          "réserve_naturelle_nationale",
+          "réserve_biologique_intégrale",
+          "parc_naturel_régional",
+          "espace_naturel_sensible",
+          "aire_d’adhésion",
+          "réserve_naturelle_régionale"
+        ],
+        [">", "rank", 1]
+      ],
+      "layout": {
+        "text-field": "{name:latin}{name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": {"stops": [[8, 9], [12, 16]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(6, 59, 6, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 1,
+        "text-opacity": 1,
+        "icon-halo-width": 1,
+        "icon-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "park-reserve name (major)",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "maxzoom": 17,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [
+          "in",
+          "class",
+          "national_park",
+          "réserve_naturelle_nationale",
+          "cœur",
+          "réserve_biologique_intégrale",
+          "réserve_naturelle_nationale",
+          "réserve_naturelle_nationale",
+          "coeur",
+          "aire_d'adhésion",
+          "réserve_naturelle_régionale"
+        ],
+        ["<=", "rank", 2]
+      ],
+      "layout": {
+        "text-field": "{name:latin}{name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(6, 59, 6, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 1.8,
+        "icon-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
       "id": "road-major-label",
       "type": "symbol",
       "source": "openmaptiles",
@@ -1995,47 +2003,7 @@
       }
     },
     {
-      "id": "road-sens unique-symbol",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["==", "oneway", 1],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
-      ],
-      "layout": {
-        "symbol-placement": "line",
-        "symbol-spacing": 75,
-        "icon-padding": 20,
-        "icon-rotation-alignment": "map",
-        "icon-size": {"stops": [[15, 0.5], [19, 0.7]]},
-        "visibility": "visible",
-        "text-size": {
-          "property": "",
-          "type": "exponential",
-          "stops": [
-            [{"zoom": 6, "value": 0}, 16],
-            [{"zoom": 10, "value": 0}, 16]
-          ]
-        },
-        "icon-image": "arrow"
-      },
-      "paint": {"icon-opacity": 0.7}
-    },
-    {
-      "id": "water-name-other",
+      "id": "water-nom 2",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "water_name",
@@ -2059,7 +2027,7 @@
       }
     },
     {
-      "id": "waterway-name",
+      "id": "waterway-nom",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "waterway",
@@ -2084,7 +2052,7 @@
       }
     },
     {
-      "id": "water-name-lakeline",
+      "id": "water-nom lac",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "water_name",
@@ -2119,6 +2087,20 @@
         "visibility": "visible"
       },
       "paint": {"text-color": "rgba(212, 177, 146, 1)"}
+    },
+    {
+      "id": "building-bâtiment",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "building",
+      "minzoom": 8,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(181, 181, 181, 1)",
+        "fill-outline-color": "rgba(152, 150, 140, 1)",
+        "fill-opacity": 0.3,
+        "fill-antialias": true
+      }
     },
     {
       "id": "pois-grotte",
@@ -2580,7 +2562,7 @@
       }
     },
     {
-      "id": "place-label-banlieue",
+      "id": "place-banlieue",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2602,7 +2584,7 @@
       }
     },
     {
-      "id": "place-label-hameau",
+      "id": "place-hameau",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2624,7 +2606,7 @@
       }
     },
     {
-      "id": "place-label-village",
+      "id": "place-village",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2647,7 +2629,7 @@
       }
     },
     {
-      "id": "place-label-town",
+      "id": "place-town",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2669,7 +2651,7 @@
       }
     },
     {
-      "id": "place-label-ville",
+      "id": "place-ville",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2738,7 +2720,7 @@
       }
     },
     {
-      "id": "place-sommet",
+      "id": "place-sommet 2",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
@@ -2780,7 +2762,7 @@
       }
     },
     {
-      "id": "place-sommet important",
+      "id": "place-sommet",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
@@ -2820,7 +2802,7 @@
       }
     },
     {
-      "id": "place-city-capital",
+      "id": "place-capitale",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2848,7 +2830,7 @@
       }
     },
     {
-      "id": "place-label-island-others",
+      "id": "place-ile 2",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2878,7 +2860,7 @@
       }
     },
     {
-      "id": "place-label-island-r1",
+      "id": "place-ile",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2899,7 +2881,7 @@
       }
     },
     {
-      "id": "place-country-other",
+      "id": "place-pays 4",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2926,7 +2908,7 @@
       }
     },
     {
-      "id": "place-country-3",
+      "id": "place-pays 3",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2953,7 +2935,7 @@
       }
     },
     {
-      "id": "place-country-2",
+      "id": "place-pays 2",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2980,7 +2962,7 @@
       }
     },
     {
-      "id": "place-country-1",
+      "id": "place-pays 1",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -3030,7 +3012,7 @@
       }
     },
     {
-      "id": "boundary-admin-country",
+      "id": "boundary-frontière pays",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "boundary",
@@ -3050,7 +3032,7 @@
       }
     },
     {
-      "id": "boundary-land-level-8",
+      "id": "boundary-frontière 2",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "boundary",
