@@ -300,15 +300,6 @@
       "paint": {"fill-color": "#eae0d0"}
     },
     {
-      "id": "landuse-zone urbaine",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 6,
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(241, 241, 220, 1)", "fill-opacity": 0.5}
-    },
-    {
       "id": "landuse-barrage",
       "type": "fill",
       "source": "openmaptiles",
@@ -864,56 +855,30 @@
       }
     },
     {
-      "id": "transportation-tunnel secondaire",
-      "type": "line",
+      "id": "transportation-pont tablier",
+      "type": "fill",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 6,
       "filter": [
         "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "minor_road", "path", "track"]
+        ["==", "$type", "Polygon"],
+        ["in", "brunnel", "bridge"]
       ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.36, 0.18],
-        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
-      }
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.8}
     },
     {
-      "id": "transportation-tunnel ferroviaire",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 0,
-      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.36, 0.18],
-        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
-      }
-    },
-    {
-      "id": "transportation-tunnel principal",
+      "id": "transportation-pont 4",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
         "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["==", "class", "minor_road"]
       ],
       "layout": {
         "line-cap": "butt",
@@ -921,10 +886,77 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(121, 121, 121, 1)",
-        "line-dasharray": [0.28, 0.14],
-        "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
+        "line-color": "#dedede",
+        "line-gap-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]},
+        "line-width": {"base": 1.6, "stops": [[12, 0.5], [20, 10]]}
+      }
+    },
+    {
+      "id": "transportation-pont 3",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "primary", "secondary", "tertiary", "trunk"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(247, 227, 44, 1)",
+        "line-gap-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]},
+        "line-width": {"base": 1.6, "stops": [[12, 0.5], [20, 10]]},
+        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
+      }
+    },
+    {
+      "id": "transportation-pont 2",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"],
+        ["in", "class", "primary", "secondary", "tertiary", "trunk"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(247, 227, 44, 1)",
+        "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
+      }
+    },
+    {
+      "id": "transportation-pont",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#efefef",
+        "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
       }
     },
     {
@@ -1096,20 +1128,7 @@
       }
     },
     {
-      "id": "transportation-pont-tablier",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "$type", "Polygon"],
-        ["in", "brunnel", "bridge"]
-      ],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.5}
-    },
-    {
-      "id": "transportation--voie maritime",
+      "id": "transportation-voie maritime",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1200,6 +1219,71 @@
       }
     },
     {
+      "id": "transportation-tunnel principal",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.28, 0.14],
+        "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
+      }
+    },
+    {
+      "id": "transportation-tunnel secondaire",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": [
+        "all",
+        ["==", "brunnel", "tunnel"],
+        ["in", "class", "minor_road", "path", "track"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.36, 0.18],
+        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
+      }
+    },
+    {
+      "id": "transportation-tunnel ferroviaire",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 6,
+      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "miter",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(121, 121, 121, 1)",
+        "line-dasharray": [0.36, 0.18],
+        "line-width": {"base": 1.55, "stops": [[4, 4], [20, 30]]},
+        "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
+      }
+    },
+    {
       "id": "aeroway-aire de roulage",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
@@ -1277,94 +1361,6 @@
         "line-opacity": 1,
         "line-width": {"base": 1.5, "stops": [[11, 1], [17, 6]]},
         "line-dasharray": [6, 4]
-      }
-    },
-    {
-      "id": "transportation-pont mineur",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "bridge"],
-        ["==", "class", "minor_road"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#dedede",
-        "line-gap-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]},
-        "line-width": {"base": 1.6, "stops": [[12, 0.5], [20, 10]]}
-      }
-    },
-    {
-      "id": "transportation-pont",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "bridge"],
-        ["in", "class", "primary", "secondary", "tertiary", "trunk"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(247, 227, 44, 1)",
-        "line-gap-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]},
-        "line-width": {"base": 1.6, "stops": [[12, 0.5], [20, 10]]},
-        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
-      }
-    },
-    {
-      "id": "transportation-tablier pont mineur",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "bridge"],
-        ["==", "class", "minor_road"]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#efefef",
-        "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
-      }
-    },
-    {
-      "id": "transportation-tablier pont",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "bridge"],
-        ["in", "class", "primary", "secondary", "tertiary", "trunk"]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(247, 227, 44, 1)",
-        "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 30]]},
-        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
       }
     },
     {
@@ -1839,7 +1835,7 @@
       "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
     },
     {
-      "id": "park-reserve-name",
+      "id": "park-reserve-name 3",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -1878,45 +1874,7 @@
       }
     },
     {
-      "id": "park-reserve-name-small",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "park",
-      "minzoom": 7,
-      "maxzoom": 17,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "in",
-          "class",
-          "protected_area",
-          "réserve_naturelle_nationale",
-          "réserve_biologique_intégrale",
-          "parc_naturel_régional",
-          "espace_naturel_sensible",
-          "aire_d’adhésion",
-          "réserve_naturelle_régionale"
-        ],
-        [">", "rank", 1]
-      ],
-      "layout": {
-        "text-field": "{name:latin}{name:nonlatin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": {"stops": [[8, 9], [12, 16]]},
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(6, 59, 6, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1,
-        "text-opacity": 1,
-        "icon-halo-width": 1,
-        "icon-halo-color": "rgba(255, 255, 255, 1)"
-      }
-    },
-    {
-      "id": "park-reserve name (major)",
+      "id": "park-reserve name 1",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -1950,6 +1908,44 @@
         "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255,255,255,0.8)",
         "text-halo-width": 1.8,
+        "icon-halo-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "park-reserve-name 2",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 7,
+      "maxzoom": 17,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [
+          "in",
+          "class",
+          "protected_area",
+          "réserve_naturelle_nationale",
+          "réserve_biologique_intégrale",
+          "parc_naturel_régional",
+          "espace_naturel_sensible",
+          "aire_d’adhésion",
+          "réserve_naturelle_régionale"
+        ],
+        [">", "rank", 1]
+      ],
+      "layout": {
+        "text-field": "{name:latin}{name:nonlatin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": {"stops": [[8, 9], [12, 16]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(6, 59, 6, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 1,
+        "text-opacity": 1,
+        "icon-halo-width": 1,
         "icon-halo-color": "rgba(255, 255, 255, 1)"
       }
     },
@@ -2538,6 +2534,131 @@
       }
     },
     {
+      "id": "place-col",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "class"], "saddle"],
+        [
+          "<=",
+          ["get", "rank"],
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 4, 18, 999]
+        ]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n(",
+          ["get", "ele"],
+          "m)"
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 11,
+        "text-optional": true,
+        "icon-image": "saddle",
+        "visibility": "visible",
+        "icon-size": 0.8,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place-sommet 2",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", ["geometry-type"], "Point"],
+        ["==", ["get", "class"], "peak"],
+        [
+          "<=",
+          ["get", "rank"],
+          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
+        ]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n(",
+          ["get", "ele"],
+          "m)"
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 11,
+        "text-optional": true,
+        "icon-image": "mountain",
+        "visibility": "visible",
+        "icon-size": 0.8
+      },
+      "paint": {
+        "text-color": "rgba(1, 1, 1, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "place-sommet",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 7,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["!=", "name", ""],
+        ["==", "rank", 1],
+        ["!=", "class", "saddle"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["get", "name:latin"],
+          "\n(",
+          ["get", "ele"],
+          "m)"
+        ],
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 8,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 11,
+        "text-optional": true,
+        "icon-image": "mountain",
+        "visibility": "visible",
+        "icon-size": 0.8,
+        "icon-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "rgba(1, 1, 1, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "place-aéroport",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2674,131 +2795,6 @@
         "icon-halo-color": "rgba(255, 255, 255, 1)",
         "icon-halo-width": 1,
         "icon-halo-blur": 0.5
-      }
-    },
-    {
-      "id": "place-col",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 12,
-      "filter": [
-        "all",
-        ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "class"], "saddle"],
-        [
-          "<=",
-          ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 4, 18, 999]
-        ]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["get", "name:latin"],
-          "\n(",
-          ["get", "ele"],
-          "m)"
-        ],
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 11,
-        "text-optional": true,
-        "icon-image": "saddle",
-        "visibility": "visible",
-        "icon-size": 0.8,
-        "text-allow-overlap": false
-      },
-      "paint": {
-        "text-color": "rgba(0, 0, 0, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "place-sommet 2",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "class"], "peak"],
-        [
-          "<=",
-          ["get", "rank"],
-          ["interpolate", ["linear"], ["zoom"], 7, 1, 14, 1, 18, 999]
-        ]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["get", "name:latin"],
-          "\n(",
-          ["get", "ele"],
-          "m)"
-        ],
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 9,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 11,
-        "text-optional": true,
-        "icon-image": "mountain",
-        "visibility": "visible",
-        "icon-size": 0.8
-      },
-      "paint": {
-        "text-color": "rgba(1, 1, 1, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
-      }
-    },
-    {
-      "id": "place-sommet",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 7,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["!=", "name", ""],
-        ["==", "rank", 1],
-        ["!=", "class", "saddle"]
-      ],
-      "layout": {
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["get", "name:latin"],
-          "\n(",
-          ["get", "ele"],
-          "m)"
-        ],
-        "text-font": ["Noto Sans Regular"],
-        "text-max-width": 8,
-        "text-offset": [0, 0.6],
-        "text-padding": 2,
-        "text-size": 11,
-        "text-optional": true,
-        "icon-image": "mountain",
-        "visibility": "visible",
-        "icon-size": 0.8,
-        "icon-allow-overlap": false
-      },
-      "paint": {
-        "text-color": "rgba(1, 1, 1, 1)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "#ffffff",
-        "text-halo-width": 2
       }
     },
     {
