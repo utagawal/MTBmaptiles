@@ -53,10 +53,6 @@
       "maxzoom": 15
     }
   },
-  "terrain": {
-	"source": "relief-france-hd",
-	"exaggeration": 1.6
-  },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
   "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
@@ -75,7 +71,7 @@
       "paint": {"raster-opacity": {"stops": [[5, 1], [8, 0.1]]}}
     },
     {
-      "id": "landcover-sand",
+      "id": "landcover-sable",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -87,7 +83,7 @@
       }
     },
     {
-      "id": "landcover-rock",
+      "id": "landcover-roche",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -101,7 +97,7 @@
       }
     },
     {
-      "id": "landcover-farmland",
+      "id": "landcover-terre-agricole",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -113,7 +109,7 @@
       }
     },
     {
-      "id": "landcover-grass-heath",
+      "id": "landcover-bruyère",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -125,7 +121,7 @@
       }
     },
     {
-      "id": "landcover-grass",
+      "id": "landcover-prairie",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -137,7 +133,7 @@
       }
     },
     {
-      "id": "landcover-vineyard",
+      "id": "landcover-vignoble",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849382550.77"},
       "source": "openmaptiles",
@@ -155,7 +151,7 @@
       }
     },
     {
-      "id": "landcover-wood",
+      "id": "landcover-bois et forêts",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -168,7 +164,7 @@
       }
     },
     {
-      "id": "landcover-ice-shelf",
+      "id": "landcover-glace",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -233,7 +229,7 @@
       "paint": {"raster-opacity": 1}
     },
     {
-      "id": "landcover-wood-pattern",
+      "id": "landcover-bois et forêts-pattern",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -243,7 +239,7 @@
       "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
     },
     {
-      "id": "landcover-rock-scree",
+      "id": "landcover-pierrier",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
@@ -258,7 +254,7 @@
       }
     },
     {
-      "id": "landcover-wetland-fill",
+      "id": "landcover-marais",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849388993.3071"},
       "source": "openmaptiles",
@@ -275,7 +271,7 @@
       }
     },
     {
-      "id": "landuse-agricultural",
+      "id": "landuse-zone agricole",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -284,7 +280,7 @@
       "paint": {"fill-color": "#eae0d0"}
     },
     {
-      "id": "landuse-residential",
+      "id": "landuse-zone residentielle",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -301,7 +297,7 @@
       }
     },
     {
-      "id": "landuse-urban",
+      "id": "landuse-zone urbaine",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -313,7 +309,7 @@
       }
     },
     {
-      "id": "landuse-dam",
+      "id": "landuse-barrage",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -328,7 +324,7 @@
       }
     },
     {
-      "id": "landuse-pitch",
+      "id": "landuse-terrain de sport ou loisir",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -338,7 +334,7 @@
       "paint": {"fill-color": "rgba(76, 232, 63, 0.26)", "fill-opacity": 0.9}
     },
     {
-      "id": "landuse-cemetery",
+      "id": "landuse-cimetière",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -348,7 +344,21 @@
       "paint": {"fill-color": "rgba(191, 191, 191, 1)"}
     },
     {
-      "id": "landuse-aerodrome",
+      "id": "landuse-piste",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landuse",
+      "minzoom": 11,
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "track"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(187, 151, 116, 1)",
+        "fill-antialias": true,
+        "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "landuse-aérodrome",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849345966.4436"},
       "source": "openmaptiles",
@@ -358,7 +368,7 @@
       "paint": {"fill-color": "rgba(202, 236, 195, 1)", "fill-opacity": 0.8}
     },
     {
-      "id": "park-inner",
+      "id": "park-limite interne",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -392,7 +402,7 @@
       }
     },
     {
-      "id": "park-outer",
+      "id": "park-limite externe",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -427,7 +437,7 @@
       }
     },
     {
-      "id": "park-fill",
+      "id": "park-parc ou réserve naturelle",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -458,7 +468,7 @@
       }
     },
     {
-      "id": "water",
+      "id": "water-lac ou étang",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "water",
@@ -470,7 +480,7 @@
       }
     },
     {
-      "id": "water-basic-rivers",
+      "id": "water-cours d'eau",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "waterway",
@@ -486,7 +496,7 @@
       }
     },
     {
-      "id": "water-intermittent",
+      "id": "water-cours d'eau intermittent",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "water",
@@ -494,7 +504,7 @@
       "paint": {"fill-color": "hsl(205, 56%, 73%)", "fill-opacity": 0.7}
     },
     {
-      "id": "landuse-military",
+      "id": "landuse-zone militaire-pattern",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -509,7 +519,7 @@
       }
     },
     {
-      "id": "landuse-military-zone-border",
+      "id": "landuse-limite de zone militaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "landuse",
@@ -528,7 +538,7 @@
       }
     },
     {
-      "id": "mtb-restricted-access-reserve",
+      "id": "mtb-zone interdite aux VTT",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -777,7 +787,7 @@
       }
     },
     {
-      "id": "contours-falaise-symbol",
+      "id": "contours-falaise-pattern",
       "type": "line",
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
@@ -801,10 +811,11 @@
       }
     },
     {
-      "id": "building-basic",
+      "id": "building-bâtiment",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "building",
+      "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(181, 181, 181, 1)",
         "fill-outline-color": "rgba(152, 150, 140, 1)",
@@ -813,22 +824,7 @@
       }
     },
     {
-      "id": "building-top",
-      "type": "fill",
-      "metadata": {"mapbox:group": "1444849364238.8171"},
-      "source": "openmaptiles",
-      "source-layer": "building",
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(70, 70, 70, 1)",
-        "fill-opacity": {"base": 1, "stops": [[10, 0.3], [20, 0.1]]},
-        "fill-outline-color": "#dfdbd7",
-        "fill-translate": {"base": 1, "stops": [[14, [0, 0]], [16, [-2, -2]]]},
-        "fill-antialias": true
-      }
-    },
-    {
-      "id": "tunnel-minor",
+      "id": "tunnel-routier secondaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -850,7 +846,7 @@
       }
     },
     {
-      "id": "tunnel-railway-transit",
+      "id": "tunnel-ferroviaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -869,7 +865,7 @@
       }
     },
     {
-      "id": "tunnel-major",
+      "id": "tunnel-routier principal",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -884,14 +880,14 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(126, 127, 126, 1)",
+        "line-color": "rgba(121, 121, 121, 1)",
         "line-dasharray": [0.28, 0.14],
         "line-width": {"base": 1.4, "stops": [[6, 5], [20, 30]]},
         "line-opacity": {"stops": [[6, 0.2], [20, 0.8]]}
       }
     },
     {
-      "id": "waterway",
+      "id": "waterway-voie navigable",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "waterway",
@@ -909,7 +905,7 @@
       }
     },
     {
-      "id": "waterway-stream-canal-intermittent",
+      "id": "waterway-rivière ou canal",
       "type": "line",
       "metadata": {"mapbox:group": "1444849382550.77"},
       "source": "openmaptiles",
@@ -928,7 +924,7 @@
       }
     },
     {
-      "id": "waterway-tunnel",
+      "id": "waterway-rivière ou canal sous terrain",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "waterway",
@@ -948,7 +944,7 @@
       }
     },
     {
-      "id": "road-area-pier",
+      "id": "transportation-quai-fill",
       "type": "fill",
       "metadata": {},
       "source": "openmaptiles",
@@ -957,7 +953,7 @@
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-antialias": true}
     },
     {
-      "id": "road-minor-border",
+      "id": "transportation-route mineure-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -978,7 +974,7 @@
       }
     },
     {
-      "id": "road-minor",
+      "id": "transportation-route secondaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -999,7 +995,7 @@
       }
     },
     {
-      "id": "road-secondary-tertiary-border",
+      "id": "transportation-route secondaire ou tertiaire-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1021,7 +1017,7 @@
       }
     },
     {
-      "id": "road-secondary-tertiary",
+      "id": "transportation-route secondaire ou tertaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1043,7 +1039,7 @@
       }
     },
     {
-      "id": "road-trunk-primary-border",
+      "id": "transportation-route principale-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1065,7 +1061,7 @@
       }
     },
     {
-      "id": "road-trunk-primary",
+      "id": "transportation-route-principale",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1087,7 +1083,7 @@
       }
     },
     {
-      "id": "road-pier",
+      "id": "transportation-quai",
       "type": "line",
       "metadata": {},
       "source": "openmaptiles",
@@ -1100,7 +1096,7 @@
       }
     },
     {
-      "id": "railway-transit",
+      "id": "transportation-voie de tramway",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1116,7 +1112,7 @@
       }
     },
     {
-      "id": "road-bridge-area",
+      "id": "transportation-pont-tablier",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1129,7 +1125,7 @@
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.5}
     },
     {
-      "id": "ferry",
+      "id": "transportation--voie maritime",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1143,7 +1139,7 @@
       }
     },
     {
-      "id": "road_major_motorway-border",
+      "id": "transportation-autoroute-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1161,7 +1157,7 @@
       }
     },
     {
-      "id": "road_major_motorway",
+      "id": "transportation-autoroute",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1179,12 +1175,12 @@
       }
     },
     {
-      "id": "road_railway_bottom",
+      "id": "transportation-chemin de fer-ballast",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
       "filter": ["all", ["==", "class", "rail"]],
-      "layout": {},
+      "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(209, 209, 209, 1)",
         "line-opacity": 0.5,
@@ -1192,22 +1188,26 @@
       }
     },
     {
-      "id": "road_railway",
+      "id": "transportation-chemin de fer2",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
       "filter": ["all", ["==", "class", "rail"]],
-      "layout": {},
+      "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(138, 138, 138, 1)", "line-opacity": 1}
     },
     {
-      "id": "road_railway-hatch",
+      "id": "transportation-chemin de fer-pylones",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 13,
       "filter": ["all", ["==", "class", "rail"]],
-      "layout": {"line-join": "round", "line-cap": "butt"},
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(138, 138, 138, 1)",
         "line-dasharray": [0.2, 8],
@@ -1216,7 +1216,7 @@
       }
     },
     {
-      "id": "aeroway-taxiway",
+      "id": "aeroway-aire de roulage",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
       "source": "openmaptiles",
@@ -1239,7 +1239,7 @@
       }
     },
     {
-      "id": "aeroway-apron",
+      "id": "aeroway-parking avion",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849345966.4436"},
       "source": "openmaptiles",
@@ -1249,7 +1249,7 @@
       "paint": {"fill-color": "rgba(205, 205, 205, 1)"}
     },
     {
-      "id": "aeroway-runway",
+      "id": "aeroway-pistes",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
       "source": "openmaptiles",
@@ -1272,7 +1272,7 @@
       }
     },
     {
-      "id": "aeroway-runway-marks",
+      "id": "aeroway-pistes-marquage",
       "type": "line",
       "metadata": {"mapbox:group": "1444849345966.4436"},
       "source": "openmaptiles",
@@ -1296,7 +1296,23 @@
       }
     },
     {
-      "id": "bridge_minor case",
+      "id": "waterway-pont canal",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "brunnel", "bridge"]
+      ],
+      "layout": {"line-cap": "round", "line-join": "round"},
+      "paint": {
+        "line-color": "hsl(205, 56%, 73%)",
+        "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
+      }
+    },
+    {
+      "id": "transportation-pont mineur",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1318,23 +1334,7 @@
       }
     },
     {
-      "id": "bridge-waterway",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "waterway",
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["==", "brunnel", "bridge"]
-      ],
-      "layout": {"line-cap": "round", "line-join": "round"},
-      "paint": {
-        "line-color": "hsl(205, 56%, 73%)",
-        "line-width": {"base": 1.55, "stops": [[4, 0.25], [20, 30]]}
-      }
-    },
-    {
-      "id": "bridge_major case",
+      "id": "transportation-pont",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1357,7 +1357,7 @@
       }
     },
     {
-      "id": "bridge_minor",
+      "id": "transportation-tablier pont mineur",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1378,7 +1378,7 @@
       }
     },
     {
-      "id": "bridge_major",
+      "id": "transportation-tablier pont",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1400,7 +1400,7 @@
       }
     },
     {
-      "id": "track-border",
+      "id": "transportation-piste-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1425,21 +1425,7 @@
       }
     },
     {
-      "id": "track-polygon",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 11,
-      "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "track"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": "rgba(187, 151, 116, 1)",
-        "fill-antialias": true,
-        "fill-opacity": 0.5
-      }
-    },
-    {
-      "id": "track",
+      "id": "transportation-chemin",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1462,7 +1448,7 @@
       }
     },
     {
-      "id": "path-cycleway",
+      "id": "transportation-piste cyclable",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1489,7 +1475,7 @@
       }
     },
     {
-      "id": "path-pedestrian",
+      "id": "transportation-chemin piéton",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1508,7 +1494,7 @@
       }
     },
     {
-      "id": "path-footway",
+      "id": "transportation-trottoir",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1532,7 +1518,7 @@
       }
     },
     {
-      "id": "path-bridleway",
+      "id": "transportation-piste équestre",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1545,7 +1531,7 @@
       }
     },
     {
-      "id": "path",
+      "id": "transportation-piste",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1575,7 +1561,7 @@
       }
     },
     {
-      "id": "path-steps",
+      "id": "transportation-escaliers",
       "type": "line",
       "metadata": {"IHM:overlay": true},
       "source": "openmaptiles",
@@ -1600,7 +1586,7 @@
       }
     },
     {
-      "id": "aerialway-chairlift-hatch",
+      "id": "transportation-télésiège-pylône",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1614,7 +1600,7 @@
       }
     },
     {
-      "id": "aerialway-chairlift",
+      "id": "transportation-télésiège",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1627,27 +1613,7 @@
       }
     },
     {
-      "id": "aerialway-chairlift-symbol",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
-      "layout": {
-        "visibility": "visible",
-        "text-field": "",
-        "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 10,
-        "icon-image": "chairlift",
-        "icon-offset": [0, 5],
-        "icon-rotation-alignment": "viewport",
-        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
-      },
-      "paint": {}
-    },
-    {
-      "id": "aerialway-cable-car",
+      "id": "transportation-téléphérique",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1657,29 +1623,7 @@
       "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
     {
-      "id": "aerialway-cable-car-icons",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation_name",
-      "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "cable_car"]],
-      "layout": {
-        "visibility": "visible",
-        "text-field": "",
-        "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 10,
-        "icon-offset": [0, 10],
-        "icon-image": "aerialway",
-        "text-rotation-alignment": "auto",
-        "text-pitch-alignment": "auto",
-        "icon-rotation-alignment": "viewport",
-        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
-      },
-      "paint": {}
-    },
-    {
-      "id": "aerialway-gondola",
+      "id": "transportation-télécabine",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1689,27 +1633,7 @@
       "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
     {
-      "id": "aerialway-gondola-symbol",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "gondola"]],
-      "layout": {
-        "visibility": "visible",
-        "text-field": "",
-        "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 10,
-        "icon-image": "aerialway",
-        "icon-offset": [0, 5],
-        "icon-rotation-alignment": "viewport",
-        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
-      },
-      "paint": {}
-    },
-    {
-      "id": "aerialway-teleski",
+      "id": "transportation-téléski",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1731,43 +1655,7 @@
       "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
     {
-      "id": "aerialway-teleski-symbol",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 11,
-      "filter": [
-        "all",
-        [
-          "in",
-          "subclass",
-          "drag_lift",
-          "t-bar",
-          "j-bar",
-          "platter",
-          "rope_tow",
-          "magic_carpet"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible",
-        "text-field": "",
-        "symbol-placement": "line-center",
-        "text-font": ["Noto Sans Regular"],
-        "text-size": 10,
-        "icon-image": "skiing",
-        "icon-offset": [0, 5],
-        "symbol-z-order": "auto",
-        "icon-ignore-placement": false,
-        "icon-optional": false,
-        "icon-rotation-alignment": "viewport",
-        "icon-rotate": 300,
-        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
-      },
-      "paint": {}
-    },
-    {
-      "id": "aerialway-other",
+      "id": "transportation-transport par cable",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1778,6 +1666,34 @@
         "line-color": "rgba(104, 104, 104, 1)",
         "line-opacity": {"stops": [[11, 0], [15, 1]]}
       }
+    },
+    {
+      "id": "transportation-sentier interdit ou non praticable à VTT",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["in", "class", "path", "track"],
+        [
+          "any",
+          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
+          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
+          [
+            "all",
+            ["==", "access", "no"],
+            ["!=", "bicycle", "yes"],
+            ["!has", "mtb_scale"]
+          ]
+        ]
+      ],
+      "layout": {
+        "visibility": "visible",
+        "line-cap": "round",
+        "line-join": "bevel"
+      },
+      "paint": {"line-opacity": 0.4, "line-color": "#FF0000", "line-width": 6}
     },
     {
       "id": "park-reserve-name-small",
@@ -1857,7 +1773,44 @@
       }
     },
     {
-      "id": "parks-name",
+      "id": "mtb-sentier interdit ou non praticable à VTT-symbol",
+      "type": "symbol",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["in", "class", "path", "track"],
+        [
+          "any",
+          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
+          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
+          [
+            "all",
+            ["==", "access", "no"],
+            ["!=", "bicycle", "yes"],
+            ["!has", "mtb_scale"]
+          ]
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line-center",
+        "icon-allow-overlap": true,
+        "icon-anchor": "bottom",
+        "icon-ignore-placement": false,
+        "icon-rotation-alignment": "auto",
+        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
+        "icon-keep-upright": false,
+        "icon-offset": [7, 7],
+        "icon-pitch-alignment": "auto",
+        "symbol-avoid-edges": true,
+        "icon-image": "cross"
+      },
+      "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
+    },
+    {
+      "id": "park-reserve name (major)",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -1895,69 +1848,102 @@
       }
     },
     {
-      "id": "mtb-no-access-global",
-      "type": "line",
+      "id": "transportation-télésiège-symbol",
+      "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 11,
+      "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
+      "layout": {
+        "visibility": "visible",
+        "text-field": "",
+        "symbol-placement": "line-center",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 10,
+        "icon-image": "chairlift",
+        "icon-offset": [0, 5],
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
+      },
+      "paint": {}
+    },
+    {
+      "id": "transportation-téléphérique-symbol",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation_name",
+      "minzoom": 11,
+      "filter": ["all", ["in", "subclass", "cable_car"]],
+      "layout": {
+        "visibility": "visible",
+        "text-field": "",
+        "symbol-placement": "line-center",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 10,
+        "icon-offset": [0, 10],
+        "icon-image": "aerialway",
+        "text-rotation-alignment": "auto",
+        "text-pitch-alignment": "auto",
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
+      },
+      "paint": {}
+    },
+    {
+      "id": "transportation-télécabine-symbol",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": ["all", ["in", "subclass", "gondola"]],
+      "layout": {
+        "visibility": "visible",
+        "text-field": "",
+        "symbol-placement": "line-center",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 10,
+        "icon-image": "aerialway",
+        "icon-offset": [0, 5],
+        "icon-rotation-alignment": "viewport",
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
+      },
+      "paint": {}
+    },
+    {
+      "id": "transportation-téléski-symbol",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
       "filter": [
         "all",
-        ["in", "class", "path", "track"],
         [
-          "any",
-          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
-          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
-          [
-            "all",
-            ["==", "access", "no"],
-            ["!=", "bicycle", "yes"],
-            ["!has", "mtb_scale"]
-          ]
+          "in",
+          "subclass",
+          "drag_lift",
+          "t-bar",
+          "j-bar",
+          "platter",
+          "rope_tow",
+          "magic_carpet"
         ]
       ],
       "layout": {
         "visibility": "visible",
-        "line-cap": "round",
-        "line-join": "bevel"
-      },
-      "paint": {"line-opacity": 0.4, "line-color": "#FF0000", "line-width": 6}
-    },
-    {
-      "id": "mtb-no-access-symbol",
-      "type": "symbol",
-      "metadata": {"IHM:overlay": false},
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        ["in", "class", "path", "track"],
-        [
-          "any",
-          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
-          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
-          [
-            "all",
-            ["==", "access", "no"],
-            ["!=", "bicycle", "yes"],
-            ["!has", "mtb_scale"]
-          ]
-        ]
-      ],
-      "layout": {
+        "text-field": "",
         "symbol-placement": "line-center",
-        "icon-allow-overlap": true,
-        "icon-anchor": "bottom",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 10,
+        "icon-image": "skiing",
+        "icon-offset": [0, 5],
+        "symbol-z-order": "auto",
         "icon-ignore-placement": false,
-        "icon-rotation-alignment": "auto",
-        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
-        "icon-keep-upright": false,
-        "icon-offset": [7, 7],
-        "icon-pitch-alignment": "auto",
-        "symbol-avoid-edges": true,
-        "icon-image": "cross"
+        "icon-optional": false,
+        "icon-rotation-alignment": "viewport",
+        "icon-rotate": 300,
+        "icon-size": {"stops": [[11, 0.7], [20, 1]]}
       },
-      "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
+      "paint": {}
     },
     {
       "id": "road-major-label",
@@ -2009,7 +1995,7 @@
       }
     },
     {
-      "id": "road-oneway-symbol",
+      "id": "road-sens unique-symbol",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -2120,7 +2106,7 @@
       }
     },
     {
-      "id": "housenumber",
+      "id": "housenumber-numéros",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "housenumber",
@@ -2135,7 +2121,7 @@
       "paint": {"text-color": "rgba(212, 177, 146, 1)"}
     },
     {
-      "id": "pois-cave",
+      "id": "pois-grotte",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2167,7 +2153,7 @@
       }
     },
     {
-      "id": "pois-religieux",
+      "id": "pois-établissement catholique",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2198,7 +2184,7 @@
       }
     },
     {
-      "id": "pois-railway-station",
+      "id": "pois-gare",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2252,7 +2238,7 @@
       }
     },
     {
-      "id": "pois-parking-bicycle",
+      "id": "pois-parking-vélo",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2277,7 +2263,7 @@
       }
     },
     {
-      "id": "pois-restaurants",
+      "id": "pois-restaurant",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2306,7 +2292,7 @@
       }
     },
     {
-      "id": "pois-bars",
+      "id": "pois-bar",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2331,7 +2317,7 @@
       }
     },
     {
-      "id": "pois-bicycle",
+      "id": "pois-vélo",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2356,7 +2342,7 @@
       }
     },
     {
-      "id": "pois-alpine-hut",
+      "id": "pois-refuge",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2386,7 +2372,7 @@
       }
     },
     {
-      "id": "pois-campsite",
+      "id": "pois-camping",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2412,7 +2398,7 @@
       }
     },
     {
-      "id": "pois-drinking-water-spot",
+      "id": "pois-eau potable",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2442,7 +2428,7 @@
       }
     },
     {
-      "id": "pois-guidepost",
+      "id": "pois-panneau d'information",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2474,7 +2460,7 @@
       }
     },
     {
-      "id": "pois-viewpoint",
+      "id": "pois-point de vue",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
@@ -2549,11 +2535,12 @@
       }
     },
     {
-      "id": "place-forest",
+      "id": "place-forêt",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
+      "minzoom": 7,
       "filter": ["all", ["in", "class", "forest"]],
       "layout": {
         "text-field": "{name:latin}{name:nonlatin}",
@@ -2569,7 +2556,7 @@
       }
     },
     {
-      "id": "place-airport-label",
+      "id": "place-aéroport",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "aerodrome_label",
@@ -2593,7 +2580,7 @@
       }
     },
     {
-      "id": "place-label-suburb",
+      "id": "place-label-banlieue",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2615,7 +2602,7 @@
       }
     },
     {
-      "id": "place-label-hamlet",
+      "id": "place-label-hameau",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
@@ -2665,6 +2652,7 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
+      "minzoom": 6,
       "filter": ["==", "class", "town"],
       "layout": {
         "text-font": ["Noto Sans Regular"],
@@ -2681,7 +2669,7 @@
       }
     },
     {
-      "id": "place-label-city",
+      "id": "place-label-ville",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "place",
@@ -2707,7 +2695,7 @@
       }
     },
     {
-      "id": "place-saddle",
+      "id": "place-col",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
@@ -2750,7 +2738,7 @@
       }
     },
     {
-      "id": "place-peak",
+      "id": "place-sommet",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
@@ -2792,11 +2780,11 @@
       }
     },
     {
-      "id": "place-sommet-r1",
+      "id": "place-sommet important",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
-      "minzoom": 8,
+      "minzoom": 7,
       "filter": [
         "all",
         ["==", "$type", "Point"],
@@ -3081,6 +3069,7 @@
       }
     }
   ],
+  "terrain": {"source": "relief-france-hd", "exaggeration": 1.6},
   "id": "basic-preview",
   "owner": "UtagawaVTT - contact@utagawaVTT.com"
 }
