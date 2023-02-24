@@ -271,26 +271,6 @@
       "paint": {"raster-opacity": 1}
     },
     {
-      "id": "water-eau",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "water",
-      "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
-      "paint": {
-        "fill-color": "rgba(69, 150, 207, 1)",
-        "fill-opacity": {"stops": [[0, 0.3], [12, 1]]},
-        "fill-antialias": true
-      }
-    },
-    {
-      "id": "water-cours d'eau intermittent",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "water",
-      "filter": ["all", ["==", "$type", "Polygon"], ["==", "intermittent", 1]],
-      "paint": {"fill-color": "hsl(205, 56%, 73%)", "fill-opacity": 0.7}
-    },
-    {
       "id": "landuse-zone agricole",
       "type": "fill",
       "source": "openmaptiles",
@@ -445,6 +425,26 @@
         "line-color": "rgba(69, 150, 207, 1)",
         "line-opacity": 1,
         "line-width": {"base": 1.4, "stops": [[8, 1], [20, 8]]}
+      }
+    },
+    {
+      "id": "water-cours d'eau intermittent",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "filter": ["all", ["==", "$type", "Polygon"], ["==", "intermittent", 1]],
+      "paint": {"fill-color": "hsl(205, 56%, 73%)", "fill-opacity": 0.7}
+    },
+    {
+      "id": "water-eau",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "water",
+      "filter": ["all", ["==", "$type", "Polygon"], ["!=", "intermittent", 1]],
+      "paint": {
+        "fill-color": "rgba(69, 150, 207, 1)",
+        "fill-opacity": {"stops": [[0, 0.3], [12, 1]]},
+        "fill-antialias": true
       }
     },
     {
@@ -1006,7 +1006,7 @@
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": {"base": 1.55, "stops": [[6, 0.5], [20, 28]]},
+        "line-width": {"base": 1.55, "stops": [[6, 0.5], [20, 24]]},
         "line-opacity": 1
       }
     },
@@ -1382,7 +1382,7 @@
       },
       "paint": {
         "line-color": "rgba(70, 70, 70, 1)",
-        "line-width": 6,
+        "line-width": 5,
         "line-opacity": 1,
         "line-dasharray": [0.3, 1.5],
         "line-blur": 1
