@@ -13,12 +13,15 @@ Map Style is intended for Mountain Biking with data from :
 
 
 It shows :
-* Tracks and path where MTB is impossible
+* Tracks and path where MTB is impossible or forbidden (highlighted in flashy red)
+* Protected areas in France where MTB is forbidden (highlighted in flashy red). List available in [this article on UtagawaVTT](https://blog.utagawavtt.com/fr/blog/vtt-espaces-naturels-proteges)
 * Peaks, saddles and cliffs
-* Biking oriented POIs
+* Biking oriented POIs (drinking water, viewpoints, bike parking, bars, restaurant, alpine huts...)
 * Contours and shaded reliefs to better prepare biking trips
 
 Style file utagawavtt.json can be modified and improved with WYSYWYG editor [Maputnik](https://maputnik.github.io).
+
+Rendering done on [UtagawaVTT.com maps server](https://maps.utagawavtt.com).
 
 
 ## Automatic deployment
@@ -27,6 +30,6 @@ Commit and push utagawavtt.json file to the repository and it will be automatica
   
 ## Usage
   
-Map is free of usage with mandatory attribution with link to : "UtagawaVTT / www.UtagawaVTT.com"
+Map is free of usage with mandatory attribution link to : "UtagawaVTT / www.UtagawaVTT.com"
   
 <a target="_blank" href="https://donorbox.org/don-utagawavtt"><img src="https://donorbox.org/images/png-donate/button-medium-blue.png" /></a>
