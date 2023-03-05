@@ -1014,7 +1014,7 @@
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-antialias": true}
     },
     {
-      "id": "transportation-route secondaire-border",
+      "id": "transportation-route locale-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1035,7 +1035,7 @@
       }
     },
     {
-      "id": "transportation-route secondaire",
+      "id": "transportation-route locale",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1073,7 +1073,7 @@
       },
       "paint": {
         "line-color": "rgba(142, 142, 142, 1)",
-        "line-width": {"base": 1.4, "stops": [[6, 1.5], [20, 22]]},
+        "line-width": {"base": 1.4, "stops": [[6, 1.5], [20, 14]]},
         "line-opacity": 1
       }
     },
@@ -1095,7 +1095,7 @@
       },
       "paint": {
         "line-color": "rgba(247, 227, 44, 1)",
-        "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 20]]},
+        "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 12]]},
         "line-opacity": 1
       }
     },
@@ -1116,9 +1116,9 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(206, 190, 38, 1)",
-        "line-width": {"base": 1.4, "stops": [[6, 2.5], [20, 12]]},
-        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
+        "line-color": "rgba(142, 142, 142, 1)",
+        "line-width": {"base": 1.4, "stops": [[6, 2.5], [20, 22]]},
+        "line-opacity": 1
       }
     },
     {
@@ -1139,8 +1139,8 @@
       },
       "paint": {
         "line-color": "rgba(247, 227, 44, 1)",
-        "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 10]]},
-        "line-opacity": {"stops": [[6, 0.1], [11, 0.6]]}
+        "line-width": {"base": 1.4, "stops": [[6, 0.5], [20, 20]]},
+        "line-opacity": 1
       }
     },
     {
@@ -1200,7 +1200,7 @@
       "paint": {
         "line-color": "rgba(142, 142, 142, 1)",
         "line-offset": 0,
-        "line-width": {"base": 1.4, "stops": [[8, 2], [20, 2]]},
+        "line-width": {"base": 1.4, "stops": [[8, 2], [20, 32]]},
         "line-opacity": {"stops": [[4, 0.1], [11, 0.5]]}
       }
     },
@@ -1218,8 +1218,8 @@
       "paint": {
         "line-color": "rgba(238, 85, 85, 1)",
         "line-offset": 0,
-        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 10]]},
-        "line-opacity": {"stops": [[4, 0.1], [11, 0.5]]}
+        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 30]]},
+        "line-opacity": {"stops": [[4, 0.1], [11, 0.8]]}
       }
     },
     {
@@ -1409,7 +1409,7 @@
       }
     },
     {
-      "id": "transportation-piste-border",
+      "id": "transportation-piste ou chemin-border",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1434,7 +1434,7 @@
       }
     },
     {
-      "id": "transportation-piste",
+      "id": "transportation-piste ou chemin",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1484,26 +1484,7 @@
       }
     },
     {
-      "id": "transportation-chemin piéton",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "$type", "LineString"],
-        ["!in", "brunnel", "bridge", "tunnel"],
-        ["in", "class", "pedestrian"]
-      ],
-      "layout": {"line-join": "round", "visibility": "visible"},
-      "paint": {
-        "line-color": "hsl(0, 0%, 100%)",
-        "line-dasharray": [1, 0.7],
-        "line-width": 1
-      }
-    },
-    {
-      "id": "transportation-trottoir",
+      "id": "transportation-chemin piétons",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1540,7 +1521,7 @@
       }
     },
     {
-      "id": "transportation-chemin",
+      "id": "transportation-sentier",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
