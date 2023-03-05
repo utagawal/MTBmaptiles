@@ -541,10 +541,49 @@
           "réserve_naturelle_régionale"
         ]
       ],
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(125, 184, 127, 1)",
-        "fill-opacity": {"stops": [[6, 0.6], [20, 0.1]]}
+        "fill-opacity": {"stops": [[6, 0.5], [20, 0.1]]}
+      }
+    },
+    {
+      "id": "park-zone de quiétude interdite aux VTT de décembre à juin",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 8,
+      "filter": [
+        "any",
+        [
+          "all",
+          [
+            "in",
+            "name:latin",
+            "Zone Quietude Faune Sauvage La Maréchaude - Chalet - Cabaret",
+            "Zone Quietude Faune Sauvage Les Platières",
+            "Zone d'Hivernage du Tetra Lyre",
+            "Zone Quietude Faune Sauvage Les Brûlats",
+            "Zone Quietude Faune Sauvage La Calame - La Ramas",
+            "Zone Quietude Faune Sauvage Col du Sac - Gralet - Poutouille",
+            "Zone Quietude Faune Sauvage Varambon",
+            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
+          ],
+          [
+            "in",
+            "class",
+            "protected_area",
+            "cœur",
+            "réserve_naturelle_nationale",
+            "parc_naturel_régional",
+            "réserve_naturelle_régionale"
+          ]
+        ]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(255, 165, 0, 1)",
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
       }
     },
     {
@@ -607,8 +646,6 @@
             "Réserve naturelle de Saint-Maurin",
             "Réserve naturelle du Val de Loire Bourbonnais",
             "Réserve naturelle de la Vallée des Cailles",
-            "Zone d'Hivernage du Tetra Lyre",
-            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison",
             "Réserve naturelle de la baie de l'Aiguillon",
             "Réserve naturelle de la Casse de la Belle Henriette",
             "Réserve naturelle de Lilleau-des-Niges",
@@ -1668,7 +1705,7 @@
       "paint": {
         "line-opacity": 0.5,
         "line-color": "#FF0000",
-        "line-width": {"stops": [[12, 1], [16, 8]]}
+        "line-width": {"stops": [[11, 1], [16, 8]]}
       }
     },
     {
@@ -1879,7 +1916,7 @@
       "paint": {
         "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255, 255, 255, 0.8)",
-        "text-halo-width": 1,
+        "text-halo-width": 1.8,
         "text-opacity": 1,
         "icon-halo-width": 1,
         "icon-halo-color": "rgba(255, 255, 255, 1)"
