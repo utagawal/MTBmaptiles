@@ -629,7 +629,10 @@
         ["in", "class", "réserve_biologique_intégrale"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.5}
+      "paint": {
+        "fill-color": "#FF0000",
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
+      }
     },
     {
       "id": "landuse-zone militaire-pattern",
@@ -1038,7 +1041,7 @@
       }
     },
     {
-      "id": "transportation-route secondaire ou tertaire",
+      "id": "transportation-route secondaire ou tertiaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1082,7 +1085,7 @@
       }
     },
     {
-      "id": "transportation-route-principale",
+      "id": "transportation-route principale",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1641,7 +1644,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 13,
+      "minzoom": 9,
       "filter": [
         "all",
         ["in", "class", "path", "track"],
@@ -1662,7 +1665,11 @@
         "line-cap": "round",
         "line-join": "bevel"
       },
-      "paint": {"line-opacity": 0.4, "line-color": "#FF0000", "line-width": 6}
+      "paint": {
+        "line-opacity": 0.5,
+        "line-color": "#FF0000",
+        "line-width": {"stops": [[12, 1], [16, 8]]}
+      }
     },
     {
       "id": "transportation-télésiège-symbol",
