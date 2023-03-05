@@ -548,6 +548,46 @@
       }
     },
     {
+      "id": "park-zone de quiétude interdite aux VTT de décembre à juin",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 8,
+      "filter": [
+        "any",
+        [
+          "all",
+          [
+            "in",
+            "name:latin",
+            "Zone Quietude Faune Sauvage La Maréchaude - Chalet - Cabaret",
+            "Zone Quietude Faune Sauvage Les Platières",
+            "Zone d'Hivernage du Tetra Lyre",
+            "Zone Quietude Faune Sauvage Les Brûlats",
+            "Zone Quietude Faune Sauvage La Calame - La Ramas",
+            "Zone Quietude Faune Sauvage Col du Sac - Gralet - Poutouille",
+            "Zone Quietude Faune Sauvage Varambon",
+            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
+          ],
+          [
+            "in",
+            "class",
+            "protected_area",
+            "cœur",
+            "réserve_naturelle_nationale",
+            "parc_naturel_régional",
+            "réserve_naturelle_régionale"
+          ]
+        ],
+        ["in", "class", "réserve_biologique_intégrale"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(255, 165, 0, 1)",
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
+      }
+    },
+    {
       "id": "park-interdit aux VTT",
       "type": "fill",
       "source": "openmaptiles",
@@ -608,7 +648,6 @@
             "Réserve naturelle du Val de Loire Bourbonnais",
             "Réserve naturelle de la Vallée des Cailles",
             "Zone d'Hivernage du Tetra Lyre",
-            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison",
             "Réserve naturelle de la baie de l'Aiguillon",
             "Réserve naturelle de la Casse de la Belle Henriette",
             "Réserve naturelle de Lilleau-des-Niges",
@@ -629,7 +668,10 @@
         ["in", "class", "réserve_biologique_intégrale"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#FF0000", "fill-opacity": 0.5}
+      "paint": {
+        "fill-color": "#FF0000",
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
+      }
     },
     {
       "id": "landuse-zone militaire-pattern",
@@ -1038,7 +1080,7 @@
       }
     },
     {
-      "id": "transportation-route secondaire ou tertaire",
+      "id": "transportation-route secondaire ou tertiaire",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1082,7 +1124,7 @@
       }
     },
     {
-      "id": "transportation-route-principale",
+      "id": "transportation-route principale",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
@@ -1178,8 +1220,8 @@
       "paint": {
         "line-color": "rgba(238, 85, 85, 1)",
         "line-offset": 0,
-        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 30]]},
-        "line-opacity": {"stops": [[4, 0.1], [11, 0.8]]}
+        "line-width": {"base": 1.4, "stops": [[8, 1], [20, 10]]},
+        "line-opacity": {"stops": [[4, 0.1], [11, 0.5]]}
       }
     },
     {
@@ -1523,7 +1565,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(107, 107, 107, 1)",
+        "line-color": "rgba(190, 73, 73, 1)",
         "line-opacity": 1,
         "line-dasharray": [3, 2],
         "line-width": 1.8
@@ -1641,7 +1683,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 12,
+      "minzoom": 9,
       "filter": [
         "all",
         ["in", "class", "path", "track"],
@@ -1662,7 +1704,11 @@
         "line-cap": "round",
         "line-join": "bevel"
       },
-      "paint": {"line-opacity": 0.5, "line-color": "#FF0000", "line-width": 12}
+      "paint": {
+        "line-opacity": 0.5,
+        "line-color": "#FF0000",
+        "line-width": {"stops": [[12, 1], [16, 8]]}
+      }
     },
     {
       "id": "transportation-télésiège-symbol",
@@ -1808,7 +1854,7 @@
       "metadata": {"IHM:overlay": false},
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 12,
+      "minzoom": 15,
       "filter": [
         "all",
         ["in", "class", "path", "track"],
@@ -1825,7 +1871,7 @@
         ]
       ],
       "layout": {
-        "symbol-placement": "line",
+        "symbol-placement": "line-center",
         "icon-allow-overlap": true,
         "icon-anchor": "bottom",
         "icon-ignore-placement": false,
@@ -1835,8 +1881,7 @@
         "icon-offset": [7, 7],
         "icon-pitch-alignment": "auto",
         "symbol-avoid-edges": true,
-        "icon-image": "cross",
-        "symbol-spacing": 20
+        "icon-image": "cross"
       },
       "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
     },
@@ -1873,7 +1918,7 @@
       "paint": {
         "text-color": "rgba(6, 59, 6, 1)",
         "text-halo-color": "rgba(255, 255, 255, 0.8)",
-        "text-halo-width": 1,
+        "text-halo-width": 1.8,
         "text-opacity": 1,
         "icon-halo-width": 1,
         "icon-halo-color": "rgba(255, 255, 255, 1)"
@@ -2226,7 +2271,7 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
-      "minzoom": 15,
+      "minzoom": 16,
       "filter": [
         "all",
         ["==", "class", "bicycle_parking"],
@@ -2236,7 +2281,7 @@
         "text-field": "",
         "text-font": ["Noto Sans Regular"],
         "text-size": 12,
-        "icon-image": "bicycle-share",
+        "icon-image": "bicycle",
         "icon-size": 1,
         "visibility": "visible"
       },
