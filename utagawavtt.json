@@ -1850,7 +1850,7 @@
         ]
       ],
       "layout": {
-        "symbol-placement": "line-center",
+        "symbol-placement": "line",
         "icon-allow-overlap": true,
         "icon-anchor": "bottom",
         "icon-ignore-placement": false,
@@ -1860,7 +1860,9 @@
         "icon-offset": [7, 7],
         "icon-pitch-alignment": "auto",
         "symbol-avoid-edges": true,
-        "icon-image": "cross"
+        "icon-image": "cross",
+        "symbol-spacing": 50,
+        "text-font": ["Open Sans Regular"]
       },
       "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
     },
