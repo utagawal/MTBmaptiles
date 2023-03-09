@@ -652,7 +652,8 @@
             "Réserve naturelle de Moëze-Oléron",
             "Réserve naturelle du Marais communal de Saint-Denis-du-Payré",
             "Réserve naturelle de l'étang de Haute-Jarrie",
-            "Réserve naturelle géologique de Pontlevoy"
+            "Réserve naturelle géologique de Pontlevoy",
+            "Réserve naturelle du domaine de Beauguillot"
           ],
           [
             "in",
@@ -3080,7 +3081,6 @@
       }
     }
   ],
-  
   "id": "UtagawaVTT-map",
   "owner": "UtagawaVTT - contact@utagawaVTT.com"
 }
