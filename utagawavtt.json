@@ -1106,7 +1106,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 6,
+      "minzoom": 7,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
@@ -1128,7 +1128,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
-      "minzoom": 6,
+      "minzoom": 7,
       "filter": [
         "all",
         ["==", "$type", "LineString"],
