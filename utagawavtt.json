@@ -23,7 +23,6 @@
     },
     "world-rgb-png": {
       "type": "raster-dem",
-	  "bounds": [-180,-85.051129,180,85.051129],
       "minzoom": 5,
       "maxzoom": 11,
       "encoding": "terrarium",
@@ -35,8 +34,7 @@
         "https://maps.utagawavtt.com/tiles/terrain/qLmVTMkBjTdY3g83aF5gukd3nM8v8Cn8NE9kScXi/v1/{z}/{x}/{y}.png"
       ],
       "minzoom": 6,
-      "maxzoom": 15,
-	  "bounds": [-180,-85.051129,180,85.051129]
+      "maxzoom": 15
     },
     "hillshade-mapzen": {
       "type": "raster",
@@ -550,7 +548,7 @@
       }
     },
     {
-      "id": "park-zone de quiétude interdite aux VTT de décembre à juin",
+      "id": "park-zone de quiétude interdite aux VTT de décembre à juin-copy",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -565,6 +563,9 @@
             "Zone Quietude Faune Sauvage La Maréchaude - Chalet - Cabaret",
             "Zone Quietude Faune Sauvage Les Platières",
             "Zone d'Hivernage du Tetra Lyre",
+            "Zone d'hivernage du Tetra Lyre",
+            "Zone d'hivernage du Tetra lyre",
+            "Zone d'hivernage du tetra lyre",
             "Zone Quietude Faune Sauvage Les Brûlats",
             "Zone Quietude Faune Sauvage La Calame - La Ramas",
             "Zone Quietude Faune Sauvage Col du Sac - Gralet - Poutouille",
@@ -583,6 +584,47 @@
         ]
       ],
       "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(255, 165, 0, 1)",
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
+      }
+    },
+    {
+      "id": "park-zone de quiétude interdite aux VTT de décembre à juin",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 8,
+      "filter": [
+        "any",
+        [
+          "all",
+          [
+            "in",
+            "name:latin",
+            "Zone Quietude Platières",
+            "Zone d'Hivernage du Tetra Lyre",
+            "Zone d'hivernage du Tetra Lyre",
+            "Zone d'hivernage du Tetra lyre",
+            "Zone d'hivernage du tetra lyre",
+            "Zone Quietude Faune Sauvage Les Brûlats",
+            "Zone Quietude Faune Sauvage La Calame - La Ramas",
+            "Zone Quietude Faune Sauvage Col du Sac - Gralet - Poutouille",
+            "Zone Quietude Faune Sauvage Varambon",
+            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
+          ],
+          [
+            "in",
+            "class",
+            "protected_area",
+            "cœur",
+            "réserve_naturelle_nationale",
+            "parc_naturel_régional",
+            "réserve_naturelle_régionale"
+          ]
+        ]
+      ],
+      "layout": {"visibility": "none"},
       "paint": {
         "fill-color": "rgba(255, 165, 0, 1)",
         "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
