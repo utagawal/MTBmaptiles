@@ -639,7 +639,7 @@
       }
     },
     {
-      "id": "park-reserve biologique",
+      "id": "park-réserve biologique - accès réglementé",
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "park",
@@ -734,8 +734,7 @@
             "parc_naturel_régional",
             "réserve_naturelle_régionale"
           ]
-        ],
-        ["in", "class", "réserve_biologique_intégrale"]
+        ]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
