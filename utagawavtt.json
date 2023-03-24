@@ -109,6 +109,20 @@
       "paint": {
         "fill-color": "rgba(85, 84, 84, 0.92)",
         "fill-antialias": false,
+        "fill-opacity": 0.15
+      }
+    },
+    {
+      "id": "landcover-pierrier-pattern",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 8,
+      "filter": ["all", ["in", "subclass", "scree"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(85, 84, 84, 0.92)",
+        "fill-antialias": false,
         "fill-opacity": 0.15,
         "fill-pattern": "scree"
       }
@@ -212,6 +226,22 @@
     },
     {
       "id": "landcover-marais",
+      "type": "fill",
+      "metadata": {"mapbox:group": "1444849388993.3071"},
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["==", "class", "wetland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(163, 246, 244, 1)",
+        "fill-opacity": 0.3,
+        "fill-translate": [0, 0],
+        "fill-antialias": true
+      }
+    },
+    {
+      "id": "landcover-marais-pattern",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849388993.3071"},
       "source": "openmaptiles",
@@ -609,6 +639,23 @@
       }
     },
     {
+      "id": "park-reserve biologique",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "park",
+      "minzoom": 8,
+      "filter": [
+        "any",
+        ["==", "class", "réserve_biologique_intégrale"],
+        ["==", "class", "réserve_naturelle_nationale"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(255, 0, 233, 1)",
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.4], [16, 0.1]]}
+      }
+    },
+    {
       "id": "park-interdit aux VTT",
       "type": "fill",
       "source": "openmaptiles",
@@ -693,7 +740,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "#FF0000",
-        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.2]]}
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.1]]}
       }
     },
     {
@@ -735,20 +782,18 @@
       "type": "line",
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 13,
-      "filter": ["all", ["!in", "div", 10, 5], [">", "ele", 0]],
-      "layout": {"visibility": "visible"},
-      "paint": {"line-opacity": 0.7, "line-color": "#d45500", "line-width": 0.4}
-    },
-    {
-      "id": "contours-10",
-      "type": "line",
-      "source": "contours",
-      "source-layer": "contours",
       "minzoom": 12,
-      "filter": ["all", [">", "ele", 0], ["in", "div", 100, 50, 10]],
+      "filter": [
+        "all",
+        [">", "ele", 0],
+        ["in", "div", 1000, 500, 200, 100, 50, 20, 10]
+      ],
       "layout": {"visibility": "visible"},
-      "paint": {"line-opacity": 0.7, "line-color": "#d45500", "line-width": 0.6}
+      "paint": {
+        "line-opacity": 0.7,
+        "line-color": "#d45500",
+        "line-width": {"stops": [[12, 0.1], [13, 0.4]]}
+      }
     },
     {
       "id": "contours-major",
@@ -775,7 +820,11 @@
         [">", ["number", ["get", "ele"]], 100]
       ],
       "layout": {"line-join": "round", "visibility": "visible"},
-      "paint": {"line-color": "#d45500", "line-width": 0.8, "line-opacity": 0.7}
+      "paint": {
+        "line-color": "#d45500",
+        "line-width": {"stops": [[12, 0.1], [13, 0.8]]},
+        "line-opacity": 0.7
+      }
     },
     {
       "id": "contours-label",
@@ -3069,6 +3118,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "boundary",
+      "minzoom": 7,
       "filter": [
         "all",
         ["<=", "admin_level", 3],
@@ -3080,8 +3130,9 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(141, 141, 141, 1)",
-        "line-width": {"base": 1.3, "stops": [[3, 2], [22, 15]]}
+        "line-color": "rgba(110, 110, 110, 1)",
+        "line-width": {"base": 1.3, "stops": [[7, 2], [20, 15]]},
+        "line-opacity": {"stops": [[7, 0.2], [12, 0.7]]}
       }
     },
     {
