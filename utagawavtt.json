@@ -2104,13 +2104,13 @@
       }
     },
     {
-      "id": "water-nom 2",
+      "id": "water-nom",
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "water_name",
       "filter": ["all", ["!in", "class", "ocean"]],
       "layout": {
-        "symbol-placement": "point",
+        "symbol-placement": "line-center",
         "symbol-spacing": 350,
         "text-field": "{name:latin}{name:nonlatin}",
         "text-font": ["Noto Sans Regular"],
