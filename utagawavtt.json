@@ -2108,11 +2108,11 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "water_name",
-      "filter": ["all", ["==", "$type", "Point"], ["!in", "class", "ocean"]],
+      "filter": ["all", ["!in", "class", "ocean"]],
       "layout": {
         "symbol-placement": "point",
         "symbol-spacing": 350,
-        "text-field": "{name:fr}",
+        "text-field": "{name:latin}{name:nonlatin}",
         "text-font": ["Noto Sans Regular"],
         "text-letter-spacing": 0.1,
         "text-max-width": 5,
@@ -2121,7 +2121,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "rgba(0, 95, 155, 1)",
+        "text-color": "#333333",
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-halo-width": 2,
         "text-halo-blur": 1
@@ -2153,28 +2153,6 @@
       }
     },
     {
-      "id": "water-nom lac",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "water_name",
-      "filter": ["==", "$type", "LineString"],
-      "layout": {
-        "symbol-placement": "line",
-        "symbol-spacing": 350,
-        "text-field": "{name:latin}",
-        "text-font": ["Noto Sans Regular"],
-        "text-letter-spacing": 0.1,
-        "text-max-width": 5,
-        "text-rotation-alignment": "map",
-        "text-size": 14
-      },
-      "paint": {
-        "text-color": "rgba(36, 105, 152, 1)",
-        "text-halo-color": "rgba(255,255,255,0.7)",
-        "text-halo-width": 1.5
-      }
-    },
-    {
       "id": "housenumber-numéros",
       "type": "symbol",
       "source": "openmaptiles",
@@ -2198,7 +2176,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(181, 181, 181, 1)",
-        "fill-outline-color": "rgba(152, 150, 140, 1)",
+        "fill-outline-color": "rgba(0, 0, 0, 1)",
         "fill-opacity": 0.3,
         "fill-antialias": true
       }
