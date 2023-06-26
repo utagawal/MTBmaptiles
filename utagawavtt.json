@@ -2197,7 +2197,7 @@
         "text-size": 12,
         "visibility": "visible",
         "icon-image": "ford",
-        "icon-rotate": 90,
+        "icon-rotate": 0,
         "icon-anchor": "center",
         "text-offset": [0, 1.5],
         "icon-size": 0.8
