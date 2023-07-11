@@ -1741,6 +1741,12 @@
         ["in", "class", "path", "track"],
         [
           "any",
+          [
+            "all",
+            ["==", "foot", "yes"],
+            ["!=", "bicycle", "yes"],
+            ["!has", "mtb_scale"]
+          ],
           ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
           ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
           [
@@ -1913,6 +1919,13 @@
         [
           "any",
           ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
+          [
+            "all",
+            ["==", "foot", "yes"],
+            ["!=", "bicycle", "yes"],
+            ["!has", "mtb_scale"]
+          ],
+          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
           ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
           [
             "all",
@@ -1933,9 +1946,9 @@
         "icon-offset": [7, 7],
         "icon-pitch-alignment": "auto",
         "symbol-avoid-edges": true,
-        "icon-image": "cross",
         "symbol-spacing": 50,
-        "text-font": ["Open Sans Regular"]
+        "text-font": ["Open Sans Regular"],
+        "icon-image": "cross"
       },
       "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
     },
