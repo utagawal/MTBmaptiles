@@ -2189,8 +2189,8 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(181, 181, 181, 1)",
-        "fill-outline-color": "rgba(0, 0, 0, 1)",
-        "fill-opacity": 0.3,
+        "fill-outline-color": "rgba(181, 181, 181, 1)",
+        "fill-opacity": 1,
         "fill-antialias": true
       }
     },
