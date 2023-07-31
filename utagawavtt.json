@@ -2124,7 +2124,7 @@
       "source-layer": "water_name",
       "filter": ["all", ["!in", "class", "ocean"]],
       "layout": {
-        "symbol-placement": "line-center",
+        "symbol-placement": "point",
         "symbol-spacing": 350,
         "text-field": "{name:latin}{name:nonlatin}",
         "text-font": ["Noto Sans Regular"],
