@@ -1554,7 +1554,7 @@
       "paint": {
         "line-color": "rgba(0,0, 255, 1)",
         "line-dasharray": [3, 3],
-        "line-width": 1.5
+        "line-width": 1.8
       }
     },
     {
@@ -1567,7 +1567,7 @@
         "all",
         ["in", "class", "path"],
         ["!=", "subclass", "steps"],
-        ["in", "subclass", "footway", " pedestrian"]
+        ["in", "subclass", "footway", "pedestrian"]
       ],
       "layout": {
         "line-cap": "round",
@@ -1740,21 +1740,16 @@
       "filter": [
         "all",
         ["in", "class", "path", "track"],
+        ["!=", "subclass", "footway"],
         [
           "any",
-          [
-            "all",
-            ["==", "foot", "yes"],
-            ["!=", "bicycle", "yes"],
-            ["!has", "mtb_scale"],
-            ["!=", "subclass", "cycleway"]
-          ],
-          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
+          ["all", ["in", "mtb_scale", "5", "6"]],
           ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
           [
             "all",
-            ["==", "access", "no"],
             ["!=", "bicycle", "yes"],
+            ["!=", "bicycle", "designated"],
+            ["==", "access", "no"],
             ["!has", "mtb_scale"]
           ]
         ]
@@ -1918,22 +1913,16 @@
       "filter": [
         "all",
         ["in", "class", "path", "track"],
+        ["!=", "subclass", "footway"],
         [
           "any",
-          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
-          [
-            "all",
-            ["!=", "subclass", "cycleway"],
-            ["==", "foot", "yes"],
-            ["!=", "bicycle", "yes"],
-            ["!has", "mtb_scale"]
-          ],
-          ["all", ["==", "bicycle", "no"], ["in", "mtb_scale", "5", "6"]],
+          ["all", ["in", "mtb_scale", "5", "6"]],
           ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
           [
             "all",
-            ["==", "access", "no"],
             ["!=", "bicycle", "yes"],
+            ["!=", "bicycle", "designated"],
+            ["==", "access", "no"],
             ["!has", "mtb_scale"]
           ]
         ]
@@ -2149,7 +2138,12 @@
       "source": "openmaptiles",
       "source-layer": "waterway",
       "minzoom": 13,
-      "filter": ["all", ["==", "$type", "LineString"], ["has", "name"]],
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["has", "name"],
+        ["!=", "brunnel", "tunnel"]
+      ],
       "layout": {
         "symbol-placement": "line",
         "symbol-spacing": 350,
