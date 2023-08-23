@@ -152,18 +152,6 @@
       }
     },
     {
-      "id": "landcover-prairie",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landcover",
-      "minzoom": 6,
-      "filter": ["all", ["==", "class", "grass"], ["!=", "subclass", "heath"]],
-      "paint": {
-        "fill-color": "rgba(167, 233, 99, 1)",
-        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
-      }
-    },
-    {
       "id": "landcover-vignoble",
       "type": "fill",
       "metadata": {"mapbox:group": "1444849382550.77"},
@@ -178,6 +166,18 @@
       "paint": {
         "fill-antialias": true,
         "fill-color": "rgba(234, 29, 134, .2)",
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+      }
+    },
+    {
+      "id": "landcover-prairie",
+      "type": "fill",
+      "source": "openmaptiles",
+      "source-layer": "landcover",
+      "minzoom": 6,
+      "filter": ["all", ["==", "class", "grass"], ["!=", "subclass", "heath"]],
+      "paint": {
+        "fill-color": "rgba(167, 233, 99, 1)",
         "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
       }
     },
@@ -1740,7 +1740,11 @@
       "filter": [
         "all",
         ["in", "class", "path", "track"],
-        ["!=", "subclass", "footway"],
+        [
+          "any",
+          ["!in", "subclass", "footway", "steps"],
+          ["in", "brunnel", "tunnel", "bridge"]
+        ],
         [
           "any",
           ["all", ["in", "mtb_scale", "5", "6"]],
@@ -1913,7 +1917,11 @@
       "filter": [
         "all",
         ["in", "class", "path", "track"],
-        ["!=", "subclass", "footway"],
+        [
+          "any",
+          ["!in", "subclass", "footway", "steps"],
+          ["in", "brunnel", "tunnel", "bridge"]
+        ],
         [
           "any",
           ["all", ["in", "mtb_scale", "5", "6"]],
