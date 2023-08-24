@@ -1517,7 +1517,7 @@
         "all",
         ["==", "$type", "LineString"],
         ["in", "class", "track"],
-        ["!in", "subclass", "steps", " bridleway"]
+        ["!in", "subclass", "steps", "bridleway"]
       ],
       "layout": {
         "line-cap": "round",
@@ -1537,13 +1537,16 @@
       "source-layer": "transportation",
       "filter": [
         "all",
-        ["==", "$type", "LineString"],
-        ["in", "class", "path"],
+        ["in", "class", "path", "track"],
         [
-          "any",
-          ["==", "subclass", "cycleway"],
-          ["==", "bicycle", 1],
-          ["==", "bicycle", "designated"]
+          "all",
+          [
+            "any",
+            ["==", "subclass", "cycleway"],
+            ["==", "bicycle", 1],
+            ["==", "bicycle", "designated"]
+          ],
+          ["!=", "foot", "designated"]
         ]
       ],
       "layout": {
@@ -1567,7 +1570,7 @@
         "all",
         ["in", "class", "path"],
         ["!=", "subclass", "steps"],
-        ["in", "subclass", "footway", "pedestrian"]
+        ["in", "subclass", "footway", "pedestrian", "path"]
       ],
       "layout": {
         "line-cap": "round",
@@ -2509,14 +2512,9 @@
       "type": "symbol",
       "source": "openmaptiles",
       "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "class", "drinking_water"],
-        ["in", "name", "croix"]
-      ],
+      "minzoom": 15,
+      "filter": ["all", ["==", "class", "drinking_water"]],
       "layout": {
-        "icon-image": "drinking-water",
         "text-anchor": "top",
         "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
@@ -2525,7 +2523,8 @@
         "text-padding": 2,
         "text-size": 12,
         "visibility": "visible",
-        "icon-allow-overlap": false
+        "icon-allow-overlap": false,
+        "icon-image": "water"
       },
       "paint": {
         "text-color": "#666",
@@ -2627,18 +2626,24 @@
         ["<=", "rank", 3]
       ],
       "layout": {
-        "text-field": "",
+        "text-field": "{name:latin}",
         "text-font": ["Noto Sans Regular"],
-        "text-size": 12,
+        "text-max-width": 9,
+        "text-padding": 2,
+        "text-size": {"stops": [[14, 10], [20, 12]]},
+        "text-optional": true,
+        "icon-size": 0.6,
         "icon-image": "information",
-        "icon-size": 0.8
+        "icon-anchor": "bottom",
+        "icon-offset": [0, 0],
+        "text-offset": [0, 1.2]
       },
       "paint": {
-        "icon-color": "rgba(252, 252, 252, 1)",
-        "icon-halo-color": "rgba(168, 15, 15, 1)",
-        "text-opacity": 1,
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
         "text-halo-width": 2,
-        "text-halo-blur": 0.5
+        "text-translate": [0, 3]
       }
     },
     {
