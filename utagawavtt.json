@@ -2598,6 +2598,21 @@
       }
     },
     {
+      "id": "pois-toilets",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": ["all", ["==", "subclass", "toilets"]],
+      "layout": {
+        "text-field": "",
+        "text-font": ["Noto Sans Regular"],
+        "text-size": 12,
+        "icon-image": "toilet",
+        "icon-size": 0.8
+      }
+    },
+    {
       "id": "pois-picnic",
       "type": "symbol",
       "source": "openmaptiles",
