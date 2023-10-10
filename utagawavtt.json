@@ -53,6 +53,12 @@
       ],
       "minzoom": 5,
       "maxzoom": 15
+    },
+    "Olivier terrain": {
+      "type": "raster-dem",
+      "tiles": ["https://utagawavtt.omrs.fr/jaxa_terrainrgb0-12/{z}/{x}/{y}"],
+      "minzoom": 0,
+      "maxzoom": 14
     }
   },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
@@ -288,7 +294,7 @@
         "hillshade-accent-color": "#d45500",
         "hillshade-exaggeration": 0.5,
         "hillshade-shadow-color": "rgba(42, 36, 9, 1)",
-        "hillshade-illumination-direction": 320,
+        "hillshade-illumination-direction": 315,
         "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
       }
     },
@@ -297,7 +303,7 @@
       "type": "raster",
       "source": "hillshade-HD",
       "minzoom": 5,
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {"raster-opacity": 0.9}
     },
     {
@@ -319,8 +325,21 @@
       "type": "raster",
       "source": "hillshade-mapzen",
       "minzoom": 5,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {"raster-opacity": 1}
+    },
+    {
+      "id": "Terrain",
+      "type": "hillshade",
+      "source": "Olivier terrain",
+      "maxzoom": 24,
+      "layout": {"visibility": "none"},
+      "paint": {
+        "hillshade-illumination-direction": 315,
+        "hillshade-exaggeration": 0.5,
+        "hillshade-shadow-color": "#665942",
+        "hillshade-accent-color": "#6E3A1F"
+      }
     },
     {
       "id": "landuse-zone agricole",
@@ -1570,7 +1589,7 @@
         "all",
         ["in", "class", "path"],
         ["!=", "subclass", "steps"],
-        ["in", "subclass", "footway", "pedestrian", "path"]
+        ["in", "subclass", "footway", "pedestrian"]
       ],
       "layout": {
         "line-cap": "round",
