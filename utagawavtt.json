@@ -51,6 +51,10 @@
       "maxzoom": 12
     }
   },
+  "terrain": {
+	  "source": "terrain-rgb", 
+	  "exaggeration": 1.4
+  },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
   "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
@@ -3195,5 +3199,5 @@
     }
   ],
   "id": "UtagawaVTT-map",
-  "owner": "UtagawaVTT - contact@utagawaVTT.com"
+  "owner": "UtagawaVTT.com - contact@utagawaVTT.com"
 }
