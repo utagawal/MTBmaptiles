@@ -57,8 +57,8 @@
     "Olivier terrain": {
       "type": "raster-dem",
       "tiles": ["https://utagawavtt.omrs.fr/jaxa_terrainrgb0-12/{z}/{x}/{y}"],
-      "minzoom": 0,
-      "maxzoom": 14
+      "minzoom": 5,
+      "maxzoom": 12
     }
   },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
