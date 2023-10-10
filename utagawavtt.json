@@ -21,14 +21,6 @@
       "type": "vector",
       "url": "https://maps.utagawavtt.com/data/planet.json"
     },
-    "world-rgb-png": {
-      "type": "raster-dem",
-      "bounds": [-180, -85.051129, 180, 85.051129],
-      "minzoom": 5,
-      "maxzoom": 11,
-      "encoding": "terrarium",
-      "tiles": ["https://maps.utagawavtt.com/tiles/world/{z}/{x}/{y}.png"]
-    },
     "relief-france-hd": {
       "type": "raster-dem",
       "tiles": [
@@ -38,14 +30,6 @@
       "maxzoom": 15,
       "bounds": [-180, -85.051129, 180, 85.051129]
     },
-    "hillshade-mapzen": {
-      "type": "raster",
-      "tiles": [
-        "https://maps.utagawavtt.com/styles/hillshade-mapzen/{z}/{x}/{y}.png"
-      ],
-      "minzoom": 5,
-      "maxzoom": 14
-    },
     "hillshade-HD": {
       "type": "raster",
       "tiles": [
@@ -54,10 +38,16 @@
       "minzoom": 5,
       "maxzoom": 15
     },
-    "Olivier terrain": {
+    "terrain-rgb": {
       "type": "raster-dem",
-      "tiles": ["https://utagawavtt.omrs.fr/jaxa_terrainrgb0-12/{z}/{x}/{y}"],
-      "minzoom": 5,
+      "url": "https://maps.utagawavtt.com/data/terrain-rgb.json"
+    },
+    "terrain-rgb-raster": {
+      "type": "raster",
+      "tiles": [
+        "https://maps.utagawavtt.com/styles/terrain-rgb/{z}/{x}/{y}.png"
+      ],
+      "minzoom": 6,
       "maxzoom": 12
     }
   },
@@ -303,43 +293,30 @@
       "type": "raster",
       "source": "hillshade-HD",
       "minzoom": 5,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {"raster-opacity": 0.9}
-    },
-    {
-      "id": "hillshading-mapzen",
-      "type": "hillshade",
-      "source": "world-rgb-png",
-      "minzoom": 6,
-      "filter": ["all"],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "rgba(110, 58, 31, 1)",
-        "hillshade-exaggeration": 0.4,
-        "hillshade-shadow-color": "#665942",
-        "hillshade-illumination-direction": 315
-      }
-    },
-    {
-      "id": "hillshading-mapzen-raster",
-      "type": "raster",
-      "source": "hillshade-mapzen",
-      "minzoom": 5,
-      "layout": {"visibility": "none"},
-      "paint": {"raster-opacity": 1}
     },
     {
       "id": "Terrain",
       "type": "hillshade",
-      "source": "Olivier terrain",
+      "source": "terrain-rgb",
       "maxzoom": 24,
-      "layout": {"visibility": "none"},
+      "layout": {"visibility": "visible"},
       "paint": {
         "hillshade-illumination-direction": 315,
         "hillshade-exaggeration": 0.5,
-        "hillshade-shadow-color": "#665942",
-        "hillshade-accent-color": "#6E3A1F"
+        "hillshade-shadow-color": "#2A2409",
+        "hillshade-accent-color": "#d45500",
+        "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
       }
+    },
+    {
+      "id": "Terrain-raster",
+      "type": "raster",
+      "source": "terrain-rgb-raster",
+      "minzoom": 5,
+      "layout": {"visibility": "none"},
+      "paint": {"raster-opacity": 0.9}
     },
     {
       "id": "landuse-zone agricole",
