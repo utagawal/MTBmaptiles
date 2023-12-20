@@ -51,10 +51,6 @@
       "maxzoom": 12
     }
   },
-  "terrain": {
-	  "source": "terrain-rgb", 
-	  "exaggeration": 1.4
-  },
   "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
   "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
   "layers": [
@@ -2854,6 +2850,28 @@
       }
     },
     {
+      "id": "place-habitation-isolée",
+      "type": "symbol",
+      "metadata": {"mapbox:group": "1444849242106.713"},
+      "source": "openmaptiles",
+      "source-layer": "place",
+      "minzoom": 14,
+      "filter": ["all", ["==", ["get", "class"], "isolated_dwelling"]],
+      "layout": {
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Italic"],
+        "text-max-width": 8,
+        "text-size": {"stops": [[13, 6], [16, 14]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-color": "rgba(255,255,255,0.8)",
+        "text-halo-width": 2,
+        "text-halo-blur": 0.5
+      }
+    },
+    {
       "id": "place-hameau",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
@@ -3198,6 +3216,7 @@
       }
     }
   ],
+  "terrain": {"source": "terrain-rgb", "exaggeration": 1.4},
   "id": "UtagawaVTT-map",
   "owner": "UtagawaVTT.com - contact@utagawaVTT.com"
 }
