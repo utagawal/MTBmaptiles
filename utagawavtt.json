@@ -1527,7 +1527,7 @@
       }
     },
     {
-      "id": "transportation-piste cyclable-copy",
+      "id": "transportation-piste cyclable-partagee",
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
