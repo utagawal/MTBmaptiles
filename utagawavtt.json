@@ -1527,35 +1527,6 @@
       }
     },
     {
-      "id": "transportation-piste cyclable-partagee",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "filter": [
-        "all",
-        ["in", "class", "path", "track"],
-        [
-          "all",
-          [
-            "any",
-            ["==", "subclass", "cycleway"],
-            ["==", "bicycle", 1],
-            ["==", "bicycle", "designated"]
-          ]
-        ]
-      ],
-      "layout": {
-        "line-cap": "square",
-        "line-join": "bevel",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(0,0, 255, 1)",
-        "line-dasharray": [3, 3],
-        "line-width": 1.8
-      }
-    },
-    {
       "id": "transportation-piste cyclable",
       "type": "line",
       "source": "openmaptiles",
@@ -1570,8 +1541,7 @@
             ["==", "subclass", "cycleway"],
             ["==", "bicycle", 1],
             ["==", "bicycle", "designated"]
-          ],
-          ["!=", "foot", "designated"]
+          ]
         ]
       ],
       "layout": {
