@@ -1765,7 +1765,7 @@
       "paint": {
         "line-opacity": 0.5,
         "line-color": "#FF0000",
-        "line-width": {"stops": [[11, 1], [16, 8]]}
+        "line-width": {"stops": [[9, 1], [20, 6]]}
       }
     },
     {
