@@ -1528,6 +1528,34 @@
       }
     },
     {
+      "id": "transportation-piste cyclable-underlayer",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "filter": [
+        "all",
+        ["in", "class", "path", "track"],
+        [
+          "all",
+          [
+            "any",
+            ["==", "subclass", "cycleway"],
+            ["==", "bicycle", 1],
+            ["==", "bicycle", "designated"]
+          ]
+        ]
+      ],
+      "layout": {
+        "line-cap": "square",
+        "line-join": "bevel",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {"stops": [[6, 0.25], [20, 10]], "base": 1.5}
+      }
+    },
+    {
       "id": "transportation-piste cyclable",
       "type": "line",
       "source": "openmaptiles",
@@ -1591,6 +1619,35 @@
         "fill-color": "rgba(187, 151, 116, 1)",
         "fill-antialias": true,
         "fill-opacity": 0.5
+      }
+    },
+    {
+      "id": "transportation-sentier-underlayer",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["in", "class", "path"],
+        ["!=", "subclass", "steps"],
+        ["!=", "subclass", "footway"],
+        ["!=", "subclass", "corridor"],
+        ["!=", "subclass", "platform"],
+        ["!=", "subclass", "cycleway"],
+        ["!=", "bicycle", "designated"],
+        ["==", "$type", "LineString"],
+        ["==", "subclass", "path"]
+      ],
+      "layout": {
+        "line-cap": "butt",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-opacity": 1,
+        "line-width": {"stops": [[6, 0.25], [20, 10]], "base": 1.5}
       }
     },
     {
@@ -1763,9 +1820,9 @@
         "line-join": "bevel"
       },
       "paint": {
-        "line-opacity": 0.5,
+        "line-opacity": {"stops": [[12, 0.5], [16, 1]]},
         "line-color": "#FF0000",
-        "line-width": {"stops": [[9, 1], [20, 6]]}
+        "line-width": {"stops": [[6, 0.5], [20, 10]], "base": 1.5}
       }
     },
     {
@@ -1905,6 +1962,52 @@
         "icon-image": "arrow"
       },
       "paint": {"icon-opacity": 0.7}
+    },
+    {
+      "id": "mtb-sentier  non praticable à VTT-symbol",
+      "type": "symbol",
+      "metadata": {"IHM:overlay": false},
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 15,
+      "filter": [
+        "all",
+        ["in", "class", "path", "track"],
+        [
+          "any",
+          ["!in", "subclass", "footway", "steps"],
+          ["in", "brunnel", "tunnel", "bridge"]
+        ],
+        [
+          "any",
+          ["all", ["in", "mtb_scale", "5", "6"]],
+          ["all", ["in", "mtb:scale:uphill", "5"]],
+          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
+          [
+            "all",
+            ["!=", "bicycle", "yes"],
+            ["!=", "bicycle", "designated"],
+            ["==", "access", "no"],
+            ["!has", "mtb_scale"]
+          ]
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "icon-allow-overlap": true,
+        "icon-anchor": "bottom",
+        "icon-ignore-placement": false,
+        "icon-rotation-alignment": "auto",
+        "icon-size": {"stops": [[14, 0.5], [20, 0.8]]},
+        "icon-keep-upright": false,
+        "icon-offset": [7, 7],
+        "icon-pitch-alignment": "auto",
+        "symbol-avoid-edges": true,
+        "symbol-spacing": {"stops": [[6, 20], [20, 100]], "base": 1},
+        "text-font": ["Open Sans Regular"],
+        "icon-image": "hot-spring"
+      },
+      "paint": {"icon-opacity": {"stops": [[6, 0.5], [20, 0.9]]}}
     },
     {
       "id": "mtb-sentier interdit ou non praticable à VTT-symbol",
@@ -2498,6 +2601,36 @@
       },
       "paint": {
         "text-color": "rgba(0, 0, 0, 1)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "pois-recharge électrique",
+      "type": "symbol",
+      "source": "openmaptiles",
+      "source-layer": "poi",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "class", "fuel"],
+        ["==", "subclass", "charging_station"]
+      ],
+      "layout": {
+        "text-anchor": "top",
+        "text-field": "{name:latin}",
+        "text-font": ["Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-offset": [0, 0.6],
+        "text-padding": 2,
+        "text-size": 12,
+        "visibility": "visible",
+        "icon-allow-overlap": false,
+        "icon-image": "charging-station"
+      },
+      "paint": {
+        "text-color": "#666",
         "text-halo-blur": 0.5,
         "text-halo-color": "#ffffff",
         "text-halo-width": 1
