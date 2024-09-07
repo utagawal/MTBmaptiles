@@ -1248,6 +1248,7 @@
       "type": "line",
       "source": "openmaptiles",
       "source-layer": "transportation",
+      "minzoom": 7,
       "filter": ["all", ["in", "class", "ferry"]],
       "layout": {"line-join": "round", "visibility": "visible"},
       "paint": {
