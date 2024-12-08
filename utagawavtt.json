@@ -2,7 +2,7 @@
   "version": 8,
   "name": "UtagawaVTT - World",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
-  "center": [47.3, 2.4],
+  "center": [46.3, 1.5],
   "zoom": 3,
   "light": {"intensity": 0.2},
   "terrain": {"source": "terrain-rgb", "exaggeration": 1.4},
@@ -644,7 +644,8 @@
       "filter": [
         "any",
         ["==", "class", "réserve_biologique_intégrale"],
-        ["==", "class", "réserve_naturelle_nationale"]
+        ["==", "class", "réserve_naturelle_nationale"],
+        ["==", "class", "réserve_naturelle_régionale"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
