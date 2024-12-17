@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 8,
   "name": "UtagawaVTT - World",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
   "center": [45.2, 4.5],
