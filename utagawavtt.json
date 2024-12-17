@@ -1,8 +1,8 @@
 {
-  "version": 8,
+  "version": 9,
   "name": "UtagawaVTT - World",
   "metadata": {"openmaptiles:version": "3.x", "maputnik:renderer": "mbgljs"},
-  "center": [46.3, 1.5],
+  "center": [45.2, 4.5],
   "zoom": 3,
   "light": {"intensity": 0.2},
   "terrain": {"source": "terrain-rgb", "exaggeration": 1.4},
@@ -92,7 +92,7 @@
       "paint": {
         "fill-color": "rgba(141, 141, 141, 1)",
         "fill-antialias": false,
-        "fill-opacity": {"stops": [[6, 0.1], [12, 0.6]]}
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.4]]}
       }
     },
     {
@@ -175,7 +175,7 @@
       "filter": ["all", ["==", "class", "grass"], ["!=", "subclass", "heath"]],
       "paint": {
         "fill-color": "rgba(167, 233, 99, 1)",
-        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.4]]}
       }
     },
     {
@@ -188,7 +188,7 @@
       "layout": {},
       "paint": {
         "fill-color": "rgba(28, 198, 79, 1)",
-        "fill-opacity": {"stops": [[6, 0.1], [12, 0.8]]}
+        "fill-opacity": {"stops": [[6, 0.1], [12, 0.5]]}
       }
     },
     {
@@ -271,7 +271,7 @@
       "filter": ["==", "subclass", "glacier"],
       "paint": {
         "fill-color": "#D6FBFB",
-        "fill-opacity": {"base": 1, "stops": [[0, 0.9], [10, 0.3]]}
+        "fill-opacity": {"base": 1, "stops": [[0, 0.9], [10, 0.4]]}
       }
     },
     {
@@ -472,7 +472,7 @@
       "paint": {
         "line-color": "rgba(69, 150, 207, 1)",
         "line-opacity": 1,
-        "line-width": {"base": 1.4, "stops": [[6, 2], [20, 20]]}
+        "line-width": {"base": 1.4, "stops": [[14, 2], [20, 20]]}
       }
     },
     {
@@ -738,7 +738,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "#FF0000",
-        "fill-opacity": {"stops": [[8, 0.1], [10, 0.6], [16, 0.1]]}
+        "fill-opacity": {"stops": [[8, 0.1], [10, 0.5], [16, 0.1]]}
       }
     },
     {
@@ -968,7 +968,7 @@
         "line-opacity": 0.3,
         "line-pattern": "cliff3",
         "line-translate-anchor": "map",
-        "line-width": {"stops": [[6, 6], [20, 20]]}
+        "line-width": {"stops": [[14, 6], [20, 20]]}
       }
     },
     {
