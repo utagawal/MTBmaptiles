@@ -304,6 +304,7 @@
       "maxzoom": 24,
       "layout": {"visibility": "visible"},
       "paint": {
+        "hillshade-method": "igor",
         "hillshade-illumination-direction": 315,
         "hillshade-exaggeration": 0.5,
         "hillshade-shadow-color": "#2A2409",
