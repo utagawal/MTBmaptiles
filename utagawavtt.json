@@ -216,7 +216,7 @@
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "minzoom": 11,
+      "minzoom": 15,
       "filter": ["all", ["==", "subclass", "orchard"]],
       "layout": {},
       "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
