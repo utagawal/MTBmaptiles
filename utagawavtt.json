@@ -9,7 +9,7 @@
   "sources": {
     "contours": {
       "type": "vector",
-      "url": "https://maps.utagawavtt.com/data/europe-contours-copernicus.json"
+      "url": "mbtiles://{europe-contours-copernicus}"
     },
     "natural-earth-2": {
       "type": "raster",
@@ -20,7 +20,7 @@
     },
     "openmaptiles": {
       "type": "vector",
-      "url": "https://maps.utagawavtt.com/data/planet.json"
+      "url": "mbtiles://{planet}"
     },
     "relief-france-hd": {
       "type": "raster-dem",
@@ -41,7 +41,7 @@
     },
     "terrain-rgb": {
       "type": "raster-dem",
-      "url": "https://maps.utagawavtt.com/data/terrain-rgb.json"
+      "url": "mbtiles://{terrain-rgb}"
     },
     "terrain-rgb-raster": {
       "type": "raster",
@@ -52,8 +52,8 @@
       "maxzoom": 15
     }
   },
-  "sprite": "https://maps.utagawavtt.com/styles/utagawavtt/sprite",
-  "glyphs": "https://maps.utagawavtt.com/fonts/{fontstack}/{range}.pbf",
+  "sprite": "{style}",
+  "glyphs": "{fontstack}/{range}",
   "layers": [
     {
       "id": "background",
