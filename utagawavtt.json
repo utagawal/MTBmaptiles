@@ -59,9 +59,7 @@
       "id": "background",
       "type": "background",
       "layout": {"visibility": "visible"},
-        "paint": {
-    "background-color": "#FFF",
-    "background-opacity": 1
+      "paint": {"background-color": "#FFF", "background-opacity": 1}
     },
     {
       "id": "natural-earth",
