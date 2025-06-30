@@ -59,7 +59,9 @@
       "id": "background",
       "type": "background",
       "layout": {"visibility": "visible"},
-      "paint": {"background-color": "rgba(224, 224, 224, 1)"}
+        "paint": {
+    "background-color": "#FFF",
+    "background-opacity": 1
     },
     {
       "id": "natural-earth",
@@ -198,7 +200,7 @@
       "source-layer": "landcover",
       "minzoom": 15,
       "filter": ["all", ["==", "class", "wood"]],
-      "layout": {},
+      "layout": {"visibility": "none"},
       "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
     },
     {
