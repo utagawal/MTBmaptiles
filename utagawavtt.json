@@ -1555,7 +1555,7 @@
       },
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
-        "line-width": {"stops": [[6, 0.25], [20, 10]], "base": 1.5}
+        "line-width": {"stops": [[6, 0.25], [20, 14]], "base": 1.5}
       }
     },
     {
@@ -1584,7 +1584,7 @@
       "paint": {
         "line-color": "rgba(0,0, 255, 1)",
         "line-dasharray": [3, 3],
-        "line-width": {"stops": [[6, 0.25], [20, 10]], "base": 1.5}
+        "line-width": {"stops": [[6, 0.25], [20, 14]], "base": 1.5}
       }
     },
     {
@@ -1650,7 +1650,7 @@
       "paint": {
         "line-color": "rgba(255, 255, 255, 1)",
         "line-opacity": 1,
-        "line-width": {"stops": [[6, 0.25], [20, 10]], "base": 1.5}
+        "line-width": {"stops": [[6, 0.25], [20, 14]], "base": 1.5}
       }
     },
     {
@@ -1680,7 +1680,7 @@
         "line-color": "rgba(255, 0, 65, 1)",
         "line-opacity": 1,
         "line-dasharray": [3, 2],
-        "line-width": {"stops": [[6, 0.25], [20, 10]], "base": 1.5}
+        "line-width": {"stops": [[6, 0.25], [20, 14]], "base": 1.5}
       }
     },
     {
@@ -1825,7 +1825,7 @@
       "paint": {
         "line-opacity": {"stops": [[12, 0.5], [16, 1]]},
         "line-color": "#FF0000",
-        "line-width": {"stops": [[6, 0.5], [20, 10]], "base": 1.5}
+        "line-width": {"stops": [[6, 0.5], [20, 14]], "base": 1.5}
       }
     },
     {
