@@ -41,7 +41,7 @@
     },
     "terrain-rgb": {
       "type": "raster-dem",
-      "url": "mbtiles://{terrain-rgb}"
+      "url": "pmtiles://{terrain-rgb-hd}"
     },
     "terrain-rgb-raster": {
       "type": "raster",
