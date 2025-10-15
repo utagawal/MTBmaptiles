@@ -5,7 +5,18 @@
   "center": [45.2, 4.5],
   "zoom": 3,
   "light": {"intensity": 0.2},
-  "terrain": {"source": "terrain-rgb", "exaggeration": 1.4},
+  "terrain": {
+	"source": "terrain-rgb",
+	"exaggeration": 1.4
+	},
+  "sky": {
+    "sky-color": "#87CEEB",
+    "fog-color": "#C8DCFF",
+    "horizon-color": "#FFFFFF",
+    "sky-horizon-blend": 0.5,
+    "horizon-fog-blend": 0.5,
+    "fog-ground-blend": 0.5
+	},
   "sources": {
     "contours": {
       "type": "vector",
@@ -31,25 +42,10 @@
       "maxzoom": 15,
       "bounds": [-180, -85.051129, 180, 85.051129]
     },
-    "hillshade-HD": {
-      "type": "raster",
-      "tiles": [
-        "https://maps.utagawavtt.com/styles/hillshade-HD/{z}/{x}/{y}.png"
-      ],
-      "minzoom": 5,
-      "maxzoom": 15
-    },
     "terrain-rgb": {
       "type": "raster-dem",
+	  "maxzoom": 16,
       "url": "pmtiles://{terrain-rgb-hd}"
-    },
-    "terrain-rgb-raster": {
-      "type": "raster",
-      "tiles": [
-        "https://maps.utagawavtt.com/styles/terrain-rgb/{z}/{x}/{y}.png"
-      ],
-      "minzoom": 6,
-      "maxzoom": 15
     }
   },
   "sprite": "{style}",
@@ -275,29 +271,6 @@
       }
     },
     {
-      "id": "hillshading-HD",
-      "type": "hillshade",
-      "source": "relief-france-hd",
-      "minzoom": 7,
-      "filter": ["all"],
-      "layout": {"visibility": "none"},
-      "paint": {
-        "hillshade-accent-color": "#d45500",
-        "hillshade-exaggeration": 0.5,
-        "hillshade-shadow-color": "rgba(42, 36, 9, 1)",
-        "hillshade-illumination-direction": 315,
-        "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
-      }
-    },
-    {
-      "id": "hillshading-HD-raster",
-      "type": "raster",
-      "source": "hillshade-HD",
-      "minzoom": 5,
-      "layout": {"visibility": "none"},
-      "paint": {"raster-opacity": 0.9}
-    },
-    {
       "id": "Terrain",
       "type": "hillshade",
       "source": "terrain-rgb",
@@ -311,14 +284,6 @@
         "hillshade-accent-color": "#d45500",
         "hillshade-highlight-color": "rgba(255, 246, 234, 1)"
       }
-    },
-    {
-      "id": "Terrain-raster",
-      "type": "raster",
-      "source": "terrain-rgb-raster",
-      "minzoom": 5,
-      "layout": {"visibility": "none"},
-      "paint": {"raster-opacity": 0.9}
     },
     {
       "id": "landuse-zone agricole",
