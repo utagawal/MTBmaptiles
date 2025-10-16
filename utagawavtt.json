@@ -20,7 +20,8 @@
   "sources": {
     "contours": {
       "type": "vector",
-      "url": "mbtiles://{europe-contours-copernicus}"
+	  "maxzoom": 12,
+      "url": "pmtiles://{contours}"
     },
     "natural-earth-2": {
       "type": "raster",
@@ -102,7 +103,7 @@
       "paint": {
         "fill-color": "rgba(85, 84, 84, 0.92)",
         "fill-antialias": false,
-        "fill-opacity": 0.15
+        "fill-opacity": 0.1
       }
     },
     {
@@ -116,7 +117,7 @@
       "paint": {
         "fill-color": "rgba(85, 84, 84, 0.92)",
         "fill-antialias": false,
-        "fill-opacity": 0.15,
+        "fill-opacity": 0.1,
         "fill-pattern": "scree"
       }
     },
@@ -744,19 +745,34 @@
     {
       "id": "contours-minor",
       "type": "line",
+	  "metadata": {"maptoolkit:category": "Contour Lines"},
       "source": "contours",
       "source-layer": "contours",
       "minzoom": 12,
-      "filter": [
-        "all",
-        [">", "ele", 0],
-        ["in", "div", 1000, 500, 200, 100, 50, 20, 10]
-      ],
+	  "maxzoom": 24,
+	  "filter": [
+		"all",
+		[
+		  "==",
+		  ["%", ["number", ["get", "ele"]], 10],
+		  0
+		],
+		[
+		  "!=",
+		  ["%", ["number", ["get", "ele"]], 100],
+		  0
+		],
+		[
+		  "!=",
+		  ["%", ["number", ["get", "ele"]], 200],
+		  0
+		]
+	  ],
       "layout": {"visibility": "visible"},
       "paint": {
-        "line-opacity": 0.7,
+        "line-opacity": 0.3,
         "line-color": "#d45500",
-        "line-width": {"stops": [[12, 0.1], [13, 0.4]]}
+        "line-width": {"stops": [[13, 0.1], [15, 0.3]]}
       }
     },
     {
@@ -765,7 +781,7 @@
       "metadata": {"maptoolkit:category": "Contour Lines"},
       "source": "contours",
       "source-layer": "contours",
-      "minzoom": 12,
+      "minzoom": 10,
       "maxzoom": 24,
       "filter": [
         "all",
@@ -786,7 +802,7 @@
       "layout": {"line-join": "round", "visibility": "visible"},
       "paint": {
         "line-color": "#d45500",
-        "line-width": {"stops": [[12, 0], [15, 0.5]]},
+        "line-width": {"stops": [[10, 0.1], [15, 0.5]]},
         "line-opacity": 0.7
       }
     },
