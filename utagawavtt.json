@@ -20,8 +20,10 @@
   "sources": {
     "contours": {
       "type": "vector",
-	  "maxzoom": 12,
-      "url": "pmtiles://{contours}"
+      "maxzoom": 14,
+      "tiles": [
+        "https://maps.utagawavtt.com/contours/planet-contours/{z}/{x}/{y}.pbf"
+        ]
     },
     "natural-earth-2": {
       "type": "raster",
@@ -45,7 +47,7 @@
     },
     "terrain-rgb": {
       "type": "raster-dem",
-	  "maxzoom": 16,
+      "maxzoom": 18,
       "url": "pmtiles://{terrain-rgb-hd}"
     }
   },
