@@ -47,7 +47,7 @@
     },
     "terrain-rgb": {
       "type": "raster-dem",
-      "maxzoom": 18,
+      "maxzoom": 16,
       "url": "pmtiles://{terrain-rgb-hd}"
     }
   },
