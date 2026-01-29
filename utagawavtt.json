@@ -3503,7 +3503,7 @@
       ],
       "layout": {
         "text-anchor": "top",
-        "text-field": "{name:latin}",
+        "text-field": "",
         "text-font": [
           "Noto Sans Regular"
         ],
