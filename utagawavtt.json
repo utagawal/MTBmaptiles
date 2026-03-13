@@ -2078,6 +2078,40 @@
       }
     },
     {
+      "id": "transportation-chemin piétons-border",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["in", "class", "path"],
+        ["!=", "subclass", "steps"],
+        [
+          "in",
+          "subclass",
+          "footway",
+          "pedestrian"
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(142, 142, 142, 0.5)",
+        "line-width": {
+          "base": 1.5,
+          "stops": [
+            [6, 0.3],
+            [20, 16.25]
+          ]
+        },
+        "line-opacity": 1
+      }
+    },
+    {
       "id": "transportation-chemin piétons",
       "type": "line",
       "source": "openmaptiles",
