@@ -4077,7 +4077,7 @@
       },
       "source": "openmaptiles",
       "source-layer": "place",
-      "minzoom": 11,
+      "minzoom": 10,
       "filter": [
         "all",
         ["in", "class", "village"]
