@@ -4042,7 +4042,7 @@
 	},
 	"source": "openmaptiles",
 	"source-layer": "place",
-	"minzoom": 14,
+	"minzoom": 13,
 	"filter": [
 	"all",
 	[
