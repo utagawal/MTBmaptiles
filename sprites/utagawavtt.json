@@ -1545,5 +1545,18 @@
     "width": 21,
     "x": 315,
     "y": 705
+  },
+  "road-shield": {
+    "height": 16,
+    "pixelRatio": 1,
+    "width": 16,
+    "x": 1,
+    "y": 727,
+    "stretchX": [
+      [
+        3,
+        13
+      ]
+    ]
   }
 }
