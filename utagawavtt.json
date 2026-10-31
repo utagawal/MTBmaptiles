@@ -1889,7 +1889,6 @@
         "icon-keep-upright": false,
         "icon-offset": [7, 7],
         "icon-pitch-alignment": "auto",
-        "symbol-avoid-edges": true,
         "symbol-spacing": ["interpolate", ["exponential", 1], ["zoom"], 6, 20, 20, 100],
         "icon-image": "cross"
       },
@@ -2065,7 +2064,6 @@
         "text-size": ["interpolate", ["exponential", 1.4], ["zoom"], 10, 8, 20, 14],
         "text-transform": "uppercase",
         "visibility": "visible",
-        "symbol-avoid-edges": true,
         "text-keep-upright": true
       },
       "paint": {
@@ -2182,7 +2180,6 @@
         "text-size": ["interpolate", ["exponential", 1.4], ["zoom"], 10, 8, 20, 14],
         "text-rotation-alignment": "viewport",
         "visibility": "visible",
-        "symbol-avoid-edges": true,
         "text-keep-upright": true
       }
     },
@@ -3039,33 +3036,6 @@
       }
     },
     {
-      "id": "place-pays 4",
-      "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "filter": [
-        "all",
-        ["==", "class", "country"],
-        [">=", "rank", 3],
-        ["!has", "iso_a2"]
-      ],
-      "layout": {
-        "text-font": ["Noto Sans Regular"],
-        "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
-        "text-size": ["interpolate", ["linear"], ["zoom"], 3, 11, 7, 17],
-        "text-transform": "uppercase",
-        "text-max-width": 6.25,
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-halo-blur": 1,
-        "text-color": "#334",
-        "text-halo-width": 2,
-        "text-halo-color": "rgba(255,255,255,0.8)"
-      }
-    },
-    {
       "id": "place-pays 3",
       "type": "symbol",
       "metadata": {"mapbox:group": "1444849242106.713"},
@@ -3074,8 +3044,7 @@
       "filter": [
         "all",
         ["==", "class", "country"],
-        [">=", "rank", 3],
-        ["has", "iso_a2"]
+        [">=", "rank", 3]
       ],
       "layout": {
         "text-font": ["Noto Sans Regular"],
