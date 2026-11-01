@@ -268,16 +268,6 @@
       }
     },
     {
-      "id": "landuse-zone agricole",
-      "type": "fill",
-      "source": "openmaptiles",
-      "source-layer": "landuse",
-      "minzoom": 4,
-      "filter": ["==", ["get", "class"], "agriculture"],
-      "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "#eae0d0"}
-    },
-    {
       "id": "landuse-barrage",
       "type": "fill",
       "source": "openmaptiles",
