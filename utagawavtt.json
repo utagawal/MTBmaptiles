@@ -1933,14 +1933,8 @@
       "filter": [
         "all",
         ["==", ["geometry-type"], "Point"],
-        ["==", ["get", "subclass"], "viewpoint"],
-        [
-          "match",
-          ["get", "name"],
-          ["grotte", "Grotte", "caverne", "aven"],
-          true,
-          false
-        ]
+        ["!=", ["get", "class"], "shop"],
+        ["any", ["in", "grotte", ["downcase", ["coalesce", ["get", "name"], ""]]], ["in", "caverne", ["downcase", ["coalesce", ["get", "name"], ""]]], ["in", "gouffre", ["downcase", ["coalesce", ["get", "name"], ""]]], ["in", "scialet", ["downcase", ["coalesce", ["get", "name"], ""]]], ["in", "aven ", ["downcase", ["coalesce", ["get", "name"], ""]]]]
       ],
       "layout": {
         "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
@@ -2354,33 +2348,6 @@
         "text-halo-color": "#ffffff",
         "text-halo-width": 2,
         "text-translate": [0, 3]
-      }
-    },
-    {
-      "id": "place-forêt",
-      "type": "symbol",
-      "metadata": {"mapbox:group": "1444849242106.713"},
-      "source": "openmaptiles",
-      "source-layer": "place",
-      "minzoom": 7,
-      "filter": ["all", ["match", ["get", "class"], ["forest"], true, false]],
-      "layout": {
-        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
-        "text-field": [
-          "case",
-          ["has", "name:nonlatin"],
-          ["concat", ["get", "name:latin"], "", ["get", "name:nonlatin"]],
-          ["coalesce", ["get", "name:latin"], ["get", "name"]]
-        ],
-        "text-font": ["Noto Sans Regular"],
-        "text-size": ["interpolate", ["linear"], ["zoom"], 8, 9, 12, 16],
-        "text-max-width": 7,
-        "visibility": "visible"
-      },
-      "paint": {
-        "text-color": "rgba(85, 126, 88, 1)",
-        "text-halo-color": "rgba(255,255,255,0.8)",
-        "text-halo-width": 1.2
       }
     },
     {
