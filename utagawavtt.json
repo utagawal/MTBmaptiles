@@ -1274,7 +1274,7 @@
       "filter": [
         "all",
         ["match", ["get", "class"], ["path", "track"], true, false],
-        ["all", ["any", ["==", ["get", "subclass"], "cycleway"], ["==", ["get", "bicycle"], 1], ["==", ["get", "bicycle"], "designated"]]]
+        ["any", ["==", ["get", "subclass"], "cycleway"], ["match", ["get", "bicycle"], ["yes", "designated"], true, false]]
       ],
       "layout": {
         "line-cap": "square",
@@ -1295,7 +1295,7 @@
       "filter": [
         "all",
         ["match", ["get", "class"], ["path", "track"], true, false],
-        ["all", ["any", ["==", ["get", "subclass"], "cycleway"], ["==", ["get", "bicycle"], 1], ["==", ["get", "bicycle"], "designated"]]]
+        ["any", ["==", ["get", "subclass"], "cycleway"], ["match", ["get", "bicycle"], ["yes", "designated"], true, false]]
       ],
       "layout": {
         "line-cap": "square",
@@ -1382,7 +1382,7 @@
         ["!=", ["get", "subclass"], "corridor"],
         ["!=", ["get", "subclass"], "platform"],
         ["!=", ["get", "subclass"], "cycleway"],
-        ["!=", ["get", "bicycle"], "designated"],
+        ["match", ["get", "bicycle"], ["yes", "designated"], false, true],
         ["==", ["geometry-type"], "LineString"],
         ["==", ["get", "subclass"], "path"]
       ],
@@ -1411,7 +1411,7 @@
         ["!=", ["get", "subclass"], "corridor"],
         ["!=", ["get", "subclass"], "platform"],
         ["!=", ["get", "subclass"], "cycleway"],
-        ["!=", ["get", "bicycle"], "designated"],
+        ["match", ["get", "bicycle"], ["yes", "designated"], false, true],
         ["==", ["geometry-type"], "LineString"],
         ["==", ["get", "subclass"], "path"]
       ],
