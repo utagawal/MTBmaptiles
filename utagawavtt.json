@@ -65,7 +65,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 3,
-      "filter": ["all", ["==", "class", "sand"]],
+      "filter": ["all", ["==", ["get", "class"], "sand"]],
       "paint": {
         "fill-color": "rgba(224, 205, 169, 1)",
         "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.1, 12, 0.6]
@@ -77,7 +77,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["all", ["in", "subclass", "bare_rock", "cliff"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["bare_rock", "cliff"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(141, 141, 141, 1)",
@@ -91,7 +91,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 8,
-      "filter": ["all", ["in", "subclass", "scree"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["scree"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(85, 84, 84, 0.92)",
@@ -105,7 +105,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 15,
-      "filter": ["all", ["in", "subclass", "scree"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["scree"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-antialias": false,
@@ -119,7 +119,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 4,
-      "filter": ["all", ["==", "class", "farmland"]],
+      "filter": ["all", ["==", ["get", "class"], "farmland"]],
       "paint": {
         "fill-color": "rgba(242, 236, 190, 1)",
         "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.1, 12, 0.6]
@@ -131,7 +131,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["all", ["==", "class", "grass"], ["==", "subclass", "heath"]],
+      "filter": ["all", ["==", ["get", "class"], "grass"], ["==", ["get", "subclass"], "heath"]],
       "paint": {
         "fill-color": "rgba(214, 217, 159, 1)",
         "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.1, 12, 0.6]
@@ -146,8 +146,8 @@
       "minzoom": 11,
       "filter": [
         "all",
-        ["==", "class", "farmland"],
-        ["==", "subclass", "vineyard"]
+        ["==", ["get", "class"], "farmland"],
+        ["==", ["get", "subclass"], "vineyard"]
       ],
       "paint": {
         "fill-antialias": true,
@@ -161,7 +161,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["all", ["==", "class", "grass"], ["!=", "subclass", "heath"]],
+      "filter": ["all", ["==", ["get", "class"], "grass"], ["!=", ["get", "subclass"], "heath"]],
       "paint": {
         "fill-color": "rgba(167, 233, 99, 1)",
         "fill-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.1, 12, 0.4]
@@ -173,7 +173,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 4,
-      "filter": ["all", ["==", "class", "wood"]],
+      "filter": ["all", ["==", ["get", "class"], "wood"]],
       "layout": {},
       "paint": {
         "fill-color": "rgba(28, 198, 79, 1)",
@@ -186,7 +186,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 11,
-      "filter": ["all", ["==", "subclass", "orchard"]],
+      "filter": ["all", ["==", ["get", "subclass"], "orchard"]],
       "layout": {},
       "paint": {"fill-opacity": 0.7, "fill-color": "rgba(193, 222, 178, 1)"}
     },
@@ -196,7 +196,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 15,
-      "filter": ["all", ["==", "subclass", "orchard"]],
+      "filter": ["all", ["==", ["get", "subclass"], "orchard"]],
       "layout": {},
       "paint": {"fill-opacity": 0.7, "fill-pattern": "woods-mixed"}
     },
@@ -207,7 +207,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["all", ["==", "class", "wetland"]],
+      "filter": ["all", ["==", ["get", "class"], "wetland"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(163, 246, 244, 1)",
@@ -223,7 +223,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 15,
-      "filter": ["all", ["==", "class", "wetland"]],
+      "filter": ["all", ["==", ["get", "class"], "wetland"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-opacity": 0.3,
@@ -237,7 +237,7 @@
       "type": "fill",
       "source": "openmaptiles",
       "source-layer": "landcover",
-      "filter": ["==", "subclass", "ice_shelf"],
+      "filter": ["==", ["get", "subclass"], "ice_shelf"],
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.8}
     },
     {
@@ -246,7 +246,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["==", "subclass", "glacier"],
+      "filter": ["==", ["get", "subclass"], "glacier"],
       "paint": {
         "fill-color": "#D6FBFB",
         "fill-opacity": ["interpolate", ["exponential", 1], ["zoom"], 0, 0.9, 10, 0.4]
@@ -273,7 +273,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "minzoom": 4,
-      "filter": ["==", "class", "agriculture"],
+      "filter": ["==", ["get", "class"], "agriculture"],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "#eae0d0"}
     },
@@ -316,7 +316,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "minzoom": 6,
-      "filter": ["==", "class", "cemetery"],
+      "filter": ["==", ["get", "class"], "cemetery"],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(191, 191, 191, 1)"}
     },
@@ -345,7 +345,7 @@
       "source": "openmaptiles",
       "source-layer": "aeroway",
       "minzoom": 10,
-      "filter": ["all", ["in", "class", "aerodrome"]],
+      "filter": ["all", ["match", ["get", "class"], ["aerodrome"], true, false]],
       "paint": {"fill-color": "rgba(202, 236, 195, 1)", "fill-opacity": 0.8}
     },
     {
@@ -356,8 +356,8 @@
       "minzoom": 12,
       "filter": [
         "all",
-        ["in", "class", "stream", "canal"],
-        ["==", "brunnel", "tunnel"]
+        ["match", ["get", "class"], ["stream", "canal"], true, false],
+        ["==", ["get", "brunnel"], "tunnel"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -394,9 +394,9 @@
       "minzoom": 3,
       "filter": [
         "all",
-        ["in", "class", "canal", "stream"],
-        ["!=", "brunnel", "tunnel"],
-        ["==", "intermittent", 1]
+        ["match", ["get", "class"], ["canal", "stream"], true, false],
+        ["!=", ["get", "brunnel"], "tunnel"],
+        ["==", ["get", "intermittent"], 1]
       ],
       "layout": {"line-cap": "round", "visibility": "visible"},
       "paint": {
@@ -413,8 +413,8 @@
       "minzoom": 3,
       "filter": [
         "all",
-        ["in", "class", "river", "canal"],
-        ["!=", "brunnel", "tunnel"]
+        ["match", ["get", "class"], ["river", "canal"], true, false],
+        ["!=", ["get", "brunnel"], "tunnel"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -430,8 +430,8 @@
       "minzoom": 3,
       "filter": [
         "all",
-        ["!in", "brunnel", "tunnel", "bridge"],
-        ["!=", "intermittent", 1]
+        ["match", ["get", "brunnel"], ["tunnel", "bridge"], false, true],
+        ["!=", ["get", "intermittent"], 1]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -589,30 +589,7 @@
       "minzoom": 8,
       "filter": [
         "any",
-        [
-          "all",
-          [
-            "in",
-            "name:latin",
-            "Zone Quietude Faune Sauvage La Maréchaude - Chalet - Cabaret",
-            "Zone Quietude Faune Sauvage Les Platières",
-            "Zone d'Hivernage du Tetra Lyre",
-            "Zone Quietude Faune Sauvage Les Brûlats",
-            "Zone Quietude Faune Sauvage La Calame - La Ramas",
-            "Zone Quietude Faune Sauvage Col du Sac - Gralet - Poutouille",
-            "Zone Quietude Faune Sauvage Varambon",
-            "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"
-          ],
-          [
-            "in",
-            "class",
-            "protected_area",
-            "cœur",
-            "réserve_naturelle_nationale",
-            "parc_naturel_régional",
-            "réserve_naturelle_régionale"
-          ]
-        ]
+        ["all", ["match", ["get", "name:latin"], ["Zone Quietude Faune Sauvage La Maréchaude - Chalet - Cabaret", "Zone Quietude Faune Sauvage Les Platières", "Zone d'Hivernage du Tetra Lyre", "Zone Quietude Faune Sauvage Les Brûlats", "Zone Quietude Faune Sauvage La Calame - La Ramas", "Zone Quietude Faune Sauvage Col du Sac - Gralet - Poutouille", "Zone Quietude Faune Sauvage Varambon", "Zone Quietude Faune Sauvage La Vattay - Turet - Vieille Maison"], true, false], ["match", ["get", "class"], ["protected_area", "cœur", "réserve_naturelle_nationale", "parc_naturel_régional", "réserve_naturelle_régionale"], true, false]]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -628,9 +605,9 @@
       "minzoom": 8,
       "filter": [
         "any",
-        ["==", "class", "réserve_biologique_intégrale"],
-        ["==", "class", "réserve_naturelle_nationale"],
-        ["==", "class", "réserve_naturelle_régionale"]
+        ["==", ["get", "class"], "réserve_biologique_intégrale"],
+        ["==", ["get", "class"], "réserve_naturelle_nationale"],
+        ["==", ["get", "class"], "réserve_naturelle_régionale"]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -646,79 +623,7 @@
       "minzoom": 8,
       "filter": [
         "any",
-        [
-          "all",
-          [
-            "in",
-            "name:latin",
-            "Parc national de la Vanoise (cœur)",
-            "Parc national des Écrins (cœur)",
-            "Parc national des Pyrénées (cœur)",
-            "Réserve naturelle du Bagnas",
-            "Réserve naturelle du Bout du lac d'Annecy",
-            "Réserve naturelle de Chastreix-Sancy",
-            "Réserve naturelle des Chaumes du Verniller",
-            "Réserve naturelle de Conat",
-            "Réserve naturelle du coteau de Mesnil Soleil",
-            "Réserve naturelle du Courant d'Huchet",
-            "Réserve naturelle de l'Étang du Cousseau",
-            "Réserve naturelle de l'étang de la Mazière",
-            "Réserve naturelle de l'étang du Grand-Lemps",
-            "Réserve naturelle de la forêt d'Orient",
-            "Réserve naturelle de la forêt de la Massane",
-            "Réserve naturelle de la Grande Sassière",
-            "Réserve Naturelle des îlets de Sainte-Anne",
-            "Réserve naturelle de Jujols",
-            "Réserve naturelle de Mantet",
-            "Réserve naturelle du marais de Vesles-et-Caumont",
-            "Réserve naturelle de la mare de Vauville",
-            "Réserve naturelle du Mas Larrieu",
-            "Réserve naturelle du Mont Grand Matoury",
-            "Réserve naturelle de Nohèdes",
-            "Réserve naturelle du Pinail",
-            "Réserve naturelle de Prats-de-Mollo-la-Preste",
-            "Réserve naturelle des prés salés d'Arès et de Lège-Cap-Ferret",
-            "Réserve naturelle de la presqu'île de la Caravelle",
-            "Réserve naturelle de Py",
-            "Réserve naturelle de la tourbière de Mathon",
-            "Réserve naturelle de la Vallée d’Eyne",
-            "Réserve naturelle de la vallée de Chaudefour",
-            "Réserve naturelle des anciennes carrières d'Orival",
-            "Réserve naturelle régionale d'Aulon",
-            "Réserve naturelle du bois des Agneux",
-            "Réserve naturelle du Bois des Roches",
-            "Réserve naturelle de Cambounet-sur-le-Sor",
-            "Réserve naturelle de la Côte de la Fontaine",
-            "Réserve naturelle des Grads de Naves",
-            "Réserve naturelle de la Grotte des Sadoux",
-            "Réserve naturelle de la Massonne",
-            "Réserve naturelle des landes et marais de Glomel",
-            "Réserve naturelle du Héron",
-            "Réserve naturelle des Marais de Taligny",
-            "réserve naturelle régionale du massif du Montious",
-            "Réserve naturelle de Saint-Maurin",
-            "Réserve naturelle du Val de Loire Bourbonnais",
-            "Réserve naturelle de la Vallée des Cailles",
-            "Réserve naturelle de la baie de l'Aiguillon",
-            "Réserve naturelle de la Casse de la Belle Henriette",
-            "Réserve naturelle de Lilleau-des-Niges",
-            "Réserve naturelle du marais d'Yves",
-            "Réserve naturelle de Moëze-Oléron",
-            "Réserve naturelle du Marais communal de Saint-Denis-du-Payré",
-            "Réserve naturelle de l'étang de Haute-Jarrie",
-            "Réserve naturelle géologique de Pontlevoy",
-            "Réserve naturelle du domaine de Beauguillot"
-          ],
-          [
-            "in",
-            "class",
-            "protected_area",
-            "cœur",
-            "réserve_naturelle_nationale",
-            "parc_naturel_régional",
-            "réserve_naturelle_régionale"
-          ]
-        ]
+        ["all", ["match", ["get", "name:latin"], ["Parc national de la Vanoise (cœur)", "Parc national des Écrins (cœur)", "Parc national des Pyrénées (cœur)", "Réserve naturelle du Bagnas", "Réserve naturelle du Bout du lac d'Annecy", "Réserve naturelle de Chastreix-Sancy", "Réserve naturelle des Chaumes du Verniller", "Réserve naturelle de Conat", "Réserve naturelle du coteau de Mesnil Soleil", "Réserve naturelle du Courant d'Huchet", "Réserve naturelle de l'Étang du Cousseau", "Réserve naturelle de l'étang de la Mazière", "Réserve naturelle de l'étang du Grand-Lemps", "Réserve naturelle de la forêt d'Orient", "Réserve naturelle de la forêt de la Massane", "Réserve naturelle de la Grande Sassière", "Réserve Naturelle des îlets de Sainte-Anne", "Réserve naturelle de Jujols", "Réserve naturelle de Mantet", "Réserve naturelle du marais de Vesles-et-Caumont", "Réserve naturelle de la mare de Vauville", "Réserve naturelle du Mas Larrieu", "Réserve naturelle du Mont Grand Matoury", "Réserve naturelle de Nohèdes", "Réserve naturelle du Pinail", "Réserve naturelle de Prats-de-Mollo-la-Preste", "Réserve naturelle des prés salés d'Arès et de Lège-Cap-Ferret", "Réserve naturelle de la presqu'île de la Caravelle", "Réserve naturelle de Py", "Réserve naturelle de la tourbière de Mathon", "Réserve naturelle de la Vallée d’Eyne", "Réserve naturelle de la vallée de Chaudefour", "Réserve naturelle des anciennes carrières d'Orival", "Réserve naturelle régionale d'Aulon", "Réserve naturelle du bois des Agneux", "Réserve naturelle du Bois des Roches", "Réserve naturelle de Cambounet-sur-le-Sor", "Réserve naturelle de la Côte de la Fontaine", "Réserve naturelle des Grads de Naves", "Réserve naturelle de la Grotte des Sadoux", "Réserve naturelle de la Massonne", "Réserve naturelle des landes et marais de Glomel", "Réserve naturelle du Héron", "Réserve naturelle des Marais de Taligny", "réserve naturelle régionale du massif du Montious", "Réserve naturelle de Saint-Maurin", "Réserve naturelle du Val de Loire Bourbonnais", "Réserve naturelle de la Vallée des Cailles", "Réserve naturelle de la baie de l'Aiguillon", "Réserve naturelle de la Casse de la Belle Henriette", "Réserve naturelle de Lilleau-des-Niges", "Réserve naturelle du marais d'Yves", "Réserve naturelle de Moëze-Oléron", "Réserve naturelle du Marais communal de Saint-Denis-du-Payré", "Réserve naturelle de l'étang de Haute-Jarrie", "Réserve naturelle géologique de Pontlevoy", "Réserve naturelle du domaine de Beauguillot"], true, false], ["match", ["get", "class"], ["protected_area", "cœur", "réserve_naturelle_nationale", "parc_naturel_régional", "réserve_naturelle_régionale"], true, false]]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -732,7 +637,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "minzoom": 7,
-      "filter": ["all", ["==", "class", "military"]],
+      "filter": ["all", ["==", ["get", "class"], "military"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-opacity": 1,
@@ -746,7 +651,7 @@
       "source": "openmaptiles",
       "source-layer": "landuse",
       "minzoom": 7,
-      "filter": ["all", ["==", "class", "military"]],
+      "filter": ["all", ["==", ["get", "class"], "military"]],
       "layout": {
         "line-join": "bevel",
         "line-cap": "butt",
@@ -819,10 +724,7 @@
       "source": "openmaptiles",
       "source-layer": "mountain_peak",
       "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "class", "cliff"]
-      ],
+      "filter": ["all", ["==", ["get", "class"], "cliff"]],
       "layout": {
         "line-cap": "butt",
         "line-join": "bevel",
@@ -1063,11 +965,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 4,
-      "filter": [
-        "all",
-        ["==", "class", "transit"],
-        ["!=", "brunnel", "tunnel"]
-      ],
+      "filter": ["all", ["==", ["get", "class"], "transit"], ["!=", ["get", "brunnel"], "tunnel"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "hsl(34, 12%, 66%)",
@@ -1080,7 +978,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 7,
-      "filter": ["all", ["in", "class", "ferry"]],
+      "filter": ["all", ["match", ["get", "class"], ["ferry"], true, false]],
       "layout": {"line-join": "round", "visibility": "visible"},
       "paint": {
         "line-color": "rgba(13, 104, 144, 1)",
@@ -1133,7 +1031,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 4,
-      "filter": ["all", ["==", "class", "rail"]],
+      "filter": ["all", ["==", ["get", "class"], "rail"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(209, 209, 209, 1)",
@@ -1147,7 +1045,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 4,
-      "filter": ["all", ["==", "class", "rail"]],
+      "filter": ["all", ["==", ["get", "class"], "rail"]],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(138, 138, 138, 1)", "line-opacity": 1}
     },
@@ -1157,7 +1055,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 13,
-      "filter": ["all", ["==", "class", "rail"]],
+      "filter": ["all", ["==", ["get", "class"], "rail"]],
       "layout": {
         "line-join": "round",
         "line-cap": "butt",
@@ -1178,8 +1076,8 @@
       "minzoom": 6,
       "filter": [
         "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "motorway", "primary", "secondary", "tertiary", "trunk"]
+        ["==", ["get", "brunnel"], "tunnel"],
+        ["match", ["get", "class"], ["motorway", "primary", "secondary", "tertiary", "trunk"], true, false]
       ],
       "layout": {
         "line-cap": "butt",
@@ -1201,8 +1099,8 @@
       "minzoom": 6,
       "filter": [
         "all",
-        ["==", "brunnel", "tunnel"],
-        ["in", "class", "minor_road", "path", "track"]
+        ["==", ["get", "brunnel"], "tunnel"],
+        ["match", ["get", "class"], ["minor_road", "path", "track"], true, false]
       ],
       "layout": {
         "line-cap": "butt",
@@ -1222,7 +1120,11 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 6,
-      "filter": ["all", ["==", "brunnel", "tunnel"], ["in", "class", "rail"]],
+      "filter": [
+        "all",
+        ["==", ["get", "brunnel"], "tunnel"],
+        ["match", ["get", "class"], ["rail"], true, false]
+      ],
       "layout": {
         "line-cap": "butt",
         "line-join": "miter",
@@ -1265,7 +1167,7 @@
       "source": "openmaptiles",
       "source-layer": "aeroway",
       "minzoom": 10,
-      "filter": ["all", ["in", "class", "apron"]],
+      "filter": ["all", ["match", ["get", "class"], ["apron"], true, false]],
       "paint": {"fill-color": "rgba(205, 205, 205, 1)"}
     },
     {
@@ -1371,16 +1273,8 @@
       "minzoom": 4,
       "filter": [
         "all",
-        ["in", "class", "path", "track"],
-        [
-          "all",
-          [
-            "any",
-            ["==", "subclass", "cycleway"],
-            ["==", "bicycle", 1],
-            ["==", "bicycle", "designated"]
-          ]
-        ]
+        ["match", ["get", "class"], ["path", "track"], true, false],
+        ["all", ["any", ["==", ["get", "subclass"], "cycleway"], ["==", ["get", "bicycle"], 1], ["==", ["get", "bicycle"], "designated"]]]
       ],
       "layout": {
         "line-cap": "square",
@@ -1400,16 +1294,8 @@
       "minzoom": 4,
       "filter": [
         "all",
-        ["in", "class", "path", "track"],
-        [
-          "all",
-          [
-            "any",
-            ["==", "subclass", "cycleway"],
-            ["==", "bicycle", 1],
-            ["==", "bicycle", "designated"]
-          ]
-        ]
+        ["match", ["get", "class"], ["path", "track"], true, false],
+        ["all", ["any", ["==", ["get", "subclass"], "cycleway"], ["==", ["get", "bicycle"], 1], ["==", ["get", "bicycle"], "designated"]]]
       ],
       "layout": {
         "line-cap": "square",
@@ -1430,9 +1316,9 @@
       "minzoom": 11,
       "filter": [
         "all",
-        ["in", "class", "path"],
-        ["!=", "subclass", "steps"],
-        ["in", "subclass", "footway", "pedestrian"]
+        ["match", ["get", "class"], ["path"], true, false],
+        ["!=", ["get", "subclass"], "steps"],
+        ["match", ["get", "subclass"], ["footway", "pedestrian"], true, false]
       ],
       "layout": {
         "line-cap": "round",
@@ -1453,9 +1339,9 @@
       "minzoom": 11,
       "filter": [
         "all",
-        ["in", "class", "path"],
-        ["!=", "subclass", "steps"],
-        ["in", "subclass", "footway", "pedestrian"]
+        ["match", ["get", "class"], ["path"], true, false],
+        ["!=", ["get", "subclass"], "steps"],
+        ["match", ["get", "subclass"], ["footway", "pedestrian"], true, false]
       ],
       "layout": {
         "line-cap": "round",
@@ -1475,7 +1361,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 7,
-      "filter": ["all", ["==", "subclass", "bridleway"]],
+      "filter": ["all", ["==", ["get", "subclass"], "bridleway"]],
       "paint": {
         "fill-color": "rgba(187, 151, 116, 1)",
         "fill-antialias": true,
@@ -1550,8 +1436,8 @@
       "minzoom": 11,
       "filter": [
         "all",
-        ["==", "subclass", "steps"],
-        ["!in", "brunnel", "bridge", "tunnel"]
+        ["==", ["get", "subclass"], "steps"],
+        ["match", ["get", "brunnel"], ["bridge", "tunnel"], false, true]
       ],
       "layout": {"visibility": "visible"},
       "paint": {
@@ -1566,7 +1452,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["chair_lift", "mixed_lift"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(104, 104, 104, 1)",
@@ -1580,7 +1466,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["chair_lift", "mixed_lift"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(104, 104, 104, 1)",
@@ -1593,7 +1479,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "cable_car"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["cable_car"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
@@ -1603,7 +1489,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "gondola"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["gondola"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
     },
@@ -1615,16 +1501,7 @@
       "minzoom": 11,
       "filter": [
         "all",
-        [
-          "in",
-          "subclass",
-          "drag_lift",
-          "t-bar",
-          "j-bar",
-          "platter",
-          "rope_tow",
-          "magic_carpet"
-        ]
+        ["match", ["get", "subclass"], ["drag_lift", "t-bar", "j-bar", "platter", "rope_tow", "magic_carpet"], true, false]
       ],
       "layout": {"visibility": "visible"},
       "paint": {"line-color": "rgba(104, 104, 104, 1)", "line-opacity": 1}
@@ -1635,7 +1512,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "goods", "zip_line"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["goods", "zip_line"], true, false]],
       "layout": {"visibility": "visible"},
       "paint": {
         "line-color": "rgba(104, 104, 104, 1)",
@@ -1650,24 +1527,9 @@
       "minzoom": 9,
       "filter": [
         "all",
-        ["in", "class", "path", "track"],
-        [
-          "any",
-          ["!in", "subclass", "footway", "steps"],
-          ["in", "brunnel", "tunnel", "bridge"]
-        ],
-        [
-          "any",
-          ["all", ["in", "mtb_scale", "5", "6"]],
-          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
-          [
-            "all",
-            ["!=", "bicycle", "yes"],
-            ["!=", "bicycle", "designated"],
-            ["==", "access", "no"],
-            ["!has", "mtb_scale"]
-          ]
-        ]
+        ["match", ["get", "class"], ["path", "track"], true, false],
+        ["any", ["match", ["get", "subclass"], ["footway", "steps"], false, true], ["match", ["get", "brunnel"], ["tunnel", "bridge"], true, false]],
+        ["any", ["all", ["match", ["get", "mtb_scale"], ["5", "6"], true, false]], ["all", ["==", ["get", "bicycle"], "no"], ["!", ["has", "mtb_scale"]]], ["all", ["!=", ["get", "bicycle"], "yes"], ["!=", ["get", "bicycle"], "designated"], ["==", ["get", "access"], "no"], ["!", ["has", "mtb_scale"]]]]
       ],
       "layout": {
         "visibility": "visible",
@@ -1686,7 +1548,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "chair_lift", "mixed_lift"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["chair_lift", "mixed_lift"], true, false]],
       "layout": {
         "visibility": "visible",
         "symbol-placement": "line-center",
@@ -1702,7 +1564,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation_name",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "cable_car"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["cable_car"], true, false]],
       "layout": {
         "visibility": "visible",
         "symbol-placement": "line-center",
@@ -1718,7 +1580,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 11,
-      "filter": ["all", ["in", "subclass", "gondola"]],
+      "filter": ["all", ["match", ["get", "subclass"], ["gondola"], true, false]],
       "layout": {
         "visibility": "visible",
         "symbol-placement": "line-center",
@@ -1736,16 +1598,7 @@
       "minzoom": 11,
       "filter": [
         "all",
-        [
-          "in",
-          "subclass",
-          "drag_lift",
-          "t-bar",
-          "j-bar",
-          "platter",
-          "rope_tow",
-          "magic_carpet"
-        ]
+        ["match", ["get", "subclass"], ["drag_lift", "t-bar", "j-bar", "platter", "rope_tow", "magic_carpet"], true, false]
       ],
       "layout": {
         "visibility": "visible",
@@ -1768,18 +1621,8 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["==", "oneway", 1],
-        [
-          "in",
-          "class",
-          "motorway",
-          "trunk",
-          "primary",
-          "secondary",
-          "tertiary",
-          "minor",
-          "service"
-        ]
+        ["==", ["get", "oneway"], 1],
+        ["match", ["get", "class"], ["motorway", "trunk", "primary", "secondary", "tertiary", "minor", "service"], true, false]
       ],
       "layout": {
         "symbol-placement": "line",
@@ -1801,24 +1644,9 @@
       "minzoom": 15,
       "filter": [
         "all",
-        ["in", "class", "path", "track"],
-        [
-          "any",
-          ["!in", "subclass", "footway", "steps"],
-          ["in", "brunnel", "tunnel", "bridge"]
-        ],
-        [
-          "any",
-          ["all", ["in", "mtb_scale", "5", "6"]],
-          ["all", ["==", "bicycle", "no"], ["!has", "mtb_scale"]],
-          [
-            "all",
-            ["!=", "bicycle", "yes"],
-            ["!=", "bicycle", "designated"],
-            ["==", "access", "no"],
-            ["!has", "mtb_scale"]
-          ]
-        ]
+        ["match", ["get", "class"], ["path", "track"], true, false],
+        ["any", ["match", ["get", "subclass"], ["footway", "steps"], false, true], ["match", ["get", "brunnel"], ["tunnel", "bridge"], true, false]],
+        ["any", ["all", ["match", ["get", "mtb_scale"], ["5", "6"], true, false]], ["all", ["==", ["get", "bicycle"], "no"], ["!", ["has", "mtb_scale"]]], ["all", ["!=", ["get", "bicycle"], "yes"], ["!=", ["get", "bicycle"], "designated"], ["==", ["get", "access"], "no"], ["!", ["has", "mtb_scale"]]]]
       ],
       "layout": {
         "symbol-placement": "line",
@@ -2089,7 +1917,7 @@
       "minzoom": 17,
       "filter": ["==", ["geometry-type"], "Point"],
       "layout": {
-        "text-field": "{housenumber}",
+        "text-field": ["get", "housenumber"],
         "text-font": ["Noto Sans Regular"],
         "text-size": 10,
         "visibility": "visible"
@@ -2130,7 +1958,7 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "minzoom": 14,
-      "filter": ["all", ["==", "brunnel", "ford"]],
+      "filter": ["all", ["==", ["get", "brunnel"], "ford"]],
       "layout": {
         "visibility": "visible",
         "icon-image": "ford",
@@ -2185,8 +2013,8 @@
       "minzoom": 15,
       "filter": [
         "all",
-        ["==", "class", "place_of_worship"],
-        ["==", "subclass", "christian"]
+        ["==", ["get", "class"], "place_of_worship"],
+        ["==", ["get", "subclass"], "christian"]
       ],
       "layout": {
         "text-anchor": "top",
@@ -2214,11 +2042,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 13,
-      "filter": [
-        "all",
-        ["==", "class", "railway"],
-        ["==", "subclass", "station"]
-      ],
+      "filter": ["all", ["==", ["get", "class"], "railway"], ["==", ["get", "subclass"], "station"]],
       "layout": {
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -2244,11 +2068,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 16,
-      "filter": [
-        "all",
-        ["==", "class", "parking"],
-        ["==", "subclass", "parking"]
-      ],
+      "filter": ["all", ["==", ["get", "class"], "parking"], ["==", ["get", "subclass"], "parking"]],
       "layout": {
         "icon-image": "parking",
         "icon-size": 0.8
@@ -2266,8 +2086,8 @@
       "minzoom": 16,
       "filter": [
         "all",
-        ["==", "class", "bicycle_parking"],
-        ["==", "subclass", "bicycle_parking"]
+        ["==", ["get", "class"], "bicycle_parking"],
+        ["==", ["get", "subclass"], "bicycle_parking"]
       ],
       "layout": {
         "icon-image": "bicycle",
@@ -2285,7 +2105,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 15,
-      "filter": ["any", ["==", "subclass", "bar"]],
+      "filter": ["any", ["==", ["get", "subclass"], "bar"]],
       "layout": {
         "icon-image": "bar",
         "text-anchor": "top",
@@ -2310,7 +2130,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 14,
-      "filter": ["any", ["==", "class", "bicycle"]],
+      "filter": ["any", ["==", ["get", "class"], "bicycle"]],
       "layout": {
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -2337,8 +2157,8 @@
       "minzoom": 12,
       "filter": [
         "any",
-        ["==", "subclass", "alpine_hut"],
-        ["==", "subclass", "lodging"]
+        ["==", ["get", "subclass"], "alpine_hut"],
+        ["==", ["get", "subclass"], "lodging"]
       ],
       "layout": {
         "text-anchor": "top",
@@ -2365,7 +2185,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 13,
-      "filter": ["all", ["==", "class", "campsite"]],
+      "filter": ["all", ["==", ["get", "class"], "campsite"]],
       "layout": {
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -2393,8 +2213,8 @@
       "minzoom": 11,
       "filter": [
         "all",
-        ["==", "class", "fuel"],
-        ["==", "subclass", "charging_station"]
+        ["==", ["get", "class"], "fuel"],
+        ["==", ["get", "subclass"], "charging_station"]
       ],
       "layout": {
         "text-anchor": "top",
@@ -2421,7 +2241,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 15,
-      "filter": ["all", ["==", "class", "drinking_water"]],
+      "filter": ["all", ["==", ["get", "class"], "drinking_water"]],
       "layout": {
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -2449,8 +2269,8 @@
       "minzoom": 14,
       "filter": [
         "all",
-        ["==", "class", "information"],
-        ["==", "subclass", "guidepost"]
+        ["==", ["get", "class"], "information"],
+        ["==", ["get", "subclass"], "guidepost"]
       ],
       "layout": {
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -2511,7 +2331,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 14,
-      "filter": ["all", ["==", "subclass", "toilets"]],
+      "filter": ["all", ["==", ["get", "subclass"], "toilets"]],
       "layout": {
         "icon-image": "toilet",
         "icon-size": 0.8
@@ -2523,7 +2343,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 14,
-      "filter": ["all", ["==", "subclass", "picnic_site"]],
+      "filter": ["all", ["==", ["get", "subclass"], "picnic_site"]],
       "layout": {
         "icon-image": "picnic-site",
         "icon-size": 0.8
@@ -2570,7 +2390,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 7,
-      "filter": ["all", ["in", "class", "forest"]],
+      "filter": ["all", ["match", ["get", "class"], ["forest"], true, false]],
       "layout": {
         "text-field": [
           "case",
@@ -2753,7 +2573,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 12,
-      "filter": ["all", ["in", "class", "suburb"]],
+      "filter": ["all", ["match", ["get", "class"], ["suburb"], true, false]],
       "layout": {
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Italic"],
@@ -2798,7 +2618,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 10,
-      "filter": ["all", ["in", "class", "neighbourhood"]],
+      "filter": ["all", ["match", ["get", "class"], ["neighbourhood"], true, false]],
       "layout": {
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Italic"],
@@ -2843,7 +2663,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 10,
-      "filter": ["all", ["in", "class", "village"]],
+      "filter": ["all", ["match", ["get", "class"], ["village"], true, false]],
       "layout": {
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2866,7 +2686,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "minzoom": 6,
-      "filter": ["==", "class", "town"],
+      "filter": ["==", ["get", "class"], "town"],
       "layout": {
         "text-font": ["Noto Sans Regular"],
         "text-size": ["interpolate", ["exponential", 1.2], ["zoom"], 10, 14, 15, 24],
@@ -2893,7 +2713,11 @@
       "source-layer": "place",
       "minzoom": 6,
       "maxzoom": 24,
-      "filter": ["all", ["in", "class", "city"], ["!=", "capital", 2]],
+      "filter": [
+        "all",
+        ["match", ["get", "class"], ["city"], true, false],
+        ["!=", ["get", "capital"], 2]
+      ],
       "layout": {
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2918,7 +2742,7 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "filter": ["all", ["==", "capital", 2], ["==", "class", "city"]],
+      "filter": ["all", ["==", ["get", "capital"], 2], ["==", ["get", "class"], "city"]],
       "layout": {
         "text-font": ["Noto Sans Regular"],
         "text-size": ["interpolate", ["exponential", 1.2], ["zoom"], 7, 14, 11, 24],
@@ -2976,7 +2800,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "maxzoom": 24,
-      "filter": ["all", ["==", "class", "island"], ["<=", "rank", 3]],
+      "filter": ["all", ["==", ["get", "class"], "island"], ["<=", ["get", "rank"], 3]],
       "layout": {
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2997,11 +2821,7 @@
       "metadata": {"mapbox:group": "1444849242106.713"},
       "source": "openmaptiles",
       "source-layer": "place",
-      "filter": [
-        "all",
-        ["==", "class", "country"],
-        [">=", "rank", 3]
-      ],
+      "filter": ["all", ["==", ["get", "class"], "country"], [">=", ["get", "rank"], 3]],
       "layout": {
         "text-font": ["Noto Sans Regular"],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
@@ -3025,8 +2845,8 @@
       "source-layer": "place",
       "filter": [
         "all",
-        ["==", "class", "country"],
-        ["==", "rank", 2],
+        ["==", ["get", "class"], "country"],
+        ["==", ["get", "rank"], 2],
         ["has", "iso_a2"]
       ],
       "layout": {
@@ -3052,8 +2872,8 @@
       "source-layer": "place",
       "filter": [
         "all",
-        ["==", "class", "country"],
-        ["==", "rank", 1],
+        ["==", ["get", "class"], "country"],
+        ["==", ["get", "rank"], 1],
         ["has", "iso_a2"]
       ],
       "layout": {
@@ -3078,7 +2898,7 @@
       "source": "openmaptiles",
       "source-layer": "place",
       "maxzoom": 1,
-      "filter": ["==", "class", "continent"],
+      "filter": ["==", ["get", "class"], "continent"],
       "layout": {
         "text-font": ["Noto Sans Regular"],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
@@ -3122,11 +2942,7 @@
       "source": "openmaptiles",
       "source-layer": "boundary",
       "minzoom": 11,
-      "filter": [
-        "all",
-        ["==", "admin_level", 4],
-        ["!=", "maritime", 1]
-      ],
+      "filter": ["all", ["==", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1]],
       "layout": {"line-join": "round", "visibility": "visible"},
       "paint": {
         "line-color": "#9e9cab",
