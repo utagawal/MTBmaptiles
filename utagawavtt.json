@@ -2047,28 +2047,6 @@
       }
     },
     {
-      "id": "pois-parking-vélo",
-      "type": "symbol",
-      "source": "openmaptiles",
-      "source-layer": "poi",
-      "minzoom": 16,
-      "filter": [
-        "all",
-        ["==", ["get", "class"], "bicycle_parking"],
-        ["==", ["get", "subclass"], "bicycle_parking"]
-      ],
-      "layout": {
-        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
-        "icon-image": "bicycle",
-        "icon-size": 1,
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "rgba(252, 252, 252, 1)",
-        "icon-halo-color": "rgba(168, 15, 15, 1)"
-      }
-    },
-    {
       "id": "pois-bar",
       "type": "symbol",
       "source": "openmaptiles",
