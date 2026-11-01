@@ -795,7 +795,7 @@
       "filter": [">", ["get", "level"], 0],
       "layout": {
         "symbol-placement": "line",
-        "text-field": ["concat", ["number-format", ["get", "ele"], {}], " m"],
+        "text-field": ["concat", ["number-format", ["get", "ele"], {}], "\u00a0m"],
         "text-font": ["Noto Sans Regular"],
         "text-size": 11,
         "text-padding": 50,
@@ -2667,9 +2667,14 @@
       "layout": {
         "text-anchor": "top",
         "text-field": [
-          "concat",
-          ["coalesce", ["get", "name:latin"], ["get", "name"]],
-          ["case", ["has", "ele"], ["concat", "\n(", ["get", "ele"], "m)"], ""]
+          "case",
+          ["==", ["coalesce", ["get", "name:latin"], ["get", "name"], ""], ""],
+          ["case", ["has", "ele"], ["concat", ["get", "ele"], "\u00a0m"], ""],
+          [
+            "concat",
+            ["coalesce", ["get", "name:latin"], ["get", "name"]],
+            ["case", ["has", "ele"], ["concat", "\n", ["get", "ele"], "\u00a0m"], ""]
+          ]
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
@@ -2708,9 +2713,14 @@
       "layout": {
         "text-anchor": "top",
         "text-field": [
-          "concat",
-          ["coalesce", ["get", "name:latin"], ["get", "name"]],
-          ["case", ["has", "ele"], ["concat", "\n(", ["get", "ele"], "m)"], ""]
+          "case",
+          ["==", ["coalesce", ["get", "name:latin"], ["get", "name"], ""], ""],
+          ["case", ["has", "ele"], ["concat", ["get", "ele"], "\u00a0m"], ""],
+          [
+            "concat",
+            ["coalesce", ["get", "name:latin"], ["get", "name"]],
+            ["case", ["has", "ele"], ["concat", "\n", ["get", "ele"], "\u00a0m"], ""]
+          ]
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
@@ -2745,9 +2755,14 @@
       "layout": {
         "text-anchor": "top",
         "text-field": [
-          "concat",
-          ["coalesce", ["get", "name:latin"], ["get", "name"]],
-          ["case", ["has", "ele"], ["concat", "\n(", ["get", "ele"], "m)"], ""]
+          "case",
+          ["==", ["coalesce", ["get", "name:latin"], ["get", "name"], ""], ""],
+          ["case", ["has", "ele"], ["concat", ["get", "ele"], "\u00a0m"], ""],
+          [
+            "concat",
+            ["coalesce", ["get", "name:latin"], ["get", "name"]],
+            ["case", ["has", "ele"], ["concat", "\n", ["get", "ele"], "\u00a0m"], ""]
+          ]
         ],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
