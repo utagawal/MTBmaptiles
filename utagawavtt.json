@@ -1692,6 +1692,7 @@
         ["<=", ["get", "rank"], 1]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": [
           "case",
           ["has", "name:nonlatin"],
@@ -1739,6 +1740,7 @@
         ["<=", ["get", "rank"], 2]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": [
           "case",
           ["has", "name:nonlatin"],
@@ -1784,6 +1786,7 @@
         [">", ["get", "rank"], 1]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": [
           "case",
           ["has", "name:nonlatin"],
@@ -1986,6 +1989,7 @@
         ]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2017,6 +2021,7 @@
         ["==", ["get", "subclass"], "christian"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2044,6 +2049,7 @@
       "minzoom": 13,
       "filter": ["all", ["==", ["get", "class"], "railway"], ["==", ["get", "subclass"], "station"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2070,6 +2076,7 @@
       "minzoom": 16,
       "filter": ["all", ["==", ["get", "class"], "parking"], ["==", ["get", "subclass"], "parking"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "icon-image": "parking",
         "icon-size": 0.8
       },
@@ -2090,6 +2097,7 @@
         ["==", ["get", "subclass"], "bicycle_parking"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "icon-image": "bicycle",
         "icon-size": 1,
         "visibility": "visible"
@@ -2107,6 +2115,7 @@
       "minzoom": 15,
       "filter": ["any", ["==", ["get", "subclass"], "bar"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "icon-image": "bar",
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
@@ -2132,6 +2141,7 @@
       "minzoom": 14,
       "filter": ["any", ["==", ["get", "class"], "bicycle"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2161,6 +2171,7 @@
         ["==", ["get", "subclass"], "lodging"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2187,6 +2198,7 @@
       "minzoom": 13,
       "filter": ["all", ["==", ["get", "class"], "campsite"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2217,6 +2229,7 @@
         ["==", ["get", "subclass"], "charging_station"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2243,6 +2256,7 @@
       "minzoom": 15,
       "filter": ["all", ["==", ["get", "class"], "drinking_water"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2273,6 +2287,7 @@
         ["==", ["get", "subclass"], "guidepost"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
@@ -2305,6 +2320,7 @@
         ["==", ["get", "subclass"], "viewpoint"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
@@ -2333,6 +2349,7 @@
       "minzoom": 14,
       "filter": ["all", ["==", ["get", "subclass"], "toilets"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "icon-image": "toilet",
         "icon-size": 0.8
       }
@@ -2345,6 +2362,7 @@
       "minzoom": 14,
       "filter": ["all", ["==", ["get", "subclass"], "picnic_site"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "icon-image": "picnic-site",
         "icon-size": 0.8
       }
@@ -2363,6 +2381,7 @@
         ["<=", ["get", "rank"], 3]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 9,
@@ -2392,6 +2411,7 @@
       "minzoom": 7,
       "filter": ["all", ["match", ["get", "class"], ["forest"], true, false]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": [
           "case",
           ["has", "name:nonlatin"],
@@ -2426,6 +2446,7 @@
         ]
       ],
       "layout": {
+        "symbol-sort-key": ["-", 0, ["to-number", ["coalesce", ["get", "ele"], 0]]],
         "text-anchor": "top",
         "text-field": [
           "case",
@@ -2472,6 +2493,7 @@
         ]
       ],
       "layout": {
+        "symbol-sort-key": ["-", 0, ["to-number", ["coalesce", ["get", "ele"], 0]]],
         "text-anchor": "top",
         "text-field": [
           "case",
@@ -2514,6 +2536,7 @@
         ["!=", ["get", "class"], "saddle"]
       ],
       "layout": {
+        "symbol-sort-key": ["-", 0, ["to-number", ["coalesce", ["get", "ele"], 0]]],
         "text-anchor": "top",
         "text-field": [
           "case",
@@ -2575,6 +2598,7 @@
       "minzoom": 12,
       "filter": ["all", ["match", ["get", "class"], ["suburb"], true, false]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Italic"],
         "text-max-width": 8,
@@ -2598,6 +2622,7 @@
       "minzoom": 14,
       "filter": ["all", ["==", ["get", "class"], "isolated_dwelling"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Italic"],
         "text-max-width": 8,
@@ -2620,6 +2645,7 @@
       "minzoom": 10,
       "filter": ["all", ["match", ["get", "class"], ["neighbourhood"], true, false]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Italic"],
         "text-max-width": 8,
@@ -2643,6 +2669,7 @@
       "minzoom": 13,
       "filter": ["all", ["==", ["get", "class"], "hamlet"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Italic"],
         "text-max-width": 8,
@@ -2665,6 +2692,7 @@
       "minzoom": 10,
       "filter": ["all", ["match", ["get", "class"], ["village"], true, false]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
@@ -2688,6 +2716,7 @@
       "minzoom": 6,
       "filter": ["==", ["get", "class"], "town"],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-font": ["Noto Sans Regular"],
         "text-size": ["interpolate", ["exponential", 1.2], ["zoom"], 10, 14, 15, 24],
         "text-field": [
@@ -2719,6 +2748,7 @@
         ["!=", ["get", "capital"], 2]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 10,
@@ -2744,6 +2774,7 @@
       "source-layer": "place",
       "filter": ["all", ["==", ["get", "capital"], 2], ["==", ["get", "class"], "city"]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-font": ["Noto Sans Regular"],
         "text-size": ["interpolate", ["exponential", 1.2], ["zoom"], 7, 14, 11, 24],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
@@ -2780,6 +2811,7 @@
         ]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 10,
@@ -2802,6 +2834,7 @@
       "maxzoom": 24,
       "filter": ["all", ["==", ["get", "class"], "island"], ["<=", ["get", "rank"], 3]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-field": ["coalesce", ["get", "name:latin"], ["get", "name"]],
         "text-font": ["Noto Sans Regular"],
         "text-max-width": 10,
@@ -2823,6 +2856,7 @@
       "source-layer": "place",
       "filter": ["all", ["==", ["get", "class"], "country"], [">=", ["get", "rank"], 3]],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-font": ["Noto Sans Regular"],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
         "text-size": ["interpolate", ["linear"], ["zoom"], 3, 11, 7, 17],
@@ -2850,6 +2884,7 @@
         ["has", "iso_a2"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-font": ["Noto Sans Regular"],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
         "text-size": ["interpolate", ["linear"], ["zoom"], 2, 11, 5, 17],
@@ -2877,6 +2912,7 @@
         ["has", "iso_a2"]
       ],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-font": ["Noto Sans Regular"],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
         "text-size": ["interpolate", ["linear"], ["zoom"], 1, 11, 4, 17],
@@ -2900,6 +2936,7 @@
       "maxzoom": 1,
       "filter": ["==", ["get", "class"], "continent"],
       "layout": {
+        "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-font": ["Noto Sans Regular"],
         "text-field": ["coalesce", ["get", "name:fr"], ["get", "name"]],
         "text-size": 14,
