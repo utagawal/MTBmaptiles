@@ -77,7 +77,7 @@
       "source": "openmaptiles",
       "source-layer": "landcover",
       "minzoom": 6,
-      "filter": ["all", ["match", ["get", "subclass"], ["bare_rock", "cliff"], true, false]],
+      "filter": ["all", ["==", ["get", "subclass"], "bare_rock"]],
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(141, 141, 141, 1)",
@@ -1090,7 +1090,7 @@
       "filter": [
         "all",
         ["==", ["get", "brunnel"], "tunnel"],
-        ["match", ["get", "class"], ["minor_road", "path", "track"], true, false]
+        ["match", ["get", "class"], ["minor", "path", "track"], true, false]
       ],
       "layout": {
         "line-cap": "butt",
