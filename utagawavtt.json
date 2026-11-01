@@ -927,6 +927,19 @@
       }
     },
     {
+      "id": "transportation-voie de tramway",
+      "type": "line",
+      "source": "openmaptiles",
+      "source-layer": "transportation",
+      "minzoom": 4,
+      "filter": ["all", ["==", ["get", "class"], "transit"], ["!=", ["get", "brunnel"], "tunnel"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "line-color": "hsl(34, 12%, 66%)",
+        "line-opacity": ["interpolate", ["exponential", 1], ["zoom"], 11, 0.1, 16, 0.9]
+      }
+    },
+    {
       "id": "transportation-voie maritime",
       "type": "line",
       "source": "openmaptiles",
@@ -2087,7 +2100,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 14,
-      "filter": ["all", ["==", ["get", "class"], "shop"], ["==", ["get", "subclass"], "bicycle"]],
+      "filter": ["any", ["==", ["get", "class"], "bicycle"]],
       "layout": {
         "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
