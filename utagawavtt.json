@@ -873,65 +873,6 @@
       }
     },
     {
-      "id": "transportation-pont 3",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        ["==", ["geometry-type"], "LineString"],
-        ["==", ["get", "brunnel"], "bridge"],
-        [
-          "match",
-          ["get", "class"],
-          ["primary", "secondary", "tertiary", "trunk"],
-          true,
-          false
-        ]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(247, 227, 44, 1)",
-        "line-gap-width": ["interpolate", ["exponential", 1.55], ["zoom"], 4, 0.25, 20, 30],
-        "line-width": ["interpolate", ["exponential", 1.6], ["zoom"], 12, 0.5, 20, 10],
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.1, 11, 0.6]
-      }
-    },
-    {
-      "id": "transportation-pont 2",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        ["==", ["geometry-type"], "LineString"],
-        ["==", ["get", "brunnel"], "bridge"],
-        [
-          "match",
-          ["get", "class"],
-          ["primary", "secondary", "tertiary", "trunk"],
-          true,
-          false
-        ]
-      ],
-      "layout": {
-        "line-cap": "round",
-        "line-join": "round",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(247, 227, 44, 1)",
-        "line-width": ["interpolate", ["exponential", 1.4], ["zoom"], 6, 0.5, 20, 30],
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0.1, 11, 0.6]
-      }
-    },
-    {
       "id": "transportation-pont",
       "type": "line",
       "source": "openmaptiles",
