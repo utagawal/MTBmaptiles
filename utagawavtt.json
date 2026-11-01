@@ -742,29 +742,6 @@
       "paint": {"fill-color": "hsl(47, 26%, 88%)", "fill-opacity": 0.8}
     },
     {
-      "id": "transportation-pont 4",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 6,
-      "filter": [
-        "all",
-        ["==", ["geometry-type"], "LineString"],
-        ["==", ["get", "brunnel"], "bridge"],
-        ["==", ["get", "class"], "minor_road"]
-      ],
-      "layout": {
-        "line-cap": "butt",
-        "line-join": "miter",
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "#dedede",
-        "line-gap-width": ["interpolate", ["exponential", 1.55], ["zoom"], 4, 0.25, 20, 30],
-        "line-width": ["interpolate", ["exponential", 1.6], ["zoom"], 12, 0.5, 20, 10]
-      }
-    },
-    {
       "id": "transportation-pont",
       "type": "line",
       "source": "openmaptiles",
@@ -947,19 +924,6 @@
       "paint": {
         "line-color": "hsl(47, 26%, 88%)",
         "line-width": ["interpolate", ["exponential", 1.2], ["zoom"], 15, 1, 17, 4]
-      }
-    },
-    {
-      "id": "transportation-voie de tramway",
-      "type": "line",
-      "source": "openmaptiles",
-      "source-layer": "transportation",
-      "minzoom": 4,
-      "filter": ["all", ["==", ["get", "class"], "transit"], ["!=", ["get", "brunnel"], "tunnel"]],
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "line-color": "hsl(34, 12%, 66%)",
-        "line-opacity": ["interpolate", ["exponential", 1], ["zoom"], 11, 0.1, 16, 0.9]
       }
     },
     {
@@ -2129,7 +2093,7 @@
       "source": "openmaptiles",
       "source-layer": "poi",
       "minzoom": 14,
-      "filter": ["any", ["==", ["get", "class"], "bicycle"]],
+      "filter": ["all", ["==", ["get", "class"], "shop"], ["==", ["get", "subclass"], "bicycle"]],
       "layout": {
         "symbol-sort-key": ["to-number", ["coalesce", ["get", "rank"], 999]],
         "text-anchor": "top",
